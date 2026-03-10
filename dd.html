@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Tập Sử 10 - Chủ Đề 6 Văn Minh Web By mhuy</title>
+    <style>
+        :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; --bg: #f8f9fa; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); padding: 10px; margin: 0; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .score-board { position: sticky; top: 10px; background: #fff; z-index: 100; padding: 15px; border: 2px solid var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; border-radius: 10px; display: flex; justify-content: space-around; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .question-card { background: #fff; border: 1px solid #dadce0; border-radius: 12px; padding: 18px; margin-bottom: 15px; transition: transform 0.2s; }
+        .q-text { font-weight: bold; margin-bottom: 12px; color: #202124; line-height: 1.5; font-size: 1.1rem; }
+        .tag { font-size: 0.75rem; background: #e8f0fe; color: #1967d2; padding: 4px 12px; border-radius: 15px; margin-bottom: 10px; display: inline-block; font-weight: bold; }
+        .options { display: flex; flex-direction: column; gap: 10px; }
+        .opt { padding: 14px; border: 2px solid #f1f3f4; border-radius: 10px; cursor: pointer; transition: 0.2s; background: #fff; font-size: 1rem; }
+        .opt:hover { background: #f8f9fa; border-color: #dadce0; }
+        .opt.correct { background: #d4edda !important; border-color: var(--success) !important; color: #155724; font-weight: bold; }
+        .opt.wrong { background: #f8d7da !important; border-color: var(--danger) !important; color: #721c24; }
+        .opt.disabled { pointer-events: none; }
+        .reset-btn { width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-bottom: 20px; font-size: 1.1rem; text-transform: uppercase; }
+        .reset-btn:hover { background: #1557b0; }
+    </style>
+</head>
+<body>
+
+<div class="score-board">
+    <div style="color: var(--success);">✅ Đúng: <span id="correct-count">0</span></div>
+    <div style="color: var(--danger);">❌ Sai: <span id="wrong-count">0</span></div>
+</div>
+
+<div class="container">
+    <h2 style="text-align:center; color:var(--primary); margin-top: 0;">TRẮC NGHIỆM TRỌNG TÂM SỬ 10 Web by mhuy</h2>
+    <p style="text-align: center; color: #666; font-size: 0.9rem;">(Bài 12, 13, 14, 15 - 60 Câu hỏi)</p>
+    <button class="reset-btn" onclick="initQuiz()">TRỘN ĐỀ & LÀM MỚI</button>
+    <div id="quiz-box"></div>
+</div>
+
+<script>
+// Dữ liệu đã được gộp và fix tên biến thống nhất thành 'data'
+const data = [
+    // BÀI 12
+    { t: "Bài 12: ĐKTN", q: "Văn minh Văn Lang - Âu Lạc hình thành chủ yếu ở lưu vực các con sông nào?", a: "Sông Hồng, sông Mã, sông Cả", opts: ["Sông Hồng, sông Mã, sông Cả", "Sông Cửu Long", "Sông Thu Bồn", "Sông Đồng Nai"] },
+    { t: "Bài 12: ĐKTN", q: "Loại đất bồi tụ ở các đồng bằng Bắc Bộ giúp phát triển nông nghiệp là?", a: "Đất phù sa", opts: ["Đất phù sa", "Đất feralit", "Đất cát ven biển", "Đất đỏ bazan"] },
+    { t: "Bài 12: Dân cư", q: "Chủ nhân của văn minh Văn Lang - Âu Lạc là tộc người nào?", a: "Lạc Việt và Âu Việt", opts: ["Lạc Việt và Âu Việt", "Người Chăm cổ", "Người Phù Nam cổ", "Người Hán"] },
+    { t: "Bài 12: Kinh tế", q: "Nghề kinh tế chính của cư dân Văn Lang - Âu Lạc là?", a: "Trồng lúa nước", opts: ["Trồng lúa nước", "Săn bắn hái lượm", "Thương nghiệp biển", "Chăn nuôi du mục"] },
+    { t: "Bài 12: Kinh tế", q: "Công cụ sản xuất của người Việt cổ chủ yếu làm bằng chất liệu gì?", a: "Đồng thau và sắt", opts: ["Đồng thau và sắt", "Đá mới", "Gỗ", "Tre"] },
+    { t: "Bài 12: Xã hội", q: "Đứng đầu nhà nước Văn Lang là ai?", a: "Hùng Vương", opts: ["Hùng Vương", "An Dương Vương", "Lạc tướng", "Bồ chính"] },
+    { t: "Bài 12: Xã hội", q: "Đơn vị hành chính cơ sở của xã hội Văn Lang - Âu Lạc là?", a: "Chiềng, chạ", opts: ["Chiềng, chạ", "Huyện", "Phủ", "Làng"] },
+    { t: "Bài 12: Thành tựu", q: "Thành tựu tiêu biểu nhất về luyện kim thời Đông Sơn là?", a: "Trống đồng", opts: ["Trống đồng", "Chuông đồng", "Súng thần cơ", "Tiền đồng"] },
+    { t: "Bài 12: Thành tựu", q: "Kỹ thuật phòng thủ quân sự nổi tiếng nhất thời Âu Lạc là?", a: "Thành Cổ Loa và nỏ Liên Châu", opts: ["Thành Cổ Loa và nỏ Liên Châu", "Súng thần cơ", "Hầm chông", "Vạn lý trường thành"] },
+    { t: "Bài 12: Đời sống", q: "Cư dân Văn Lang - Âu Lạc thường ở nhà loại gì?", a: "Nhà sàn", opts: ["Nhà sàn", "Nh nhà gạch", "Nhà đất", "Nhà hang"] },
+    { t: "Bài 12: Đời sống", q: "Tục lệ nào sau đây là nét văn hóa đặc trưng của người Việt cổ?", a: "Nhuộm răng, ăn trầu", opts: ["Nhuộm răng, ăn trầu", "Hỏa táng", "Ướp xác", "Thờ thần Zeus"] },
+    { t: "Bài 12: Đời sống", q: "Lễ hội nào gắn liền với truyền thuyết nguồn gốc dân tộc?", a: "Giỗ tổ Hùng Vương", opts: ["Giỗ tổ Hùng Vương", "Lễ hội Katê", "Tết Chol Chnam Thmay", "Lễ cúng trăng"] },
+    { t: "Bài 12: Sự ra đời", q: "Nhà nước Văn Lang ra đời vào khoảng thời gian nào?", a: "Thế kỷ VII TCN", opts: ["Thế kỷ VII TCN", "Thế kỷ III TCN", "Thế kỷ I", "Thế kỷ X"] },
+    { t: "Bài 12: Sự ra đời", q: "Ai là người lập nên nhà nước Âu Lạc?", a: "Thục Phán (An Dương Vương)", opts: ["Thục Phán (An Dương Vương)", "Hùng Vương", "Lạc Long Quân", "Lý Bí"] },
+    { t: "Bài 12: Đặc điểm", q: "Văn minh Văn Lang - Âu Lạc thuộc giai đoạn nào của lịch sử Việt Nam?", a: "Văn minh cổ đại (Sơ kỳ thời đại đồ đồng - sắt)", opts: ["Văn minh cổ đại (Sơ kỳ thời đại đồ đồng - sắt)", "Văn minh phong kiến", "Văn minh hiện đại", "Văn minh Tiền sử"] },
+
+    // BÀI 13
+    { t: "Bài 13: ĐKTN", q: "Văn minh Chăm-pa hình thành trên cơ sở văn hóa nào?", a: "Sa Huỳnh", opts: ["Sa Huỳnh", "Đông Sơn", "Óc Eo", "Quỳnh Văn"] },
+    { t: "Bài 13: ĐKTN", q: "Địa bàn chính của Chăm-pa thuộc khu vực nào của Việt Nam hiện nay?", a: "Ven biển miền Trung và Tây Nguyên", opts: ["Ven biển miền Trung và Tây Nguyên", "Đông Nam Bộ", "Đồng bằng sông Hồng", "Tây Bắc"] },
+    { t: "Bài 13: Dân cư", q: "Chủ nhân văn minh Chăm-pa thuộc ngữ hệ nào?", a: "Nam Đảo (Austronesian)", opts: ["Nam Đảo (Austronesian)", "Nam Á", "Hán - Tạng", "Thái - Kadai"] },
+    { t: "Bài 13: Ảnh hưởng Ấn", q: "Tôn giáo nào của Ấn Độ có ảnh hưởng sâu rộng nhất đến Chăm-pa?", a: "Hindu giáo và Phật giáo", opts: ["Hindu giáo và Phật giáo", "Nho giáo", "Công giáo", "Đạo giáo"] },
+    { t: "Bài 13: Thành tựu", q: "Chữ viết cổ của người Chăm được sáng tạo dựa trên chữ nào?", a: "Chữ Phạn (Sanskrit)", opts: ["Chữ Phạn (Sanskrit)", "Chữ Hán", "Chữ La-tinh", "Chữ Nôm"] },
+    { t: "Bài 13: Xã hội", q: "Gia đình người Chăm cổ mang đậm dấu ấn của chế độ nào?", a: "Mẫu hệ", opts: ["Mẫu hệ", "Phụ hệ", "Phong kiến", "Chiếm hữu nô lệ"] },
+    { t: "Bài 13: Thành tựu", q: "Quần thể kiến trúc tiêu biểu nhất của người Chăm là?", a: "Thánh địa Mỹ Sơn", opts: ["Thánh địa Mỹ Sơn", "Chùa Một Cột", "Thành Cổ Loa", "Kinh thành Huế"] },
+    { t: "Bài 13: Kinh tế", q: "Người Chăm đã phát minh ra thiết bị gì để tưới tiêu ruộng cao?", a: "Xe tát nước (Cọn nước)", opts: ["Xe tát nước (Cọn nước)", "Máy bơm điện", "Đập thủy lợi", "Kênh đào vạn niên"] },
+    { t: "Bài 13: Kinh tế", q: "Sản phẩm lâm thổ sản nổi tiếng nào của Chăm-pa được thương nhân ưa chuộng?", a: "Trầm hương và ngà voi", opts: ["Trầm hương và ngà voi", "Trống đồng", "Chè và cà phê", "Lúa nếp"] },
+    { t: "Bài 13: Đời sống", q: "Lễ hội Katê là lễ hội quan trọng nhất của dân tộc nào?", a: "Người Chăm", opts: ["Người Chăm", "Người Kinh", "Người Khmer", "Người Thái"] },
+    { t: "Bài 13: Thành tựu", q: "Điệu múa đặc trưng thường thấy trong các lễ hội Chăm là?", a: "Múa Apsara", opts: ["Múa Apsara", "Múa Sạp", "Múa Xòe", "Múa Lân"] },
+    { t: "Bài 13: Thành tựu", q: "Vật liệu chính dùng để xây dựng các tháp Chăm nghìn năm không đổ là?", a: "Gạch nung", opts: ["Gạch nung", "Đá hoa cương", "Bê tông", "Gỗ lim"] },
+    { t: "Bài 13: Xã hội", q: "Vua Chăm thường được xem là hiện thân của vị thần nào?", a: "Thần Shiva", opts: ["Thần Shiva", "Thần Brahma", "Thần Vishnu", "Thần Indra"] },
+    { t: "Bài 13: Kinh tế", q: "Thương cảng nổi tiếng của Chăm-pa tại Quảng Nam có tên là?", a: "Đại Chiêm Hải Khẩu", opts: ["Đại Chiêm Hải Khẩu", "Óc Eo", "Vân Đồn", "Hội An"] },
+    { t: "Bài 13: Sự ra đời", q: "Nhà nước Lâm Ấp (tiền thân Chăm-pa) ra đời vào năm nào?", a: "Năm 192", opts: ["Năm 192", "Thế kỷ VII TCN", "Năm 938", "Năm 1010"] },
+
+    // BÀI 14
+    { t: "Bài 14: ĐKTN", q: "Văn minh Phù Nam hình thành trên cơ sở văn hóa nào?", a: "Óc Eo", opts: ["Óc Eo", "Sa Huỳnh", "Đông Sơn", "Hòa Bình"] },
+    { t: "Bài 14: ĐKTN", q: "Địa bàn trọng tâm của Phù Nam thuộc khu vực nào?", a: "Nam Bộ Việt Nam", opts: ["Nam Bộ Việt Nam", "Bắc Bộ", "Trung Bộ", "Tây Nguyên"] },
+    { t: "Bài 14: Kinh tế", q: "Cư dân Phù Nam giỏi về hoạt động kinh tế nào nhất?", a: "Thương nghiệp biển (ngoại thương)", opts: ["Thương nghiệp biển (ngoại thương)", "Săn bắn", "Du mục", "Dệt vải"] },
+    { t: "Bài 14: Kinh tế", q: "Thương cảng sầm uất nhất của Phù Nam kết nối Đông - Tây là?", a: "Óc Eo", opts: ["Óc Eo", "Vân Đồn", "Lạch Trường", "Hội An"] },
+    { t: "Bài 14: Ảnh hưởng Ấn", q: "Tôn giáo từ Ấn Độ ảnh hưởng mạnh đến đời sống Phù Nam là?", a: "Hindu giáo và Phật giáo", opts: ["Hindu giáo và Phật giáo", "Nho giáo", "Công giáo", "Hồi giáo"] },
+    { t: "Bài 14: Xã hội", q: "Tầng lớp có quyền lực nhất trong xã hội Phù Nam là?", a: "Tăng lữ và quý tộc", opts: ["Tăng lữ và quý tộc", "Thương gia", "Nông dân", "Nô lệ"] },
+    { t: "Bài 14: Đời sống", q: "Cư dân Phù Nam ở nhà sàn nhằm mục đích gì?", a: "Thích nghi vùng đất ngập nước, kênh rạch", opts: ["Thích nghi vùng đất ngập nước, kênh rạch", "Tránh bão cát", "Thờ cúng tổ tiên", "Để nuôi gia súc"] },
+    { t: "Bài 14: Thành tựu", q: "Kỹ thuật thủ công nào của Phù Nam đạt trình độ rất cao?", a: "Kim hoàn và tạc tượng", opts: ["Kim hoàn và tạc tượng", "Đúc trống đồng", "Sản xuất giấy", "Chế tạo súng"] },
+    { t: "Bài 14: Sự ra đời", q: "Nhà nước Phù Nam ra đời vào khoảng thời gian nào?", a: "Thế kỷ I", opts: ["Thế kỷ I", "Thế kỷ III TCN", "Thế kỷ X", "Thế kỷ XV"] },
+    { t: "Bài 14: Ảnh hưởng Ấn", q: "Hiện vật nào chứng tỏ Phù Nam giao thương với phương Tây qua Ấn Độ?", a: "Tiền vàng La Mã", opts: ["Tiền vàng La Mã", "Trống đồng", "Chữ Nôm", "Súng thần cơ"] },
+    { t: "Bài 14: Xã hội", q: "Cư dân Phù Nam chủ yếu thuộc ngữ hệ nào?", a: "Nam Đảo và Nam Á", opts: ["Nam Đảo và Nam Á", "Hán - Tạng", "Ấn - Âu", "Mông Cổ"] },
+    { t: "Bài 14: Thành tựu", q: "Phong tục táng nào phổ biến trong văn minh Phù Nam?", a: "Hỏa táng, thủy táng, thổ táng, điểu táng", opts: ["Hỏa táng, thủy táng, thổ táng, điểu táng", "Chỉ địa táng", "Ướp xác", "Chôn trong hang đá"] },
+    { t: "Bài 14: Kinh tế", q: "Phù Nam kiểm soát con đường giao thương quan trọng nào?", a: "Con đường tơ lụa trên biển", opts: ["Con đường tơ lụa trên biển", "Đường xuyên Á", "Con đường gia vị trên bộ", "Đường mòn Hồ Chí Minh"] },
+    { t: "Bài 14: Kết thúc", q: "Phù Nam bị vương quốc nào thôn tính vào thế kỷ VI - VII?", a: "Chân Lạp", opts: ["Chân Lạp", "Chăm-pa", "Đại Việt", "Đế chế Khmer"] },
+    { t: "Bài 14: Đặc điểm", q: "Văn minh Phù Nam mang đậm tính chất gì?", a: "Văn minh sông nước và hướng biển", opts: ["Văn minh sông nước và hướng biển", "Văn minh thảo nguyên", "Văn minh du mục", "Văn minh công nghiệp"] },
+
+    // BÀI 15
+    { t: "Bài 15: Nguồn gốc", q: "Văn minh Đại Việt kế thừa trực tiếp từ nền văn minh nào?", a: "Văn minh Văn Lang - Âu Lạc", opts: ["Văn minh Văn Lang - Âu Lạc", "Văn minh Chăm-pa", "Văn minh Trung Hoa", "Văn minh Phù Nam"] },
+    { t: "Bài 15: Chính trị", q: "Thể chế chính trị xuyên suốt của văn minh Đại Việt là?", a: "Quân chủ chuyên chế trung ương tập quyền", opts: ["Quân chủ chuyên chế trung ương tập quyền", "Dân chủ cộng hòa", "Xã hội chủ nghĩa", "Liên bang"] },
+    { t: "Bài 15: Tư tưởng", q: "Hệ tư tưởng nào chiếm vị trí độc tôn từ thời Lê Sơ?", a: "Nho giáo", opts: ["Nho giáo", "Phật giáo", "Đạo giáo", "Hồi giáo"] },
+    { t: "Bài 15: Thành tựu", q: "Loại chữ viết riêng do người Việt sáng tạo để ghi âm tiếng Việt là?", a: "Chữ Nôm", opts: ["Chữ Nôm", "Chữ Hán", "Chữ Quốc ngữ", "Chữ Phạn"] },
+    { t: "Bài 15: Thành tựu", q: "Bộ luật nổi tiếng nhất của văn minh Đại Việt thời Lê Sơ là?", a: "Luật Hồng Đức (Quốc triều hình luật)", opts: ["Luật Hồng Đức (Quốc triều hình luật)", "Hình thư", "Luật Gia Long", "Hiến pháp"] },
+    { t: "Bài 15: Giáo dục", q: "Văn Miếu - Quốc Tử Giám được xây dựng lần đầu dưới thời vua nào?", a: "Lý Thánh Tông", opts: ["Lý Thánh Tông", "Trần Nhân Tông", "Lê Thánh Tông", "Gia Long"] },
+    { t: "Bài 15: Kỹ thuật", q: "Người thầy của muôn đời trong lịch sử giáo dục Đại Việt là?", a: "Chu Văn An", opts: ["Chu Văn An", "Nguyễn Bỉnh Khiêm", "Lê Quý Đôn", "Ngô Sĩ Liên"] },
+    { t: "Bài 15: Kỹ thuật", q: "Ai là người chế tạo súng thần cơ và thuyền chiến hai tầng thời nhà Hồ?", a: "Hồ Nguyên Trừng", opts: ["Hồ Nguyên Trừng", "Hồ Quý Ly", "Nguyễn Trãi", "Lê Lợi"] },
+    { t: "Bài 15: Thành tựu", q: "Bản tuyên ngôn độc lập đầu tiên của Đại Việt gắn liền với cuộc kháng chiến chống Tống là?", a: "Nam quốc sơn hà", opts: ["Nam quốc sơn hà", "Bình Ngô đại cáo", "Hịch tướng sĩ", "Truyện Kiều"] },
+    { t: "Bài 15: Văn học", q: "Tác phẩm văn học chữ Nôm được coi là đỉnh cao của văn minh Đại Việt là?", a: "Truyện Kiều (Nguyễn Du)", opts: ["Truyện Kiều (Nguyễn Du)", "Quốc âm thi tập", "Bình Ngô đại cáo", "Chinh phụ ngâm"] },
+    { t: "Bài 15: Nghệ thuật", q: "Loại hình nghệ thuật dân gian tiêu biểu ở đồng bằng Bắc Bộ là?", a: "Múa rối nước", opts: ["Múa rối nước", "Cải lương", "Hát bội", "Múa Apsara"] },
+    { t: "Bài 15: Kinh tế", q: "Thời kỳ văn minh Đại Việt, nền kinh tế đóng vai trò xương sống là?", a: "Nông nghiệp lúa nước", opts: ["Nông nghiệp lúa nước", "Thương mại biển", "Khai thác mỏ", "Sản xuất hàng thủ công"] },
+    { t: "Bài 15: Sử học", q: "Bộ quốc sử chính thức đầu tiên của Đại Việt do ai soạn thảo?", a: "Lê Văn Hưu", opts: ["Lê Văn Hưu", "Ngô Sĩ Liên", "Phan Huy Chú", "Lê Quý Đôn"] },
+    { t: "Bài 15: Tín ngưỡng", q: "Tín ngưỡng bản địa nào vẫn được duy trì mạnh mẽ trong văn minh Đại Việt?", a: "Thờ cúng tổ tiên", opts: ["Thờ cúng tổ tiên", "Thờ thần mặt trời", "Thờ thần Shiva", "Thờ thần lửa"] },
+    { t: "Bài 15: Đặc điểm", q: "Giá trị cốt lõi nhất của văn minh Đại Việt là?", a: "Lòng yêu nước và tinh thần độc lập tự chủ", opts: ["Lòng yêu nước và tinh thần độc lập tự chủ", "Sự hòa đồng tôn giáo", "Phát triển thương mại", "Du nhập văn hóa phương Tây"] }
+];
+
+let correctCount = 0; let wrongCount = 0;
+
+// Hàm trộn mảng
+function shuffle(array) { 
+    return array.sort(() => Math.random() - 0.5); 
+}
+
+function initQuiz() {
+    const box = document.getElementById('quiz-box');
+    box.innerHTML = ''; 
+    correctCount = 0; 
+    wrongCount = 0;
+    document.getElementById('correct-count').innerText = 0;
+    document.getElementById('wrong-count').innerText = 0;
+    
+    // Sửa lỗi: Gọi đúng biến 'data' thay vì 'questions'
+    const shuffledQ = shuffle([...data]);
+    
+    shuffledQ.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        const opts = shuffle([...item.opts]);
+        card.innerHTML = `
+            <span class="tag">${item.t}</span>
+            <div class="q-text">Câu ${index + 1}: ${item.q}</div>
+            <div class="options">
+                ${opts.map(o => `<div class="opt" onclick="check(this, '${o.replace(/'/g, "\\'")}', '${item.a.replace(/'/g, "\\")}')">${o}</div>`).join('')}
+            </div>
+        `;
+        box.appendChild(card);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function check(el, selected, correct) {
+    const parent = el.parentElement;
+    const options = parent.querySelectorAll('.opt');
+    
+    if (selected === correct) {
+        el.classList.add('correct'); 
+        correctCount++;
+    } else {
+        el.classList.add('wrong'); 
+        wrongCount++;
+        // Hiện đáp án đúng nếu chọn sai
+        options.forEach(opt => { 
+            if (opt.innerText === correct) opt.classList.add('correct'); 
+        });
+    }
+    
+    // Vô hiệu hóa các lựa chọn sau khi đã chọn
+    options.forEach(opt => opt.classList.add('disabled'));
+    
+    document.getElementById('correct-count').innerText = correctCount;
+    document.getElementById('wrong-count').innerText = wrongCount;
+}
+
+// Chạy lần đầu
+initQuiz();
+</script>
+</body>
+</html>
