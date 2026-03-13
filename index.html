@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Tin Học 10 - Chủ Đề F</title>
+    <title>Ôn Tập Tin Học 10 - 70 Câu Trộn</title>
     <style>
-        :root { --primary: #007bff; --success: #28a745; --danger: #dc3545; --bg: #f4f7f6; --gray: #6c757d; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 10px; margin: 0; }
+        :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; --bg: #f8f9fa; --gray: #5f6368; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); padding: 10px; margin: 0; }
         .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #ddd; }
-        .tab-btn { padding: 12px 20px; border: none; background: none; cursor: pointer; font-weight: bold; color: var(--gray); border-bottom: 3px solid transparent; transition: 0.3s; }
-        .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
-        .score-board { position: sticky; top: 10px; background: #fff; z-index: 100; padding: 15px; border: 2px solid var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; border-radius: 10px; display: flex; justify-content: space-around; }
+        .score-board { position: sticky; top: 10px; background: #fff; z-index: 100; padding: 15px; border: 2px solid var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; border-radius: 10px; display: flex; justify-content: space-around; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .question-card { background: #fff; border: 1px solid #dadce0; border-radius: 12px; padding: 18px; margin-bottom: 15px; }
-        .q-text { font-weight: bold; margin-bottom: 12px; color: #202124; white-space: pre-wrap; background: #f9f9f9; padding: 10px; border-radius: 5px; }
+        .q-text { font-weight: bold; margin-bottom: 12px; color: #202124; line-height: 1.5; font-size: 1.1rem; white-space: pre-wrap; background: #f1f3f4; padding: 10px; border-radius: 8px; }
         .tag { font-size: 0.75rem; background: #e8f0fe; color: #1967d2; padding: 4px 12px; border-radius: 15px; margin-bottom: 10px; display: inline-block; }
         .options { display: flex; flex-direction: column; gap: 10px; }
-        .opt { padding: 12px; border: 2px solid #f1f3f4; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+        .opt { padding: 14px; border: 2px solid #f1f3f4; border-radius: 10px; cursor: pointer; transition: 0.2s; background: #fff; }
+        .opt:hover { background: #f8f9fa; }
         .opt.correct { background: #d4edda !important; border-color: var(--success) !important; color: #155724; font-weight: bold; }
         .opt.wrong { background: #f8d7da !important; border-color: var(--danger) !important; color: #721c24; }
         .opt.disabled { pointer-events: none; }
-        .reset-btn { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-bottom: 20px; }
+        .reset-btn { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-bottom: 20px; font-size: 1.1rem; }
+        .info-text { text-align: center; color: var(--gray); margin-bottom: 10px; font-style: italic; }
     </style>
 </head>
 <body>
@@ -31,74 +30,94 @@
 </div>
 
 <div class="container">
-    <h2 style="text-align:center; color:var(--primary);">TRẮC NGHIỆM TIN HỌC 10 - CHỦ ĐỀ F</h2>
-    
-    <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('lythuyet')">LÝ THUYẾT (BÀI 6 & 8)</button>
-        <button class="tab-btn" onclick="switchTab('baitap')">3 DẠNG BÀI TẬP CODE</button>
-    </div>
-
-    <button class="reset-btn" onclick="initQuiz()">TRỘN ĐỀ & LÀM MỚI</button>
+    <h2 style="text-align:center; color:var(--primary);">TIN HỌC 10 - CHỦ ĐỀ F (65 CÂU)</h2>
+    <p class="info-text">Hệ thống sẽ lấy ngẫu nhiên 20 câu mỗi lần reset</p>
+    <button class="reset-btn" onclick="initQuiz()">TRỘN ĐỀ & LÀM MỚI (Lấy 20 câu)</button>
     <div id="quiz-box"></div>
 </div>
 
 <script>
-const dataLT = [
-    { t: "Bài 6: Rẽ nhánh", q: "Trong Python, từ khóa nào dùng cho cấu trúc rẽ nhánh?", a: "if, elif, else", opts: ["if, elif, else", "for, while", "input, print", "def, return"] },
-    { t: "Bài 6: Rẽ nhánh", q: "Sau điều kiện của lệnh if bắt buộc phải có ký tự gì?", a: "Dấu hai chấm (:)", opts: ["Dấu hai chấm (:)", "Dấu chấm phẩy (;)", "Dấu ngoặc đơn ()", "Dấu gạch dưới (_)"] },
-    { t: "Bài 6: Rẽ nhánh", q: "Phép toán so sánh 'bằng' trong Python được viết là?", a: "==", opts: ["==", "=", "!=", "<>"] },
-    { t: "Bài 6: Rẽ nhánh", q: "Lệnh elif dùng khi nào?", a: "Khi có nhiều điều kiện cần kiểm tra", opts: ["Khi có nhiều điều kiện cần kiểm tra", "Khi chỉ có một điều kiện duy nhất", "Dùng để thay thế lệnh for", "Dùng để kết thúc chương trình"] },
-    { t: "Bài 8: Lặp", q: "Vòng lặp for thường dùng trong trường hợp nào?", a: "Biết trước số lần lặp", opts: ["Biết trước số lần lặp", "Không biết trước số lần lặp", "Chỉ lặp 1 lần duy nhất", "Chỉ lặp khi sai"] },
-    { t: "Bài 8: Lặp", q: "Hàm range(5) tạo ra dãy số nào?", a: "0, 1, 2, 3, 4", opts: ["0, 1, 2, 3, 4", "1, 2, 3, 4, 5", "0, 1, 2, 3, 4, 5", "1, 2, 3, 4"] },
-    { t: "Bài 8: Lặp", q: "Lệnh range(2, 10, 2) tạo ra dãy số nào?", a: "2, 4, 6, 8", opts: ["2, 4, 6, 8", "2, 4, 6, 8, 10", "2, 3, 4, 5, 6, 7, 8, 9", "0, 2, 4, 6, 8"] },
-    { t: "Bài 8: Lặp", q: "Vòng lặp while dừng lại khi điều kiện có giá trị là?", a: "False", opts: ["False", "True", "None", "0"] },
-    { t: "Lỗi lập trình", q: "Lỗi 'IndentationError' là lỗi gì?", a: "Lỗi thụt lề dòng lệnh", opts: ["Lỗi thụt lề dòng lệnh", "Lỗi sai tên biến", "Lỗi thiếu dấu ngoặc", "Lỗi chia cho số 0"] },
-    { t: "Toán tử", q: "Để kiểm tra x là số chẵn, ta dùng điều kiện nào?", a: "x % 2 == 0", opts: ["x % 2 == 0", "x % 2 != 0", "x // 2 == 0", "x / 2 == 0"] },
-    { t: "Kiểu dữ liệu", q: "Lệnh input() trả về giá trị kiểu gì?", a: "Xâu ký tự (str)", opts: ["Xâu ký tự (str)", "Số nguyên (int)", "Số thực (float)", "Logic (bool)"] },
-    { t: "Toán tử", q: "Phép toán lấy phần dư trong Python là?", a: "%", opts: ["%", "//", "/", "**"] },
-    { t: "Cấu trúc", q: "Các lệnh bên trong khối if, for phải được trình bày như thế nào?", a: "Thụt lề thẳng hàng nhau", opts: ["Thụt lề thẳng hàng nhau", "Viết sát lề trái", "Nằm trên cùng một dòng với if", "Viết trong dấu ngoặc nhọn {}"] },
-    { t: "Bài 8: Lặp", q: "Lệnh for i in range(1, 1): thực hiện bao nhiêu lần lặp?", a: "0 lần", opts: ["0 lần", "1 lần", "Vô hạn", "Báo lỗi cú pháp"] },
-    { t: "Toán tử", q: "Kết quả của 10 // 3 là?", a: "3", opts: ["3", "3.33", "1", "0"] },
-    { t: "Toán tử", q: "Phép so sánh 'khác' được viết là?", a: "!=", opts: ["!=", "<>", "not", "=="] },
-    { t: "Bài 8: Lặp", q: "range(10, 0, -2) tạo ra dãy số nào?", a: "10, 8, 6, 4, 2", opts: ["10, 8, 6, 4, 2", "10, 9, 8, 7, 6, 5, 4, 3, 2, 1", "0, 2, 4, 6, 8, 10", "8, 6, 4, 2, 0"] },
-    { t: "Lý thuyết", q: "Câu lệnh nào thoát khỏi vòng lặp ngay lập tức?", a: "break", opts: ["break", "stop", "exit", "continue"] },
-    { t: "Lý thuyết", q: "Đâu là cách đặt tên biến ĐÚNG trong Python?", a: "tong_so", opts: ["tong_so", "1_tong", "tong-so", "tong so"] },
-    { t: "Lý thuyết", q: "Lệnh nào dùng để xuất dữ liệu ra màn hình?", a: "print()", opts: ["print()", "input()", "write()", "output()"] }
+const dataTin = [
+    // --- LÝ THUYẾT RẼ NHÁNH (BÀI 6) ---
+    { t: "Lý thuyết", q: "Trong Python, từ khóa nào bắt đầu cấu trúc rẽ nhánh?", a: "if", opts: ["if", "for", "while", "else"] },
+    { t: "Lý thuyết", q: "Sau câu lệnh 'if <điều kiện>' phải có dấu gì?", a: ":", opts: [":", ";", "!", "."] },
+    { t: "Lý thuyết", q: "Phép so sánh bằng trong Python là?", a: "==", opts: ["==", "=", "===", "=>"] },
+    { t: "Lý thuyết", q: "Phép so sánh khác trong Python là?", a: "!=", opts: ["!=", "<>", "not", "equal"] },
+    { t: "Lý thuyết", q: "Lệnh 'elif' dùng để làm gì?", a: "Kiểm tra điều kiện bổ sung nếu 'if' sai", opts: ["Kiểm tra điều kiện bổ sung nếu 'if' sai", "Kết thúc vòng lặp", "Nhập dữ liệu", "In kết quả"] },
+    { t: "Lý thuyết", q: "Câu lệnh 'else' có cần điều kiện đi kèm không?", a: "Không", opts: ["Không", "Có", "Tùy trường hợp", "Chỉ khi dùng while"] },
+    { t: "Lý thuyết", q: "Python dùng gì để phân biệt các khối lệnh (block)?", a: "Thụt lề (Indentation)", opts: ["Thụt lề (Indentation)", "Dấu ngoặc nhọn {}", "Dấu ngoặc đơn ()", "Dấu chấm phẩy ;"] },
+    { t: "Lý thuyết", q: "Biểu thức '5 > 3 and 2 > 4' trả về?", a: "False", opts: ["False", "True", "None", "Error"] },
+    { t: "Lý thuyết", q: "Để kiểm tra số n là số lẻ, ta dùng?", a: "n % 2 != 0", opts: ["n % 2 != 0", "n % 2 == 0", "n // 2 != 0", "n / 2 == 0"] },
+    { t: "Lý thuyết", q: "Lệnh 'input()' luôn trả về kiểu dữ liệu nào?", a: "String (Xâu)", opts: ["String (Xâu)", "Integer (Số nguyên)", "Float (Số thực)", "Boolean"] },
+
+    // --- LÝ THUYẾT LẶP (BÀI 8) ---
+    { t: "Lý thuyết", q: "Vòng lặp for i in range(n) chạy từ đâu đến đâu?", a: "0 đến n-1", opts: ["0 đến n-1", "1 đến n", "0 đến n", "1 đến n-1"] },
+    { t: "Lý thuyết", q: "Lệnh range(1, 10, 2) tạo dãy số nào?", a: "1, 3, 5, 7, 9", opts: ["1, 3, 5, 7, 9", "1, 2, 3, 4, 5, 6, 7, 8, 9", "2, 4, 6, 8", "1, 3, 5, 7, 9, 11"] },
+    { t: "Lý thuyết", q: "Lệnh for i in range(5, 0, -1) tạo dãy số nào?", a: "5, 4, 3, 2, 1", opts: ["5, 4, 3, 2, 1", "5, 4, 3, 2, 1, 0", "0, 1, 2, 3, 4, 5", "5, 3, 1"] },
+    { t: "Lý thuyết", q: "Vòng lặp while dừng lại khi nào?", a: "Khi điều kiện sai (False)", opts: ["Khi điều kiện sai (False)", "Khi điều kiện đúng (True)", "Khi hết số trong range", "Khi chạy được 10 lần"] },
+    { t: "Lý thuyết", q: "Lệnh 'break' dùng để?", a: "Thoát khỏi vòng lặp ngay lập tức", opts: ["Thoát khỏi vòng lặp ngay lập tức", "Bỏ qua lần lặp hiện tại", "Bắt đầu lại vòng lặp", "Kết thúc chương trình"] },
+    { t: "Lý thuyết", q: "Lệnh 'continue' dùng để?", a: "Bỏ qua các lệnh còn lại và sang lần lặp kế tiếp", opts: ["Bỏ qua các lệnh còn lại và sang lần lặp kế tiếp", "Thoát vòng lặp", "Dừng chương trình", "In ra kết quả"] },
+
+    // --- DẠNG: TÍNH TỔNG ---
+    { t: "Dạng Tổng", q: "S = 0\nfor i in range(1, 4):\n    S = S + i\nSau khi chạy, S bằng?", a: "6", opts: ["6", "3", "4", "10"] },
+    { t: "Dạng Tổng", q: "S = 0\nfor i in range(1, 6, 2):\n    S = S + i\nS bằng?", a: "9", opts: ["9", "4", "15", "6"] },
+    { t: "Dạng Tổng", q: "Để tính tổng các số từ 1 đến n, ta dùng lệnh?", a: "S = S + i", opts: ["S = S + i", "S = S + 1", "S = i", "S += 0"] },
+    { t: "Dạng Tổng", q: "S = 10\nfor i in range(2):\n    S = S + 5\nS bằng?", a: "20", opts: ["20", "15", "10", "25"] },
+    { t: "Dạng Tổng", q: "S = 0\nfor i in range(3):\n    S = S + i * 2\nS bằng?", a: "6", opts: ["6", "0", "2", "4"] },
+    { t: "Dạng Tổng", q: "Khởi tạo biến tổng S cho phép cộng thường bắt đầu bằng?", a: "0", opts: ["0", "1", "None", "10"] },
+    { t: "Dạng Tổng", q: "S = 0\ni = 1\nwhile i <= 3:\n    S += i\n    i += 1\nS bằng?", a: "6", opts: ["6", "3", "4", "5"] },
+    { t: "Dạng Tổng", q: "Code tính tổng các số chẵn từ 1 đến 10?", a: "range(2, 11, 2)", opts: ["range(2, 11, 2)", "range(1, 10)", "range(2, 10)", "range(1, 11, 2)"] },
+
+    // --- DẠNG: ĐẾM ---
+    { t: "Dạng Đếm", q: "d = 0\nfor i in range(1, 11):\n    if i % 3 == 0:\n        d = d + 1\nd bằng?", a: "3", opts: ["3", "10", "2", "4"] },
+    { t: "Dạng Đếm", q: "Lệnh nào dùng để tăng biến đếm lên 1?", a: "d = d + 1", opts: ["d = d + 1", "d = i", "d = d + i", "d = 1"] },
+    { t: "Dạng Đếm", q: "d = 0\nfor i in 'PYTHON':\n    d += 1\nd bằng?", a: "6", opts: ["6", "0", "1", "5"] },
+    { t: "Dạng Đếm", q: "Để đếm các số âm, điều kiện if là?", a: "i < 0", opts: ["i < 0", "i > 0", "i == 0", "i % 2 != 0"] },
+    { t: "Dạng Đếm", q: "d = 0\nfor i in range(5):\n    if i > 10:\n        d += 1\nd bằng?", a: "0", opts: ["0", "5", "1", "10"] },
+    { t: "Dạng Đếm", q: "Đếm số chia hết cho 5 trong [1, 20]?", a: "4", opts: ["4", "3", "5", "20"] },
+    { t: "Dạng Đếm", q: "d = 0\nfor i in range(1, 6):\n    d += 1\nprint(d) in ra?", a: "5", opts: ["5", "6", "4", "0"] },
+
+    // --- DẠNG: IN PHẦN TỬ ---
+    { t: "Dạng In", q: "Lệnh in các số trên cùng 1 hàng cách nhau dấu cách?", a: "print(i, end=' ')", opts: ["print(i, end=' ')", "print(i)", "print(i, ' ')", "write(i)"] },
+    { t: "Dạng In", q: "for i in range(2):\n    print('Hi')\nIn ra mấy chữ Hi?", a: "2", opts: ["2", "1", "3", "0"] },
+    { t: "Dạng In", q: "for i in range(1, 4):\n    print(i * 10, end=' ')\nKết quả?", a: "10 20 30", opts: ["10 20 30", "1 2 3", "10 20 30 40", "0 10 20"] },
+    { t: "Dạng In", q: "range(3) in ra các giá trị nào?", a: "0, 1, 2", opts: ["0, 1, 2", "1, 2, 3", "0, 1, 2, 3", "3"] },
+    { t: "Dạng In", q: "for i in range(5, 2, -1):\n    print(i, end=' ')", a: "5 4 3", opts: ["5 4 3", "5 4 3 2", "3 4 5", "2 3 4 5"] },
+
+    // --- TRỘN LẪN & ĐỌC HIỂU (BỔ SUNG ĐỦ 65 CÂU) ---
+    { t: "Đọc hiểu", q: "x = 5\nif x > 2:\n    x = x * 2\nelse:\n    x = x + 2\nx bằng?", a: "10", opts: ["10", "7", "5", "2"] },
+    { t: "Đọc hiểu", q: "i = 10\nwhile i > 7:\n    i = i - 1\ni bằng?", a: "7", opts: ["7", "8", "9", "10"] },
+    { t: "Lý thuyết", q: "10 % 3 kết quả là?", a: "1", opts: ["1", "3", "0", "3.33"] },
+    { t: "Lý thuyết", q: "10 // 3 kết quả là?", a: "3", opts: ["3", "1", "0", "3.33"] },
+    { t: "Lý thuyết", q: "Để thoát khỏi vòng lặp vĩnh viễn (vô hạn), nhấn tổ hợp phím?", a: "Ctrl + C", opts: ["Ctrl + C", "Ctrl + V", "Ctrl + Z", "Alt + F4"] },
+    { t: "Code", q: "Đoạn code: if n % 2 == 0: print('A') else: print('B')\nVới n = 7 in ra?", a: "B", opts: ["B", "A", "AB", "Lỗi"] },
+    { t: "Lý thuyết", q: "Trong range(a, b), giá trị b có được lấy không?", a: "Không", opts: ["Không", "Có", "Tùy trường hợp", "Chỉ khi là số chẵn"] },
+    { t: "Lý thuyết", q: "Đâu là kiểu dữ liệu số nguyên?", a: "int", opts: ["int", "float", "string", "bool"] },
+    { t: "Lý thuyết", q: "Lệnh print(type(10.5)) in ra?", a: "<class 'float'>", opts: ["<class 'float'>", "<class 'int'>", "<class 'str'>", "10.5"] },
+    { t: "Dạng Tổng", q: "S = 1\nfor i in range(1, 4):\n    S = S * i\nS bằng?", a: "6", opts: ["6", "3", "1", "0"] },
+    { t: "Dạng Đếm", q: "Đếm số lần lặp:\nfor i in range(1, 10, 2):", a: "5 lần", opts: ["5 lần", "10 lần", "4 lần", "9 lần"] },
+    { t: "Lý thuyết", q: "Thứ tự các tham số trong range là?", a: "start, stop, step", opts: ["start, stop, step", "stop, start, step", "step, start, stop", "start, step, stop"] },
+    { t: "Lý thuyết", q: "Giá trị mặc định của step trong range là?", a: "1", opts: ["1", "0", "-1", "None"] },
+    { t: "Lý thuyết", q: "Giá trị mặc định của start trong range là?", a: "0", opts: ["0", "1", "-1", "None"] },
+    { t: "Đọc hiểu", q: "x = 0\nfor i in range(5):\n    x = x + 1\nprint(x) in ra?", a: "5", opts: ["5", "4", "0", "1"] },
+    { t: "Rẽ nhánh", q: "Điều kiện '10 < 20 or 10 > 50' là?", a: "True", opts: ["True", "False", "Error", "None"] },
+    { t: "Rẽ nhánh", q: "Điều kiện 'not(10 > 5)' là?", a: "False", opts: ["False", "True", "None", "Error"] },
+    { t: "Lý thuyết", q: "Tên biến nào sai?", a: "10_bien", opts: ["10_bien", "bien_10", "_bien", "BIEN"] },
+    { t: "Lý thuyết", q: "Muốn nhập số nguyên n từ bàn phím?", a: "n = int(input())", opts: ["n = int(input())", "n = input()", "n = float(input())", "n = int()"] },
+    { t: "Dạng In", q: "In ra gì: print('2' + '3')?", a: "23", opts: ["23", "5", "Lỗi", "2 3"] },
+    { t: "Dạng Tổng", q: "S = 0\nfor i in range(3):\n    S += 10\nS bằng?", a: "30", opts: ["30", "0", "10", "20"] },
+    { t: "Đọc hiểu", q: "a = 2\nif a > 0: a += 1\nif a > 2: a += 1\na bằng?", a: "4", opts: ["4", "3", "2", "5"] },
+    { t: "Đọc hiểu", q: "for i in range(1, 3): print('A', end='')", a: "AA", opts: ["AA", "AAA", "A", "A A"] },
+    { t: "Lý thuyết", q: "Phép mũ (lũy thừa) trong Python là?", a: "**", opts: ["**", "^", "*", "pow"] },
+    { t: "Lý thuyết", q: "Ký hiệu ghi chú (comment) trong Python?", a: "#", opts: ["#", "//", "/*", "--"] },
+    { t: "Vòng lặp", q: "for i in range(10, 0, -3) chạy mấy lần?", a: "4 lần", opts: ["4 lần", "3 lần", "10 lần", "0 lần"] },
+    { t: "Lý thuyết", q: "while True: là vòng lặp gì?", a: "Vòng lặp vô hạn", opts: ["Vòng lặp vô hạn", "Vòng lặp chạy 1 lần", "Vòng lặp không chạy", "Lỗi cú pháp"] },
+    { t: "Đọc hiểu", q: "s = 'abc'\nprint(len(s)) in ra?", a: "3", opts: ["3", "2", "s", "Lỗi"] },
+    { t: "Rẽ nhánh", q: "Nếu dùng if-else lồng nhau, lệnh nào thụt lề sâu nhất?", a: "Lệnh con bên trong cùng", opts: ["Lệnh con bên trong cùng", "Lệnh if đầu tiên", "Lệnh else", "Tất cả bằng nhau"] }
 ];
 
-const dataBT = [
-    { t: "Dạng: Đếm", q: "Đoạn code sau in ra gì?\nd = 0\nfor i in range(1, 6):\n    if i % 2 == 0:\n        d = d + 1\nprint(d)", a: "2", opts: ["2", "3", "5", "6"] },
-    { t: "Dạng: Tính Tổng", q: "Kết quả của đoạn code sau là:\nS = 0\nfor i in range(1, 4):\n    S = S + i\nprint(S)", a: "6", opts: ["6", "3", "4", "10"] },
-    { t: "Dạng: In phần tử", q: "Đoạn code sau in ra dãy số nào?\nfor i in range(3):\n    print(i, end=' ')", a: "0 1 2", opts: ["0 1 2", "1 2 3", "0 1 2 3", "i i i"] },
-    { t: "Dạng: Tính Tổng", q: "Để tính tổng các số lẻ từ 1 đến n, lệnh for nào đúng?", a: "for i in range(1, n + 1, 2):", opts: ["for i in range(1, n + 1, 2):", "for i in range(1, n, 2):", "for i in range(2, n + 1, 2):", "for i in range(n):"] },
-    { t: "Dạng: Đếm", q: "Đoạn code này đếm các số như thế nào?\nif i % 3 == 0 and i % 5 == 0:\n    d = d + 1", a: "Đếm các số chia hết cho cả 3 và 5", opts: ["Đếm các số chia hết cho cả 3 và 5", "Đếm các số chia hết cho 3 hoặc 5", "Đếm các số không chia hết cho 15", "Báo lỗi vì có 2 điều kiện"] },
-    { t: "Đọc hiểu", q: "Giá trị của S sau khi chạy code là bao nhiêu?\nS = 10\nif S > 5:\n    S = S - 5\nelse:\n    S = S + 5", a: "5", opts: ["5", "15", "10", "0"] },
-    { t: "Dạng: In phần tử", q: "Lệnh nào in các số từ 1 đến 10 trên cùng một hàng?", a: "print(i, end=' ')", opts: ["print(i, end=' ')", "print(i)", "input(i)", "print(i, ' ')"] },
-    { t: "Dạng: Tính Tổng", q: "S khởi tạo bằng 0. Sau vòng lặp for i in range(3): S = S + 2. Giá trị S là?", a: "6", opts: ["6", "2", "3", "0"] },
-    { t: "Dạng: Đếm", q: "Biến 'dem' trong bài toán đếm thường được khởi tạo bằng?", a: "0", opts: ["0", "1", "None", "n"] },
-    { t: "Đọc hiểu", q: "Vòng lặp while i < 3: in ra bao nhiêu dòng nếu i bắt đầu từ 0 và mỗi bước i tăng 1?", a: "3", opts: ["3", "2", "4", "Vô hạn"] },
-    { t: "Dạng: Tính Tổng", q: "Muốn tính tổng 1 + 1/2 + 1/3... ta khởi tạo S kiểu gì là tốt nhất?", a: "S = 0.0", opts: ["S = 0.0", "S = 0", "S = 1", "S = '0'"] },
-    { t: "Dạng: In phần tử", q: "Kết quả: for i in 'ABC': print(i)", a: "A B C (mỗi chữ một dòng)", opts: ["A B C (mỗi chữ một dòng)", "ABC", "3", "Lỗi"] },
-    { t: "Dạng: Đếm", q: "Lệnh d += 1 tương đương với lệnh nào?", a: "d = d + 1", opts: ["d = d + 1", "d = 1", "d + 1 = d", "d = d + d"] },
-    { t: "Dạng: Tính Tổng", q: "Tính tổng các số từ 1 đến n, giá trị cuối của range là?", a: "n + 1", opts: ["n + 1", "n", "n - 1", "0"] },
-    { t: "Đọc hiểu", q: "Kết quả in ra là gì?\na = 5\nb = 10\nif a < b:\n    print(b - a)", a: "5", opts: ["5", "10", "15", "-5"] },
-    { t: "Dạng: Đếm", q: "Để đếm các số chia 5 dư 2, điều kiện if là?", a: "i % 5 == 2", opts: ["i % 5 == 2", "i // 5 == 2", "i % 2 == 5", "i / 5 == 2"] },
-    { t: "Dạng: In", q: "In các số từ 5 về 1, lệnh for nào đúng?", a: "for i in range(5, 0, -1):", opts: ["for i in range(5, 0, -1):", "for i in range(5, 1, -1):", "for i in range(1, 6):", "for i in range(5, 1):"] },
-    { t: "Tính Tổng", q: "S = 0; S = S + 10; S = S + 20; print(S)", a: "30", opts: ["30", "10", "20", "0"] },
-    { t: "Dạng: Đếm", q: "Vòng lặp chạy 10 lần, điều kiện if luôn đúng, biến dem tăng 1. dem bằng?", a: "10", opts: ["10", "9", "11", "1"] },
-    { t: "Dạng: Tổng", q: "S = 0; for i in range(1, 4): S = S + i*i. S bằng?", a: "14", opts: ["14", "6", "9", "10"] }
-];
-
-let currentSubject = 'lythuyet';
 let correctCount = 0; 
 let wrongCount = 0;
-
-function switchTab(subject) {
-    currentSubject = subject;
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    initQuiz();
-}
 
 function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
 
@@ -109,10 +128,11 @@ function initQuiz() {
     document.getElementById('correct-count').innerText = 0;
     document.getElementById('wrong-count').innerText = 0;
     
-    const questions = currentSubject === 'lythuyet' ? dataLT : dataBT;
-    const shuffledQ = shuffle([...questions]);
+    // TRỘN TOÀN BỘ VÀ LẤY 20 CÂU ĐẦU TIÊN
+    const allQuestions = shuffle([...dataTin]);
+    const selectedQuestions = allQuestions.slice(0, 20);
     
-    shuffledQ.forEach((item, index) => {
+    selectedQuestions.forEach((item, index) => {
         const card = document.createElement('div');
         card.className = 'question-card';
         const opts = shuffle([...item.opts]);
@@ -125,6 +145,7 @@ function initQuiz() {
         `;
         box.appendChild(card);
     });
+    window.scrollTo(0, 0); // Cuộn lên đầu trang sau khi reset
 }
 
 function check(el, selected, correct) {
@@ -141,6 +162,7 @@ function check(el, selected, correct) {
     document.getElementById('wrong-count').innerText = wrongCount;
 }
 
+// Chạy lần đầu
 initQuiz();
 </script>
 </body>
