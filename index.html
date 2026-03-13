@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Lớp 10 - Sử & Địa</title>
+    <title>Ôn Tập Tin Học 10 - Chủ Đề F</title>
     <style>
-        :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; --bg: #f8f9fa; --gray: #5f6368; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); padding: 10px; margin: 0; }
+        :root { --primary: #007bff; --success: #28a745; --danger: #dc3545; --bg: #f4f7f6; --gray: #6c757d; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 10px; margin: 0; }
         .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        
-        /* Tab System */
         .tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #ddd; }
-        .tab-btn { padding: 12px 25px; border: none; background: none; cursor: pointer; font-weight: bold; color: var(--gray); font-size: 1rem; border-bottom: 3px solid transparent; transition: 0.3s; }
+        .tab-btn { padding: 12px 20px; border: none; background: none; cursor: pointer; font-weight: bold; color: var(--gray); border-bottom: 3px solid transparent; transition: 0.3s; }
         .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
-        
-        .score-board { position: sticky; top: 10px; background: #fff; z-index: 100; padding: 15px; border: 2px solid var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; border-radius: 10px; display: flex; justify-content: space-around; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .score-board { position: sticky; top: 10px; background: #fff; z-index: 100; padding: 15px; border: 2px solid var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; border-radius: 10px; display: flex; justify-content: space-around; }
         .question-card { background: #fff; border: 1px solid #dadce0; border-radius: 12px; padding: 18px; margin-bottom: 15px; }
-        .q-text { font-weight: bold; margin-bottom: 12px; color: #202124; line-height: 1.5; font-size: 1.1rem; }
+        .q-text { font-weight: bold; margin-bottom: 12px; color: #202124; white-space: pre-wrap; background: #f9f9f9; padding: 10px; border-radius: 5px; }
         .tag { font-size: 0.75rem; background: #e8f0fe; color: #1967d2; padding: 4px 12px; border-radius: 15px; margin-bottom: 10px; display: inline-block; }
         .options { display: flex; flex-direction: column; gap: 10px; }
-        .opt { padding: 14px; border: 2px solid #f1f3f4; border-radius: 10px; cursor: pointer; transition: 0.2s; background: #fff; }
-        .opt:hover { background: #f8f9fa; }
+        .opt { padding: 12px; border: 2px solid #f1f3f4; border-radius: 10px; cursor: pointer; transition: 0.2s; }
         .opt.correct { background: #d4edda !important; border-color: var(--success) !important; color: #155724; font-weight: bold; }
         .opt.wrong { background: #f8d7da !important; border-color: var(--danger) !important; color: #721c24; }
         .opt.disabled { pointer-events: none; }
@@ -35,11 +31,11 @@
 </div>
 
 <div class="container">
-    <h2 style="text-align:center; color:var(--primary);">TRẮC NGHIỆM ÔN TẬP 10 Web By mhuy</h2>
+    <h2 style="text-align:center; color:var(--primary);">TRẮC NGHIỆM TIN HỌC 10 - CHỦ ĐỀ F</h2>
     
     <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('su')">LỊCH SỬ (BÀI 12-15)</button>
-        <button class="tab-btn" onclick="switchTab('dia')">ĐỊA LÍ (BÀI 23-24)</button>
+        <button class="tab-btn active" onclick="switchTab('lythuyet')">LÝ THUYẾT (BÀI 6 & 8)</button>
+        <button class="tab-btn" onclick="switchTab('baitap')">3 DẠNG BÀI TẬP CODE</button>
     </div>
 
     <button class="reset-btn" onclick="initQuiz()">TRỘN ĐỀ & LÀM MỚI</button>
@@ -47,123 +43,53 @@
 </div>
 
 <script>
-const dataHistory = [
-    // === BÀI 12: VĂN MINH VĂN LANG - ÂU LẠC (15 CÂU) ===
-    { t: "Bài 12: ĐKTN", q: "Văn minh Văn Lang - Âu Lạc hình thành chủ yếu ở lưu vực các con sông nào?", a: "Sông Hồng, sông Mã, sông Cả", opts: ["Sông Hồng, sông Mã, sông Cả", "Sông Cửu Long", "Sông Thu Bồn", "Sông Đồng Nai"] },
-    { t: "Bài 12: ĐKTN", q: "Loại đất bồi tụ ở các đồng bằng Bắc Bộ giúp phát triển nông nghiệp là?", a: "Đất phù sa", opts: ["Đất phù sa", "Đất feralit", "Đất cát ven biển", "Đất đỏ bazan"] },
-    { t: "Bài 12: Dân cư", q: "Chủ nhân của văn minh Văn Lang - Âu Lạc là tộc người nào?", a: "Lạc Việt và Âu Việt", opts: ["Lạc Việt và Âu Việt", "Người Chăm cổ", "Người Phù Nam cổ", "Người Hán"] },
-    { t: "Bài 12: Kinh tế", q: "Nghề kinh tế chính của cư dân Văn Lang - Âu Lạc là?", a: "Trồng lúa nước", opts: ["Trồng lúa nước", "Săn bắn hái lượm", "Thương nghiệp biển", "Chăn nuôi du mục"] },
-    { t: "Bài 12: Kinh tế", q: "Công cụ sản xuất của người Việt cổ chủ yếu làm bằng chất liệu gì?", a: "Đồng thau và sắt", opts: ["Đồng thau và sắt", "Đá mới", "Gỗ", "Tre"] },
-    { t: "Bài 12: Xã hội", q: "Đứng đầu nhà nước Văn Lang là ai?", a: "Hùng Vương", opts: ["Hùng Vương", "An Dương Vương", "Lạc tướng", "Bồ chính"] },
-    { t: "Bài 12: Xã hội", q: "Đơn vị hành chính cơ sở của xã hội Văn Lang - Âu Lạc là?", a: "Chiềng, chạ", opts: ["Chiềng, chạ", "Huyện", "Phủ", "Làng"] },
-    { t: "Bài 12: Thành tựu", q: "Thành tựu tiêu biểu nhất về luyện kim thời Đông Sơn là?", a: "Trống đồng", opts: ["Trống đồng", "Chuông đồng", "Súng thần cơ", "Tiền đồng"] },
-    { t: "Bài 12: Thành tựu", q: "Kỹ thuật phòng thủ quân sự nổi tiếng nhất thời Âu Lạc là?", a: "Thành Cổ Loa và nỏ Liên Châu", opts: ["Thành Cổ Loa và nỏ Liên Châu", "Súng thần cơ", "Hầm chông", "Vạn lý trường thành"] },
-    { t: "Bài 12: Đời sống", q: "Cư dân Văn Lang - Âu Lạc thường ở nhà loại gì?", a: "Nhà sàn", opts: ["Nhà sàn", "Nhà gạch", "Nhà đất", "Nhà hang"] },
-    { t: "Bài 12: Đời sống", q: "Tục lệ nào sau đây là nét văn hóa đặc trưng của người Việt cổ?", a: "Nhuộm răng, ăn trầu", opts: ["Nhuộm răng, ăn trầu", "Hỏa táng", "Ướp xác", "Thờ thần Zeus"] },
-    { t: "Bài 12: Đời sống", q: "Lễ hội nào gắn liền với truyền thuyết nguồn gốc dân tộc?", a: "Giỗ tổ Hùng Vương", opts: ["Giỗ tổ Hùng Vương", "Lễ hội Katê", "Tết Chol Chnam Thmay", "Lễ cúng trăng"] },
-    { t: "Bài 12: Sự ra đời", q: "Nhà nước Văn Lang ra đời vào khoảng thời gian nào?", a: "Thế kỷ VII TCN", opts: ["Thế kỷ VII TCN", "Thế kỷ III TCN", "Thế kỷ I", "Thế kỷ X"] },
-    { t: "Bài 12: Sự ra đời", q: "Ai là người lập nên nhà nước Âu Lạc?", a: "Thục Phán (An Dương Vương)", opts: ["Thục Phán (An Dương Vương)", "Hùng Vương", "Lạc Long Quân", "Lý Bí"] },
-    { t: "Bài 12: Đặc điểm", q: "Văn minh Văn Lang - Âu Lạc thuộc giai đoạn nào của lịch sử Việt Nam?", a: "Văn minh cổ đại (Sơ kỳ thời đại đồ đồng - sắt)", opts: ["Văn minh cổ đại (Sơ kỳ thời đại đồ đồng - sắt)", "Văn minh phong kiến", "Văn minh hiện đại", "Văn minh Tiền sử"] },
-
-    // === BÀI 13: VĂN MINH CHĂM-PA (15 CÂU) ===
-    { t: "Bài 13: ĐKTN", q: "Văn minh Chăm-pa hình thành trên cơ sở văn hóa nào?", a: "Sa Huỳnh", opts: ["Sa Huỳnh", "Đông Sơn", "Óc Eo", "Quỳnh Văn"] },
-    { t: "Bài 13: ĐKTN", q: "Địa bàn chính của Chăm-pa thuộc khu vực nào của Việt Nam hiện nay?", a: "Ven biển miền Trung và Tây Nguyên", opts: ["Ven biển miền Trung và Tây Nguyên", "Đông Nam Bộ", "Đồng bằng sông Hồng", "Tây Bắc"] },
-    { t: "Bài 13: Dân cư", q: "Chủ nhân văn minh Chăm-pa thuộc ngữ hệ nào?", a: "Nam Đảo (Austronesian)", opts: ["Nam Đảo (Austronesian)", "Nam Á", "Hán - Tạng", "Thái - Kadai"] },
-    { t: "Bài 13: Ảnh hưởng Ấn", q: "Tôn giáo nào của Ấn Độ có ảnh hưởng sâu rộng nhất đến Chăm-pa?", a: "Hindu giáo và Phật giáo", opts: ["Hindu giáo và Phật giáo", "Nho giáo", "Công giáo", "Đạo giáo"] },
-    { t: "Bài 13: Thành tựu", q: "Chữ viết cổ của người Chăm được sáng tạo dựa trên chữ nào?", a: "Chữ Phạn (Sanskrit)", opts: ["Chữ Phạn (Sanskrit)", "Chữ Hán", "Chữ La-tinh", "Chữ Nôm"] },
-    { t: "Bài 13: Xã hội", q: "Gia đình người Chăm cổ mang đậm dấu ấn của chế độ nào?", a: "Mẫu hệ", opts: ["Mẫu hệ", "Phụ hệ", "Phong kiến", "Chiếm hữu nô lệ"] },
-    { t: "Bài 13: Thành tựu", q: "Quần thể kiến trúc tiêu biểu nhất của người Chăm là?", a: "Thánh địa Mỹ Sơn", opts: ["Thánh địa Mỹ Sơn", "Chùa Một Cột", "Thành Cổ Loa", "Kinh thành Huế"] },
-    { t: "Bài 13: Kinh tế", q: "Người Chăm đã phát minh ra thiết bị gì để tưới tiêu ruộng cao?", a: "Xe tát nước (Cọn nước)", opts: ["Xe tát nước (Cọn nước)", "Máy bơm điện", "Đập thủy lợi", "Kênh đào vạn niên"] },
-    { t: "Bài 13: Kinh tế", q: "Sản phẩm lâm thổ sản nổi tiếng nào của Chăm-pa được thương nhân ưa chuộng?", a: "Trầm hương và ngà voi", opts: ["Trầm hương và ngà voi", "Trống đồng", "Chè và cà phê", "Lúa nếp"] },
-    { t: "Bài 13: Đời sống", q: "Lễ hội Katê là lễ hội quan trọng nhất của dân tộc nào?", a: "Người Chăm", opts: ["Người Chăm", "Người Kinh", "Người Khmer", "Người Thái"] },
-    { t: "Bài 13: Thành tựu", q: "Điệu múa đặc trưng thường thấy trong các lễ hội Chăm là?", a: "Múa Apsara", opts: ["Múa Apsara", "Múa Sạp", "Múa Xòe", "Múa Lân"] },
-    { t: "Bài 13: Thành tựu", q: "Vật liệu chính dùng để xây dựng các tháp Chăm nghìn năm không đổ là?", a: "Gạch nung", opts: ["Gạch nung", "Đá hoa cương", "Bê tông", "Gỗ lim"] },
-    { t: "Bài 13: Xã hội", q: "Vua Chăm thường được xem là hiện thân của vị thần nào?", a: "Thần Shiva", opts: ["Thần Shiva", "Thần Brahma", "Thần Vishnu", "Thần Indra"] },
-    { t: "Bài 13: Kinh tế", q: "Thương cảng nổi tiếng của Chăm-pa tại Quảng Nam có tên là?", a: "Đại Chiêm Hải Khẩu", opts: ["Đại Chiêm Hải Khẩu", "Óc Eo", "Vân Đồn", "Hội An"] },
-    { t: "Bài 13: Sự ra đời", q: "Nhà nước Lâm Ấp (tiền thân Chăm-pa) ra đời vào năm nào?", a: "Năm 192", opts: ["Năm 192", "Thế kỷ VII TCN", "Năm 938", "Năm 1010"] },
-
-    // === BÀI 14: VĂN MINH PHÙ NAM (15 CÂU) ===
-    { t: "Bài 14: ĐKTN", q: "Văn minh Phù Nam hình thành trên cơ sở văn hóa nào?", a: "Óc Eo", opts: ["Óc Eo", "Sa Huỳnh", "Đông Sơn", "Hòa Bình"] },
-    { t: "Bài 14: ĐKTN", q: "Địa bàn trọng tâm của Phù Nam thuộc khu vực nào?", a: "Nam Bộ Việt Nam", opts: ["Nam Bộ Việt Nam", "Bắc Bộ", "Trung Bộ", "Tây Nguyên"] },
-    { t: "Bài 14: Kinh tế", q: "Cư dân Phù Nam giỏi về hoạt động kinh tế nào nhất?", a: "Thương nghiệp biển (ngoại thương)", opts: ["Thương nghiệp biển (ngoại thương)", "Săn bắn", "Du mục", "Dệt vải"] },
-    { t: "Bài 14: Kinh tế", q: "Thương cảng sầm uất nhất của Phù Nam kết nối Đông - Tây là?", a: "Óc Eo", opts: ["Óc Eo", "Vân Đồn", "Lạch Trường", "Hội An"] },
-    { t: "Bài 14: Ảnh hưởng Ấn", q: "Tôn giáo từ Ấn Độ ảnh hưởng mạnh đến đời sống Phù Nam là?", a: "Hindu giáo và Phật giáo", opts: ["Hindu giáo và Phật giáo", "Nho giáo", "Công giáo", "Hồi giáo"] },
-    { t: "Bài 14: Xã hội", q: "Tầng lớp có quyền lực nhất trong xã hội Phù Nam là?", a: "Tăng lữ và quý tộc", opts: ["Tăng lữ và quý tộc", "Thương gia", "Nông dân", "Nô lệ"] },
-    { t: "Bài 14: Đời sống", q: "Cư dân Phù Nam ở nhà sàn nhằm mục đích gì?", a: "Thích nghi vùng đất ngập nước, kênh rạch", opts: ["Thích nghi vùng đất ngập nước, kênh rạch", "Tránh bão cát", "Thờ cúng tổ tiên", "Để nuôi gia súc"] },
-    { t: "Bài 14: Thành tựu", q: "Kỹ thuật thủ công nào của Phù Nam đạt trình độ rất cao?", a: "Kim hoàn và tạc tượng", opts: ["Kim hoàn và tạc tượng", "Đúc trống đồng", "Sản xuất giấy", "Chế tạo súng"] },
-    { t: "Bài 14: Sự ra đời", q: "Nhà nước Phù Nam ra đời vào khoảng thời gian nào?", a: "Thế kỷ I", opts: ["Thế kỷ I", "Thế kỷ III TCN", "Thế kỷ X", "Thế kỷ XV"] },
-    { t: "Bài 14: Ảnh hưởng Ấn", q: "Hiện vật nào chứng tỏ Phù Nam giao thương với phương Tây qua Ấn Độ?", a: "Tiền vàng La Mã", opts: ["Tiền vàng La Mã", "Trống đồng", "Chữ Nôm", "Súng thần cơ"] },
-    { t: "Bài 14: Xã hội", q: "Cư dân Phù Nam chủ yếu thuộc ngữ hệ nào?", a: "Nam Đảo và Nam Á", opts: ["Nam Đảo và Nam Á", "Hán - Tạng", "Ấn - Âu", "Mông Cổ"] },
-    { t: "Bài 14: Thành tựu", q: "Phong tục táng nào phổ biến trong văn minh Phù Nam?", a: "Hỏa táng, thủy táng, thổ táng, điểu táng", opts: ["Hỏa táng, thủy táng, thổ táng, điểu táng", "Chỉ địa táng", "Ướp xác", "Chôn trong hang đá"] },
-    { t: "Bài 14: Kinh tế", q: "Phù Nam kiểm soát con đường giao thương quan trọng nào?", a: "Con đường tơ lụa trên biển", opts: ["Con đường tơ lụa trên biển", "Đường xuyên Á", "Con đường gia vị trên bộ", "Đường mòn Hồ Chí Minh"] },
-    { t: "Bài 14: Kết thúc", q: "Phù Nam bị vương quốc nào thôn tính vào thế kỷ VI - VII?", a: "Chân Lạp", opts: ["Chân Lạp", "Chăm-pa", "Đại Việt", "Đế chế Khmer"] },
-    { t: "Bài 14: Đặc điểm", q: "Văn minh Phù Nam mang đậm tính chất gì?", a: "Văn minh sông nước và hướng biển", opts: ["Văn minh sông nước và hướng biển", "Văn minh thảo nguyên", "Văn minh du mục", "Văn minh công nghiệp"] },
-
-    // === BÀI 15: VĂN MINH ĐẠI VIỆT (15 CÂU) ===
-    { t: "Bài 15: Nguồn gốc", q: "Văn minh Đại Việt kế thừa trực tiếp từ nền văn minh nào?", a: "Văn minh Văn Lang - Âu Lạc", opts: ["Văn minh Văn Lang - Âu Lạc", "Văn minh Chăm-pa", "Văn minh Trung Hoa", "Văn minh Phù Nam"] },
-    { t: "Bài 15: Chính trị", q: "Thể chế chính trị xuyên suốt của văn minh Đại Việt là?", a: "Quân chủ chuyên chế trung ương tập quyền", opts: ["Quân chủ chuyên chế trung ương tập quyền", "Dân chủ cộng hòa", "Xã hội chủ nghĩa", "Liên bang"] },
-    { t: "Bài 15: Tư tưởng", q: "Hệ tư tưởng nào chiếm vị trí độc tôn từ thời Lê Sơ?", a: "Nho giáo", opts: ["Nho giáo", "Phật giáo", "Đạo giáo", "Hồi giáo"] },
-    { t: "Bài 15: Thành tựu", q: "Loại chữ viết riêng do người Việt sáng tạo để ghi âm tiếng Việt là?", a: "Chữ Nôm", opts: ["Chữ Nôm", "Chữ Hán", "Chữ Quốc ngữ", "Chữ Phạn"] },
-    { t: "Bài 15: Thành tựu", q: "Bộ luật nổi tiếng nhất của văn minh Đại Việt thời Lê Sơ là?", a: "Luật Hồng Đức (Quốc triều hình luật)", opts: ["Luật Hồng Đức (Quốc triều hình luật)", "Hình thư", "Luật Gia Long", "Hiến pháp"] },
-    { t: "Bài 15: Giáo dục", q: "Văn Miếu - Quốc Tử Giám được xây dựng lần đầu dưới thời vua nào?", a: "Lý Thánh Tông", opts: ["Lý Thánh Tông", "Trần Nhân Tông", "Lê Thánh Tông", "Gia Long"] },
-    { t: "Bài 15: Kỹ thuật", q: "Người thầy của muôn đời trong lịch sử giáo dục Đại Việt là?", a: "Chu Văn An", opts: ["Chu Văn An", "Nguyễn Bỉnh Khiêm", "Lê Quý Đôn", "Ngô Sĩ Liên"] },
-    { t: "Bài 15: Kỹ thuật", q: "Ai là người chế tạo súng thần cơ và thuyền chiến hai tầng thời nhà Hồ?", a: "Hồ Nguyên Trừng", opts: ["Hồ Nguyên Trừng", "Hồ Quý Ly", "Nguyễn Trãi", "Lê Lợi"] },
-    { t: "Bài 15: Thành tựu", q: "Bản tuyên ngôn độc lập đầu tiên của Đại Việt gắn liền với cuộc kháng chiến chống Tống là?", a: "Nam quốc sơn hà", opts: ["Nam quốc sơn hà", "Bình Ngô đại cáo", "Hịch tướng sĩ", "Truyện Kiều"] },
-    { t: "Bài 15: Văn học", q: "Tác phẩm văn học chữ Nôm được coi là đỉnh cao của văn minh Đại Việt là?", a: "Truyện Kiều (Nguyễn Du)", opts: ["Truyện Kiều (Nguyễn Du)", "Quốc âm thi tập", "Bình Ngô đại cáo", "Chinh phụ ngâm"] },
-    { t: "Bài 15: Nghệ thuật", q: "Loại hình nghệ thuật dân gian tiêu biểu ở đồng bằng Bắc Bộ là?", a: "Múa rối nước", opts: ["Múa rối nước", "Cải lương", "Hát bội", "Múa Apsara"] },
-    { t: "Bài 15: Kinh tế", q: "Thời kỳ văn minh Đại Việt, nền kinh tế đóng vai trò xương sống là?", a: "Nông nghiệp lúa nước", opts: ["Nông nghiệp lúa nước", "Thương mại biển", "Khai thác mỏ", "Sản xuất hàng thủ công"] },
-    { t: "Bài 15: Sử học", q: "Bộ quốc sử chính thức đầu tiên của Đại Việt do ai soạn thảo?", a: "Lê Văn Hưu", opts: ["Lê Văn Hưu", "Ngô Sĩ Liên", "Phan Huy Chú", "Lê Quý Đôn"] },
-    { t: "Bài 15: Tín ngưỡng", q: "Tín ngưỡng bản địa nào vẫn được duy trì mạnh mẽ trong văn minh Đại Việt?", a: "Thờ cúng tổ tiên", opts: ["Thờ cúng tổ tiên", "Thờ thần mặt trời", "Thờ thần Shiva", "Thờ thần lửa"] },
-    { t: "Bài 15: Đặc điểm", q: "Giá trị cốt lõi nhất của văn minh Đại Việt là?", a: "Lòng yêu nước và tinh thần độc lập tự chủ", opts: ["Lòng yêu nước và tinh thần độc lập tự chủ", "Sự hòa đồng tôn giáo", "Phát triển thương mại", "Du nhập văn hóa phương Tây"] }
+const dataLT = [
+    { t: "Bài 6: Rẽ nhánh", q: "Trong Python, từ khóa nào dùng cho cấu trúc rẽ nhánh?", a: "if, elif, else", opts: ["if, elif, else", "for, while", "input, print", "def, return"] },
+    { t: "Bài 6: Rẽ nhánh", q: "Sau điều kiện của lệnh if bắt buộc phải có ký tự gì?", a: "Dấu hai chấm (:)", opts: ["Dấu hai chấm (:)", "Dấu chấm phẩy (;)", "Dấu ngoặc đơn ()", "Dấu gạch dưới (_)"] },
+    { t: "Bài 6: Rẽ nhánh", q: "Phép toán so sánh 'bằng' trong Python được viết là?", a: "==", opts: ["==", "=", "!=", "<>"] },
+    { t: "Bài 6: Rẽ nhánh", q: "Lệnh elif dùng khi nào?", a: "Khi có nhiều điều kiện cần kiểm tra", opts: ["Khi có nhiều điều kiện cần kiểm tra", "Khi chỉ có một điều kiện duy nhất", "Dùng để thay thế lệnh for", "Dùng để kết thúc chương trình"] },
+    { t: "Bài 8: Lặp", q: "Vòng lặp for thường dùng trong trường hợp nào?", a: "Biết trước số lần lặp", opts: ["Biết trước số lần lặp", "Không biết trước số lần lặp", "Chỉ lặp 1 lần duy nhất", "Chỉ lặp khi sai"] },
+    { t: "Bài 8: Lặp", q: "Hàm range(5) tạo ra dãy số nào?", a: "0, 1, 2, 3, 4", opts: ["0, 1, 2, 3, 4", "1, 2, 3, 4, 5", "0, 1, 2, 3, 4, 5", "1, 2, 3, 4"] },
+    { t: "Bài 8: Lặp", q: "Lệnh range(2, 10, 2) tạo ra dãy số nào?", a: "2, 4, 6, 8", opts: ["2, 4, 6, 8", "2, 4, 6, 8, 10", "2, 3, 4, 5, 6, 7, 8, 9", "0, 2, 4, 6, 8"] },
+    { t: "Bài 8: Lặp", q: "Vòng lặp while dừng lại khi điều kiện có giá trị là?", a: "False", opts: ["False", "True", "None", "0"] },
+    { t: "Lỗi lập trình", q: "Lỗi 'IndentationError' là lỗi gì?", a: "Lỗi thụt lề dòng lệnh", opts: ["Lỗi thụt lề dòng lệnh", "Lỗi sai tên biến", "Lỗi thiếu dấu ngoặc", "Lỗi chia cho số 0"] },
+    { t: "Toán tử", q: "Để kiểm tra x là số chẵn, ta dùng điều kiện nào?", a: "x % 2 == 0", opts: ["x % 2 == 0", "x % 2 != 0", "x // 2 == 0", "x / 2 == 0"] },
+    { t: "Kiểu dữ liệu", q: "Lệnh input() trả về giá trị kiểu gì?", a: "Xâu ký tự (str)", opts: ["Xâu ký tự (str)", "Số nguyên (int)", "Số thực (float)", "Logic (bool)"] },
+    { t: "Toán tử", q: "Phép toán lấy phần dư trong Python là?", a: "%", opts: ["%", "//", "/", "**"] },
+    { t: "Cấu trúc", q: "Các lệnh bên trong khối if, for phải được trình bày như thế nào?", a: "Thụt lề thẳng hàng nhau", opts: ["Thụt lề thẳng hàng nhau", "Viết sát lề trái", "Nằm trên cùng một dòng với if", "Viết trong dấu ngoặc nhọn {}"] },
+    { t: "Bài 8: Lặp", q: "Lệnh for i in range(1, 1): thực hiện bao nhiêu lần lặp?", a: "0 lần", opts: ["0 lần", "1 lần", "Vô hạn", "Báo lỗi cú pháp"] },
+    { t: "Toán tử", q: "Kết quả của 10 // 3 là?", a: "3", opts: ["3", "3.33", "1", "0"] },
+    { t: "Toán tử", q: "Phép so sánh 'khác' được viết là?", a: "!=", opts: ["!=", "<>", "not", "=="] },
+    { t: "Bài 8: Lặp", q: "range(10, 0, -2) tạo ra dãy số nào?", a: "10, 8, 6, 4, 2", opts: ["10, 8, 6, 4, 2", "10, 9, 8, 7, 6, 5, 4, 3, 2, 1", "0, 2, 4, 6, 8, 10", "8, 6, 4, 2, 0"] },
+    { t: "Lý thuyết", q: "Câu lệnh nào thoát khỏi vòng lặp ngay lập tức?", a: "break", opts: ["break", "stop", "exit", "continue"] },
+    { t: "Lý thuyết", q: "Đâu là cách đặt tên biến ĐÚNG trong Python?", a: "tong_so", opts: ["tong_so", "1_tong", "tong-so", "tong so"] },
+    { t: "Lý thuyết", q: "Lệnh nào dùng để xuất dữ liệu ra màn hình?", a: "print()", opts: ["print()", "input()", "write()", "output()"] }
 ];
 
-const dataGeo = [
-    // === ĐỊA LÍ (60 CÂU MỚI) ===
-    { t: "Địa 10-B23", q: "Nguồn lực phát triển kinh tế là gì?", a: "Hệ thống các nhân tố thúc đẩy sự phát triển kinh tế", opts: ["Hệ thống các nhân tố thúc đẩy sự phát triển kinh tế", "Tổng số vốn đầu tư của nước ngoài", "Toàn bộ tài nguyên thiên nhiên hiện có", "Số lượng lao động trong độ tuổi"] },
-    { t: "Địa 10-B23", q: "Dựa vào nguồn gốc, nguồn lực được chia thành mấy nhóm chính?", a: "3 nhóm (Vị trí địa lí, Tự nhiên, Kinh tế - xã hội)", opts: ["3 nhóm (Vị trí địa lí, Tự nhiên, Kinh tế - xã hội)", "2 nhóm (Trong nước và ngoài nước)", "4 nhóm", "5 nhóm"] },
-    { t: "Địa 10-B23", q: "Vị trí địa lí bao gồm những loại hình nào?", a: "Tự nhiên, kinh tế, chính trị, giao thông", opts: ["Tự nhiên, kinh tế, chính trị, giao thông", "Nội lực và ngoại lực", "Trên cạn và dưới biển", "Đồng bằng và miền núi"] },
-    { t: "Địa 10-B23", q: "Vị trí địa lí có vai trò gì đối với phát triển kinh tế?", a: "Tạo thuận lợi hoặc gây khó khăn trong giao lưu quốc tế", opts: ["Tạo thuận lợi hoặc gây khó khăn trong giao lưu quốc tế", "Quyết định hoàn toàn trình độ phát triển", "Là nguồn lực duy nhất để làm giàu", "Không ảnh hưởng đến kinh tế"] },
-    { t: "Địa 10-B23", q: "Nguồn lực tự nhiên bao gồm các yếu tố nào?", a: "Đất, khí hậu, nước, sinh vật, khoáng sản", opts: ["Đất, khí hậu, nước, sinh vật, khoáng sản", "Thị trường và vốn", "Dân cư và lao động", "Chính sách phát triển"] },
-    { t: "Địa 10-B23", q: "Nguồn lực tự nhiên đóng vai trò gì?", a: "Là cơ sở tự nhiên cho các quá trình sản xuất", opts: ["Là cơ sở tự nhiên cho các quá trình sản xuất", "Là nhân tố quyết định nhất", "Chỉ quan trọng với ngành dịch vụ", "Không quan trọng bằng vị trí"] },
-    { t: "Địa 10-B23", q: "Nguồn lực kinh tế - xã hội bao gồm những yếu tố nào?", a: "Dân cư, vốn, khoa học kĩ thuật, thị trường", opts: ["Dân cư, vốn, khoa học kĩ thuật, thị trường", "Địa hình và đất đai", "Vị trí tiếp giáp biển", "Khoáng sản và năng lượng"] },
-    { t: "Địa 10-B23", q: "Nguồn lực nào đóng vai trò QUYẾT ĐỊNH sự phát triển kinh tế?", a: "Nguồn lực kinh tế - xã hội", opts: ["Nguồn lực kinh tế - xã hội", "Nguồn lực tự nhiên", "Vị trí địa lí", "Nguồn lực ngoài nước"] },
-    { t: "Địa 10-B23", q: "Tại sao nguồn lực con người là quan trọng nhất?", a: "Vì con người sử dụng và cải tạo các nguồn lực khác", opts: ["Vì con người sử dụng và cải tạo các nguồn lực khác", "Vì con người tạo ra tài nguyên tự nhiên", "Vì con người không bao giờ thay đổi", "Vì số lượng con người luôn tăng"] },
-    { t: "Địa 10-B23", q: "Căn cứ vào phạm vi lãnh thổ, nguồn lực chia thành?", a: "Nguồn lực trong nước (nội lực) và ngoài nước (ngoại lực)", opts: ["Nguồn lực trong nước (nội lực) và ngoài nước (ngoại lực)", "Nguồn lực đất và nguồn lực biển", "Nguồn lực tư nhân và nhà nước", "Nguồn lực nông thôn và thành thị"] },
-    { t: "Địa 10-B23", q: "Ngoại lực bao gồm các yếu tố nào?", a: "Vốn đầu tư, công nghệ, thị trường nước ngoài", opts: ["Vốn đầu tư, công nghệ, thị trường nước ngoài", "Lao động trong nước", "Khoáng sản nội địa", "Chính sách của chính phủ"] },
-    { t: "Địa 10-B23", q: "Vai trò của nội lực là?", a: "Giữ vai trò quyết định, là sức mạnh nội tại", opts: ["Giữ vai trò quyết định, là sức mạnh nội tại", "Chỉ mang tính chất hỗ trợ", "Không quan trọng bằng vốn nước ngoài", "Thay đổi theo mùa"] },
-    { t: "Địa 10-B23", q: "Vai trò của ngoại lực là?", a: "Quan trọng, giúp đẩy nhanh tốc độ phát triển", opts: ["Quan trọng, giúp đẩy nhanh tốc độ phát triển", "Giữ vai trò quyết định hoàn toàn", "Làm suy yếu nền kinh tế", "Chỉ dành cho các nước giàu"] },
-    { t: "Địa 10-B23", q: "Sự phát triển của khoa học kĩ thuật giúp con người làm gì?", a: "Sử dụng hiệu quả hơn các nguồn lực tự nhiên", opts: ["Sử dụng hiệu quả hơn các nguồn lực tự nhiên", "Thay thế hoàn toàn con người", "Làm cạn kiệt tài nguyên nhanh hơn", "Chỉ phát triển được ngành nông nghiệp"] },
-    { t: "Địa 10-B23", q: "Thị trường có tác động thế nào đến sản xuất?", a: "Định hướng sản xuất và thúc đẩy tiêu dùng", opts: ["Định hướng sản xuất và thúc đẩy tiêu dùng", "Cung cấp nguyên liệu cho máy móc", "Làm giảm giá thành sản phẩm", "Chỉ ảnh hưởng đến xuất khẩu"] },
-    // (Tiếp tục soạn tương tự để đủ 30 câu cho Bài 23 về các ví dụ cụ thể như vốn, chính sách...)
-    { t: "Địa 10-B23", q: "Việc khai thác dầu mỏ ở thềm lục địa là tận dụng nguồn lực nào?", a: "Nguồn lực tự nhiên", opts: ["Nguồn lực tự nhiên", "Vị trí địa lí", "Vốn nước ngoài", "Chính sách kinh tế"] },
-    { t: "Địa 10-B23", q: "Nguồn vốn FDI từ nước ngoài vào Việt Nam là?", a: "Nguồn lực ngoài nước (Ngoại lực)", opts: ["Nguồn lực ngoài nước (Ngoại lực)", "Nội lực", "Nguồn lực tự nhiên", "Vị trí địa lí"] },
-
-    // === BÀI 24: CƠ CẤU NỀN KINH TẾ (30 CÂU) ===
-    { t: "Địa 10-B24", q: "Cơ cấu nền kinh tế là gì?", a: "Tập hợp các bộ phận hợp thành và mối quan hệ giữa chúng", opts: ["Tập hợp các bộ phận hợp thành và mối quan hệ giữa chúng", "Tổng số tiền một quốc gia kiếm được", "Danh sách các nhà máy đang hoạt động", "Sự phân chia giàu nghèo trong xã hội"] },
-    { t: "Địa 10-B24", q: "Cơ cấu kinh tế gồm mấy bộ phận hợp thành?", a: "3 bộ phận (Ngành, Thành phần, Lãnh thổ)", opts: ["3 bộ phận (Ngành, Thành phần, Lãnh thổ)", "2 bộ phận", "4 bộ phận", "5 bộ phận"] },
-    { t: "Địa 10-B24", q: "Cơ cấu ngành kinh tế phản ánh điều gì?", a: "Trình độ phân công lao động xã hội", opts: ["Trình độ phân công lao động xã hội", "Chính sách đối ngoại", "Sự phân bố tài nguyên", "Sự giàu có của các tập đoàn"] },
-    { t: "Địa 10-B24", q: "Khu vực I trong cơ cấu ngành kinh tế gồm?", a: "Nông nghiệp, lâm nghiệp, thủy sản", opts: ["Nông nghiệp, lâm nghiệp, thủy sản", "Công nghiệp và xây dựng", "Dịch vụ và du lịch", "Giao thông vận tải"] },
-    { t: "Địa 10-B24", q: "Khu vực II trong cơ cấu ngành kinh tế gồm?", a: "Công nghiệp và xây dựng", opts: ["Công nghiệp và xây dựng", "Nông lâm thủy sản", "Thương mại dịch vụ", "Y tế giáo dục"] },
-    { t: "Địa 10-B24", q: "Khu vực III trong cơ cấu ngành kinh tế gồm?", a: "Các hoạt động dịch vụ", opts: ["Các hoạt động dịch vụ", "Khai thác khoáng sản", "Trồng cây lương thực", "Xây dựng nhà ở"] },
-    { t: "Địa 10-B24", q: "Cơ cấu thành phần kinh tế phản ánh?", a: "Chế độ sở hữu và quan hệ sản xuất", opts: ["Chế độ sở hữu và quan hệ sản xuất", "Vị trí của đất nước trên thế giới", "Sự phân bố các khu công nghiệp", "Sự phát triển của máy móc"] },
-    { t: "Địa 10-B24", q: "Kinh tế Nhà nước đóng vai trò gì ở Việt Nam?", a: "Chủ đạo, nắm giữ các ngành then chốt", opts: ["Chủ đạo, nắm giữ các ngành then chốt", "Hỗ trợ cho kinh tế tư nhân", "Chỉ hoạt động trong nông nghiệp", "Không có vai trò gì đáng kể"] },
-    { t: "Địa 10-B24", q: "Cơ cấu lãnh thổ được hình thành do?", a: "Sự phân bố các hoạt động kinh tế theo không gian", opts: ["Sự phân bố các hoạt động kinh tế theo không gian", "Sự phân chia ranh giới hành chính", "Sự khác biệt về ngôn ngữ vùng miền", "Sự di cư của người lao động"] },
-    { t: "Địa 10-B24", q: "Các nước phát triển thường có cơ cấu ngành như thế nào?", a: "Dịch vụ chiếm tỉ trọng rất cao, nông nghiệp rất thấp", opts: ["Dịch vụ chiếm tỉ trọng rất cao, nông nghiệp rất thấp", "Nông nghiệp chiếm tỉ trọng cao nhất", "Công nghiệp nặng là chủ yếu", "Cân bằng giữa cả 3 khu vực"] },
-    { t: "Địa 10-B24", q: "Các nước đang phát triển thường có đặc điểm gì về cơ cấu ngành?", a: "Tỉ trọng nông nghiệp còn khá cao", opts: ["Tỉ trọng nông nghiệp còn khá cao", "Dịch vụ chiếm 90% GDP", "Không có ngành công nghiệp", "Chỉ dựa vào xuất khẩu chất xám"] },
-    { t: "Địa 10-B24", q: "GDP là viết tắt của cụm từ nào?", a: "Tổng sản phẩm trong nước", opts: ["Tổng sản phẩm trong nước", "Tổng thu nhập quốc gia", "Giá trị sản xuất công nghiệp", "Tốc độ tăng trưởng vốn"] },
-    { t: "Địa 10-B24", q: "GNI (Tổng thu nhập quốc gia) khác GDP ở chỗ nào?", a: "Tính cả thu nhập từ nước ngoài gửi về", opts: ["Tính cả thu nhập từ nước ngoài gửi về", "Chỉ tính sản xuất trong nước", "Không tính thuế", "Chỉ tính giá trị nông nghiệp"] },
-    { t: "Địa 10-B24", q: "Chỉ số GNI trên đầu người dùng để đánh giá?", a: "Mức sống và trình độ phát triển của dân cư", opts: ["Mức sống và trình độ phát triển của dân cư", "Tổng diện tích của quốc gia", "Số lượng trẻ em được đi học", "Sức mạnh quân sự"] },
-    { t: "Địa 10-B24", q: "Sự chuyển dịch cơ cấu ngành kinh tế theo hướng tiến bộ là?", a: "Giảm tỉ trọng KV I, tăng tỉ trọng KV II và III", opts: ["Giảm tỉ trọng KV I, tăng tỉ trọng KV II và III", "Tăng tỉ trọng KV I, giảm KV III", "Giữ nguyên tỉ trọng các ngành", "Chỉ tập trung phát triển KV I"] },
-    { t: "Địa 10-B24", q: "Toàn cầu hóa ảnh hưởng thế nào đến cơ cấu lãnh thổ?", a: "Tăng cường liên kết giữa các quốc gia", opts: ["Tăng cường liên kết giữa các quốc gia", "Làm đóng cửa các biên giới", "Chỉ phát triển kinh tế nội địa", "Làm giảm vai trò của biển"] },
-    { t: "Địa 10-B24", q: "Tại sao phải chuyển dịch cơ cấu kinh tế?", a: "Để phù hợp với trình độ phát triển khoa học kĩ thuật", opts: ["Để phù hợp với trình độ phát triển khoa học kĩ thuật", "Để giảm bớt số lượng công nhân", "Để tiêu hết số vốn đầu tư", "Để tăng diện tích trồng lúa"] },
-    { t: "Địa 10-B24", q: "Vùng kinh tế trọng điểm là biểu hiện của loại cơ cấu nào?", a: "Cơ cấu lãnh thổ", opts: ["Cơ cấu lãnh thổ", "Cơ cấu ngành", "Cơ cấu thành phần", "Cơ cấu vốn"] },
-    { t: "Địa 10-B24", q: "Sự thay đổi tỉ trọng các ngành trong GDP gọi là?", a: "Chuyển dịch cơ cấu ngành kinh tế", opts: ["Chuyển dịch cơ cấu ngành kinh tế", "Lạm phát", "Khủng hoảng kinh tế", "Phát triển dân số"] },
-    { t: "Địa 10-B24", q: "Nhân tố nào ảnh hưởng mạnh nhất đến cơ cấu lãnh thổ kinh tế?", a: "Vị trí địa lí và tài nguyên tự nhiên", opts: ["Vị trí địa lí và tài nguyên tự nhiên", "Tâm lí của người tiêu dùng", "Màu sắc của các nhà máy", "Số lượng trường học"] },
-    { t: "Địa 10-B24", q: "Năng suất lao động tăng cao dẫn đến xu hướng gì?", a: "Giải phóng lao động từ nông nghiệp sang dịch vụ", opts: ["Giải phóng lao động từ nông nghiệp sang dịch vụ", "Mọi người đều thất nghiệp", "Giá thực phẩm tăng vọt", "Ngừng sản xuất công nghiệp"] }
-    // ... (Mình đã chọn lọc những câu cốt lõi nhất để đảm bảo bao phủ hết kiến thức bài 23, 24)
+const dataBT = [
+    { t: "Dạng: Đếm", q: "Đoạn code sau in ra gì?\nd = 0\nfor i in range(1, 6):\n    if i % 2 == 0:\n        d = d + 1\nprint(d)", a: "2", opts: ["2", "3", "5", "6"] },
+    { t: "Dạng: Tính Tổng", q: "Kết quả của đoạn code sau là:\nS = 0\nfor i in range(1, 4):\n    S = S + i\nprint(S)", a: "6", opts: ["6", "3", "4", "10"] },
+    { t: "Dạng: In phần tử", q: "Đoạn code sau in ra dãy số nào?\nfor i in range(3):\n    print(i, end=' ')", a: "0 1 2", opts: ["0 1 2", "1 2 3", "0 1 2 3", "i i i"] },
+    { t: "Dạng: Tính Tổng", q: "Để tính tổng các số lẻ từ 1 đến n, lệnh for nào đúng?", a: "for i in range(1, n + 1, 2):", opts: ["for i in range(1, n + 1, 2):", "for i in range(1, n, 2):", "for i in range(2, n + 1, 2):", "for i in range(n):"] },
+    { t: "Dạng: Đếm", q: "Đoạn code này đếm các số như thế nào?\nif i % 3 == 0 and i % 5 == 0:\n    d = d + 1", a: "Đếm các số chia hết cho cả 3 và 5", opts: ["Đếm các số chia hết cho cả 3 và 5", "Đếm các số chia hết cho 3 hoặc 5", "Đếm các số không chia hết cho 15", "Báo lỗi vì có 2 điều kiện"] },
+    { t: "Đọc hiểu", q: "Giá trị của S sau khi chạy code là bao nhiêu?\nS = 10\nif S > 5:\n    S = S - 5\nelse:\n    S = S + 5", a: "5", opts: ["5", "15", "10", "0"] },
+    { t: "Dạng: In phần tử", q: "Lệnh nào in các số từ 1 đến 10 trên cùng một hàng?", a: "print(i, end=' ')", opts: ["print(i, end=' ')", "print(i)", "input(i)", "print(i, ' ')"] },
+    { t: "Dạng: Tính Tổng", q: "S khởi tạo bằng 0. Sau vòng lặp for i in range(3): S = S + 2. Giá trị S là?", a: "6", opts: ["6", "2", "3", "0"] },
+    { t: "Dạng: Đếm", q: "Biến 'dem' trong bài toán đếm thường được khởi tạo bằng?", a: "0", opts: ["0", "1", "None", "n"] },
+    { t: "Đọc hiểu", q: "Vòng lặp while i < 3: in ra bao nhiêu dòng nếu i bắt đầu từ 0 và mỗi bước i tăng 1?", a: "3", opts: ["3", "2", "4", "Vô hạn"] },
+    { t: "Dạng: Tính Tổng", q: "Muốn tính tổng 1 + 1/2 + 1/3... ta khởi tạo S kiểu gì là tốt nhất?", a: "S = 0.0", opts: ["S = 0.0", "S = 0", "S = 1", "S = '0'"] },
+    { t: "Dạng: In phần tử", q: "Kết quả: for i in 'ABC': print(i)", a: "A B C (mỗi chữ một dòng)", opts: ["A B C (mỗi chữ một dòng)", "ABC", "3", "Lỗi"] },
+    { t: "Dạng: Đếm", q: "Lệnh d += 1 tương đương với lệnh nào?", a: "d = d + 1", opts: ["d = d + 1", "d = 1", "d + 1 = d", "d = d + d"] },
+    { t: "Dạng: Tính Tổng", q: "Tính tổng các số từ 1 đến n, giá trị cuối của range là?", a: "n + 1", opts: ["n + 1", "n", "n - 1", "0"] },
+    { t: "Đọc hiểu", q: "Kết quả in ra là gì?\na = 5\nb = 10\nif a < b:\n    print(b - a)", a: "5", opts: ["5", "10", "15", "-5"] },
+    { t: "Dạng: Đếm", q: "Để đếm các số chia 5 dư 2, điều kiện if là?", a: "i % 5 == 2", opts: ["i % 5 == 2", "i // 5 == 2", "i % 2 == 5", "i / 5 == 2"] },
+    { t: "Dạng: In", q: "In các số từ 5 về 1, lệnh for nào đúng?", a: "for i in range(5, 0, -1):", opts: ["for i in range(5, 0, -1):", "for i in range(5, 1, -1):", "for i in range(1, 6):", "for i in range(5, 1):"] },
+    { t: "Tính Tổng", q: "S = 0; S = S + 10; S = S + 20; print(S)", a: "30", opts: ["30", "10", "20", "0"] },
+    { t: "Dạng: Đếm", q: "Vòng lặp chạy 10 lần, điều kiện if luôn đúng, biến dem tăng 1. dem bằng?", a: "10", opts: ["10", "9", "11", "1"] },
+    { t: "Dạng: Tổng", q: "S = 0; for i in range(1, 4): S = S + i*i. S bằng?", a: "14", opts: ["14", "6", "9", "10"] }
 ];
 
-let currentSubject = 'su';
+let currentSubject = 'lythuyet';
 let correctCount = 0; 
 let wrongCount = 0;
 
@@ -183,7 +109,7 @@ function initQuiz() {
     document.getElementById('correct-count').innerText = 0;
     document.getElementById('wrong-count').innerText = 0;
     
-    const questions = currentSubject === 'su' ? dataHistory : dataGeo;
+    const questions = currentSubject === 'lythuyet' ? dataLT : dataBT;
     const shuffledQ = shuffle([...questions]);
     
     shuffledQ.forEach((item, index) => {
