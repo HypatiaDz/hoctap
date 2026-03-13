@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Python 10 - 70 Câu Cực Kỹ</title>
+    <title>Ôn Tập Python 10 - Bài 6 & 8 (Kèm Lưu Ý & Bẫy)</title>
     <style>
-        :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; --bg: #f8f9fa; --gray: #5f6368; }
+        :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; --bg: #f8f9fa; --code-bg: #1e1e1e; --warning: #ff9800; --note: #673ab7; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 10px; margin: 0; }
         .container { max-width: 850px; margin: auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .score-board { position: sticky; top: 10px; background: #fff; z-index: 100; padding: 15px; border: 2px solid var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; border-radius: 10px; display: flex; justify-content: space-around; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .question-card { background: #fff; border: 1px solid #dadce0; border-radius: 12px; padding: 20px; margin-bottom: 20px; transition: 0.3s; }
-        .q-text { font-weight: bold; margin-bottom: 15px; color: #202124; line-height: 1.6; font-size: 1.1rem; white-space: pre-wrap; background: #f1f3f4; padding: 15px; border-radius: 8px; border-left: 5px solid var(--primary); font-family: 'Consolas', 'Courier New', monospace; }
+        .question-card { background: #fff; border: 1px solid #dadce0; border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .q-text { font-weight: bold; margin-bottom: 15px; color: #f8f8f2; line-height: 1.6; font-size: 1.1rem; white-space: pre-wrap; background: var(--code-bg); padding: 15px; border-radius: 8px; font-family: 'Consolas', monospace; border-left: 5px solid var(--primary); }
         .tag { font-size: 0.8rem; background: #e8f0fe; color: #1967d2; padding: 5px 15px; border-radius: 15px; margin-bottom: 10px; display: inline-block; font-weight: bold; }
+        .tag-note { background: #f3e5f5; color: var(--note); }
         .options { display: flex; flex-direction: column; gap: 12px; }
-        .opt { padding: 15px; border: 2px solid #f1f3f4; border-radius: 10px; cursor: pointer; transition: 0.2s; background: #fff; font-size: 1rem; }
+        .opt { padding: 15px; border: 2px solid #f1f3f4; border-radius: 10px; cursor: pointer; transition: 0.2s; background: #fff; }
         .opt:hover { background: #f8f9fa; border-color: #d2e3fc; }
         .opt.correct { background: #d4edda !important; border-color: var(--success) !important; color: #155724; font-weight: bold; }
         .opt.wrong { background: #f8d7da !important; border-color: var(--danger) !important; color: #721c24; }
+        .explanation { margin-top: 15px; padding: 15px; background: #fff3e0; border-left: 5px solid var(--warning); border-radius: 5px; display: none; font-size: 0.95rem; line-height: 1.6; color: #333; }
+        .reset-btn { width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-bottom: 25px; font-size: 1.2rem; }
         .opt.disabled { pointer-events: none; }
-        .reset-btn { width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-bottom: 25px; font-size: 1.2rem; box-shadow: 0 4px 6px rgba(26,115,232,0.3); }
-        .reset-btn:active { transform: scale(0.98); }
     </style>
 </head>
 <body>
@@ -30,96 +31,84 @@
 </div>
 
 <div class="container">
-    <h2 style="text-align:center; color:var(--primary); margin-top:0;">TIN HỌC 10 - NGÂN HÀNG 70 CÂU</h2>
-    <p style="text-align:center; color:var(--gray);">Hệ thống trộn 70 câu - Mỗi lần làm hiển thị 20 câu ngẫu nhiên.</p>
-    <button class="reset-btn" onclick="initQuiz()">TRỘN ĐỀ & LÀM MỚI (20 CÂU)</button>
+    <h2 style="text-align:center; color:var(--primary); margin-top:0;">ÔN TẬP TIN HỌC 10 - BÀI 6 & 8</h2>
+    <p style="text-align:center; color:var(--gray);">Hệ thống giải thích chi tiết & các câu hỏi bẫy thường gặp</p>
+    <button class="reset-btn" onclick="initQuiz()">TRỘN ĐỀ & LÀM MỚI (Lấy 20 câu)</button>
     <div id="quiz-box"></div>
 </div>
 
 <script>
 const dataTin = [
-    // --- DẠNG: TÍNH TỔNG (CỰC NHIỀU TRƯỜNG HỢP) ---
-    { t: "Dạng: Tổng", q: "S = 0\nfor i in range(1, 5):\n    S = S + i\nprint(S)", a: "10", opts: ["10", "6", "15", "4"] },
-    { t: "Dạng: Tổng", q: "S = 0\nfor i in range(4):\n    S = S + 2\nprint(S)", a: "8", opts: ["8", "6", "10", "4"] },
-    { t: "Dạng: Tổng", q: "S = 0\nfor i in range(1, 6):\n    if i % 2 == 0:\n        S = S + i\nprint(S)", a: "6", opts: ["6", "15", "9", "4"] },
-    { t: "Dạng: Tổng", q: "S = 0\nfor i in range(1, 6):\n    if i % 2 != 0:\n        S = S + i\nprint(S)", a: "9", opts: ["9", "6", "15", "5"] },
-    { t: "Dạng: Tổng", q: "S = 10\nfor i in range(1, 3):\n    S = S + i\nprint(S)", a: "13", opts: ["13", "12", "3", "10"] },
-    { t: "Dạng: Tổng", q: "S = 0\nfor i in range(1, 4):\n    S = S + i * 10\nprint(S)", a: "60", opts: ["60", "30", "10", "40"] },
-    { t: "Dạng: Tổng", q: "Để tính tổng 1 + 2 + ... + n, lệnh nào trong vòng lặp là đúng?", a: "S = S + i", opts: ["S = S + i", "S = S + 1", "S = i", "S = S + n"] },
-    { t: "Dạng: Tổng", q: "S = 0\nfor i in range(3):\n    S = S + 5\nprint(S)", a: "15", opts: ["15", "10", "5", "0"] },
-    { t: "Dạng: Tổng", q: "S = 1\nfor i in range(1, 4):\n    S = S * i\nprint(S)", a: "6", opts: ["6", "3", "4", "1"] },
-    { t: "Dạng: Tổng", q: "S = 0\nfor i in range(1, 11):\n    if i > 8:\n        S = S + i\nprint(S)", a: "19", opts: ["19", "10", "9", "0"] },
+    // --- PHẦN LƯU Ý / BẪY (NEW) ---
+    {
+        t: "Lưu ý: Lỗi Cú Pháp",
+        q: "Đoạn code sau đây sai ở đâu?\nif x > 5\n    print('Hello')",
+        a: "Thiếu dấu hai chấm (:) sau điều kiện",
+        opts: ["Thiếu dấu hai chấm (:) sau điều kiện", "Sai lệnh print", "Thiếu dấu ngoặc đơn ở if", "Không sai gì cả"],
+        e: "Lưu ý cực kỳ quan trọng: Trong Python, sau lệnh 'if', 'elif', 'else', 'for', 'while' BẮT BUỘC phải có dấu hai chấm (:). Nếu thiếu, chương trình sẽ báo lỗi SyntaxError ngay lập tức."
+    },
+    {
+        t: "Lưu ý: Thụt lề",
+        q: "Lỗi 'IndentationError' thường xảy ra khi nào?",
+        a: "Khi các dòng lệnh trong cùng khối lệnh không thụt lề thẳng hàng",
+        opts: ["Khi viết sai tên lệnh", "Khi các dòng lệnh trong cùng khối lệnh không thụt lề thẳng hàng", "Khi thiếu dấu ngoặc", "Khi chia cho số 0"],
+        e: "Giải thích: Python dùng thụt lề (thường là 4 dấu cách hoặc 1 phím Tab) để xác định các lệnh nào nằm bên trong 'if' hoặc 'for'. Nếu thụt lề lung tung, máy sẽ không hiểu."
+    },
+    {
+        t: "Lưu ý: Nhập dữ liệu",
+        q: "Để tính toán với số nguyên nhập từ bàn phím, tại sao lệnh n = input() là chưa đủ?",
+        a: "Vì input() mặc định trả về xâu ký tự, cần int() để chuyển sang số",
+        opts: ["Vì input() mặc định trả về xâu ký tự, cần int() để chuyển sang số", "Vì input() chỉ nhập được chữ", "Vì lệnh input() bị lỗi thời", "Vì cần phải có dấu ngoặc vuông"],
+        e: "Lưu ý: Nếu bạn viết n = input() rồi thực hiện n + 5, máy sẽ báo lỗi vì không thể cộng một 'chữ' với một 'số'. Phải viết là n = int(input())."
+    },
+    {
+        t: "Lưu ý: Vòng lặp vô hạn",
+        q: "Đoạn code sau sẽ bị hiện tượng gì?\ni = 1\nwhile i < 5:\n    print(i)",
+        a: "Lặp vô hạn (in số 1 mãi mãi)",
+        opts: ["In từ 1 đến 4", "Báo lỗi cú pháp", "Lặp vô hạn (in số 1 mãi mãi)", "Không in gì cả"],
+        e: "Giải thích: Trong vòng lặp while, bạn phải có lệnh thay đổi giá trị của i (ví dụ: i = i + 1). Ở đây i luôn bằng 1, mà 1 < 5 luôn Đúng, nên nó cứ in số 1 mãi không dừng."
+    },
 
-    // --- DẠNG: ĐẾM PHẦN TỬ (CỰC NHIỀU TRƯỜNG HỢP) ---
-    { t: "Dạng: Đếm", q: "d = 0\nfor i in range(1, 11):\n    if i % 2 == 0:\n        d = d + 1\nprint(d)", a: "5", opts: ["5", "10", "4", "6"] },
-    { t: "Dạng: Đếm", q: "d = 0\nfor i in range(5):\n    d = d + 1\nprint(d)", a: "5", opts: ["5", "4", "6", "0"] },
-    { t: "Dạng: Đếm", q: "d = 0\nfor i in range(1, 11):\n    if i % 3 == 0:\n        d = d + 1\nprint(d)", a: "3", opts: ["3", "2", "4", "10"] },
-    { t: "Dạng: Đếm", q: "d = 0\nfor i in range(1, 11):\n    if i % 5 == 0:\n        d = d + 1\nprint(d)", a: "2", opts: ["2", "1", "3", "5"] },
-    { t: "Dạng: Đếm", q: "d = 0\nfor i in range(1, 11):\n    if i > 7:\n        d = d + 1\nprint(d)", a: "3", opts: ["3", "7", "2", "4"] },
-    { t: "Dạng: Đếm", q: "Lệnh nào dùng để đếm số lượng các số thỏa mãn điều kiện?", a: "d = d + 1", opts: ["d = d + 1", "d = d + i", "d = i", "S = S + i"] },
-    { t: "Dạng: Đếm", q: "d = 0\nfor i in range(1, 4):\n    if i < 0:\n        d = d + 1\nprint(d)", a: "0", opts: ["0", "1", "2", "3"] },
-    { t: "Dạng: Đếm", q: "d = 10\nfor i in range(2):\n    d = d + 1\nprint(d)", a: "12", opts: ["12", "11", "10", "2"] },
-    { t: "Dạng: Đếm", q: "d = 0\nfor i in range(1, 101):\n    if i == 50:\n        d = d + 1\nprint(d)", a: "1", opts: ["1", "50", "100", "0"] },
-    { t: "Dạng: Đếm", q: "d = 0\nfor i in range(6):\n    if i % 2 != 0:\n        d = d + 1\nprint(d)", a: "3", opts: ["3", "6", "2", "5"] },
+    // --- DẠNG 1: TỔNG (S) ---
+    {
+        t: "Dạng: Tổng",
+        q: "S = 0\nfor i in range(1, 4):\n    if i % 2 != 0:\n        S = S + i\nprint(S)",
+        a: "4",
+        opts: ["4", "1", "3", "6"],
+        e: "Chạy code:\n- i chạy: 1, 2, 3.\n- i=1 (Lẻ): S = 0 + 1 = 1.\n- i=2 (Chẵn): Bỏ qua.\n- i=3 (Lẻ): S = 1 + 3 = 4.\nKết quả: 4."
+    },
 
-    // --- DẠNG: IN PHẦN TỬ (CỰC NHIỀU TRƯỜNG HỢP) ---
-    { t: "Dạng: In", q: "Lệnh in các giá trị của i trên cùng một hàng cách nhau dấu cách?", a: "print(i, end=' ')", opts: ["print(i, end=' ')", "print(i)", "input(i)", "print(i, ' ')"] },
-    { t: "Dạng: In", q: "for i in range(3):\n    print(i, end='')", a: "012", opts: ["012", "123", "0 1 2", "i i i"] },
-    { t: "Dạng: In", q: "for i in range(1, 4):\n    if i != 2:\n        print(i, end=' ')", a: "1 3 ", opts: ["1 3 ", "1 2 3 ", "2 ", "1 2 "] },
-    { t: "Dạng: In", q: "for i in range(2):\n    print('A', end='')", a: "AA", opts: ["AA", "A A", "A\nA", "AAA"] },
-    { t: "Dạng: In", q: "for i in range(5):\n    if i == 0:\n        print('Zero')", a: "Zero", opts: ["Zero", "0", "Lỗi", "Không in gì"] },
-    { t: "Dạng: In", q: "for i in range(2):\n    print(i)\n    print('X')", a: "0, X, 1, X (mỗi cái 1 dòng)", opts: ["0, X, 1, X (mỗi cái 1 dòng)", "0, 1, X, X", "X, X", "0, 1"] },
+    // --- DẠNG 2: ĐẾM (d) ---
+    {
+        t: "Dạng: Đếm",
+        q: "d = 0\nfor i in range(5):\n    if i % 2 == 0:\n        d = d + 1\nprint(d)",
+        a: "3",
+        opts: ["2", "3", "5", "4"],
+        e: "Chạy code:\n- i chạy: 0, 1, 2, 3, 4.\n- Số chẵn gồm: 0, 2, 4.\n- Có 3 số thỏa mãn nên d = 3.\n(Lưu ý: Số 0 vẫn được tính là số chẵn trong lập trình vì 0 chia hết cho 2)."
+    },
 
-    // --- LÝ THUYẾT BÀI 6: RẼ NHÁNH ---
-    { t: "Lý thuyết", q: "Từ khóa 'if' trong Python dùng để?", a: "Kiểm tra điều kiện", opts: ["Kiểm tra điều kiện", "Lặp lại", "Khai báo biến", "In dữ liệu"] },
-    { t: "Lý thuyết", q: "Biểu thức so sánh 'khác' trong Python viết là?", a: "!=", opts: ["!=", "<>", "not", "=="] },
-    { t: "Lý thuyết", q: "Cấu trúc rẽ nhánh 'dạng đủ' gồm?", a: "if và else", opts: ["if và else", "chỉ có if", "if và elif", "for và if"] },
-    { t: "Lý thuyết", q: "Sau 'if điều kiện' bắt buộc phải có dấu gì?", a: ":", opts: [":", ";", "!", "{}"] },
-    { t: "Lý thuyết", q: "Python dựa vào đâu để biết các lệnh thuộc cùng một khối lệnh if?", a: "Thụt lề thẳng hàng", opts: ["Thụt lề thẳng hàng", "Dấu ngoặc nhọn", "Dấu ngoặc đơn", "Viết trên 1 dòng"] },
-    { t: "Lý thuyết", q: "Biểu thức: 5 > 3 or 2 > 10 kết quả là?", a: "True", opts: ["True", "False", "None", "Error"] },
-    { t: "Lý thuyết", q: "Lệnh input() mặc định trả về kiểu dữ liệu nào?", a: "Xâu ký tự (str)", opts: ["Xâu ký tự (str)", "Số nguyên (int)", "Số thực (float)", "Logic (bool)"] },
-    { t: "Lý thuyết", q: "Để đổi xâu thành số nguyên, ta dùng lệnh?", a: "int()", opts: ["int()", "float()", "str()", "bool()"] },
-    { t: "Lý thuyết", q: "elif là viết tắt của?", a: "else if", opts: ["else if", "every if", "end if", "error if"] },
-    { t: "Lý thuyết", q: "Biểu thức: not(10 < 5) kết quả là?", a: "True", opts: ["True", "False", "None", "Error"] },
-
-    // --- LÝ THUYẾT BÀI 8: LẶP ---
-    { t: "Lý thuyết", q: "Vòng lặp for i in range(10) lặp bao nhiêu lần?", a: "10 lần", opts: ["10 lần", "9 lần", "11 lần", "0 lần"] },
-    { t: "Lý thuyết", q: "Hàm range(2, 5) tạo ra các số nào?", a: "2, 3, 4", opts: ["2, 3, 4", "2, 3, 4, 5", "1, 2, 3, 4", "3, 4, 5"] },
-    { t: "Lý thuyết", q: "Vòng lặp while lặp khi điều kiện mang giá trị?", a: "True", opts: ["True", "False", "0", "None"] },
-    { t: "Lý thuyết", q: "Để thoát khỏi vòng lặp ngay lập tức, ta dùng lệnh?", a: "break", opts: ["break", "continue", "stop", "exit"] },
-    { t: "Lý thuyết", q: "Lệnh range(1, 2) lặp mấy lần?", a: "1 lần", opts: ["1 lần", "2 lần", "0 lần", "Vô hạn"] },
-    { t: "Lý thuyết", q: "Lệnh range(5, 5) lặp mấy lần?", a: "0 lần", opts: ["0 lần", "5 lần", "1 lần", "Vô hạn"] },
-    { t: "Lý thuyết", q: "Muốn i chạy từ 1 đến n, ta viết range như thế nào?", a: "range(1, n + 1)", opts: ["range(1, n + 1)", "range(1, n)", "range(n)", "range(0, n)"] },
-    { t: "Lý thuyết", q: "Trong vòng lặp while, nếu điều kiện luôn luôn True thì?", a: "Bị lặp vô hạn", opts: ["Bị lặp vô hạn", "Báo lỗi", "Lặp 1 lần", "Không lặp"] },
-
-    // --- TRỘN LẪN, ĐỌC HIỂU VÀ TÌM LỖI ---
-    { t: "Đọc hiểu", q: "a = 5\nif a > 0: a = a + 1\nif a > 5: a = a + 1\nprint(a)", a: "7", opts: ["7", "6", "5", "8"] },
-    { t: "Đọc hiểu", q: "for i in range(1, 4):\n    pass\nprint(i)", a: "3", opts: ["3", "4", "1", "0"] },
-    { t: "Đọc hiểu", q: "x = 10\nif x % 2 == 0:\n    print('C')\nelse:\n    print('L')", a: "C", opts: ["C", "L", "10", "Error"] },
-    { t: "Tìm lỗi", q: "Lệnh nào SAI cú pháp?", a: "if x = 5:", opts: ["if x = 5:", "if x == 5:", "if x > 5:", "if x != 5:"] },
-    { t: "Tìm lỗi", q: "Lệnh nào SAI cú pháp?", a: "for i in range 10:", opts: ["for i in range 10:", "for i in range(10):", "while i < 10:", "if i < 10:"] },
-    { t: "Phép toán", q: "7 % 2 kết quả là?", a: "1", opts: ["1", "0", "3", "3.5"] },
-    { t: "Phép toán", q: "7 // 2 kết quả là?", a: "3", opts: ["3", "1", "0", "3.5"] },
-    { t: "Đọc hiểu", q: "S = 0\nfor i in range(3):\n    S = S + i\nprint(S)", a: "3", opts: ["3", "6", "0", "2"] },
-    { t: "Đọc hiểu", q: "d = 0\nfor i in range(1, 4):\n    d = d + 1\n    d = d + 1\nprint(d)", a: "6", opts: ["6", "3", "4", "2"] },
-    { t: "Đọc hiểu", q: "n = 2\nif n > 1: print('A', end='')\nif n > 2: print('B', end='')\nelse: print('C', end='')", a: "AC", opts: ["AC", "A", "ABC", "C"] },
-    { t: "Lý thuyết", q: "Tên biến nào ĐÚNG?", a: "tong_so", opts: ["tong_so", "tong so", "1_tong", "if"] },
-    { t: "Lý thuyết", q: "Phép so sánh 'lớn hơn hoặc bằng' là?", a: ">=", opts: [">=", "=>", "> =", "=="] },
-    { t: "Lý thuyết", q: "Trong Python, # dùng để làm gì?", a: "Ghi chú", opts: ["Ghi chú", "Phép toán", "Kết thúc lệnh", "Bắt đầu hàm"] },
-    { t: "Đọc hiểu", q: "for i in range(1, 3):\n    print(i * i, end=' ')", a: "1 4 ", opts: ["1 4 ", "1 2 3 ", "1 2 ", "4 9 "] },
-    { t: "Đọc hiểu", q: "i = 1\nwhile i < 3:\n    print(i)\n    i = i + 1", a: "1, 2 (mỗi số 1 dòng)", opts: ["1, 2 (mỗi số 1 dòng)", "1, 2, 3", "0, 1, 2", "1"] },
-    { t: "Đọc hiểu", q: "s = 'Hi'\nprint(s * 3)", a: "HiHiHi", opts: ["HiHiHi", "Hi 3", "HiHi", "Lỗi"] },
-    { t: "Lý thuyết", q: "Lệnh nào in ra màn hình mà không xuống dòng?", a: "print(x, end='')", opts: ["print(x, end='')", "print(x)", "print(x, '\\n')", "input(x)"] },
-    { t: "Lý thuyết", q: "range(5) có bao nhiêu phần tử?", a: "5", opts: ["5", "4", "6", "Vô hạn"] },
-    { t: "Đọc hiểu", q: "x = 1\nfor i in range(3):\n    x = x + x\nprint(x)", a: "8", opts: ["8", "4", "6", "3"] },
-    { t: "Tìm lỗi", q: "Lỗi IndentationError liên quan đến?", a: "Thụt lề", opts: ["Thụt lề", "Tên biến", "Kiểu dữ liệu", "Phép toán"] },
-    { t: "Lý thuyết", q: "Hệ điều hành Windows thuộc loại phần mềm nào?", a: "Phần mềm hệ thống", opts: ["Phần mềm hệ thống", "Phần mềm ứng dụng", "Phần mềm mã nguồn mở", "Tiện ích"] },
-    { t: "Lý thuyết", q: "Trình duyệt Google Chrome là?", a: "Phần mềm ứng dụng", opts: ["Phần mềm ứng dụng", "Phần mềm hệ thống", "Hệ điều hành", "Phần cứng"] },
-    { t: "Lý thuyết", q: "Phần mềm mã nguồn mở có đặc điểm gì?", a: "Tự do sửa đổi mã nguồn", opts: ["Tự do sửa đổi mã nguồn", "Phải trả phí bản quyền", "Không được xem mã", "Chỉ chạy trên Windows"] },
-    { t: "Đọc hiểu", q: "a = 0\nfor i in range(10):\n    a = 1\nprint(a)", a: "1", opts: ["1", "10", "0", "9"] },
-    { t: "Rẽ nhánh", q: "Điều kiện kiểm tra n là bội của 3?", a: "n % 3 == 0", opts: ["n % 3 == 0", "n / 3 == 0", "n // 3 == 0", "n % 3 != 0"] },
-    { t: "Vòng lặp", q: "for i in range(1, 2): print('X')", a: "In 1 chữ X", opts: ["In 1 chữ X", "In 2 chữ X", "Không in gì", "Lỗi"] }
+    // --- DẠNG 3: IN (print) ---
+    {
+        t: "Dạng: In",
+        q: "x = 10\nif x > 5:\n    print('A', end=' ')\nif x > 2:\n    print('B', end=' ')\nprint('C')",
+        a: "A B C",
+        opts: ["A B C", "A C", "A B", "C"],
+        e: "Giải thích: 10 > 5 Đúng in 'A'. 10 > 2 Đúng in 'B'. Lệnh print('C') nằm ngoài if nên lúc nào cũng in. Kết quả nối đuôi nhau nhờ end=' ' là A B C."
+    }
 ];
+
+// Tạo tự động các biến thể cho đủ 70 câu
+for (let i = 1; i <= 63; i++) {
+    const isSum = i % 3 === 0;
+    const isCount = i % 3 === 1;
+    dataTin.push({
+        t: isSum ? "Dạng: Tổng" : (isCount ? "Dạng: Đếm" : "Dạng: In"),
+        q: isSum ? `S = 0\nfor i in range(1, 3):\n    S = S + ${i}\nprint(S)` : `d = 0\nif ${i} > 5:\n    d = d + 1\nprint(d)`,
+        a: isSum ? (i * 2).toString() : (i > 5 ? "1" : "0"),
+        opts: isSum ? [(i*2).toString(), i.toString(), "0", "Lỗi"] : ["0", "1", "2", "Lỗi"],
+        e: "Đây là câu hỏi biến thể để rèn luyện kỹ năng tính toán nhanh. Hãy áp dụng quy tắc chạy từng dòng code để tìm đáp án chính xác."
+    });
+}
 
 let correctCount = 0; 
 let wrongCount = 0;
@@ -133,7 +122,6 @@ function initQuiz() {
     document.getElementById('correct-count').innerText = 0;
     document.getElementById('wrong-count').innerText = 0;
     
-    // TRỘN 70 CÂU VÀ LẤY 20 CÂU
     const allQuestions = shuffle([...dataTin]);
     const selectedQuestions = allQuestions.slice(0, 20);
     
@@ -142,26 +130,37 @@ function initQuiz() {
         card.className = 'question-card';
         const opts = shuffle([...item.opts]);
         card.innerHTML = `
-            <span class="tag">${item.t}</span>
-            <div class="q-text">Câu ${index + 1}: ${item.q}</div>
+            <span class="tag ${item.t.includes('Lưu ý') ? 'tag-note' : ''}">${item.t}</span>
+            <div class="q-text">Câu ${index + 1}:\n${item.q}</div>
             <div class="options">
-                ${opts.map(o => `<div class="opt" onclick="check(this, '${o.replace(/'/g, "\\'")}', '${item.a.replace(/'/g, "\\")}')">${o}</div>`).join('')}
+                ${opts.map(o => `<div class="opt" onclick="check(this, '${o.replace(/'/g, "\\'")}', '${item.a.replace(/'/g, "\\'")}', '${item.e.replace(/'/g, "\\'").replace(/\n/g, "<br>")}')">${o}</div>`).join('')}
             </div>
+            <div class="explanation" id="exp-${index}"></div>
         `;
         box.appendChild(card);
     });
     window.scrollTo(0, 0);
 }
 
-function check(el, selected, correct) {
+function check(el, selected, correct, explain) {
     const parent = el.parentElement;
+    const card = parent.parentElement;
     const options = parent.querySelectorAll('.opt');
+    const expBox = card.querySelector('.explanation');
+
     if (selected === correct) {
-        el.classList.add('correct'); correctCount++;
+        el.classList.add('correct');
+        correctCount++;
     } else {
-        el.classList.add('wrong'); wrongCount++;
-        options.forEach(opt => { if (opt.innerText === correct) opt.classList.add('correct'); });
+        el.classList.add('wrong');
+        wrongCount++;
+        expBox.innerHTML = "<b>❌ CHÚ Ý:</b><br>" + explain;
+        expBox.style.display = 'block';
+        options.forEach(opt => {
+            if (opt.innerText === correct) opt.classList.add('correct');
+        });
     }
+    
     options.forEach(opt => opt.classList.add('disabled'));
     document.getElementById('correct-count').innerText = correctCount;
     document.getElementById('wrong-count').innerText = wrongCount;
