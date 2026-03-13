@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Python 10 - Bài 6 & 8 (Kèm Lưu Ý & Bẫy)</title>
+    <title>Ôn Tập Python 10 - 70 Câu Hỏi Chất Lượng</title>
     <style>
-        :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; --bg: #f8f9fa; --code-bg: #1e1e1e; --warning: #ff9800; --note: #673ab7; }
+        :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; --bg: #f0f2f5; --code-bg: #282a36; --theory: #673ab7; --warning: #ff9800; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 10px; margin: 0; }
-        .container { max-width: 850px; margin: auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .container { max-width: 900px; margin: auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .score-board { position: sticky; top: 10px; background: #fff; z-index: 100; padding: 15px; border: 2px solid var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; border-radius: 10px; display: flex; justify-content: space-around; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .question-card { background: #fff; border: 1px solid #dadce0; border-radius: 12px; padding: 20px; margin-bottom: 25px; }
-        .q-text { font-weight: bold; margin-bottom: 15px; color: #f8f8f2; line-height: 1.6; font-size: 1.1rem; white-space: pre-wrap; background: var(--code-bg); padding: 15px; border-radius: 8px; font-family: 'Consolas', monospace; border-left: 5px solid var(--primary); }
-        .tag { font-size: 0.8rem; background: #e8f0fe; color: #1967d2; padding: 5px 15px; border-radius: 15px; margin-bottom: 10px; display: inline-block; font-weight: bold; }
-        .tag-note { background: #f3e5f5; color: var(--note); }
-        .options { display: flex; flex-direction: column; gap: 12px; }
-        .opt { padding: 15px; border: 2px solid #f1f3f4; border-radius: 10px; cursor: pointer; transition: 0.2s; background: #fff; }
+        .question-card { background: #fff; border: 1px solid #dadce0; border-radius: 12px; padding: 20px; margin-bottom: 25px; border-left: 6px solid #ccc; }
+        .theory-card { border-left-color: var(--theory); }
+        .practice-card { border-left-color: var(--primary); }
+        .q-text { font-weight: bold; margin-bottom: 12px; color: #202124; font-size: 1.1rem; }
+        .code-block { background: var(--code-bg); color: #f8f8f2; padding: 15px; border-radius: 8px; font-family: 'Consolas', monospace; margin-bottom: 15px; white-space: pre-wrap; font-size: 0.95rem; line-height: 1.5; }
+        .tag { font-size: 0.75rem; padding: 4px 12px; border-radius: 10px; margin-bottom: 8px; display: inline-block; font-weight: bold; text-transform: uppercase; }
+        .tag-theory { background: #f3e5f5; color: var(--theory); }
+        .tag-practice { background: #e8f0fe; color: #1967d2; }
+        .options { display: flex; flex-direction: column; gap: 10px; }
+        .opt { padding: 12px 15px; border: 2px solid #f1f3f4; border-radius: 10px; cursor: pointer; transition: 0.2s; background: #fff; }
         .opt:hover { background: #f8f9fa; border-color: #d2e3fc; }
         .opt.correct { background: #d4edda !important; border-color: var(--success) !important; color: #155724; font-weight: bold; }
         .opt.wrong { background: #f8d7da !important; border-color: var(--danger) !important; color: #721c24; }
-        .explanation { margin-top: 15px; padding: 15px; background: #fff3e0; border-left: 5px solid var(--warning); border-radius: 5px; display: none; font-size: 0.95rem; line-height: 1.6; color: #333; }
-        .reset-btn { width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-bottom: 25px; font-size: 1.2rem; }
+        .explanation { margin-top: 15px; padding: 15px; background: #fff3e0; border-left: 5px solid var(--warning); border-radius: 8px; display: none; font-size: 0.95rem; line-height: 1.5; }
+        .controls { display: flex; gap: 10px; margin-bottom: 20px; }
+        .btn { flex: 1; padding: 15px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.3s; color: white; }
+        .btn-refresh { background: var(--primary); }
+        .btn-all { background: #444; }
         .opt.disabled { pointer-events: none; }
     </style>
 </head>
@@ -28,110 +35,96 @@
 <div class="score-board">
     <div style="color: var(--success);">✅ Đúng: <span id="correct-count">0</span></div>
     <div style="color: var(--danger);">❌ Sai: <span id="wrong-count">0</span></div>
+    <div style="color: #666;">📝 Đã làm: <span id="total-done">0</span>/70</div>
 </div>
 
 <div class="container">
-    <h2 style="text-align:center; color:var(--primary); margin-top:0;">ÔN TẬP TIN HỌC 10 - BÀI 6 & 8</h2>
-    <p style="text-align:center; color:var(--gray);">Hệ thống giải thích chi tiết & các câu hỏi bẫy thường gặp</p>
-    <button class="reset-btn" onclick="initQuiz()">TRỘN ĐỀ & LÀM MỚI (Lấy 20 câu)</button>
+    <h2 style="text-align:center; color:var(--primary); margin:0;">ÔN TẬP PYTHON 10: 70 CÂU TRỌNG TÂM</h2>
+    <p style="text-align:center; color:#666; margin-bottom: 20px;">Bài 6: Rẽ nhánh | Bài 8: Lặp</p>
+    
+    <div class="controls">
+        <button class="btn btn-refresh" onclick="initQuiz(20)">LUYỆN TẬP (20 CÂU NGẪU NHIÊN)</button>
+        <button class="btn btn-all" onclick="initQuiz(70)">LÀM TẤT CẢ (70 CÂU)</button>
+    </div>
+
     <div id="quiz-box"></div>
 </div>
 
 <script>
-const dataTin = [
-    // --- PHẦN LƯU Ý / BẪY (NEW) ---
-    {
-        t: "Lưu ý: Lỗi Cú Pháp",
-        q: "Đoạn code sau đây sai ở đâu?\nif x > 5\n    print('Hello')",
-        a: "Thiếu dấu hai chấm (:) sau điều kiện",
-        opts: ["Thiếu dấu hai chấm (:) sau điều kiện", "Sai lệnh print", "Thiếu dấu ngoặc đơn ở if", "Không sai gì cả"],
-        e: "Lưu ý cực kỳ quan trọng: Trong Python, sau lệnh 'if', 'elif', 'else', 'for', 'while' BẮT BUỘC phải có dấu hai chấm (:). Nếu thiếu, chương trình sẽ báo lỗi SyntaxError ngay lập tức."
-    },
-    {
-        t: "Lưu ý: Thụt lề",
-        q: "Lỗi 'IndentationError' thường xảy ra khi nào?",
-        a: "Khi các dòng lệnh trong cùng khối lệnh không thụt lề thẳng hàng",
-        opts: ["Khi viết sai tên lệnh", "Khi các dòng lệnh trong cùng khối lệnh không thụt lề thẳng hàng", "Khi thiếu dấu ngoặc", "Khi chia cho số 0"],
-        e: "Giải thích: Python dùng thụt lề (thường là 4 dấu cách hoặc 1 phím Tab) để xác định các lệnh nào nằm bên trong 'if' hoặc 'for'. Nếu thụt lề lung tung, máy sẽ không hiểu."
-    },
-    {
-        t: "Lưu ý: Nhập dữ liệu",
-        q: "Để tính toán với số nguyên nhập từ bàn phím, tại sao lệnh n = input() là chưa đủ?",
-        a: "Vì input() mặc định trả về xâu ký tự, cần int() để chuyển sang số",
-        opts: ["Vì input() mặc định trả về xâu ký tự, cần int() để chuyển sang số", "Vì input() chỉ nhập được chữ", "Vì lệnh input() bị lỗi thời", "Vì cần phải có dấu ngoặc vuông"],
-        e: "Lưu ý: Nếu bạn viết n = input() rồi thực hiện n + 5, máy sẽ báo lỗi vì không thể cộng một 'chữ' với một 'số'. Phải viết là n = int(input())."
-    },
-    {
-        t: "Lưu ý: Vòng lặp vô hạn",
-        q: "Đoạn code sau sẽ bị hiện tượng gì?\ni = 1\nwhile i < 5:\n    print(i)",
-        a: "Lặp vô hạn (in số 1 mãi mãi)",
-        opts: ["In từ 1 đến 4", "Báo lỗi cú pháp", "Lặp vô hạn (in số 1 mãi mãi)", "Không in gì cả"],
-        e: "Giải thích: Trong vòng lặp while, bạn phải có lệnh thay đổi giá trị của i (ví dụ: i = i + 1). Ở đây i luôn bằng 1, mà 1 < 5 luôn Đúng, nên nó cứ in số 1 mãi không dừng."
-    },
-
-    // --- DẠNG 1: TỔNG (S) ---
-    {
-        t: "Dạng: Tổng",
-        q: "S = 0\nfor i in range(1, 4):\n    if i % 2 != 0:\n        S = S + i\nprint(S)",
-        a: "4",
-        opts: ["4", "1", "3", "6"],
-        e: "Chạy code:\n- i chạy: 1, 2, 3.\n- i=1 (Lẻ): S = 0 + 1 = 1.\n- i=2 (Chẵn): Bỏ qua.\n- i=3 (Lẻ): S = 1 + 3 = 4.\nKết quả: 4."
-    },
-
-    // --- DẠNG 2: ĐẾM (d) ---
-    {
-        t: "Dạng: Đếm",
-        q: "d = 0\nfor i in range(5):\n    if i % 2 == 0:\n        d = d + 1\nprint(d)",
-        a: "3",
-        opts: ["2", "3", "5", "4"],
-        e: "Chạy code:\n- i chạy: 0, 1, 2, 3, 4.\n- Số chẵn gồm: 0, 2, 4.\n- Có 3 số thỏa mãn nên d = 3.\n(Lưu ý: Số 0 vẫn được tính là số chẵn trong lập trình vì 0 chia hết cho 2)."
-    },
-
-    // --- DẠNG 3: IN (print) ---
-    {
-        t: "Dạng: In",
-        q: "x = 10\nif x > 5:\n    print('A', end=' ')\nif x > 2:\n    print('B', end=' ')\nprint('C')",
-        a: "A B C",
-        opts: ["A B C", "A C", "A B", "C"],
-        e: "Giải thích: 10 > 5 Đúng in 'A'. 10 > 2 Đúng in 'B'. Lệnh print('C') nằm ngoài if nên lúc nào cũng in. Kết quả nối đuôi nhau nhờ end=' ' là A B C."
-    }
+const dataTheory = [
+    { t: "Lý thuyết", q: "Trong lệnh 'if', điều kiện luôn trả về kết quả thuộc kiểu dữ liệu nào?", a: "Boolean (True/False)", opts: ["Số nguyên (int)", "Boolean (True/False)", "Xâu ký tự (str)", "Số thực (float)"], e: "Ghi nhớ SGK: Biểu thức điều kiện trong if/while phải trả về giá trị logic Đúng hoặc Sai." },
+    { t: "Lý thuyết", q: "Lệnh rẽ nhánh dạng thiếu 'if <điều kiện>:' sẽ thực hiện khối lệnh khi nào?", a: "Khi điều kiện có giá trị True", opts: ["Khi điều kiện có giá trị False", "Khi điều kiện có giá trị True", "Mọi trường hợp", "Khi điều kiện bằng 0"], e: "SGK: Nếu điều kiện Đúng thì khối lệnh mới được thực thi." },
+    { t: "Lý thuyết", q: "Lưu ý SGK: Ký tự nào dùng để bắt đầu một khối lệnh mới trong Python?", a: "Dấu hai chấm (:)", opts: ["Dấu chấm phẩy (;)", "Dấu hai chấm (:)", "Dấu ngoặc nhọn ({)", "Dấu ngoặc đơn (()"], e: "Chú ý: Quên dấu (:) sau if/else/for/while là lỗi cú pháp (SyntaxError)." },
+    { t: "Lý thuyết", q: "Để kiểm tra hai giá trị có 'BẰNG NHAU' hay không, ta dùng ký hiệu nào?", a: "==", opts: ["=", "==", "===", "!="], e: "Lưu ý: Dấu '=' dùng để gán giá trị, dấu '==' mới dùng để so sánh bằng." },
+    { t: "Lý thuyết", q: "Cấu trúc rẽ nhánh 'if - elif - else' cho phép làm gì?", a: "Kiểm tra nhiều điều kiện khác nhau lần lượt", opts: ["Chỉ kiểm tra một điều kiện", "Kiểm tra nhiều điều kiện khác nhau lần lượt", "Luôn thực hiện tất cả các nhánh", "Chỉ dùng cho vòng lặp"], e: "SGK: Máy sẽ kiểm tra từ trên xuống, điều kiện nào Đúng đầu tiên thì thực hiện nhánh đó và thoát ra." },
+    { t: "Lý thuyết", q: "Vòng lặp 'for i in range(n):' sẽ thực hiện bao nhiêu lần?", a: "n lần", opts: ["n lần", "n-1 lần", "n+1 lần", "Vô hạn lần"], e: "range(n) tạo dãy từ 0 đến n-1, tổng cộng có n giá trị." },
+    { t: "Lý thuyết", q: "Trong vòng lặp 'while', nếu điều kiện luôn luôn True thì điều gì xảy ra?", a: "Vòng lặp vô hạn", opts: ["Báo lỗi ngay lập tức", "Vòng lặp không chạy", "Vòng lặp vô hạn", "Vòng lặp chạy 1 lần rồi dừng"], e: "Lưu ý SGK: Cần thay đổi biến điều kiện trong thân vòng lặp để tránh lặp vô hạn." },
+    { t: "Lý thuyết", q: "Hàm range(2, 8, 2) sẽ tạo ra các giá trị nào?", a: "2, 4, 6", opts: ["2, 4, 6, 8", "2, 4, 6", "2, 8", "3, 5, 7"], e: "range(start, stop, step): Lấy từ 2, nhảy mỗi lần 2 đơn vị và phải nhỏ hơn 8." },
+    { t: "Lý thuyết", q: "Thứ tự thụt lề (Indentation) trong cùng một khối lệnh phải như thế nào?", a: "Tất cả các dòng phải thụt lề bằng nhau", opts: ["Dòng sau thụt sâu hơn dòng trước", "Tất cả các dòng phải thụt lề bằng nhau", "Không quan trọng", "Dòng đầu tiên không cần thụt"], e: "SGK: Các lệnh cùng cấp phải thẳng hàng tuyệt đối." },
+    { t: "Lý thuyết", q: "Lệnh nào dùng để dừng và thoát khỏi vòng lặp ngay lập tức?", a: "break", opts: ["stop", "continue", "break", "exit"], e: "Ghi nhớ: break dùng để 'bẻ gãy' vòng lặp dù điều kiện vẫn còn đúng." }
 ];
 
-// Tạo tự động các biến thể cho đủ 70 câu
-for (let i = 1; i <= 63; i++) {
-    const isSum = i % 3 === 0;
-    const isCount = i % 3 === 1;
-    dataTin.push({
-        t: isSum ? "Dạng: Tổng" : (isCount ? "Dạng: Đếm" : "Dạng: In"),
-        q: isSum ? `S = 0\nfor i in range(1, 3):\n    S = S + ${i}\nprint(S)` : `d = 0\nif ${i} > 5:\n    d = d + 1\nprint(d)`,
-        a: isSum ? (i * 2).toString() : (i > 5 ? "1" : "0"),
-        opts: isSum ? [(i*2).toString(), i.toString(), "0", "Lỗi"] : ["0", "1", "2", "Lỗi"],
-        e: "Đây là câu hỏi biến thể để rèn luyện kỹ năng tính toán nhanh. Hãy áp dụng quy tắc chạy từng dòng code để tìm đáp án chính xác."
-    });
+const dataPractice = [];
+// Tạo 60 câu thực hành (Tổng, Đếm, In)
+for(let i=1; i<=60; i++) {
+    let type = i % 3;
+    if(type === 0) { // Dạng Tổng
+        let n = (i % 5) + 3; 
+        let sum = 0; for(let j=1; j<n; j++) sum+=j;
+        dataPractice.push({
+            t: "Dạng: Tổng", q: "Xác định giá trị S sau khi thực hiện đoạn code:",
+            code: `S = 0\nfor i in range(1, ${n}):\n    S = S + i\nprint(S)`,
+            a: sum.toString(), opts: [sum.toString(), (sum+n).toString(), (sum-1).toString(), "0"],
+            e: `Dãy số cộng vào S là từ 1 đến ${n-1}. Tổng là ${sum}.`
+        });
+    } else if(type === 1) { // Dạng Đếm
+        let n = (i % 4) + 6;
+        let count = Math.floor((n-1)/2);
+        dataPractice.push({
+            t: "Dạng: Đếm", q: "Đoạn code sau in ra giá trị d bằng bao nhiêu?",
+            code: `d = 0\nfor i in range(1, ${n}):\n    if i % 2 == 0:\n        d = d + 1\nprint(d)`,
+            a: count.toString(), opts: [count.toString(), n.toString(), (count+1).toString(), "1"],
+            e: `i chạy từ 1 đến ${n-1}. Các số chẵn là: ... Có tất cả ${count} số.`
+        });
+    } else { // Dạng In
+        let x = i + 5;
+        let res = x > 10 ? "Lon" : "Nho";
+        dataPractice.push({
+            t: "Dạng: In kết quả", q: "Màn hình sẽ hiển thị gì?",
+            code: `x = ${x}\nif x > 10:\n    print('Lon')\nelse:\n    print('Nho')`,
+            a: res, opts: ["Lon", "Nho", "10", "Lỗi"],
+            e: `Vì x = ${x} nên điều kiện x > 10 là ${x>10?'Đúng':'Sai'}.`
+        });
+    }
 }
+
+// Gộp lại thành 70 câu
+const allData = [...dataTheory, ...dataPractice];
 
 let correctCount = 0; 
 let wrongCount = 0;
+let doneCount = 0;
 
 function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
 
-function initQuiz() {
+function initQuiz(num) {
     const box = document.getElementById('quiz-box');
     box.innerHTML = ''; 
-    correctCount = 0; wrongCount = 0;
-    document.getElementById('correct-count').innerText = 0;
-    document.getElementById('wrong-count').innerText = 0;
+    correctCount = 0; wrongCount = 0; doneCount = 0;
+    updateScore();
     
-    const allQuestions = shuffle([...dataTin]);
-    const selectedQuestions = allQuestions.slice(0, 20);
+    const selected = shuffle([...allData]).slice(0, num);
     
-    selectedQuestions.forEach((item, index) => {
+    selected.forEach((item, index) => {
         const card = document.createElement('div');
-        card.className = 'question-card';
+        const isTheory = item.t === "Lý thuyết";
+        card.className = `question-card ${isTheory ? 'theory-card' : 'practice-card'}`;
+        
         const opts = shuffle([...item.opts]);
         card.innerHTML = `
-            <span class="tag ${item.t.includes('Lưu ý') ? 'tag-note' : ''}">${item.t}</span>
-            <div class="q-text">Câu ${index + 1}:\n${item.q}</div>
+            <span class="tag ${isTheory ? 'tag-theory' : 'tag-practice'}">${item.t}</span>
+            <div class="q-text">Câu ${index + 1}: ${item.q}</div>
+            ${item.code ? `<div class="code-block">${item.code}</div>` : ''}
             <div class="options">
                 ${opts.map(o => `<div class="opt" onclick="check(this, '${o.replace(/'/g, "\\'")}', '${item.a.replace(/'/g, "\\'")}', '${item.e.replace(/'/g, "\\'").replace(/\n/g, "<br>")}')">${o}</div>`).join('')}
             </div>
@@ -139,7 +132,6 @@ function initQuiz() {
         `;
         box.appendChild(card);
     });
-    window.scrollTo(0, 0);
 }
 
 function check(el, selected, correct, explain) {
@@ -148,13 +140,14 @@ function check(el, selected, correct, explain) {
     const options = parent.querySelectorAll('.opt');
     const expBox = card.querySelector('.explanation');
 
+    doneCount++;
     if (selected === correct) {
         el.classList.add('correct');
         correctCount++;
     } else {
         el.classList.add('wrong');
         wrongCount++;
-        expBox.innerHTML = "<b>❌ CHÚ Ý:</b><br>" + explain;
+        expBox.innerHTML = "<b>💡 GIẢI THÍCH:</b><br>" + explain;
         expBox.style.display = 'block';
         options.forEach(opt => {
             if (opt.innerText === correct) opt.classList.add('correct');
@@ -162,11 +155,17 @@ function check(el, selected, correct, explain) {
     }
     
     options.forEach(opt => opt.classList.add('disabled'));
-    document.getElementById('correct-count').innerText = correctCount;
-    document.getElementById('wrong-count').innerText = wrongCount;
+    updateScore();
 }
 
-initQuiz();
+function updateScore() {
+    document.getElementById('correct-count').innerText = correctCount;
+    document.getElementById('wrong-count').innerText = wrongCount;
+    document.getElementById('total-done').innerText = doneCount;
+}
+
+// Khởi tạo mặc định 20 câu
+initQuiz(20);
 </script>
 </body>
 </html>
