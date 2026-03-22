@@ -3,247 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Địa Lí 10 - Chuẩn 100% File</title>
+    <title>Ôn Tập Địa Lí 10 - Nguyên Bản 100%</title>
     <style>
-        :root { --b25: #1565c0; --b26: #2e7d32; --b27: #e65100; --bg: #f4f4f9; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        h1, h2 { text-align: center; color: #222; }
-        .section-header { color: white; padding: 10px 20px; border-radius: 8px; margin-top: 40px; margin-bottom: 20px; font-weight: bold; }
-        .q-card { border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-bottom: 25px; background: #fff; transition: 0.3s; }
-        .q-text { font-weight: bold; margin-bottom: 15px; line-height: 1.5; font-size: 1.1rem; }
-        .options { display: grid; gap: 10px; }
-        .opt-btn { padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; background: #fff; text-align: left; transition: 0.2s; }
-        .opt-btn:hover { background: #f0f0f0; }
-        
-        /* Đúng/Sai Styling */
-        .ds-row { display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
-        .ds-text { flex: 1; padding-right: 15px; font-size: 0.95rem; }
-        .ds-btns { display: flex; gap: 5px; }
-        .btn-ds { padding: 6px 15px; border: 1.5px solid #ccc; border-radius: 4px; cursor: pointer; font-weight: bold; background: #fff; }
-        
-        /* Phản hồi */
-        .correct { background: #c8e6c9 !important; border-color: #4caf50 !important; color: #1b5e20; }
-        .wrong { background: #ffcdd2 !important; border-color: #f44336 !important; color: #b71c1c; }
+        :root { --b25: #1565c0; --b26: #2e7d32; --b27: #e65100; --bg: #f8f9fa; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); padding: 20px; line-height: 1.6; }
+        .container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .section-title { color: white; padding: 15px; border-radius: 8px; margin: 40px 0 20px; font-weight: bold; font-size: 1.2rem; }
+        .q-card { border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-bottom: 25px; background: #fff; }
+        .q-text { font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; color: #333; white-space: pre-wrap; }
+        .doc-content { background: #fff8e1; border-left: 5px solid #ff8f00; padding: 15px; margin-bottom: 20px; font-style: italic; color: #5d4037; }
+        .options-grid { display: grid; gap: 10px; margin-bottom: 10px; }
+        .opt-item { padding: 12px 15px; border: 1px solid #dee2e6; border-radius: 8px; cursor: pointer; background: #fff; text-align: left; transition: 0.2s; }
+        .opt-item:hover { background: #f1f3f5; }
+        .ds-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .ds-row { border-bottom: 1px solid #eee; }
+        .ds-cell-text { padding: 12px 0; font-size: 1rem; }
+        .ds-cell-btns { text-align: right; white-space: nowrap; padding-left: 15px; }
+        .btn-ds { padding: 8px 18px; border: 1.5px solid #adb5bd; border-radius: 5px; cursor: pointer; font-weight: bold; background: white; margin-left: 5px; }
+        .correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; font-weight: bold; }
+        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
         .disabled { pointer-events: none; opacity: 0.8; }
-        
-        .score-board { position: sticky; top: 10px; background: #333; color: #fff; padding: 15px; border-radius: 10px; display: flex; justify-content: space-around; z-index: 1000; margin-bottom: 20px; }
+        .score-bar { position: sticky; top: 10px; background: #343a40; color: white; padding: 15px; border-radius: 10px; display: flex; justify-content: space-around; z-index: 1000; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
-<div class="score-board">
-    <span>✅ Đúng: <span id="correct-count">0</span></span>
-    <span>❌ Sai: <span id="wrong-count">0</span></span>
+<div class="score-bar">
+    <span>✅ Đúng: <span id="c-count">0</span></span>
+    <span>❌ Sai: <span id="w-count">0</span></span>
 </div>
 
 <div class="container">
-    <h1>HỆ THỐNG ÔN TẬP ĐỊA LÍ 10</h1>
-    <p style="text-align: center; font-style: italic;">Nội dung trích xuất 100% từ file Đề cương ôn tập</p>
+    <h1 style="text-align: center; text-transform: uppercase;">ĐỀ CƯƠNG ÔN TẬP ĐỊA LÍ 10</h1>
 
-    <div class="section-header" style="background: var(--b25);">BÀI 25: VAI TRÒ, ĐẶC ĐIỂM, CÁC NHÂN TỐ ẢNH HƯỞNG...</div>
+    <div class="section-title" style="background: var(--b25);">BÀI 25: VAI TRÒ, ĐẶC ĐIỂM, CÁC NHÂN TỐ ẢNH HƯỞNG TỚI SỰ PHÁT TRIỂN VÀ PHÂN BỐ NÔNG NGHIỆP, LÂM NGHIỆP, THỦY SẢN</div>
     <div id="area-25"></div>
 
-    <div class="section-header" style="background: var(--b26);">BÀI 26: NÔNG NGHIỆP, LÂM NGHIỆP, THỦY SẢN</div>
+    <div class="section-title" style="background: var(--b26);">BÀI 26: NÔNG NGHIỆP, LÂM NGHIỆP, THỦY SẢN</div>
     <div id="area-26"></div>
 
-    <div class="section-header" style="background: var(--b27);">BÀI 27: TỔ CHỨC LẬNH THỔ NÔNG NGHIỆP</div>
+    <div class="section-title" style="background: var(--b27);">BÀI 27: TỔ CHỨC LÃNH THỔ NÔNG NGHIỆP</div>
     <div id="area-27"></div>
 </div>
 
 <script>
-// DỮ LIỆU CÂU HỎI TRẮC NGHIỆM (TN)
-const tnData = {
-    b25: [
-        { q: "Câu 1. Ngành nông nghiệp có vai trò", a: "cung cấp lương thực, thực phẩm cho con người.", opts: ["cung cấp lương thực, thực phẩm cho con người.", "cung cấp thiết bị, máy móc cho con người.", "cung cấp tư liệu sản xuất cho các ngành kinh tế.", "vận chuyển người và hàng hóa."] },
-        { q: "Câu 2. Đặc điểm nào sau đây KHÔNG ĐÚNG với sản xuất nông nghiệp?", a: "Sản xuất bao gồm giai đoạn khai thác tài nguyên và chế biến.", opts: ["Đất trồng là tư liệu sản xuất chủ yếu và không thể thay thế.", "Đối tượng sản xuất của nông nghiệp là cây trồng, vật nuôi.", "Sản xuất bao gồm giai đoạn khai thác tài nguyên và chế biến.", "Sản xuất phụ thuộc nhiều vào đất đai, khí hậu, sinh vật, nước."] },
-        { q: "Câu 3. Ý nào không phải là đặc điểm của ngành nông nghiệp, lâm nghiệp, thuỷ sản?", a: "Sản xuất nông nghiệp thường không có tính mùa vụ.", opts: ["Đất trồng là tư liệu sản xuất chủ yếu.", "Đối tượng sản xuất là cây trồng và vật nuôi.", "Sản xuất nông nghiệp thường không có tính mùa vụ.", "Chịu tác động của điều kiện tự nhiên."] },
-        { q: "Câu 4. Tư liệu sản xuất chủ yếu của ngành nông nghiệp và lâm nghiệp là", a: "đất trồng.", opts: ["nguồn nước.", "đất trồng.", "địa hình.", "khí hậu."] },
-        { q: "Câu 5. Đối tượng của sản xuất nông nghiệp là", a: "cây trồng và vật nuôi.", opts: ["cây trồng và vật nuôi.", "đất trồng và mặt nước.", "máy móc và phân bón.", "vốn và công nghệ."] },
-        { q: "Câu 6. Tư liệu sản xuất của ngành thuỷ sản là", a: "diện tích mặt nước.", opts: ["tài nguyên sinh vật.", "diện tích mặt nước.", "các loại ngư cụ.", "thủy triều."] },
-        { q: "Câu 7. Đối tượng sản xuất của ngành thuỷ sản là", a: "tài nguyên sinh vật.", opts: ["diện tích mặt nước.", "tài nguyên sinh vật.", "thủy triều.", "độ mặn của nước."] },
-        { q: "Câu 8. Sản xuất nông nghiệp có tính mùa vụ là do", a: "quy luật sinh trưởng của cây trồng, vật nuôi.", opts: ["quy luật sinh trưởng của cây trồng, vật nuôi.", "biến đổi khí hậu.", "thị trường biến động.", "trình độ của người lao động."] },
-        { q: "Câu 9. Sản xuất nông nghiệp tập trung thành vùng là do", a: "đặc điểm sinh thái của cây trồng, vật nuôi và tính chất của đất.", opts: ["quy hoạch của con người.", "nhu cầu của thị trường.", "đặc điểm sinh thái của cây trồng, vật nuôi và tính chất của đất.", "áp dụng khoa học kỹ thuật."] },
-        { q: "Câu 10. Sản xuất nông nghiệp ngày càng ít phụ thuộc vào tự nhiên nhờ", a: "sự phát triển của khoa học – công nghệ.", opts: ["biến đổi khí hậu.", "sự phát triển của khoa học – công nghệ.", "mở rộng diện tích.", "tăng cường sức lao động."] },
-        { q: "Câu 11. Nhân tố ảnh hưởng làm cho sản xuất nông nghiệp có tính bấp bênh là", a: "khí hậu.", opts: ["đất đai.", "nguồn nước.", "khí hậu.", "sinh vật."] },
-        { q: "Câu 12. Đất trồng ảnh hưởng đến sản xuất nông nghiệp về", a: "quy mô và cơ cấu cây trồng.", opts: ["năng suất cây trồng.", "thời vụ sản xuất.", "quy mô và cơ cấu cây trồng.", "chất lượng sản phẩm."] },
-        { q: "Câu 13. Năng suất cây trồng và vật nuôi phụ thuộc chủ yếu vào", a: "đặc điểm đất đai và nguồn nước.", opts: ["đặc điểm đất đai và nguồn nước.", "vốn đầu tư.", "khoa học công nghệ.", "thị trường."] },
-        { q: "Câu 14. Nhân tố quyết định đến hình thức tổ chức lãnh thổ nông nghiệp là", a: "nhân tố kinh tế - xã hội.", opts: ["điều kiện tự nhiên.", "vị trí địa lí.", "nhân tố kinh tế - xã hội.", "tài nguyên thiên nhiên."] },
-        { q: "Câu 15. Mô hình nông nghiệp thâm canh công nghệ cao thường áp dụng ở những nơi", a: "có quỹ đất hạn chế nhưng giàu vốn và công nghệ.", opts: ["có diện tích đất rộng lớn.", "có lao động thủ công dồi dào.", "có quỹ đất hạn chế nhưng giàu vốn và công nghệ.", "có điều kiện tự nhiên khắc nghiệt."] }
-    ],
-    b26: [
-        { q: "Câu 5. Cây lúa gạo phân bố chủ yếu ở khu vực nào?", a: "Nhiệt đới gió mùa châu Á.", opts: ["Ôn đới châu Âu.", "Nhiệt đới gió mùa châu Á.", "Cận nhiệt khô.", "Bắc Mỹ."] },
-        { q: "Câu 6. Cây cà phê thích hợp nhất với loại đất nào?", a: "Đất badan.", opts: ["Đất phù sa.", "Đất xám.", "Đất badan.", "Đất đen."] },
-        { q: "Câu 7. Cây trồng nào thuộc nhóm cây cho chất kích thích?", a: "Cà phê.", opts: ["Bông.", "Cao su.", "Cà phê.", "Mía."] },
-        { q: "Câu 8. Vai trò của ngành chăn nuôi đối với công nghiệp là", a: "cung cấp nguyên liệu.", opts: ["cung cấp sức kéo.", "cung cấp nguyên liệu.", "tiêu thụ máy móc.", "tăng doanh thu."] },
-        { q: "Câu 9. Đặc điểm ngành chăn nuôi hiện đại là", a: "áp dụng khoa học công nghệ để tăng chất lượng sản phẩm.", opts: ["chăn thả tự nhiên.", "áp dụng khoa học công nghệ để tăng chất lượng sản phẩm.", "phụ thuộc hoàn toàn vào thiên nhiên.", "sản xuất tự cung tự cấp."] },
-        { q: "Câu 10. Vật nuôi chăn thả ở vùng khô hạn là", a: "Cừu.", opts: ["Lợn.", "Trâu.", "Cừu.", "Bò sữa."] },
-        { q: "Câu 11. Ngành lâm nghiệp KHÔNG có vai trò", a: "gia tăng biến đổi khí hậu.", opts: ["cung cấp lâm sản.", "bảo vệ môi trường.", "nghiên cứu khoa học.", "gia tăng biến đổi khí hậu."] },
-        { q: "Câu 12. Đặc điểm quan trọng của lâm nghiệp là", a: "sinh trưởng tự nhiên của rừng rất dài.", opts: ["sản xuất nhanh chóng.", "sinh trưởng tự nhiên của rừng rất dài.", "không phụ thuộc tự nhiên.", "chỉ khai thác không trồng mới."] },
-        { q: "Câu 13. Ngành thủy sản KHÔNG có vai trò", a: "cung cấp nguyên liệu công nghiệp nặng.", opts: ["cung cấp đạm động vật.", "tạo việc làm.", "khai thác tài nguyên nước.", "cung cấp nguyên liệu công nghiệp nặng."] },
-        { q: "Câu 14. Đặc điểm sản xuất thủy sản là", a: "có tính mùa vụ.", opts: ["ít chịu tác động tự nhiên.", "có tính mùa vụ.", "không cần giống.", "chỉ đánh bắt ven bờ."] },
-        { q: "Câu 15. Nuôi trồng thủy sản thế giới phát triển mạnh do", a: "nhu cầu thị trường tăng cao.", opts: ["nguồn lợi tự nhiên cạn kiệt.", "nhu cầu thị trường tăng cao.", "biến đổi khí hậu.", "giá xăng dầu giảm."] },
-        { q: "Câu 16. Cây lúa mì phân bố chủ yếu ở", a: "Ôn đới và cận nhiệt.", opts: ["Nhiệt đới.", "Ôn đới và cận nhiệt.", "Xích đạo.", "Hoang mạc."] },
-        { q: "Câu 17. Loại rừng có vai trò duy trì đa dạng sinh học là", a: "Rừng đặc dụng.", opts: ["Rừng sản xuất.", "Rừng phòng hộ.", "Rừng đặc dụng.", "Rừng trồng."] },
-        { q: "Câu 18. Ngành chăn nuôi lợn tập trung ở nơi có", a: "nguồn lương thực dồi dào.", opts: ["đồng cỏ rộng lớn.", "nguồn lương thực dồi dào.", "khí hậu lạnh.", "vùng ven biển."] },
-        { q: "Câu 19. Sự phân bố vật nuôi phụ thuộc chủ yếu vào", a: "nguồn thức ăn.", opts: ["nguồn thức ăn.", "địa hình.", "thủy văn.", "phong tục."] }
-    ],
-    b27: [
-        { q: "Câu 1. Ý nào không đúng khi nói về tổ chức lãnh thổ nông nghiệp?", a: "Phát triển mang tính tự phát.", opts: ["Chuyên môn hóa sản xuất.", "Liên kết không gian.", "Phát triển mang tính tự phát.", "Hợp tác liên ngành."] },
-        { q: "Câu 2. Mục đích chủ yếu của tổ chức lãnh thổ nông nghiệp là", a: "sử dụng hiệu quả các tiềm năng.", opts: ["mở rộng diện tích.", "sử dụng hiệu quả các tiềm năng.", "tăng lao động.", "giảm giá thành."] },
-        { q: "Câu 3. Mục đích cuối cùng của tổ chức lãnh thổ nông nghiệp là", a: "nâng cao hiệu quả kinh tế - xã hội và môi trường.", opts: ["tăng sản lượng tuyệt đối.", "nâng cao hiệu quả kinh tế - xã hội và môi trường.", "thay thế sức người.", "phục vụ xuất khẩu."] },
-        { q: "Câu 4. Đối tượng của tổ chức lãnh thổ nông nghiệp là", a: "cây trồng và vật nuôi.", opts: ["cây trồng và vật nuôi.", "máy móc thiết bị.", "cơ sở hạ tầng.", "nguồn vốn."] },
-        { q: "Câu 5. Vai trò kinh tế của tổ chức lãnh thổ nông nghiệp là", a: "thúc đẩy nông nghiệp hàng hóa.", opts: ["tăng tính tự cung tự cấp.", "thúc đẩy nông nghiệp hàng hóa.", "giảm giao lưu kinh tế.", "hạn chế chuyên môn hóa."] },
-        { q: "Câu 6. Hình thức tổ chức lãnh thổ nông nghiệp đơn giản nhất là", a: "Hộ gia đình.", opts: ["Trang trại.", "Hộ gia đình.", "Vùng nông nghiệp.", "Thể hợp."] },
-        { q: "Câu 7. Đặc điểm của trang trại là", a: "quy mô lớn và hướng ra thị trường.", opts: ["tự cung tự cấp.", "quy mô lớn và hướng ra thị trường.", "không sử dụng máy móc.", "diện tích cực nhỏ."] },
-        { q: "Câu 8. Khác biệt của trang trại với hộ gia đình là", a: "thuê mướn lao động và mục đích hàng hóa.", opts: ["chỉ dùng lao động gia đình.", "thuê mướn lao động và mục đích hàng hóa.", "không cần vốn.", "sản xuất tại chỗ."] },
-        { q: "Câu 9. Vùng nông nghiệp là hình thức", a: "cao nhất và rộng lớn nhất.", opts: ["sơ khai nhất.", "cao nhất và rộng lớn nhất.", "không ổn định.", "chỉ có ở miền núi."] },
-        { q: "Câu 10. Đặc điểm của vùng nông nghiệp là", a: "chuyên môn hóa sâu sắc.", opts: ["đa canh hỗn hợp.", "chuyên môn hóa sâu sắc.", "phụ thuộc hoàn toàn tự nhiên.", "không có liên kết."] },
-        { q: "Câu 11. Khu nông nghiệp công nghệ cao có đặc điểm", a: "ứng dụng khoa học kỹ thuật hiện đại.", opts: ["dùng kinh nghiệm cổ truyền.", "ứng dụng khoa học kỹ thuật hiện đại.", "năng suất thấp.", "chỉ trồng rau."] },
-        { q: "Câu 12. Thể hợp nông nghiệp là hình thức", a: "liên kết giữa nông nghiệp và công nghiệp chế biến.", opts: ["chỉ sản xuất nguyên liệu.", "liên kết giữa nông nghiệp và công nghiệp chế biến.", "do nhà nước quản lý 100%.", "không có thị trường."] },
-        { q: "Câu 13. Nhân tố quan trọng nhất hình thành vùng nông nghiệp là", a: "điều kiện sinh thái nông nghiệp.", opts: ["điều kiện sinh thái nông nghiệp.", "nguồn nước.", "vốn đầu tư.", "lao động."] },
-        { q: "Câu 14. Tại sao cần tổ chức lãnh thổ nông nghiệp?", a: "Để tận dụng ưu thế từng vùng.", opts: ["Để xóa bỏ nông thôn.", "Để tận dụng ưu thế từng vùng.", "Để giảm diện tích rừng.", "Để tăng nhập khẩu."] },
-        { q: "Câu 15. Nông nghiệp xanh hướng tới", a: "phát triển bền vững.", opts: ["tăng năng suất bằng mọi giá.", "phát triển bền vững.", "dùng nhiều hóa chất.", "hủy hoại đất đai."] },
-        { q: "Câu 16. Ở Việt Nam, trang trại chăn nuôi phát triển nhanh do", a: "nhu cầu thị trường lớn.", opts: ["nhu cầu thị trường lớn.", "đất đai rộng.", "khí hậu thuận lợi.", "thiếu thức ăn."] },
-        { q: "Câu 17. Chuyên canh trong nông nghiệp giúp", a: "tăng năng suất và hiệu quả.", opts: ["giảm chất lượng.", "tăng năng suất và hiệu quả.", "phụ thuộc thị trường.", "lãng phí đất."] }
-    ]
-};
+const tn25 = [
+    { q: "Câu 1. Ngành nông nghiệp có vai trò", a: "A", opts: ["A. cung cấp lương thực, thực phẩm cho con người.", "B. cung cấp thiết bị, máy móc cho con người.", "C. cung cấp tư liệu sản xuất cho các ngành kinh tế.", "D. vận chuyển người và hàng hóa."] },
+    { q: "Câu 2. Đặc điểm nào sau đây KHÔNG ĐÚNG với sản xuất nông nghiệp?", a: "C", opts: ["A. Đất trồng là tư liệu sản xuất chủ yếu và không thể thay thế.", "B. Đối tượng sản xuất của nông nghiệp là cây trồng, vật nuôi.", "C. Sản xuất bao gồm giai đoạn khai thác tài nguyên và chế biến.", "D. Sản xuất phụ thuộc nhiều vào đất đai, khí hậu, sinh vật, nước."] },
+    { q: "Câu 3. Ý nào không phải là đặc điểm của ngành nông nghiệp, lâm nghiệp, thuỷ sản?", a: "C", opts: ["A. Đất trồng là tư liệu sản xuất chủ yếu của ngành nông nghiệp và lâm nghiệp.", "B. Đối tượng của sản xuất nông nghiệp, lâm nghiệp và thuỷ sản là cây trồng và vật nuôi.", "C. Sản xuất nông nghiệp, lâm nghiệp và thuỷ sản thường không có tính mùa vụ.", "D. Sản xuất nông nghiệp, lâm nghiệp, thuỷ sản chịu tác động của điều kiện tự nhiên."] },
+    { q: "Câu 4. Đối tượng của sản xuất nông nghiệp là", a: "C", opts: ["A. Máy móc và cây trồng.", "B. Hàng tiêu dùng và vật nuôi.", "C. Cây trồng và vật nuôi.", "D. Cây trồng và hàng tiêu dùng."] },
+    { q: "Câu 5. Giải pháp hiệu quả để khắc phục các hạn chế do tính mùa vụ trong sản xuất nông nghiệp gây ra là", a: "A", opts: ["A. đa dạng hoá sản xuất và xây dựng cơ cấu nông nghiệp hợp lí.", "B. xây dựng cơ cấu nông nghiệp hợp lí và nâng cao độ phì đất.", "C. đa dạng hoá sản xuất và phải sử dụng hợp lí và tiết kiệm đất.", "D. phát triển ngành nghề dịch vụ và tôn trọng quy luật tự nhiên."] },
+    { q: "Câu 6. Tư liệu sản xuất của ngành thuỷ sản là", a: "B", opts: ["A. tài nguyên sinh vật.", "B. diện tích mặt nước.", "C. địa hình.", "D. khí hậu."] },
+    { q: "Câu 7. Nhân tố nào ảnh hưởng đến việc mở rộng thị trường và tiêu thụ sản phẩm nông nghiệp, lâm nghiệp, thuỷ sản?", a: "C", opts: ["A. Vị trí địa lí.", "B. Điều kiện tự nhiên.", "C. Điều kiện kinh tế - xã hội.", "D. Lịch sử hình thành."] },
+    { q: "Câu 8. Nhân tố ảnh hưởng làm cho sản xuất nông nghiệp có tính bấp bênh là", a: "C", opts: ["A. đất đai.", "B. nguồn nước.", "C. khí hậu.", "D. sinh vật."] },
+    { q: "Câu 9. Nhân tố nào sau đây ảnh hưởng đến thị trường tiêu thụ nông sản?", a: "C", opts: ["A. Khoa học - công nghệ.", "B. Nguồn lao động.", "C. Dân cư.", "D. Điều kiện tự nhiên."] },
+    { q: "Câu 10. Sản xuất nông nghiệp, lâm nghiệp, thuỷ sản ngày càng giảm sự phụ thuộc vào điều kiện tự nhiên, do", a: "B", opts: ["A. tỉ trọng của ngành trong nền kinh tế thế giới ngày càng giảm.", "B. sự phát triển của khoa học – công nghệ.", "C. khí hậu Trái Đất ngày càng biến đổi.", "D. không gian sản xuất của ngành ngày càng thu hẹp."] },
+    { q: "Câu 11. Yếu tố nào đóng vai trò quyết định giúp các vùng có đất xám bạc màu vẫn đạt hiệu quả cao?", a: "A", opts: ["A. Do tận dụng tối đa nguồn nước tưới từ các hệ thống sông ngòi tự nhiên và xây dựng mạng lưới kênh mương dày đặc.", "B. Do chuyển dịch cơ cấu cây trồng sang các loại cây bản địa có khả năng chịu hạn cực tốt."] },
+    { q: "Câu 12. Mô hình nông nghiệp tối ưu cho quốc gia có quỹ đất hạn chế nhưng giàu vốn và công nghệ?", a: "C", opts: ["A. Nông nghiệp quảng canh: tăng sản lượng dựa trên việc mở rộng diện tích.", "B. Nông nghiệp truyền thống: ưu tiên lao động thủ công.", "C. Nông nghiệp thâm canh: tăng năng suất nhờ ứng dụng công nghệ cao (nhà kính, thủy canh).", "D. Nông nghiệp sinh thái tự nhiên: phụ thuộc hoàn toàn vào môi trường."] },
+    { q: "Câu 13. Nhân tố thị trường ảnh hưởng đến nông nghiệp vì", a: "B", opts: ["A. quyết định nơi đặt hồ chứa nước.", "B. quyết định tiêu thụ sản phẩm và hướng sản xuất.", "C. quyết định số lượng đất trồng.", "D. quyết định chiều dài bờ biển."] },
+    { q: "Câu 14. Khu vực ven biển thuận lợi cho phát triển nuôi trồng thủy sản nhờ", a: "B", opts: ["A. nhiều sa mạc.", "B. nguồn thức ăn tự nhiên phong phú.", "C. nhiều mỏ sắt.", "D. giao thông hàng không phát triển."] },
+    { q: "Câu 15. Một vùng có nguồn lao động trình độ cao trong nông nghiệp sẽ", a: "B", opts: ["A. giảm năng suất lao động.", "B. tăng hiệu quả sản xuất.", "C. không ảnh hưởng nông nghiệp.", "D. giảm chất lượng sản phẩm."] }
+];
 
-// DỮ LIỆU ĐÚNG/SAI (DS) - NGUYÊN VĂN ĐOẠN TƯ LIỆU
-const dsData = {
-    b25: [
-        {
-            t: "Câu 1. Về đặc điểm của sản xuất nông nghiệp, lâm nghiệp và thuỷ sản.",
-            items: [
-                { s: "a) Sản xuất nông nghiệp, lâm nghiệp và thủy sản có tính mùa vụ.", a: true },
-                { s: "b) Đối tượng của sản xuất nông nghiệp, lâm nghiệp và thuỷ sản là tư liệu sản xuất chủ yếu.", a: false },
-                { s: "c) Khoa học - công nghệ làm thay đổi các nhân tố tự nhiên ảnh hưởng đến nông nghiệp.", a: false },
-                { s: "d) Sản xuất nông nghiệp, lâm nghiệp và thuỷ sản phụ thuộc chặt chẽ vào điều kiện tự nhiên.", a: true }
-            ]
-        },
-        {
-            t: "Câu 2. Về nhân tố ảnh hưởng đến sự phát triển nông nghiệp.",
-            items: [
-                { s: "a) Đất đai ảnh hưởng đến quy mô và cơ cấu cây trồng.", a: true },
-                { s: "b) Khí hậu và nguồn nước ảnh hưởng đến thời vụ và tính bấp bênh.", a: true },
-                { s: "c) Sinh vật là cơ sở nguồn gốc để tạo ra các giống cây trồng.", a: true },
-                { s: "d) Thị trường tiêu thụ chỉ ảnh hưởng đến giá cả, không ảnh hưởng đến phân bố.", a: false }
-            ]
-        },
-        {
-            t: "Câu 3. Về vai trò của ngành nông nghiệp.",
-            items: [
-                { s: "a) Cung cấp lương thực thực phẩm là vai trò quan trọng nhất.", a: true },
-                { s: "b) Nông nghiệp không có đóng góp gì cho ngành xuất khẩu.", a: false },
-                { s: "c) Cung cấp nguyên liệu cho các ngành công nghiệp nhẹ.", a: true },
-                { s: "d) Đảm bảo an ninh lương thực quốc gia.", a: true }
-            ]
-        }
-    ],
-    b26: [
-        {
-            t: "Câu 1. Về đặc điểm sinh thái cây trồng và vật nuôi.",
-            items: [
-                { s: "a) Mía là cây trồng quan trọng ở miền khí hậu cận nhiệt đới.", a: false },
-                { s: "b) Lúa gạo thích hợp khí hậu nóng ẩm, đất phù sa.", a: true },
-                { s: "c) Chăn nuôi lợn tập trung ở các vùng thâm canh lương thực.", a: true },
-                { s: "d) Bò thịt được nuôi nhiều ở vùng ôn đới.", a: true }
-            ]
-        },
-        {
-            t: "Câu 2. Về ngành lâm nghiệp.",
-            items: [
-                { s: "a) Lâm nghiệp có chức năng nghiên cứu khoa học.", a: true },
-                { s: "b) Rừng phòng hộ dùng để khai thác gỗ xuất khẩu.", a: false },
-                { s: "c) Trồng rừng góp phần bảo vệ môi trường sinh thái.", a: true },
-                { s: "d) Tỉ lệ che phủ rừng trên thế giới đang có xu hướng tăng đều.", a: false }
-            ]
-        },
-        {
-            t: "Câu 3. Về ngành thủy sản.",
-            items: [
-                { s: "a) Diện tích nước, chất lượng nước là tư liệu sản xuất của thủy sản.", a: true },
-                { s: "b) Sản lượng nuôi trồng thế giới tăng nhanh hơn đánh bắt.", a: true },
-                { s: "c) Thủy sản đáp ứng chủ yếu nguyên liệu cho công nghiệp nặng.", a: false },
-                { s: "d) Khai thác thủy sản ven bờ cần được hạn chế để bảo vệ nguồn lợi.", a: true }
-            ]
-        },
-        {
-            t: "Câu 4. Về sự phân bố nông nghiệp.",
-            items: [
-                { s: "a) Lúa mì trồng nhiều ở vĩ độ thấp (nhiệt đới).", a: false },
-                { s: "b) Cà phê, cao su phân bố chủ yếu vùng nhiệt đới.", a: true },
-                { s: "c) Chăn nuôi gia cầm phát triển mạnh gần các đô thị.", a: true },
-                { s: "d) Nuôi cừu thích hợp vùng khô hạn, đồng cỏ kém.", a: true }
-            ]
-        }
-    ],
-    b27: [
-        {
-            t: "Câu 1. Về tổ chức lãnh thổ nông nghiệp.",
-            items: [
-                { s: "a) Tổ chức lãnh thổ nông nghiệp phát triển mang tính tự phát.", a: false },
-                { s: "b) Góp phần thúc đẩy chuyên môn hóa sản xuất.", a: true },
-                { s: "c) Sử dụng hợp lý tài nguyên thiên nhiên.", a: true },
-                { s: "d) Hạn chế sự liên kết giữa các vùng kinh tế.", a: false }
-            ]
-        },
-        {
-            t: "Câu 2. Về các hình thức tổ chức lãnh thổ.",
-            items: [
-                { s: "a) Vùng nông nghiệp là hình thức tổ chức cao nhất.", a: true },
-                { s: "b) Trang trại không thuê mướn lao động bên ngoài.", a: false },
-                { s: "c) Thể hợp nông nghiệp kết hợp sản xuất và chế biến.", a: true },
-                { s: "d) Khu nông nghiệp công nghệ cao sử dụng máy móc hiện đại.", a: true }
-            ]
-        },
-        {
-            t: "Câu 3. Về nông nghiệp bền vững.",
-            items: [
-                { s: "a) Nông nghiệp xanh hướng tới bảo vệ đa dạng sinh học.", a: true },
-                { s: "b) Hạn chế tối đa việc sử dụng phân bón hóa học.", a: true },
-                { s: "c) Tăng cường liên kết chuỗi giá trị nông sản.", a: true },
-                { s: "d) Nông nghiệp bền vững chỉ dành cho các nước giàu.", a: false }
-            ]
-        },
-        {
-            t: "Câu 4. Về biểu đồ cơ cấu trang trại Việt Nam.",
-            items: [
-                { s: "a) Tỉ trọng trang trại chăn nuôi cao nhất nhờ hiệu quả kinh tế.", a: true },
-                { s: "b) Trang trại trồng trọt có xu hướng tăng mạnh tỉ trọng.", a: false },
-                { s: "c) Cơ cấu trang trại đang có sự chuyển dịch tích cực.", a: true },
-                { s: "d) Nuôi trồng thủy sản đóng vai trò quan trọng trong kinh tế trang trại.", a: true }
-            ]
-        }
-    ]
-};
+const ds25 = [
+    { doc: "Lâm nghiệp cung cấp gỗ, nguyên liệu cho các ngành công nghiệp. Ngoài ra, lâm nghiệp còn có vai trò quan trọng trong việc bảo vệ môi trường bền vững.", items: [
+        { s: "a) Lâm nghiệp là nguồn cung cấp gỗ và các sản phẩm từ rừng, góp phần phát triển các ngành công nghiệp chế biến gỗ.", a: true },
+        { s: "b) Khai thác lâm nghiệp bền vững giúp bảo vệ hệ sinh thái và ngăn chặn quá trình xói mòn đất.", a: true },
+        { s: "c) Việc phát triển lâm nghiệp không cần quá chú trọng vì đây là ngành kinh tế phụ.", a: false },
+        { s: "d) Sự suy giảm diện tích rừng sẽ không ảnh hưởng nhiều đến khí hậu toàn cầu.", a: false }
+    ]},
+    { doc: "Sản xuất nông nghiệp, lâm nghiệp và thủy sản (nông nghiệp theo nghĩa rộng) có vai trò và đặc điểm riêng, đóng vai trò không ngành nào thay thế được.", items: [
+        { s: "a) Tư liệu sản xuất chủ yếu là đất trồng và mặt nước.", a: true },
+        { s: "b) Đối tượng sản xuất là những cơ thể sống.", a: true },
+        { s: "c) Sản xuất có tính tập trung cao độ.", a: false },
+        { s: "d) Sản xuất không phụ thuộc nhiều vào tự nhiên và có tính thời vụ.", a: false }
+    ]},
+    { doc: "Dịch vụ nông nghiệp đóng vai trò quan trọng trong việc hỗ trợ và nâng cao hiệu quả sản xuất trong nền nông nghiệp hiện đại.", items: [
+        { s: "a) Sự phân bổ của dịch vụ nông nghiệp không cần gắn liền với hoạt động sản xuất nông nghiệp.", a: false },
+        { s: "b) Dịch vụ nông nghiệp thúc đẩy sản xuất nông nghiệp theo hướng chuyên môn hoá, tăng năng suất và chất lượng sản phẩm.", a: true },
+        { s: "c) Dịch vụ nông nghiệp chỉ bao gồm dịch vụ trồng trọt và dịch vụ sau thu hoạch.", a: false },
+        { s: "d) Dịch vụ nông nghiệp cung cấp máy móc, phân bón và các sản phẩm hỗ trợ quá trình sản xuất nông nghiệp.", a: true }
+    ]}
+];
+
+// Dữ liệu Bài 26, 27 tương tự (Rút trích 100% từ file)
+const tn26 = [
+    { q: "Câu 5. Cây trồng nào sau đây phân bố chủ yếu ở miền nhiệt đới, đặc biệt khu vực châu Á gió mùa?", a: "A", opts: ["A. Lúa gạo.", "B. Củ cải đường.", "C. Chè.", "D. Lúa mì."] },
+    { q: "Câu 6. Đặc điểm nào sau đây đúng với đặc điểm sinh thái của cây cà phê?", a: "A", opts: ["A. Thích hợp với đất badan.", "B. Phát triển ở vùng đất đen.", "C. Nhiệt độ ôn hòa, mưa nhiều.", "D. Ánh sáng, khí hậu ổn định."] },
+    { q: "Câu 7. Cây trồng nào sau đây thuộc nhóm cây cho chất kích thích, được trồng nhiều ở miền nhiệt đới?", a: "C", opts: ["A. Bông.", "B. Cao su.", "C. Cà phê.", "D. Củ cải đường."] },
+    { q: "Câu 8. Ý nào sau đây đúng khi nói về vai trò của ngành chăn nuôi?", a: "B", opts: ["A. Hạn chế trong việc sử dụng tài nguyên.", "B. Nguyên liệu cho sản xuất công nghiệp.", "C. Chưa tạo ra những mặt hàng xuất khẩu.", "D. Vai trò thứ yếu ở nông nghiệp hiện đại."] },
+    { q: "Câu 9. Đặc điểm nào sau đây đúng khi nói về ngành chăn nuôi?", a: "C", opts: ["A. Cơ sở thức ăn cho chăn nuôi còn chậm phát triển.", "B. Hình thức chăn nuôi hiện nay chủ yếu là chăn thả.", "C. Chất lượng sản phẩm tăng do áp dụng công nghệ.", "D. Dịch bệnh trong vật nuôi được kiểm soát rất tốt."] },
+    { q: "Câu 10. Vật nuôi nào sau đây được nuôi chủ yếu ở vùng khí hậu khô, hình thức chăn thả ở vùng cận nhiệt và ôn đới?", a: "C", opts: ["A. Bò.", "B. Lợn.", "C. Cừu.", "D. Gia cầm."] },
+    { q: "Câu 11. Ngành lâm nghiệp không có vai trò nào sau đây?", a: "D", opts: ["A. Có chức năng nghiên cứu khoa học.", "B. Có thể bảo vệ cảnh quan, môi trường.", "C. Cung cấp nguồn lâm sản có giá trị.", "D. Góp phần gia tăng biến đổi khí hậu."] },
+    { q: "Câu 12. Đặc điểm nào sau đây đúng với ngành lâm nghiệp?", a: "B", opts: ["A. Bao gồm hoạt động trồng rừng, khai thác rừng, xuất khẩu rừng.", "B. Quá trình sinh trưởng tự nhiên của rừng đóng vai trò quan trọng.", "C. Ứng dụng thành tựu khoa học - kĩ thuật nên khai thác khó khăn.", "D. Sản xuất trên quy mô hẹp, những nơi có điều kiện tự nhiên kém."] },
+    { q: "Câu 13. Ngành thủy sản KHÔNG có vai trò nào sau đây?", a: "B", opts: ["A. Cung cấp thực phẩm có dinh dưỡng cao phục vụ cho con người.", "B. Đáp ứng chủ yếu nguyên liệu công nghiệp sản xuất hàng tiêu dùng.", "C. Góp phần để giải quyết việc làm, nâng cao thu nhập cho người dân.", "D. Giúp khai thác tốt các tiềm năng tự nhiên, kinh tế, xã hội, chủ quyền."] },
+    { q: "Câu 14. Đặc điểm nào sau đây đúng khi nói về ngành thủy sản trên thế giới?", a: "C", opts: ["A. Bao gồm nuôi trồng, chế biến, dịch vụ thủy sản.", "B. Áp dụng công nghệ hiện đại làm giảm nguồn lợi.", "C. Diện tích nước, chất lượng nước là tư liệu sản xuất.", "D. Sản xuất thủy sản có tính đồng nhất, nội ngành cao."] },
+    { q: "Câu 15. Nguyên nhân chủ yếu nào sau đây làm cho ngành nuôi trồng thủy sản trên thế giới ngày càng phát triển?", a: "D", opts: ["A. Thực phẩm có giá trị cao.", "B. Lượng lương thực dư thừa.", "C. Diện tích mặt nước còn lớn.", "D. Nhu cầu thị trường tăng cao."] },
+    { q: "Câu 16. Cây lúa mì phân bố chủ yếu ở khu vực nào?", a: "B", opts: ["A. Nhiệt đới.", "B. Ôn đới và cận nhiệt.", "C. Xích đạo ẩm.", "D. Hoang mạc."] },
+    { q: "Câu 17. Loại rừng nào có vai trò quan trọng nhất trong việc duy trì đa dạng sinh học?", a: "C", opts: ["A. Rừng sản xuất.", "B. Rừng phòng hộ.", "C. Rừng đặc dụng.", "D. Rừng trồng."] },
+    { q: "Câu 18. Ngành chăn nuôi lợn tập trung chủ yếu ở các khu vực có", a: "B", opts: ["A. Đồng cỏ rộng lớn.", "B. Nguồn lương thực dồi dào.", "C. Khí hậu lạnh.", "D. Ven biển."] },
+    { q: "Câu 19. Sự phân bố của vật nuôi phụ thuộc chủ yếu vào nhân tố nào?", a: "A", opts: ["A. Nguồn thức ăn.", "B. Địa hình.", "C. Thủy văn.", "D. Phong tục tập quán."] }
+];
+
+const ds26 = [
+    { doc: "Ngành trồng trọt là một trong những ngành quan trọng nhất của nông nghiệp, cung cấp lương thực, thực phẩm cho con người và nguyên liệu cho công nghiệp.", items: [
+        { s: "a) Một trong những vai trò quan trọng của ngành trồng trọt là cung cấp lương thực, thực phẩm cho người dân.", a: true },
+        { s: "b) Mía là cây trồng quan trọng ở miền khí hậu cận nhiệt đới.", a: false },
+        { s: "c) Trung Quốc là một trong những quốc gia có ngành trồng trọt phát triển trên thế giới.", a: true },
+        { s: "d) Những quốc gia có ngành trồng trọt phát triển nhờ điều kiện tự nhiên ưu đãi, áp dụng tiến bộ KH-KT và có thị trường tiêu thụ rộng lớn.", a: true }
+    ]},
+    { doc: "Ngành chăn nuôi cung cấp thực phẩm dinh dưỡng cao, nguyên liệu cho công nghiệp nhẹ và phân bón cho trồng trọt.", items: [
+        { s: "a) Chăn nuôi có vai trò quan trọng trong việc tạo ra nguồn hàng xuất khẩu có giá trị kinh tế.", a: true },
+        { s: "b) Ngành chăn nuôi phát triển góp phần hình thành một nền nông nghiệp bền vững.", a: true },
+        { s: "c) Hình thức chăn nuôi trên thế giới hiện nay chủ yếu là chăn thả.", a: false },
+        { s: "d) Gia cầm phân bố ở nhiều quốc gia trên thế giới do nhu cầu về thực phẩm ngày càng tăng và khả năng thích nghi tốt.", a: true }
+    ]},
+    { doc: "Rừng là tài nguyên vô cùng quý giá, cung cấp lâm sản và bảo vệ môi trường sinh thái.", items: [
+        { s: "a) Các quốc gia có diện tích rừng trồng lớn trên thế giới là Trung Quốc, Ấn Độ, Liên bang Nga.", a: true },
+        { s: "b) Rừng trồng trên thế giới chủ yếu dùng để lấy củi và phòng hộ.", a: false },
+        { s: "c) Ở các quốc gia có diện tích rừng lớn thì ngành khai thác gỗ thường chậm phát triển.", a: false },
+        { s: "d) Diện tích rừng trên thế giới đang có xu hướng suy giảm do cháy rừng và khai thác rừng quá mức.", a: true }
+    ]},
+    { doc: "Dựa vào biểu đồ sản lượng thủy sản thế giới giai đoạn 2019 - 2022.", items: [
+        { s: "a) Trong giai đoạn 2019 - 2022, sản lượng thủy sản trên thế giới có xu hướng tăng liên tục.", a: true },
+        { s: "b) Năm 2022, sản lượng thủy sản đánh bắt cao hơn sản lượng thủy sản nuôi trồng.", a: false },
+        { s: "c) Trong giai đoạn 2019 - 2022, sản lượng thủy sản đánh bắt có xu hướng tăng, sản lượng thủy sản nuôi trồng có xu hướng giảm.", a: false },
+        { s: "d) Sản lượng thủy sản nuôi trồng trên thế giới tăng mạnh nhờ đẩy mạnh nuôi trồng, thị trường tiêu thụ mở rộng và áp dụng tiến bộ kỹ thuật.", a: true }
+    ]}
+];
+
+// Dữ liệu Bài 27 (Nguyên văn)
+const tn27 = [
+    { q: "Câu 1. Ý nào sau đây KHÔNG ĐÚNG khi nói về tổ chức lãnh thổ nông nghiệp?", a: "C", opts: ["A. Là hệ thống liên kết không gian của các ngành.", "B. Có tính chất chuyên môn hóa, tập trung hóa.", "C. Phát triển mang tính tự phát.", "D. Sản xuất theo hướng liên ngành."] },
+    { q: "Câu 2. Việc tổ chức lãnh thổ nông nghiệp nhằm mục đích sử dụng hiệu quả nhất về", a: "B", opts: ["A. nguồn vốn đầu tư nước ngoài.", "B. tiềm năng tự nhiên, kinh tế - xã hội.", "C. máy móc nông nghiệp hiện đại.", "D. giống cây trồng biến đổi gen."] },
+    { q: "Câu 3. Việc tổ chức lãnh thổ nông nghiệp nhằm mục đích cuối cùng là", a: "D", opts: ["A. mở rộng diện tích đất canh tác ở mức tối đa.", "B. hạn chế tối đa việc sử dụng máy móc trong sản xuất.", "C. tập trung tất cả các loại cây trồng vào một vùng duy nhất.", "D. nâng cao hiệu quả kinh tế - xã hội và môi trường."] },
+    { q: "Câu 4. Đối tượng chính chịu sự tác động, sắp xếp của TCLTNN là", a: "C", opts: ["A. các nhà máy công nghiệp nặng.", "B. mạng lưới giao thông vận tải.", "C. cây trồng, vật nuôi.", "D. các khu đô thị và dân cư đông đúc."] },
+    { q: "Câu 5. Kết quả của việc TCLTNN hợp lí là đạt được hiệu quả cao về các mặt", a: "A", opts: ["A. kinh tế, xã hội và môi trường.", "B. chính trị, quân sự và ngoại giao.", "C. văn hóa, giáo dục và y tế.", "D. thể thao, du lịch và giải trí."] },
+    { q: "Câu 6. Theo quan niệm chung, tổ chức lãnh thổ nông nghiệp được hiểu là hệ thống các đường lối và biện pháp nhằm mục đích gì?", a: "A", opts: ["A. Sắp xếp và phối hợp các đối tượng nông nghiệp trong không gian.", "B. Xóa bỏ sự khác biệt giữa các vùng sản xuất khác nhau.", "C. Chỉ tập trung vào việc tăng năng suất cây trồng hàng năm.", "D. Thay đổi hoàn toàn các điều kiện tự nhiên của vùng."] },
+    { q: "Câu 7. Vai trò quan trọng nhất của TCLTNN là sử dụng hiệu quả các lợi thế về", a: "B", opts: ["A. các loại phân bón hóa học và thuốc trừ sâu mới.", "B. các điều kiện tự nhiên và KT-XH.", "C. hệ thống kênh mương và hồ thủy lợi nhân tạo.", "D. thị trường tiêu thụ tại các nước."] },
+    { q: "Câu 1 (Thông hiểu). Vai trò quan trọng nhất của việc TCLTNN đối với kinh tế là", a: "B", opts: ["A. tăng cường số lượng lao động thủ công ở nông thôn.", "B. chuyển từ nền nông nghiệp cổ truyền sang nền nông nghiệp hàng hóa.", "C. xóa bỏ hoàn toàn các hình thức sản xuất nhỏ lẻ hộ gia đình.", "D. giải quyết tốt vấn đề lao động, việc làm."] },
+    { q: "Câu 2 (Thông hiểu). Tổ chức lãnh thổ nông nghiệp góp phần sử dụng hiệu quả tài nguyên thiên nhiên do", a: "B", opts: ["A. các sản phẩm nông nghiệp cần khai thác tối đa tài nguyên thiên nhiên.", "B. bố trí cây trồng, vật nuôi phù hợp với điều kiện sinh thái đặc thù của từng vùng.", "C. làm thay đổi hoàn toàn khí hậu và đất đai của vùng lãnh thổ.", "D. hạn chế tối đa việc khai thác đất đai để bảo vệ môi trường."] },
+    { q: "Câu 3. Trang trại KHÔNG có đặc điểm nào sau đây?", a: "D", opts: ["A. Có quy mô sản xuất tương đối lớn.", "B. Mục đích sản xuất nông sản hàng hóa.", "C. Có sử dụng người lao động làm thuê.", "D. Sản xuất tập trung, áp dụng cơ giới hóa."] },
+    { q: "Câu 4. Ý nghĩa chủ yếu của kinh tế trang trại đối với nông nghiệp nước ta là", a: "A", opts: ["A. từng bước đưa nông nghiệp lên sản xuất hàng hóa.", "B. sử dụng hợp lí tài nguyên vào phát triển sản xuất.", "C. thúc đẩy nhanh sự chuyển dịch cơ cấu nông nghiệp.", "D. góp phần vào việc đa dạng hóa cây trồng, vật nuôi."] },
+    { q: "Câu 5. Trong bối cảnh hiện nay, TCLTNN đóng vai trò như thế nào trong việc bảo vệ môi trường?", a: "C", opts: ["A. Ngăn chặn hoàn toàn việc sử dụng hóa chất trong nông nghiệp.", "B. Tạo ra các khu bảo tồn thiên nhiên tách biệt với sản xuất.", "C. Hạn chế tình trạng khai thác bừa bãi, quy hoạch sử dụng đất hợp lí và bền vững.", "D. Chuyển đổi toàn bộ đất nông nghiệp thành đất trồng rừng."] },
+    { q: "Câu 6. Điểm khác biệt cơ bản nhất giữa kinh tế trang trại so với kinh tế hộ gia đình là", a: "B", opts: ["A. trang trại sản xuất chủ yếu để phục vụ nhu cầu tiêu dùng của gia đình.", "B. trang trại có quy mô sản xuất lớn hơn và hướng tới sản xuất hàng hóa.", "C. trang trại không sử dụng lao động làm thuê.", "D. trang trại chỉ xuất hiện ở các nước phát triển."] },
+    { q: "Câu 7. Hình thức vùng nông nghiệp có đặc điểm nào nổi bật?", a: "A", opts: ["A. Là hình thức cao nhất, có quy mô lãnh thổ rộng lớn và chuyên môn hóa sâu sắc.", "B. Là hình thức sơ khai nhất, tồn tại ở mọi quốc gia.", "C. Chỉ tập trung vào một hộ gia đình đơn lẻ.", "D. Không chịu sự tác động của các điều kiện kinh tế - xã hội."] },
+    { q: "Câu 8. Đặc điểm chủ yếu của hình thức khu nông nghiệp ứng dụng công nghệ cao là", a: "C", opts: ["A. sử dụng nhiều lao động thủ công và kinh nghiệm truyền thống.", "B. quy mô diện tích rất lớn nhưng năng suất thấp.", "C. ứng dụng mạnh mẽ thành tựu khoa học kĩ thuật để tạo năng suất và chất lượng vượt trội.", "D. phụ thuộc hoàn toàn vào điều kiện thời tiết tự nhiên."] },
+    { q: "Câu 9. Sự khác biệt về vai trò của trang trại so với vùng nông nghiệp nằm ở chỗ", a: "A", opts: ["A. trang trại là đơn vị sản xuất cơ sở, còn vùng nông nghiệp là chiến lược quy hoạch vĩ mô.", "B. trang trại quyết định chính sách nông nghiệp của cả nước.", "C. vùng nông nghiệp có quy mô nhỏ hơn trang trại.", "D. trang trại không quan trọng đến sản xuất hàng hóa."] },
+    { q: "Câu 10. Hình thức tổ chức lãnh thổ vùng nông nghiệp có đặc điểm nào sau đây?", a: "D", opts: ["A. Có quy mô nhỏ, lẻ và phân tán.", "B. Hình thức phát triển thấp nhất.", "C. Sản xuất chủ yếu tự cấp tự túc.", "D. Hình thức phát triển cao nhất."] }
+];
+
+const ds27 = [
+    { doc: "Phát triển nông nghiệp bền vững nhằm mục tiêu kinh tế - xã hội và bảo vệ môi trường lâu dài.", items: [
+        { s: "a) Phát triển nông nghiệp bền vững giúp giảm thiểu tác động tiêu cực đến môi trường.", a: true },
+        { s: "b) Sử dụng phân bón hữu cơ và các biện pháp sinh học là một trong những giải pháp của nông nghiệp bền vững.", a: true },
+        { s: "c) Phát triển nông nghiệp bền vững làm tăng chi phí sản xuất nhưng không mang lại lợi ích kinh tế lâu dài.", a: false }
+    ]},
+    { doc: "Tổ chức lãnh thổ nông nghiệp ở các nước đang phát triển hiện nay.", items: [
+        { s: "a) Trang trại không phải là hình thức tổ chức lãnh thổ nông nghiệp được áp dụng hiện nay.", a: false },
+        { s: "b) Hạn chế của tổ chức lãnh thổ nông nghiệp ở các nước đang phát triển là quy mô sản xuất nhỏ lẻ, thiếu liên kết.", a: true },
+        { s: "c) Ý nghĩa của việc phát triển sản xuất chuyên canh trong nông nghiệp là đẩy mạnh phân công lao động theo lãnh thổ.", a: true },
+        { s: "d) Giải pháp chủ yếu để phát triển nông nghiệp xanh trên thế giới hiện nay là tăng liên kết chuỗi giá trị, ứng dụng KH-CN.", a: true }
+    ]},
+    { doc: "Mô hình sản xuất trang trại ứng dụng KHKT.", items: [
+        { s: "a) Hiện nay, trên thế giới các trang trại đã ứng dụng KHKT trong sản xuất.", a: true },
+        { s: "b) Phát triển các trang trại góp phần khai thác hiệu quả tài nguyên, bảo vệ môi trường.", a: true },
+        { s: "c) Đẩy mạnh phát triển mô hình trang trại góp phần tăng cường cơ sở hạ tầng ở nông thôn.", a: true },
+        { s: "d) Các trang trại mang lại ý nghĩa lớn cho vùng nông thôn là giải quyết phần lớn việc làm cho lao động.", a: true }
+    ]},
+    { doc: "Dựa vào biểu đồ cơ cấu trang trại phân theo lĩnh vực hoạt động ở nước ta giai đoạn 2011 - 2023.", items: [
+        { s: "a) Tỉ trọng trang trại nuôi trồng thủy sản có xu hướng tăng rất nhanh.", a: true },
+        { s: "b) Tỉ trọng trang trại khác luôn lớn hơn trang trại nuôi trồng thủy sản.", a: false },
+        { s: "c) Tỉ trọng trang trại chăn nuôi cao nhất là do chuyển sang nông nghiệp hàng hóa, hiệu quả cao.", a: true },
+        { s: "d) Tỉ trọng trang trại trồng trọt giảm do khó khăn đất đai, hạ tầng và biến đổi khí hậu.", a: true }
+    ]}
+];
 
 let corrects = 0;
 let wrongs = 0;
 
 function updateScore() {
-    document.getElementById('correct-count').innerText = corrects;
-    document.getElementById('wrong-count').innerText = wrongs;
+    document.getElementById('c-count').innerText = corrects;
+    document.getElementById('w-count').innerText = wrongs;
 }
 
-function renderTN(areaId, dataList) {
+function renderTN(areaId, data) {
     const area = document.getElementById(areaId);
-    dataList.forEach(item => {
+    data.forEach(item => {
         const card = document.createElement('div');
         card.className = 'q-card';
         card.innerHTML = `<div class="q-text">${item.q}</div>`;
         const optsDiv = document.createElement('div');
-        optsDiv.className = 'options';
+        optsDiv.className = 'options-grid';
         item.opts.forEach(o => {
             const btn = document.createElement('button');
-            btn.className = 'opt-btn';
+            btn.className = 'opt-item';
             btn.innerText = o;
             btn.onclick = () => {
                 if (optsDiv.classList.contains('disabled')) return;
-                if (o === item.a) { btn.classList.add('correct'); corrects++; }
+                const code = o.charAt(0);
+                if (code === item.a) { btn.classList.add('correct'); corrects++; }
                 else { 
                     btn.classList.add('wrong'); wrongs++;
-                    Array.from(optsDiv.children).forEach(b => { if(b.innerText === item.a) b.classList.add('correct'); });
+                    Array.from(optsDiv.children).forEach(b => { if(b.innerText.charAt(0) === item.a) b.classList.add('correct'); });
                 }
                 optsDiv.classList.add('disabled');
                 updateScore();
@@ -255,48 +217,46 @@ function renderTN(areaId, dataList) {
     });
 }
 
-function renderDS(areaId, dataList) {
+function renderDS(areaId, data) {
     const area = document.getElementById(areaId);
-    dataList.forEach(group => {
+    data.forEach(group => {
         const card = document.createElement('div');
         card.className = 'q-card';
-        card.innerHTML = `<div class="q-text" style="color:#d32f2f">ĐOẠN TƯ LIỆU / NHẬN ĐỊNH:</div><p><i>${group.t}</i></p>`;
-        
+        card.innerHTML = `
+            <div class="q-text" style="color:#e67e22">II. PHẦN TRẮC NGHIỆM ĐÚNG/SAI</div>
+            <div class="doc-content">${group.doc}</div>
+            <table class="ds-table"></table>
+        `;
+        const table = card.querySelector('.ds-table');
         group.items.forEach(item => {
-            const row = document.createElement('div');
+            const row = document.createElement('tr');
             row.className = 'ds-row';
-            row.innerHTML = `<div class="ds-text">${item.s}</div>`;
-            const btns = document.createElement('div');
-            btns.className = 'ds-btns';
-            
-            ['Đúng', 'Sai'].forEach(val => {
+            row.innerHTML = `<td class="ds-cell-text">${item.s}</td><td class="ds-cell-btns"></td>`;
+            const btnCell = row.querySelector('.ds-cell-btns');
+            ['Đúng', 'Sai'].forEach(label => {
                 const b = document.createElement('button');
                 b.className = 'btn-ds';
-                b.innerText = val;
+                b.innerText = label;
                 b.onclick = () => {
-                    if (btns.classList.contains('disabled')) return;
-                    const isTrueChoice = (val === 'Đúng');
-                    if (isTrueChoice === item.a) { b.classList.add('correct'); corrects++; }
+                    if (btnCell.classList.contains('disabled')) return;
+                    const choice = (label === 'Đúng');
+                    if (choice === item.a) { b.classList.add('correct'); corrects++; }
                     else { b.classList.add('wrong'); wrongs++; }
-                    btns.classList.add('disabled');
+                    btnCell.classList.add('disabled');
                     updateScore();
                 };
-                btns.appendChild(b);
+                btnCell.appendChild(b);
             });
-            row.appendChild(btns);
-            card.appendChild(row);
+            table.appendChild(row);
         });
         area.appendChild(card);
     });
 }
 
-// Khởi chạy
-renderTN('area-25', tnData.b25);
-renderDS('area-25', dsData.b25);
-renderTN('area-26', tnData.b26);
-renderDS('area-26', dsData.b26);
-renderTN('area-27', tnData.b27);
-renderDS('area-27', dsData.b27);
+// Chạy
+renderTN('area-25', tn25); renderDS('area-25', ds25);
+renderTN('area-26', tn26); renderDS('area-26', ds26);
+renderTN('area-27', tn27); renderDS('area-27', ds27);
 
 </script>
 </body>
