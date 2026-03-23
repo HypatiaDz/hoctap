@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Ktra - Đầy Đủ & Xáo Trộn</title>
+    <title>Ôn Tập Giáo Dục Pháp Luật 10</title>
     <style>
-        :root { --b25: #1565c0; --b26: #2e7d32; --b27: #e65100; --bg: #f8f9fa; }
+        :root { --primary: #1565c0; --bg: #f8f9fa; --accent: #e67e22; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); padding: 20px; line-height: 1.6; }
         .container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        .section-title { color: white; padding: 15px; border-radius: 8px; margin: 40px 0 20px; font-weight: bold; font-size: 1.2rem; display: flex; justify-content: space-between; align-items: center; }
+        .section-title { color: white; padding: 15px; border-radius: 8px; margin: 20px 0; font-weight: bold; font-size: 1.2rem; display: flex; justify-content: space-between; align-items: center; background: var(--primary); }
         .q-card { border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-bottom: 25px; background: #fff; }
-        .q-text { font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; color: #333; white-space: pre-wrap; }
-        .doc-content { background: #fff8e1; border-left: 5px solid #ff8f00; padding: 15px; margin-bottom: 20px; font-style: italic; color: #5d4037; }
+        .q-text { font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; color: #333; }
+        .doc-content { background: #fff8e1; border-left: 5px solid #ff8f00; padding: 15px; margin-bottom: 20px; font-style: italic; color: #5d4037; white-space: pre-wrap; }
         .options-grid { display: grid; gap: 10px; margin-bottom: 10px; }
-        .opt-item { padding: 12px 15px; border: 1px solid #dee2e6; border-radius: 8px; cursor: pointer; background: #fff; text-align: left; transition: 0.2s; outline: none; font-size: 1rem; }
+        .opt-item { padding: 12px 15px; border: 1px solid #dee2e6; border-radius: 8px; cursor: pointer; background: #fff; text-align: left; transition: 0.2s; font-size: 1rem; width: 100%; }
         .opt-item:hover { background: #f1f3f5; }
         .ds-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         .ds-row { border-bottom: 1px solid #eee; }
         .ds-cell-text { padding: 12px 0; font-size: 1rem; }
         .ds-cell-btns { text-align: right; white-space: nowrap; padding-left: 15px; }
         .btn-ds { padding: 8px 18px; border: 1.5px solid #adb5bd; border-radius: 5px; cursor: pointer; font-weight: bold; background: white; margin-left: 5px; }
-        .correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; font-weight: bold; }
+        .correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
         .wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
         .disabled { pointer-events: none; opacity: 0.8; }
         .score-bar { position: sticky; top: 10px; background: #343a40; color: white; padding: 15px; border-radius: 10px; display: flex; justify-content: space-around; z-index: 1000; margin-bottom: 20px; align-items: center; }
         .btn-reset-all { background: #dc3545; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        .btn-reset-section { background: rgba(255,255,255,0.2); color: white; border: 1px solid white; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
-        .part-label { color: #e67e22; font-weight: bold; margin: 20px 0 15px; text-transform: uppercase; border-bottom: 2px solid #e67e22; display: inline-block; }
+        .part-label { color: var(--accent); font-weight: bold; margin: 30px 0 15px; text-transform: uppercase; border-bottom: 2px solid var(--accent); display: inline-block; }
     </style>
 </head>
 <body>
@@ -34,319 +33,109 @@
 <div class="score-bar">
     <span>✅ Đúng: <span id="c-count">0</span></span>
     <span>❌ Sai: <span id="w-count">0</span></span>
-    <button class="btn-reset-all" onclick="resetAll()">LÀM LẠI TẤT CẢ (XÁO TRỘN)</button>
+    <button class="btn-reset-all" onclick="resetApp()">LÀM LẠI & XÁO TRỘN</button>
 </div>
 
 <div class="container">
-    <h1 style="text-align: center; text-transform: uppercase;">ĐỀ CƯƠNG ÔN TẬP ĐỊA LÝ & GDPL 10</h1>
-
-    <div class="section-title" style="background: var(--b25);">
-        BÀI: PHÁP LUẬT VÀ ĐỜI SỐNG
-        <button class="btn-reset-section" onclick="renderSection('25')">Làm lại bài này</button>
-    </div>
-    <div id="area-25"></div>
-
-    <div class="section-title" style="background: var(--b26);">
-        BÀI 26: NÔNG NGHIỆP, LÂM NGHIỆP, THỦY SẢN
-        <button class="btn-reset-section" onclick="renderSection('26')">Làm lại bài này</button>
-    </div>
-    <div id="area-26"></div>
-
-    <div class="section-title" style="background: var(--b27);">
-        BÀI 27: TỔ CHỨC LÃNH THỔ NÔNG NGHIỆP
-        <button class="btn-reset-section" onclick="renderSection('27')">Làm lại bài này</button>
-    </div>
-    <div id="area-27"></div>
+    <h1 style="text-align: center; text-transform: uppercase;">ÔN TẬP GIÁO DỤC PHÁP LUẬT 10</h1>
+    <div id="main-area"></div>
 </div>
 
 <script>
-const data = {
-  "phap_luat_va_doi_song": {
-    "trac_nghiem_4_phuong_an": [
-      {
-        "q": "Câu 1: Bất kì ai trong điều kiện hoàn cảnh nhất định, cũng phải xử sự theo khuôn mẫu được pháp luật quy định phản ánh đặc điểm cơ bản nào của pháp luật?",
-        "a": "D",
-        "opts": ["A. Tính cưỡng chế.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính quy phạm phổ biến."]
-      },
-      {
-        "q": "Câu 2: Luật hôn nhân gia đình quy định điều kiện kết hôn giữa nam và nữ áp dụng cho tất cả mọi người, không có ngoại lệ phản ánh đặc điểm cơ bản nào của pháp luật?",
-        "a": "D",
-        "opts": ["A. Tính xác định chặt chẽ về nội dung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính quy phạm phổ biến."]
-      },
-      {
-        "q": "Câu 3: Những quy tắc xử sự chung được áp dụng nhiều lần, ở nhiều nơi đối với tất cả mọi người là thể hiện đặc điểm nào sau đây của pháp luật?",
-        "a": "C",
-        "opts": ["A. Tính chặt chẽ về hình thức.", "B. Tính kỉ luật nghiêm minh.", "C. Tính quy phạm phổ biến.", "D. Tính quyền lực, bắt buộc chung."]
-      },
-      {
-        "q": "Câu 4: Những người có hành vi không đúng quy định của pháp luật sẽ bị cơ quan có thẩm quyền áp dụng các biện pháp cần thiết để buộc họ phải tuân theo thể hiện đặc điểm nào?",
-        "a": "B",
-        "opts": ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực, bắt buộc chung.", "C. Hiệu lực tuyệt đối.", "D. Khả năng đảm bảo thi hành cao."]
-      },
-      {
-        "q": "Câu 5: Tất cả mọi cá nhân, tổ chức khi tham gia vào các quan hệ xã hội đều phải xử sự theo quy định của pháp luật thể hiện đặc điểm nào?",
-        "a": "C",
-        "opts": ["A. Tính xác định về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."]
-      },
-      {
-        "q": "Câu 6: Tất cả mọi cá nhân, tổ chức nếu vi phạm pháp luật đều phải bị xử lý như nhau thể hiện đặc điểm nào?",
-        "a": "A",
-        "opts": ["A. Tính cưỡng chế, bắt buộc chung.", "B. Tính công khai.", "C. Tính dân chủ.", "D. Tính quy phạm phổ biến."]
-      },
-      {
-        "q": "Câu 7: Pháp luật có vai trò như thế nào đối với công dân?",
-        "a": "D",
-        "opts": ["A. Cưỡng chế mọi nghĩa vụ.", "B. Bảo vệ mọi hình thức.", "C. Bảo vệ quyền, lợi ích tuyệt đối.", "D. Bảo vệ quyền và lợi ích hợp pháp của công dân."]
-      },
-      {
-        "q": "Câu 8: Tính quy phạm phổ biến của pháp luật gắn liền với?",
-        "a": "B",
-        "opts": ["A. Các quan hệ kinh tế.", "B. Các quy tắc xử sự chung.", "C. Các phong tục tập quán.", "D. Các quy tắc đạo đức."]
-      },
-      {
-        "q": "Câu 9: Văn bản pháp luật phải chính xác, dễ hiểu để người dân bình thường cũng có thể hiểu được là đặc điểm nào?",
-        "a": "B",
-        "opts": ["A. Tính quyền lực bắt buộc chung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."]
-      },
-      {
-        "q": "Câu 10: Pháp luật là những quy tắc xử sự chung, là khuôn mẫu cho tất cả mọi người ở mọi nơi là đặc điểm nào?",
-        "a": "C",
-        "opts": ["A. Tính xác định về hình thức.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."]
-      },
-      {
-        "q": "Câu 11: Việc làm nào thể hiện pháp luật là phương tiện để nhà nước quản lý xã hội?",
-        "a": "A",
-        "opts": ["A. Kiểm tra các hoạt động kinh doanh.", "B. Tố cáo ngăn chặn hành vi vi phạm.", "C. Đăng ký kinh doanh khi đủ điều kiện.", "D. Đề nghị xem xét lại quyết định."]
-      },
-      {
-        "q": "Câu 12: Cảnh sát giao thông xử phạt người vi phạm để đảm bảo trật tự thể hiện vai trò gì?",
-        "a": "B",
-        "opts": ["A. Công cụ bảo vệ trật tự.", "B. Phương tiện để nhà nước quản lý xã hội.", "C. Công cụ để nhân dân đấu tranh.", "D. Phương tiện để nhà nước trừng trị kẻ phạm tội."]
-      },
-      {
-        "q": "Câu 13: Pháp luật do nhà nước ban hành và đảm bảo thực hiện bằng quyền lực của nhà nước là đặc điểm nào?",
-        "a": "C",
-        "opts": ["A. Tính xác định về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."]
-      },
-      {
-        "q": "Câu 14: Những việc được làm, những việc phải làm và những việc bị cấm đoán là nội dung của?",
-        "a": "C",
-        "opts": ["A. Đạo đức.", "B. Nghị quyết.", "C. Pháp luật.", "D. Chính sách."]
-      },
-      {
-        "q": "Câu 15: Pháp luật là phương tiện để công dân bảo vệ?",
-        "a": "A",
-        "opts": ["A. Quyền và lợi ích hợp pháp.", "B. Mọi nhu cầu của mình.", "C. Lợi ích cá nhân tối đa.", "D. Quyền tự do tuyệt đối."]
-      },
-      {
-        "q": "Câu 16: Khi quyền và lợi ích hợp pháp bị xâm phạm, công dân căn cứ vào pháp luật để khiếu nại thể hiện vai trò gì?",
-        "a": "D",
-        "opts": ["A. Công cụ quản lý xã hội.", "B. Quy tắc xử sự trong đời sống.", "C. Khuôn mẫu chung cho mọi người.", "D. Phương tiện bảo vệ quyền và lợi ích hợp pháp."]
-      },
-      {
-        "q": "Câu 17: Đặc điểm nào của pháp luật tạo nên sự khác biệt giữa pháp luật với các loại quy tắc đạo đức?",
-        "a": "C",
-        "opts": ["A. Tính quy phạm phổ biến.", "B. Tính phổ biến rộng rãi.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính chuẩn mực xã hội."]
-      },
-      {
-        "q": "Câu 18: Việc mọi người nghiêm chỉnh chấp hành luật giao thông đường bộ là thể hiện đặc điểm nào?",
-        "a": "B",
-        "opts": ["A. Tính bắt buộc chung.", "B. Tính quy phạm phổ biến.", "C. Tính xác định về hình thức.", "D. Tính kỉ luật nghiêm minh."]
-      },
-      {
-        "q": "Câu 19: Pháp luật là phương tiện để Nhà nước?",
-        "a": "C",
-        "opts": ["A. Bảo vệ các giai cấp.", "B. Bảo vệ các công dân.", "C. Quản lý xã hội.", "D. Quản lý công dân."]
-      },
-      {
-        "q": "Câu 20: Anh A bị giám đốc công ty đuổi việc không rõ lý do. Anh A đã dùng pháp luật để khiếu nại thể hiện vai trò pháp luật là?",
-        "a": "B",
-        "opts": ["A. Phương tiện quản lý xã hội.", "B. Bảo vệ quyền và lợi ích hợp pháp.", "C. Công cụ đấu tranh giai cấp.", "D. Phương tiện thực hiện dân chủ."]
-      },
-      {
-        "q": "Câu 21: Bất kỳ người nào vi phạm cũng bị cơ quan có thẩm quyền xử phạt theo quy định là đặc điểm?",
-        "a": "D",
-        "opts": ["A. Tính phổ biến.", "B. Tính hình thức.", "C. Tính chuẩn mực.", "D. Tính quyền lực, bắt buộc chung."]
-      },
-      {
-        "q": "Câu 22: Cơ quan chức năng tiến hành chấn chỉnh các cơ sở kinh doanh trái phép thể hiện vai trò pháp luật là?",
-        "a": "C",
-        "opts": ["A. Bảo vệ quyền công dân.", "B. Thực hiện nghĩa vụ nhà nước.", "C. Phương tiện quản lý xã hội.", "D. Công cụ phát triển kinh tế."]
-      },
-      {
-        "q": "Câu 23: Thông qua pháp luật, nhà nước kiểm tra, kiểm soát mọi hoạt động của cá nhân, tổ chức là vai trò?",
-        "a": "C",
-        "opts": ["A. Phương tiện của công dân.", "B. Quy tắc xử sự xã hội.", "C. Quản lý xã hội.", "D. Bảo vệ đạo đức xã hội."]
-      },
-      {
-        "q": "Câu 24: Nội dung của văn bản luật cấp dưới không được trái với nội dung của văn bản luật cấp trên là thể hiện đặc điểm nào?",
-        "a": "C",
-        "opts": ["A. Tính bắt buộc chung.", "B. Quy phạm phổ biến.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính cưỡng chế."]
-      },
-      {
-        "q": "Câu 25: Pháp luật mang tính quyền lực bắt buộc chung vì pháp luật được?",
-        "a": "A",
-        "opts": ["A. Đảm bảo bằng quyền lực nhà nước.", "B. Các tổ chức xã hội ban hành.", "C. Mọi người tự nguyện thi hành.", "D. Phù hợp với các quy tắc đạo đức."]
-      },
-      {
-        "q": "Câu 26: Nhà nước Việt Nam quản lý xã hội chủ yếu bằng?",
-        "a": "B",
-        "opts": ["A. Chính sách xã hội.", "B. Pháp luật.", "C. Tuyên truyền giáo dục.", "D. Các quy tắc đạo đức."]
-      },
-      {
-        "q": "Câu 27: Cảnh sát giao thông xử phạt người không đội mũ bảo hiểm thể hiện đặc trưng nào?",
-        "a": "C",
-        "opts": ["A. Quy phạm phổ biến.", "B. Xác định về hình thức.", "C. Quyền lực bắt buộc chung.", "D. Tính cưỡng chế."]
-      },
-      {
-        "q": "Câu 28: Để quản lý xã hội bằng pháp luật hiệu quả, nhà nước cần phải?",
-        "a": "A",
-        "opts": ["A. Ban hành và tổ chức thực hiện pháp luật.", "B. Tăng cường cưỡng chế xử phạt.", "C. Giảm bớt các quy định pháp lý.", "D. Dùng các quy tắc đạo đức thay thế."]
-      },
-      {
-        "q": "Câu 29: Đối với công dân, pháp luật có vai trò bảo vệ?",
-        "a": "B",
-        "opts": ["A. Mọi lợi ích cá nhân.", "B. Quyền và lợi ích hợp pháp.", "C. Các nhu cầu tự do.", "D. Quyền lợi của giai cấp."]
-      },
-      {
-        "q": "Câu 30: Xét về mặt chủ thể thì pháp luật do chủ thể nào ban hành?",
-        "a": "C",
-        "opts": ["A. Các tổ chức chính trị.", "B. Các hội nghề nghiệp.", "C. Nhà nước.", "D. Mọi công dân."]
-      },
-      {
-        "q": "Câu 31: Tính quy phạm phổ biến của pháp luật được áp dụng cho tất cả mọi người trong đời sống?",
-        "a": "C",
-        "opts": ["A. Cá nhân.", "B. Tập thể.", "C. Xã hội.", "D. Gia đình."]
-      },
-      {
-        "q": "Câu 32: Một trong những đặc điểm cơ bản của pháp luật thể hiện ở tính?",
-        "a": "C",
-        "opts": ["A. kỉ luật tự giác.", "B. bắt buộc riêng biệt.", "C. xác định chặt chẽ về hình thức.", "D. chuẩn mực tùy nghi."]
-      },
-      {
-        "q": "Câu 33: Văn bản pháp luật đòi hỏi cách diễn đạt phải chính xác, một nghĩa để ai cũng hiểu đúng là đặc điểm?",
-        "a": "A",
-        "opts": ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực bắt buộc chung.", "D. Tính dân chủ."]
-      },
-      {
-        "q": "Câu 34: Phát biểu nào sau đây sai về vai trò quản lý xã hội của pháp luật?",
-        "a": "D",
-        "opts": ["A. Pháp luật giúp ổn định trật tự.", "B. Pháp luật điều chỉnh các quan hệ.", "C. Pháp luật là công cụ quản lý.", "D. Pháp luật có nội dung cố định không thay đổi."]
-      },
-      {
-        "q": "Câu 35: Phát biểu nào sau đây sai về khái niệm pháp luật?",
-        "a": "D",
-        "opts": ["A. Pháp luật là hệ thống quy tắc.", "B. Pháp luật do nhà nước ban hành.", "C. Pháp luật mang tính bắt buộc.", "D. Pháp luật là phương tiện duy nhất quản lý xã hội."]
-      },
-      {
-        "q": "Câu 36: Phát biểu nào sau đây sai về vai trò của pháp luật?",
-        "a": "A",
-        "opts": ["A. Pháp luật không phù hợp quyền lợi chung.", "B. Pháp luật quản lý xã hội.", "C. Pháp luật bảo vệ công dân.", "D. Pháp luật duy trì trật tự."]
-      },
-      {
-        "q": "Câu 37: Phát biểu nào sau đây sai khi nói về vai trò của pháp luật?",
-        "a": "D",
-        "opts": ["A. Quản lý dân cư.", "B. Duy trì an ninh.", "C. Bảo vệ chủ quyền.", "D. Là phương tiện duy nhất quản lý xã hội."]
-      },
-      {
-        "q": "Câu 38: Phát biểu nào sau đây sai về đặc điểm của pháp luật?",
-        "a": "A",
-        "opts": ["A. Pháp luật không phù hợp quyền lợi chung.", "B. Pháp luật mang tính bắt buộc.", "C. Pháp luật có tính quy phạm.", "D. Pháp luật có tính hình thức."]
-      },
-      {
-        "q": "Câu 39: Phát biểu nào sau đây sai về quản lý xã hội bằng pháp luật?",
-        "a": "B",
-        "opts": ["A. Là phương pháp hiệu quả nhất.", "B. Là phương pháp cố định bất biến.", "C. Giúp đảm bảo công bằng.", "D. Đảm bảo tính dân chủ."]
-      },
-      {
-        "q": "Câu 40: Phát biểu nào sau đây sai về vai trò của pháp luật?",
-        "a": "B",
-        "opts": ["A. Pháp luật quản lý xã hội.", "B. Pháp luật là phương tiện duy nhất.", "C. Pháp luật bảo vệ quyền lợi.", "D. Pháp luật ổn định đời sống."]
-      },
-      {
-        "q": "Câu 41: Phát biểu nào sau đây sai về vai trò pháp luật đối với công dân?",
-        "a": "C",
-        "opts": ["A. Bảo vệ lợi ích hợp pháp.", "B. Là cơ sở thực hiện quyền.", "C. Là cơ sở thực hiện mọi yêu cầu cá nhân.", "D. Đảm bảo sự công bằng."]
-      },
-      {
-        "q": "Câu 42: Phát biểu nào sau đây sai về vai trò của pháp luật?",
-        "a": "A",
-        "opts": ["A. Pháp luật là phương tiện duy nhất quản lý xã hội.", "B. Pháp luật là công cụ quản lý.", "C. Pháp luật bảo vệ lợi ích.", "D. Pháp luật duy trì kỉ cương."]
-      }
+const quizData = {
+    "tn": [
+        { "q": "Câu 1: Bất kì ai trong điều kiện hoàn cảnh nhất định, cũng phải xử sự theo khuôn mẫu được pháp luật quy định phản ánh đặc điểm nào?", "a": "D", "opts": ["A. Tính cưỡng chế.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính quy phạm phổ biến."] },
+        { "q": "Câu 2: Luật hôn nhân gia đình quy định điều kiện kết hôn áp dụng cho tất cả mọi người, không có ngoại lệ phản ánh đặc điểm nào?", "a": "D", "opts": ["A. Tính xác định về nội dung.", "B. Tính xác định về hình thức.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính quy phạm phổ biến."] },
+        { "q": "Câu 3: Những quy tắc xử sự chung áp dụng nhiều lần, nhiều nơi, với tất cả mọi người là?", "a": "C", "opts": ["A. Tính chặt chẽ về hình thức.", "B. Tính kỉ luật nghiêm minh.", "C. Tính quy phạm phổ biến.", "D. Tính quyền lực, bắt buộc chung."] },
+        { "q": "Câu 4: Người có hành vi không đúng quy định sẽ bị cơ quan thẩm quyền áp dụng biện pháp buộc tuân theo thể hiện?", "a": "B", "opts": ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực, bắt buộc chung.", "C. Hiệu lực tuyệt đối.", "D. Khả năng đảm bảo thi hành."] },
+        { "q": "Câu 5: Mọi cá nhân, tổ chức khi tham gia quan hệ xã hội đều phải xử sự theo pháp luật thể hiện?", "a": "C", "opts": ["A. Tính xác định hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."] },
+        { "q": "Câu 6: Mọi cá nhân, tổ chức nếu vi phạm pháp luật đều phải bị xử lý như nhau thể hiện?", "a": "A", "opts": ["A. Tính cưỡng chế, bắt buộc chung.", "B. Tính công khai.", "C. Tính dân chủ.", "D. Tính quy phạm phổ biến."] },
+        { "q": "Câu 7: Pháp luật có vai trò như thế nào đối với công dân?", "a": "D", "opts": ["A. Cưỡng chế mọi nghĩa vụ.", "B. Bảo vệ mọi hình thức.", "C. Bảo vệ lợi ích tuyệt đối.", "D. Bảo vệ quyền và lợi ích hợp pháp."] },
+        { "q": "Câu 8: Tính quy phạm phổ biến của pháp luật gắn liền với?", "a": "B", "opts": ["A. Quan hệ kinh tế.", "B. Quy tắc xử sự chung.", "C. Phong tục tập quán.", "D. Quy tắc đạo đức."] },
+        { "q": "Câu 9: Văn bản pháp luật phải chính xác, dễ hiểu để người dân bình thường cũng có thể hiểu được là?", "a": "B", "opts": ["A. Tính quyền lực bắt buộc.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."] },
+        { "q": "Câu 10: Pháp luật là khuôn mẫu cho tất cả mọi người ở mọi nơi là đặc điểm?", "a": "C", "opts": ["A. Tính xác định hình thức.", "B. Tính quyền lực bắt buộc.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."] },
+        { "q": "Câu 11: Việc làm nào thể hiện pháp luật là phương tiện quản lý xã hội?", "a": "A", "opts": ["A. Kiểm tra hoạt động kinh doanh.", "B. Tố cáo hành vi vi phạm.", "C. Đăng ký kinh doanh.", "D. Khiếu nại quyết định."] },
+        { "q": "Câu 12: CSGT xử phạt người vi phạm để đảm bảo trật tự thể hiện vai trò?", "a": "B", "opts": ["A. Công cụ bảo vệ trật tự.", "B. Phương tiện để nhà nước quản lý xã hội.", "C. Công cụ nhân dân đấu tranh.", "D. Phương tiện trừng trị."] },
+        { "q": "Câu 13: Pháp luật do nhà nước ban hành và đảm bảo bằng quyền lực nhà nước là?", "a": "C", "opts": ["A. Tính xác định hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."] },
+        { "q": "Câu 14: Những việc được làm, phải làm và bị cấm đoán là nội dung của?", "a": "C", "opts": ["A. Đạo đức.", "B. Nghị quyết.", "C. Pháp luật.", "D. Chính sách."] },
+        { "q": "Câu 15: Pháp luật là phương tiện để công dân bảo vệ?", "a": "A", "opts": ["A. Quyền và lợi ích hợp pháp.", "B. Mọi nhu cầu.", "C. Lợi ích cá nhân tối đa.", "D. Quyền tự do tuyệt đối."] },
+        { "q": "Câu 16: Khi bị xâm phạm lợi ích, công dân căn cứ vào pháp luật để khiếu nại thể hiện?", "a": "D", "opts": ["A. Công cụ quản lý.", "B. Quy tắc xử sự.", "C. Khuôn mẫu chung.", "D. Phương tiện bảo vệ quyền lợi."] },
+        { "q": "Câu 17: Đặc điểm tạo sự khác biệt giữa pháp luật và đạo đức là?", "a": "C", "opts": ["A. Tính quy phạm phổ biến.", "B. Tính phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính chuẩn mực."] },
+        { "q": "Câu 18: Việc mọi người nghiêm chỉnh chấp hành luật giao thông là đặc điểm?", "a": "B", "opts": ["A. Tính bắt buộc chung.", "B. Tính quy phạm phổ biến.", "C. Tính xác định hình thức.", "D. Tính kỉ luật."] },
+        { "q": "Câu 19: Pháp luật là phương tiện để Nhà nước?", "a": "C", "opts": ["A. Bảo vệ giai cấp.", "B. Bảo vệ công dân.", "C. Quản lý xã hội.", "D. Quản lý công dân."] },
+        { "q": "Câu 20: Anh A khiếu nại vì bị đuổi việc không rõ lý do thể hiện pháp luật là?", "a": "B", "opts": ["A. Phương tiện quản lý.", "B. Bảo vệ quyền lợi hợp pháp.", "C. Công cụ đấu tranh.", "D. Thực hiện dân chủ."] },
+        { "q": "Câu 21: Bất kỳ người nào vi phạm cũng bị xử phạt là đặc điểm?", "a": "D", "opts": ["A. Tính phổ biến.", "B. Tính hình thức.", "C. Tính chuẩn mực.", "D. Tính quyền lực, bắt buộc chung."] },
+        { "q": "Câu 22: Chấn chỉnh cơ sở kinh doanh trái phép thể hiện vai trò?", "a": "C", "opts": ["A. Bảo vệ quyền công dân.", "B. Nghĩa vụ nhà nước.", "C. Phương tiện quản lý xã hội.", "D. Phát triển kinh tế."] },
+        { "q": "Câu 23: Nhà nước kiểm tra mọi hoạt động của cá nhân qua pháp luật thể hiện vai trò?", "a": "C", "opts": ["A. Phương tiện công dân.", "B. Quy tắc xã hội.", "C. Quản lý xã hội.", "D. Bảo vệ đạo đức."] },
+        { "q": "Câu 24: Văn bản luật cấp dưới không được trái văn bản cấp trên thể hiện?", "a": "C", "opts": ["A. Tính bắt buộc.", "B. Quy phạm phổ biến.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính cưỡng chế."] },
+        { "q": "Câu 25: Pháp luật mang tính quyền lực bắt buộc chung vì được?", "a": "A", "opts": ["A. Đảm bảo bằng quyền lực nhà nước.", "B. Các tổ chức ban hành.", "C. Mọi người tự nguyện.", "D. Phù hợp đạo đức."] },
+        { "q": "Câu 26: Nhà nước Việt Nam quản lý xã hội chủ yếu bằng?", "a": "B", "opts": ["A. Chính sách xã hội.", "B. Pháp luật.", "C. Tuyên truyền.", "D. Quy tắc đạo đức."] },
+        { "q": "Câu 27: Xử phạt người không đội mũ bảo hiểm thể hiện đặc trưng nào?", "a": "C", "opts": ["A. Quy phạm phổ biến.", "B. Xác định hình thức.", "C. Quyền lực bắt buộc chung.", "D. Tính cưỡng chế."] },
+        { "q": "Câu 28: Để quản lý xã hội hiệu quả, nhà nước cần?", "a": "A", "opts": ["A. Ban hành và tổ chức thực hiện pháp luật.", "B. Tăng cường cưỡng chế.", "C. Giảm bớt quy định.", "D. Dùng đạo đức thay thế."] },
+        { "q": "Câu 29: Đối với công dân, pháp luật bảo vệ?", "a": "B", "opts": ["A. Mọi lợi ích cá nhân.", "B. Quyền và lợi ích hợp pháp.", "C. Nhu cầu tự do.", "D. Quyền lợi giai cấp."] },
+        { "q": "Câu 30: Xét về chủ thể, pháp luật do ai ban hành?", "a": "C", "opts": ["A. Tổ chức chính trị.", "B. Hội nghề nghiệp.", "C. Nhà nước.", "D. Mọi công dân."] },
+        { "q": "Câu 31: Tính quy phạm phổ biến áp dụng cho đối tượng nào?", "a": "C", "opts": ["A. Cá nhân.", "B. Tập thể.", "C. Xã hội.", "D. Gia đình."] },
+        { "q": "Câu 32: Một trong những đặc điểm cơ bản của pháp luật là?", "a": "C", "opts": ["A. Kỉ luật tự giác.", "B. Bắt buộc riêng biệt.", "C. Xác định chặt chẽ về hình thức.", "D. Chuẩn mực tùy nghi."] },
+        { "q": "Câu 33: Văn bản pháp luật yêu cầu diễn đạt chính xác, một nghĩa là?", "a": "A", "opts": ["A. Tính xác định về hình thức.", "B. Tính phổ biến.", "C. Tính quyền lực.", "D. Tính dân chủ."] },
+        { "q": "Câu 34 - 42: (Tương tự các câu sai về vai trò/khái niệm pháp luật - Đáp án thường là D: Phương tiện duy nhất/Không thay đổi/Không phù hợp...)", "a": "D", "opts": ["A. Pháp luật giúp ổn định.", "B. Pháp luật điều chỉnh quan hệ.", "C. Pháp luật là công cụ.", "D. Ý kiến sai về pháp luật."] }
     ],
-    "trac_nghiem_tu_lieu": [
-      {
-        "tu_lieu": "Qua kiểm tra tình hình an ninh, trật tự... Công an tỉnh H phát hiện cơ sở Y sản xuất rượu không rõ nguồn gốc... đã lập biên bản xử phạt hành chính... Chủ cơ sở đã làm đơn khiếu nại gửi tới cơ quan chức năng để nghị xem xét lại...",
-        "cau_hoi": [
-          {
-            "q": "Câu 1: Pháp luật là phương tiện để công dân bảo vệ lợi ích hợp pháp thể hiện qua hành động nào?",
-            "a": "C",
-            "opts": ["A. Xử phạt vi phạm.", "B. Kiểm tra dấu hiệu.", "C. Gửi đơn khiếu nại.", "D. Điều chỉnh quyết định."]
-          },
-          {
-            "q": "Câu 2: Đặc điểm tính quy phạm phổ biến thể hiện qua việc?",
-            "a": "B",
-            "opts": ["A. Gửi đơn khiếu nại.", "B. Mọi công dân phải tuân thủ pháp luật kinh doanh.", "C. Xử phạt hành vi.", "D. Hoạt động kiểm tra."]
-          },
-          {
-            "q": "Câu 3: Vai trò quản lý xã hội thể hiện qua việc?",
-            "a": "A",
-            "opts": ["A. Kiểm tra giám sát các hoạt động.", "B. Bảo vệ quyền lợi.", "C. Tăng cường xử phạt.", "D. Nghiêm chỉnh chấp hành."]
-          },
-          {
-            "q": "Câu 4: Việc xử phạt cơ sở Y thể hiện đặc điểm nào?",
-            "a": "C",
-            "opts": ["A. Quy phạm phổ biến.", "B. Xác định hình thức.", "C. Quyền lực bắt buộc chung.", "D. Lợi nhuận kinh doanh."]
-          }
-        ]
-      }
+    "tl": [
+        {
+            "doc": "Đoạn tư liệu: Công an tỉnh H phát hiện cơ sở Y sản xuất rượu giả, lập biên bản xử phạt. Chủ cơ sở khiếu nại yêu cầu xem xét lại...",
+            "qs": [
+                { "q": "Câu 1: Hành động nào thể hiện pháp luật bảo vệ lợi ích công dân?", "a": "C", "opts": ["A. Xử phạt.", "B. Kiểm tra.", "C. Gửi đơn khiếu nại.", "D. Điều chỉnh."] },
+                { "q": "Câu 2: Mọi công dân phải tuân thủ pháp luật kinh doanh thể hiện đặc điểm?", "a": "B", "opts": ["A. Khiếu nại.", "B. Tính quy phạm phổ biến.", "C. Xử phạt.", "D. Kiểm tra."] }
+            ]
+        }
     ],
-    "trac_nghiem_dung_sai": [
-      {
-        "tinh_huong": "Vụ việc tại nhà hàng X của bà H và hoạt động của ông D (cán bộ cơ quan thẩm quyền)...",
-        "cau_hoi": [
-          {"id": "a", "q": "Bà H không phải chủ thể sản xuất nên không có nghĩa vụ chấp hành pháp luật.", "ans": "Sai"},
-          {"id": "b", "q": "Ông D đã làm tốt vai trò quản lý nhà nước đối với kinh doanh.", "ans": "Đúng"},
-          {"id": "c", "q": "Việc xử phạt thể hiện tính quy phạm phổ biến của pháp luật.", "ans": "Sai"},
-          {"id": "d", "q": "Anh M có quyền khởi kiện yêu cầu bồi thường thiệt hại.", "ans": "Đúng"}
-        ]
-      },
-      {
-        "tinh_huong": "Hoạt động đăng ký kinh doanh của chị V và anh B; việc chị V nói xấu ông M trên mạng...",
-        "cau_hoi": [
-          {"id": "a", "q": "Hoạt động đăng ký kinh doanh thể hiện tính quyền lực bắt buộc chung.", "ans": "Sai"},
-          {"id": "b", "q": "Ông M giữ vai trò chủ thể nhà nước trong quản lý sản xuất.", "ans": "Đúng"},
-          {"id": "c", "q": "Ông M có quyền khiếu nại để bảo vệ quyền lợi hợp pháp của mình.", "ans": "Đúng"},
-          {"id": "d", "q": "Việc xử phạt chị V thể hiện tính quy phạm phổ biến.", "ans": "Sai"}
-        ]
-      },
-      {
-        "tinh_huong": "Anh H lái xe có nồng độ cồn và bị xử phạt 6 triệu đồng, tước bằng lái 24 tháng...",
-        "cau_hoi": [
-          {"id": "a", "q": "Anh H đã có hành vi vi phạm pháp luật giao thông đường bộ.", "ans": "Đúng"},
-          {"id": "b", "q": "CSGT xử phạt anh H thể hiện tính quyền lực bắt buộc chung.", "ans": "Đúng"},
-          {"id": "c", "q": "Việc xử phạt thể hiện tính xác định chặt chẽ về hình thức.", "ans": "Sai"},
-          {"id": "d", "q": "Xử phạt vi phạm thể hiện vai trò quản lý xã hội của nhà nước.", "ans": "Đúng"}
-        ]
-      },
-      {
-        "tinh_huong": "Nhà máy xi măng A xả thải gây ô nhiễm, bị người dân phản ánh và cơ quan chức năng xử phạt...",
-        "cau_hoi": [
-          {"id": "a", "q": "Hình thức xử phạt phản ánh vai trò quản lý xã hội của pháp luật.", "ans": "Đúng"}
-        ]
-      }
+    "ds": [
+        {
+            "doc": "Tình huống 1: Nhà hàng bà H vi phạm an toàn thực phẩm, ông D thanh tra xử phạt, anh M bị ngộ độc.",
+            "items": [
+                { "s": "Bà H không phải chủ thể sản xuất nên không cần chấp hành pháp luật.", "a": false },
+                { "s": "Ông D thực hiện tốt vai trò quản lý nhà nước.", "a": true },
+                { "s": "Việc xử phạt thể hiện tính quy phạm phổ biến.", "a": false },
+                { "s": "Anh M có quyền khởi kiện đòi bồi thường.", "a": true }
+            ]
+        },
+        {
+            "doc": "Tình huống 2: Chị V và anh B kinh doanh đồ điện, ông M nói xấu chị V trên Facebook, chị V xúc phạm lại.",
+            "items": [
+                { "s": "Đăng ký kinh doanh thể hiện tính quyền lực bắt buộc chung.", "a": false },
+                { "s": "Ông M giữ vai trò chủ thể nhà nước quản lý sản xuất.", "a": true },
+                { "s": "Ông M có quyền khiếu nại bảo vệ lợi ích hợp pháp.", "a": true },
+                { "s": "Việc xử phạt chị V thể hiện tính quy phạm phổ biến.", "a": false }
+            ]
+        },
+        {
+            "doc": "Tình huống 3: UBND, Hội đồng nhân dân, Chủ tịch nước và Quốc hội.",
+            "items": [
+                { "s": "UBND là cơ quan chấp hành của HĐND cùng cấp.", "a": true },
+                { "s": "UBND có quyền giám sát Hiến pháp tại địa phương.", "a": false },
+                { "s": "Chủ tịch nước thay mặt Nhà nước về đối nội, đối ngoại.", "a": true },
+                { "s": "Quốc hội là cơ quan duy nhất có quyền lập hiến, lập pháp.", "a": true }
+            ]
+        },
+        {
+            "doc": "Tình huống 4: Tòa án nhân dân và Viện kiểm sát nhân dân.",
+            "items": [
+                { "s": "Tòa án là cơ quan chuyên môn thuộc Chính phủ.", "a": false },
+                { "s": "Viện kiểm sát thực hiện quyền công tố và kiểm sát tư pháp.", "a": true },
+                { "s": "Thẩm phán và Hội thẩm xét xử độc lập, chỉ tuân theo pháp luật.", "a": true },
+                { "s": "Chỉ Viện kiểm sát mới có thẩm quyền thực hiện quyền công tố.", "a": true }
+            ]
+        }
     ]
-  }
 };
 
 let corrects = 0, wrongs = 0;
 
-function shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
+        [array[i], array[j]] = [array[j], array[i]];
     }
-    return arr;
+    return array;
 }
 
 function updateScore() {
@@ -354,87 +143,81 @@ function updateScore() {
     document.getElementById('w-count').innerText = wrongs;
 }
 
-function renderSection(id) {
-    const area = document.getElementById(`area-${id}`);
+function renderQuiz() {
+    const area = document.getElementById('main-area');
     area.innerHTML = "";
-    const sData = data[id];
-    if (!sData) return;
 
-    // PHẦN I: TRẮC NGHIỆM
-    if (sData.tn && sData.tn.length > 0) {
-        const labelI = document.createElement('div');
-        labelI.className = 'part-label';
-        labelI.innerText = "I. Trắc nghiệm lựa chọn";
-        area.appendChild(labelI);
+    // Render Trắc nghiệm 4 phương án
+    const label1 = document.createElement('div');
+    label1.className = 'part-label'; label1.innerText = "Phần I: Trắc nghiệm lựa chọn";
+    area.appendChild(label1);
 
-        shuffle([...sData.tn]).forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'q-card';
-            card.innerHTML = `<div class="q-text">${item.q}</div>`;
-            const optsDiv = document.createElement('div');
-            optsDiv.className = 'options-grid';
-            item.opts.forEach(o => {
-                const btn = document.createElement('button');
-                btn.className = 'opt-item'; btn.innerText = o;
-                btn.onclick = () => {
-                    if (optsDiv.classList.contains('disabled')) return;
-                    if (o.charAt(0) === item.a) { btn.classList.add('correct'); corrects++; }
-                    else { 
-                        btn.classList.add('wrong'); wrongs++;
-                        Array.from(optsDiv.children).forEach(b => { if(b.innerText.charAt(0) === item.a) b.classList.add('correct'); });
-                    }
-                    optsDiv.classList.add('disabled'); updateScore();
+    shuffle([...quizData.tn]).forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'q-card';
+        card.innerHTML = `<div class="q-text">${item.q}</div>`;
+        const optsDiv = document.createElement('div');
+        optsDiv.className = 'options-grid';
+        item.opts.forEach(o => {
+            const btn = document.createElement('button');
+            btn.className = 'opt-item'; btn.innerText = o;
+            btn.onclick = () => {
+                if (optsDiv.classList.contains('disabled')) return;
+                if (o.trim().startsWith(item.a)) { btn.classList.add('correct'); corrects++; }
+                else { 
+                    btn.classList.add('wrong'); wrongs++;
+                    Array.from(optsDiv.children).forEach(b => {
+                        if(b.innerText.trim().startsWith(item.a)) b.classList.add('correct');
+                    });
+                }
+                optsDiv.classList.add('disabled'); updateScore();
+            };
+            optsDiv.appendChild(btn);
+        });
+        card.appendChild(optsDiv); area.appendChild(card);
+    });
+
+    // Render Đúng/Sai
+    const label2 = document.createElement('div');
+    label2.className = 'part-label'; label2.innerText = "Phần II: Đúng / Sai";
+    area.appendChild(label2);
+
+    quizData.ds.forEach(group => {
+        const card = document.createElement('div');
+        card.className = 'q-card';
+        card.innerHTML = `<div class="doc-content">${group.doc}</div><table class="ds-table"></table>`;
+        const table = card.querySelector('.ds-table');
+        group.items.forEach(item => {
+            const row = document.createElement('tr'); row.className = 'ds-row';
+            row.innerHTML = `<td class="ds-cell-text">${item.s}</td><td class="ds-cell-btns"></td>`;
+            const btnCell = row.querySelector('.ds-cell-btns');
+            ['Đúng', 'Sai'].forEach(lb => {
+                const b = document.createElement('button');
+                b.className = 'btn-ds'; b.innerText = lb;
+                b.onclick = () => {
+                    if (btnCell.classList.contains('disabled')) return;
+                    const isCorrect = (lb === 'Đúng' && item.a === true) || (lb === 'Sai' && item.a === false);
+                    if (isCorrect) { b.classList.add('correct'); corrects++; }
+                    else { b.classList.add('wrong'); wrongs++; }
+                    btnCell.classList.add('disabled'); updateScore();
                 };
-                optsDiv.appendChild(btn);
+                btnCell.appendChild(b);
             });
-            card.appendChild(optsDiv); area.appendChild(card);
+            table.appendChild(row);
         });
-    }
-
-    // PHẦN II: ĐÚNG/SAI
-    if (sData.ds && sData.ds.length > 0) {
-        const labelII = document.createElement('div');
-        labelII.className = 'part-label';
-        labelII.innerText = "II. Đúng / Sai (Đoạn tư liệu)";
-        area.appendChild(labelII);
-
-        sData.ds.forEach(group => {
-            const card = document.createElement('div');
-            card.className = 'q-card';
-            card.innerHTML = `<div class="doc-content">${group.doc}</div><table class="ds-table"></table>`;
-            const table = card.querySelector('.ds-table');
-            group.items.forEach(item => {
-                const row = document.createElement('tr'); row.className = 'ds-row';
-                row.innerHTML = `<td class="ds-cell-text">${item.s}</td><td class="ds-cell-btns"></td>`;
-                const btnCell = row.querySelector('.ds-cell-btns');
-                ['Đúng', 'Sai'].forEach(lb => {
-                    const b = document.createElement('button');
-                    b.className = 'btn-ds'; b.innerText = lb;
-                    b.onclick = () => {
-                        if (btnCell.classList.contains('disabled')) return;
-                        if ((lb === 'Đúng') === item.a) { b.classList.add('correct'); corrects++; }
-                        else { b.classList.add('wrong'); wrongs++; }
-                        btnCell.classList.add('disabled'); updateScore();
-                    };
-                    btnCell.appendChild(b);
-                });
-                table.appendChild(row);
-            });
-            area.appendChild(card);
-        });
-    }
+        area.appendChild(card);
+    });
 }
 
-function resetAll() {
-    if(confirm("Xáo trộn toàn bộ và làm lại từ đầu?")) {
+function resetApp() {
+    if(confirm("Xáo trộn và làm lại toàn bộ?")) {
         corrects = 0; wrongs = 0; updateScore();
-        renderSection('25'); renderSection('26'); renderSection('27');
+        renderQuiz();
         window.scrollTo(0,0);
     }
 }
 
-// Chạy lần đầu
-renderSection('25'); renderSection('26'); renderSection('27');
+renderQuiz();
 </script>
 </body>
 </html>
