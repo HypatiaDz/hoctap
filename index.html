@@ -1,285 +1,121 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Địa Lí 10 - Đầy Đủ & Xáo Trộn</title>
-    <style>
-        :root { --b25: #1565c0; --b26: #2e7d32; --b27: #e65100; --bg: #f8f9fa; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); padding: 20px; line-height: 1.6; }
-        .container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        .section-title { color: white; padding: 15px; border-radius: 8px; margin: 40px 0 20px; font-weight: bold; font-size: 1.2rem; display: flex; justify-content: space-between; align-items: center; }
-        .q-card { border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-bottom: 25px; background: #fff; }
-        .q-text { font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; color: #333; white-space: pre-wrap; }
-        .doc-content { background: #fff8e1; border-left: 5px solid #ff8f00; padding: 15px; margin-bottom: 20px; font-style: italic; color: #5d4037; }
-        .options-grid { display: grid; gap: 10px; margin-bottom: 10px; }
-        .opt-item { padding: 12px 15px; border: 1px solid #dee2e6; border-radius: 8px; cursor: pointer; background: #fff; text-align: left; transition: 0.2s; outline: none; font-size: 1rem; }
-        .opt-item:hover { background: #f1f3f5; }
-        .ds-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        .ds-row { border-bottom: 1px solid #eee; }
-        .ds-cell-text { padding: 12px 0; font-size: 1rem; }
-        .ds-cell-btns { text-align: right; white-space: nowrap; padding-left: 15px; }
-        .btn-ds { padding: 8px 18px; border: 1.5px solid #adb5bd; border-radius: 5px; cursor: pointer; font-weight: bold; background: white; margin-left: 5px; }
-        .correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; font-weight: bold; }
-        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
-        .disabled { pointer-events: none; opacity: 0.8; }
-        .score-bar { position: sticky; top: 10px; background: #343a40; color: white; padding: 15px; border-radius: 10px; display: flex; justify-content: space-around; z-index: 1000; margin-bottom: 20px; align-items: center; }
-        .btn-reset-all { background: #dc3545; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        .btn-reset-section { background: rgba(255,255,255,0.2); color: white; border: 1px solid white; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
-        .part-label { color: #e67e22; font-weight: bold; margin: 20px 0 15px; text-transform: uppercase; border-bottom: 2px solid #e67e22; display: inline-block; }
-    </style>
-</head>
-<body>
-
-<div class="score-bar">
-    <span>✅ Đúng: <span id="c-count">0</span></span>
-    <span>❌ Sai: <span id="w-count">0</span></span>
-    <button class="btn-reset-all" onclick="resetAll()">LÀM LẠI TẤT CẢ (XÁO TRỘN)</button>
-</div>
-
-<div class="container">
-    <h1 style="text-align: center; text-transform: uppercase;">ĐỀ CƯƠNG ÔN TẬP ĐỊA LÍ 10</h1>
-
-    <div class="section-title" style="background: var(--b25);">
-        BÀI 25: VAI TRÒ, ĐẶC ĐIỂM, NHÂN TỐ...
-        <button class="btn-reset-section" onclick="renderSection('25')">Làm lại bài này</button>
-    </div>
-    <div id="area-25"></div>
-
-    <div class="section-title" style="background: var(--b26);">
-        BÀI 26: NÔNG NGHIỆP, LÂM NGHIỆP, THỦY SẢN
-        <button class="btn-reset-section" onclick="renderSection('26')">Làm lại bài này</button>
-    </div>
-    <div id="area-26"></div>
-
-    <div class="section-title" style="background: var(--b27);">
-        BÀI 27: TỔ CHỨC LÃNH THỔ NÔNG NGHIỆP
-        <button class="btn-reset-section" onclick="renderSection('27')">Làm lại bài này</button>
-    </div>
-    <div id="area-27"></div>
-</div>
-
-<script>
 const data = {
-    "25": {
+    "bai_phap_luat": {
         tn: [
-            { q: "Câu 1. Ngành nông nghiệp có vai trò", a: "A", opts: ["A. cung cấp lương thực, thực phẩm cho con người.", "B. cung cấp thiết bị, máy móc cho con người.", "C. cung cấp tư liệu sản xuất cho các ngành kinh tế.", "D. vận chuyển người và hàng hóa."] },
-            { q: "Câu 2. Đặc điểm nào sau đây KHÔNG ĐÚNG với sản xuất nông nghiệp?", a: "C", opts: ["A. Đất trồng là tư liệu sản xuất chủ yếu và không thể thay thế.", "B. Đối tượng sản xuất của nông nghiệp là cây trồng, vật nuôi.", "C. Sản xuất bao gồm giai đoạn khai thác tài nguyên và chế biến.", "D. Sản xuất phụ thuộc nhiều vào đất đai, khí hậu, sinh vật, nước."] },
-            { q: "Câu 3. Ý nào không phải là đặc điểm của ngành nông nghiệp, lâm nghiệp, thuỷ sản?", a: "C", opts: ["A. Đất trồng là tư liệu sản xuất chủ yếu của ngành nông nghiệp và lâm nghiệp.", "B. Đối tượng của sản xuất nông nghiệp, lâm nghiệp và thuỷ sản là cây trồng và vật nuôi.", "C. Sản xuất nông nghiệp, lâm nghiệp và thuỷ sản thường không có tính mùa vụ.", "D. Sản xuất nông nghiệp, lâm nghiệp, thuỷ sản chịu tác động của điều kiện tự nhiên."] },
-            { q: "Câu 4. Đối tượng của sản xuất nông nghiệp là", a: "C", opts: ["A. Máy móc và cây trồng.", "B. Hàng tiêu dùng và vật nuôi.", "C. Cây trồng và vật nuôi.", "D. Cây trồng và hàng tiêu dùng."] },
-            { q: "Câu 5. Giải pháp hiệu quả để khắc phục các hạn chế do tính mùa vụ trong sản xuất nông nghiệp gây ra là", a: "A", opts: ["A. đa dạng hoá sản xuất và xây dựng cơ cấu nông nghiệp hợp lí.", "B. xây dựng cơ cấu nông nghiệp hợp lí và nâng cao độ phì đất.", "C. đa dạng hoá sản xuất và sử dụng hợp lí tiết kiệm đất.", "D. phát triển dịch vụ và tôn trọng quy luật tự nhiên."] },
-            { q: "Câu 6. Tư liệu sản xuất của ngành thuỷ sản là", a: "B", opts: ["A. tài nguyên sinh vật.", "B. diện tích mặt nước.", "C. địa hình.", "D. khí hậu."] },
-            { q: "Câu 7. Nhân tố nào ảnh hưởng đến việc mở rộng thị trường và tiêu thụ sản phẩm?", a: "C", opts: ["A. Vị trí địa lí.", "B. Điều kiện tự nhiên.", "C. Điều kiện kinh tế - xã hội.", "D. Lịch sử hình thành."] },
-            { q: "Câu 8. Nhân tố ảnh hưởng làm cho sản xuất nông nghiệp có tính bấp bênh là", a: "C", opts: ["A. đất đai.", "B. nguồn nước.", "C. khí hậu.", "D. sinh vật."] },
-            { q: "Câu 9. Nhân tố nào sau đây ảnh hưởng đến thị trường tiêu thụ nông sản?", a: "C", opts: ["A. Khoa học - công nghệ.", "B. Nguồn lao động.", "C. Dân cư.", "D. Điều kiện tự nhiên."] },
-            { q: "Câu 10. Sản xuất nông nghiệp ngày càng giảm sự phụ thuộc vào điều kiện tự nhiên, do", a: "B", opts: ["A. tỉ trọng ngành giảm.", "B. sự phát triển của khoa học – công nghệ.", "C. khí hậu biến đổi.", "D. không gian sản xuất thu hẹp."] },
-            { q: "Câu 11. Yếu tố quyết định giúp vùng đất xám bạc màu đạt hiệu quả cao?", a: "A", opts: ["A. Tận dụng nguồn nước tưới và hệ thống kênh mương.", "B. Chuyển dịch sang cây bản địa chịu hạn."] },
-            { q: "Câu 12. Mô hình tối ưu cho quốc gia quỹ đất hạn chế nhưng giàu vốn và công nghệ?", a: "C", opts: ["A. Nông nghiệp quảng canh.", "B. Nông nghiệp truyền thống.", "C. Nông nghiệp thâm canh (nhà kính, thủy canh).", "D. Nông nghiệp sinh thái tự nhiên."] },
-            { q: "Câu 13. Nhân tố thị trường ảnh hưởng đến nông nghiệp vì", a: "B", opts: ["A. nơi đặt hồ chứa.", "B. quyết định tiêu thụ và hướng sản xuất.", "C. số lượng đất trồng.", "D. chiều dài bờ biển."] },
-            { q: "Câu 14. Ven biển thuận lợi nuôi trồng thủy sản nhờ", a: "B", opts: ["A. sa mạc.", "B. nguồn thức ăn tự nhiên phong phú.", "C. mỏ sắt.", "D. hàng không."] },
-            { q: "Câu 15. Nguồn lao động trình độ cao sẽ", a: "B", opts: ["A. giảm năng suất.", "B. tăng hiệu quả sản xuất.", "C. không ảnh hưởng.", "D. giảm chất lượng."] }
+            { q: "Câu 1: Bất kì ai trong điều kiện hoàn cảnh nhất định, cũng phải xử sự theo khuôn mẫu được pháp luật quy định phản ánh đặc điểm nào?", a: "D", opts: ["A. Tính cưỡng chế.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính quy phạm phổ biến."] },
+            { q: "Câu 2: Luật hôn nhân gia đình quy định điều kiện kết hôn giữa nam và nữ áp dụng cho tất cả mọi người, không có ngoại lệ phản ánh đặc điểm nào?", a: "D", opts: ["A. Tính xác định chặt chẽ về nội dung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính quy phạm phổ biến."] },
+            { q: "Câu 3: Những quy tắc xử sự chung được áp dụng nhiều lần, ở nhiều nơi đối với tất cả mọi người là thể hiện đặc điểm nào?", a: "C", opts: ["A. Tính chặt chẽ về hình thức.", "B. Tính kỉ luật nghiêm minh.", "C. Tính quy phạm phổ biến.", "D. Tính quyền lực, bắt buộc chung."] },
+            { q: "Câu 4: Những người có hành vi không đúng quy định sẽ bị cơ quan có thẩm quyền áp dụng biện pháp buộc họ phải tuân theo thể hiện đặc điểm nào?", a: "B", opts: ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực, bắt buộc chung.", "C. Hiệu lực tuyệt đối.", "D. Khả năng đảm bảo thi hành cao."] },
+            { q: "Câu 5: Tất cả cá nhân, tổ chức khi tham gia vào các quan hệ xã hội đều phải xử sự theo quy định của pháp luật thể hiện đặc điểm nào?", a: "C", opts: ["A. Tính xác định về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."] },
+            { q: "Câu 6: Tất cả mọi cá nhân, tổ chức nếu vi phạm pháp luật đều phải bị xử lý như nhau thể hiện đặc điểm nào?", a: "A", opts: ["A. Tính cưỡng chế, bắt buộc chung.", "B. Tính công khai.", "C. Tính dân chủ.", "D. Tính quy phạm phổ biến."] },
+            { q: "Câu 7: Pháp luật có vai trò như thế nào đối với công dân?", a: "D", opts: ["A. Cưỡng chế mọi nghĩa vụ.", "B. Bảo vệ mọi hình thức.", "C. Bảo vệ quyền, lợi ích tuyệt đối.", "D. Bảo vệ quyền và lợi ích hợp pháp của công dân."] },
+            { q: "Câu 8: Tính quy phạm phổ biến của pháp luật gắn liền với?", a: "B", opts: ["A. Các quan hệ kinh tế.", "B. Các quy tắc xử sự chung.", "C. Các phong tục tập quán.", "D. Các quy tắc đạo đức."] },
+            { q: "Câu 9: Văn bản pháp luật phải chính xác, dễ hiểu để người dân bình thường cũng có thể hiểu được là đặc điểm nào?", a: "B", opts: ["A. Tính quyền lực bắt buộc chung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."] },
+            { q: "Câu 10: Pháp luật là những quy tắc xử sự chung, là khuôn mẫu cho tất cả mọi người ở mọi nơi là đặc điểm nào?", a: "C", opts: ["A. Tính xác định về hình thức.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."] },
+            { q: "Câu 11: Việc làm nào thể hiện pháp luật là phương tiện để nhà nước quản lí xã hội?", a: "A", opts: ["A. Kiểm tra các hoạt động kinh doanh.", "B. Tố cáo ngăn chặn hành vi vi phạm.", "C. Đăng kí kinh doanh khi đủ điều kiện.", "D. Đề nghị xem xét lại quyết định."] },
+            { q: "Câu 12: Cảnh sát giao thông xử phạt người vi phạm để đảm bảo trật tự thể hiện vai trò gì của pháp luật?", a: "B", opts: ["A. Công cụ bảo vệ trật tự.", "B. Phương tiện để nhà nước quản lí xã hội.", "C. Công cụ để nhân dân đấu tranh.", "D. Phương tiện để nhà nước trừng trị kẻ phạm tội."] },
+            { q: "Câu 13: Pháp luật do nhà nước ban hành và đảm bảo thực hiện bằng quyền lực của nhà nước là đặc điểm nào?", a: "C", opts: ["A. Tính xác định về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."] },
+            { q: "Câu 14: Những việc được làm, những việc phải làm và những việc bị cấm đoán là nội dung của?", a: "C", opts: ["A. Đạo đức.", "B. Nghị quyết.", "C. Pháp luật.", "D. Chính sách."] },
+            { q: "Câu 15: Pháp luật là phương tiện để công dân bảo vệ?", a: "A", opts: ["A. Quyền và lợi ích hợp pháp.", "B. Mọi nhu cầu của mình.", "C. Lợi ích cá nhân tối đa.", "D. Quyền tự do tuyệt đối."] },
+            { q: "Câu 16: Khi quyền và lợi ích hợp pháp bị xâm phạm, công dân căn cứ vào pháp luật để khiếu nại thể hiện vai trò pháp luật là?", a: "D", opts: ["A. Công cụ quản lý xã hội.", "B. Quy tắc xử sự trong đời sống.", "C. Khuôn mẫu chung cho mọi người.", "D. Phương tiện bảo vệ quyền và lợi ích hợp pháp."] },
+            { q: "Câu 17: Đặc điểm nào của pháp luật tạo nên sự khác biệt giữa pháp luật với các loại quy tắc đạo đức?", a: "C", opts: ["A. Tính quy phạm phổ biến.", "B. Tính phổ biến rộng rãi.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính chuẩn mực xã hội."] },
+            { q: "Câu 18: Việc mọi người nghiêm chỉnh chấp hành luật giao thông đường bộ là thể hiện đặc điểm nào?", a: "B", opts: ["A. Tính bắt buộc chung.", "B. Tính quy phạm phổ biến.", "C. Tính xác định về hình thức.", "D. Tính kỉ luật nghiêm minh."] },
+            { q: "Câu 19: Pháp luật là phương tiện để Nhà nước?", a: "C", opts: ["A. Bảo vệ các giai cấp.", "B. Bảo vệ các công dân.", "C. Quản lí xã hội.", "D. Quản lí công dân."] },
+            { q: "Câu 20: Anh A bị giám đốc công ty đuổi việc không rõ lý do. Anh A đã dùng pháp luật để khiếu nại thể hiện vai trò pháp luật là?", a: "B", opts: ["A. Phương tiện quản lý xã hội.", "B. Bảo vệ quyền và lợi ích hợp pháp.", "C. Công cụ đấu tranh giai cấp.", "D. Phương tiện thực hiện dân chủ."] },
+            { q: "Câu 21: Bất kỳ người nào vi phạm cũng bị cơ quan có thẩm quyền xử phạt theo quy định là đặc điểm?", a: "D", opts: ["A. Tính phổ biến.", "B. Tính hình thức.", "C. Tính chuẩn mực.", "D. Tính quyền lực, bắt buộc chung."] },
+            { q: "Câu 22: Cơ quan chức năng tiến hành chấn chỉnh các cơ sở kinh doanh trái phép thể hiện vai trò pháp luật là?", a: "C", opts: ["A. Bảo vệ quyền công dân.", "B. Thực hiện nghĩa vụ nhà nước.", "C. Phương tiện quản lý xã hội.", "D. Công cụ phát triển kinh tế."] },
+            { q: "Câu 23: Thông qua pháp luật, nhà nước kiểm tra, kiểm soát mọi hoạt động của các cá nhân, tổ chức là vai trò?", a: "C", opts: ["A. Phương tiện của công dân.", "B. Quy tắc xử sự xã hội.", "C. Quản lý xã hội.", "D. Bảo vệ đạo đức xã hội."] },
+            { q: "Câu 24: Nội dung của văn bản luật cấp dưới không được trái với nội dung của văn bản luật cấp trên là thể hiện đặc điểm nào?", a: "C", opts: ["A. Tính bắt buộc chung.", "B. Quy phạm phổ biến.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính cưỡng chế."] },
+            { q: "Câu 25: Pháp luật mang tính quyền lực bắt buộc chung vì pháp luật được?", a: "A", opts: ["A. Đảm bảo bằng quyền lực nhà nước.", "B. Các tổ chức xã hội ban hành.", "C. Mọi người tự nguyện thi hành.", "D. Phù hợp với các quy tắc đạo đức."] },
+            { q: "Câu 26: Nhà nước Việt Nam quản lý xã hội chủ yếu bằng phương tiện nào?", a: "A", opts: ["A. Pháp luật.", "B. Tuyên truyền giáo dục.", "C. Quy tắc đạo đức.", "D. Chính sách kinh tế."] },
+            { q: "Câu 27: Cảnh sát giao thông xử phạt người không đội mũ bảo hiểm khi đi xe máy thể hiện tính?", a: "C", opts: ["A. Quy phạm phổ biến.", "B. Xác định về hình thức.", "C. Quyền lực, bắt buộc chung.", "D. Tự nguyện thi hành."] },
+            { q: "Câu 28: Để quản lý xã hội một cách có hiệu quả nhất, Nhà nước cần phải làm gì?", a: "A", opts: ["A. Ban hành pháp luật và tổ chức thực hiện.", "B. Chỉ cần sử dụng các quy tắc đạo đức.", "C. Tăng cường lực lượng vũ trang.", "D. Để xã hội tự điều chỉnh."] },
+            { q: "Câu 29: Nhận định: 'Pháp luật là phương tiện duy nhất để bảo vệ quyền và lợi ích hợp pháp' là?", a: "B", opts: ["A. Đúng.", "B. Sai (là phương tiện quan trọng nhất).", "C. Chỉ đúng với cán bộ.", "D. Chỉ đúng với người nghèo."] },
+            { q: "Câu 30: Xét về mặt chủ thể thì pháp luật do ai ban hành?", a: "C", opts: ["A. Cơ quan, tổ chức xã hội.", "B. Các đơn vị địa phương.", "C. Nhà nước.", "D. Các cá nhân có uy tín."] },
+            { q: "Câu 31: Tính quy phạm phổ biến của pháp luật có nghĩa là pháp luật áp dụng cho?", a: "C", opts: ["A. Người lao động nghèo.", "B. Những người vi phạm tội.", "C. Tất cả mọi người trong xã hội.", "D. Chỉ cán bộ cơ quan nhà nước."] },
+            { q: "Câu 32: Đặc điểm nào giúp pháp luật được hiểu và thực hiện thống nhất trong cả nước?", a: "C", opts: ["A. Tính phổ biến.", "B. Tính cưỡng chế.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính răn đe."] },
+            { q: "Câu 33: Văn bản diễn đạt phải chính xác, một nghĩa để công dân hiểu và thực hiện đúng pháp luật là đặc điểm?", a: "A", opts: ["A. Tính xác định về hình thức.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính quy phạm phổ biến.", "D. Tính kỉ luật xã hội."] },
+            { q: "Câu 34 (SAI): Phát biểu nào SAI về vai trò của pháp luật?", a: "D", opts: ["A. Đảm bảo công bằng dân chủ.", "B. Tính phổ biến bắt buộc chung.", "C. Phù hợp lợi ích chung.", "D. Nội dung cố định không điều chỉnh."] },
+            { q: "Câu 35 (SAI): Phát biểu nào SAI về khái niệm pháp luật?", a: "D", opts: ["A. Do Quốc hội thông qua.", "B. Đảm bảo bằng quyền lực nhà nước.", "C. Điều chỉnh quan hệ xã hội.", "D. Là phương tiện duy nhất để quản lý."] },
+            { q: "Câu 36 (SAI): Nhận định nào SAI khi nói về đặc điểm pháp luật?", a: "A", opts: ["A. Chỉ bảo vệ lợi ích giai cấp thống trị.", "B. Có tính quyền lực bắt buộc chung.", "C. Có tính quy phạm phổ biến.", "D. Xác định chặt chẽ về hình thức."] },
+            { q: "Câu 37 (SAI): Nhận định SAI về vai trò nhà nước quản lý xã hội?", a: "D", opts: ["A. Nhà nước ban hành pháp luật.", "B. Nhà nước tổ chức thực hiện.", "C. Pháp luật có tính bắt buộc chung.", "D. Pháp luật là phương tiện duy nhất."] },
+            { q: "Câu 38 (SAI): Nhận định SAI về vai trò pháp luật với công dân?", a: "A", opts: ["A. Pháp luật chỉ bảo vệ quyền lợi người giàu.", "B. Bảo vệ lợi ích hợp pháp của dân.", "C. Công dân thực hiện quyền qua luật.", "D. Pháp luật là khuôn mẫu xử sự."] },
+            { q: "Câu 39 (SAI): Nhận định SAI về tính hình thức của pháp luật?", a: "B", opts: ["A. Ngôn ngữ phải chính xác.", "B. Pháp luật có tính bất biến không thay đổi.", "C. Văn bản cấp dưới không trái cấp trên.", "D. Đảm bảo hiểu và thực hiện thống nhất."] },
+            { q: "Câu 40 (SAI): Nhận định SAI về quản lý xã hội?", a: "B", opts: ["A. Quản lý bằng luật là hiệu quả nhất.", "B. Chỉ cần quản lý bằng đạo đức là đủ.", "C. Luật giúp ổn định xã hội.", "D. Luật giúp dân giám sát nhà nước."] },
+            { q: "Câu 41 (SAI): Nhận định SAI về quyền công dân?", a: "C", opts: ["A. Công dân thực hiện quyền theo luật.", "B. Luật bảo vệ lợi ích hợp pháp.", "C. Công dân được làm mọi thứ mình thích.", "D. Luật là căn cứ để dân khiếu nại."] },
+            { q: "Câu 42 (SAI): Nhận định SAI về đặc điểm pháp luật?", a: "A", opts: ["A. Pháp luật và đạo đức là một.", "B. Pháp luật do nhà nước ban hành.", "C. Pháp luật có tính cưỡng chế.", "D. Pháp luật áp dụng cho mọi người."] }
         ],
         ds: [
-            { doc: "Câu 1. Lâm nghiệp cung cấp gỗ, nguyên liệu cho các ngành công nghiệp... bảo vệ môi trường bền vững.", items: [
-                { s: "a) Lâm nghiệp là nguồn cung cấp gỗ và các sản phẩm từ rừng, góp phần phát triển các ngành công nghiệp chế biến gỗ.", a: true },
-                { s: "b) Khai thác lâm nghiệp bền vững giúp bảo vệ hệ sinh thái và ngăn chặn quá trình xói mòn đất.", a: true },
-                { s: "c) Việc phát triển lâm nghiệp không cần quá chú trọng vì đây là ngành kinh tế phụ, không có giá trị lớn đối với nền kinh tế quốc dân.", a: false },
-                { s: "d) Sự suy giảm diện tích rừng sẽ không ảnh hưởng nhiều đến khí hậu toàn cầu do diện tích rừng chỉ chiếm phần nhỏ trên Trái Đất.", a: false }
-            ]},
-            { doc: "Câu 2. Nông nghiệp theo nghĩa rộng bao gồm nông nghiệp, lâm nghiệp, thủy sản... đóng vai trò không ngành nào thay thế được.", items: [
-                { s: "a) Đất trồng, mặt nước là tư liệu sản xuất chủ yếu.", a: true },
-                { s: "b) Đối tượng sản xuất là những cơ thể sống.", a: true },
-                { s: "c) Có tính tập trung cao độ.", a: false },
-                { s: "d) Không phụ thuộc nhiều vào tự nhiên, có tính thời vụ.", a: false }
-            ]},
-            { doc: "Câu 3. Dịch vụ nông nghiệp trong nền nông nghiệp hiện đại.", items: [
-                { s: "a) Sự phân bổ không cần gắn liền với hoạt động sản xuất nông nghiệp.", a: false },
-                { s: "b) Thúc đẩy sản xuất nông nghiệp theo hướng chuyên môn hoá, tăng năng suất và chất lượng.", a: true },
-                { s: "c) Chỉ bao gồm dịch vụ trồng trọt và dịch vụ sau thu hoạch.", a: false },
-                { s: "d) Cung cấp máy móc, phân bón và các sản phẩm hỗ trợ quá trình sản xuất nông nghiệp.", a: true }
-            ]}
+            { 
+                doc: "Tình huống: 'Nhà hàng X của bà H sử dụng thực phẩm không rõ nguồn gốc gây ngộ độc. Ông D đã lập biên bản xử phạt bà H. Anh M là người bị hại có quyền yêu cầu bồi thường.'", 
+                items: [
+                    { s: "a) Bà H không phải là chủ thể sản xuất nên không có nghĩa vụ chấp hành pháp luật.", a: false },
+                    { s: "b) Ông D làm tốt vai trò chủ thể nhà nước quản lý thông qua pháp luật.", a: true },
+                    { s: "c) Việc xử phạt của cơ quan chức năng thể hiện tính quy phạm phổ biến.", a: false },
+                    { s: "d) Anh M có quyền khởi kiện yêu cầu bồi thường thiệt hại.", a: true }
+                ] 
+            },
+            { 
+                doc: "Tình huống: 'Anh H lái xe có nồng độ cồn vượt mức 0,4mg/l khí thở nên bị CSGT phạt 6 triệu và tước bằng lái 24 tháng.'", 
+                items: [
+                    { s: "a) Anh H đã thực hiện hành vi vi phạm pháp luật về giao thông.", a: true },
+                    { s: "b) CSGT xử phạt thể hiện tính quyền lực bắt buộc chung.", a: true },
+                    { s: "c) Việc anh H bị xử phạt thể hiện tính xác định chặt chẽ về hình thức.", a: false },
+                    { s: "d) Thông qua xử phạt, pháp luật thể hiện vai trò quản lý xã hội.", a: true }
+                ] 
+            },
+            { 
+                doc: "Tình huống xăng dầu: 'M là đại lý xăng dầu niêm yết giá đúng luật, Q là đại lý găm hàng chờ giá lên bị ông H (cán bộ) xử phạt.'", 
+                items: [
+                    { s: "a) M và Q đều đang thực hiện đúng các quy tắc chung của pháp luật.", a: false },
+                    { s: "b) Ông H ra quyết định xử phạt là thể hiện tính quyền lực.", a: true },
+                    { s: "c) M và Q là các đại lý - chủ thể trung gian trong kinh tế.", a: true },
+                    { s: "d) Việc xử phạt Q giúp ổn định thị trường, thể hiện vai trò quản lý của nhà nước.", a: true }
+                ] 
+            }
         ]
     },
-    "26": {
+    "bo_may_nn": {
         tn: [
-            { q: "Câu 1. Vai trò nào sau đây không đúng với ngành trồng trọt?", a: "D", opts: ["A. Cung cấp lương thực, thực phẩm cho con người.", "B. Cung cấp nguyên liệu cho các ngành công nghiệp.", "C. Cung cấp thức ăn cho chăn nuôi.", "D. Cung cấp sức kéo cho ngành chăn nuôi."] },
-            { q: "Câu 2. Đặc điểm sinh thái của cây lúa gạo là thích hợp với", a: "A", opts: ["A. khí hậu nóng, ẩm, đất phù sa.", "B. khí hậu ôn hòa, đất đen.", "C. khí hậu khô hạn, đất cát.", "D. khí hậu lạnh, đất xám."] },
-            { q: "Câu 3. Cây lúa mì phân bố chủ yếu ở", a: "B", opts: ["A. miền nhiệt đới ẩm.", "B. miền ôn đới và cận nhiệt.", "C. khu vực Đông Nam Á.", "D. khu vực Nam Mỹ."] },
-            { q: "Câu 4. Các cây tiểu mạch, đại mạch, yến mạch thuộc nhóm cây", a: "C", opts: ["A. Cây công nghiệp.", "B. Cây ăn quả.", "C. Ngũ cốc.", "D. Cây lấy củ."] },
-            { q: "Câu 5. Cây trồng phân bố chủ yếu ở nhiệt đới, châu Á gió mùa?", a: "A", opts: ["A. Lúa gạo.", "B. Củ cải đường.", "C. Chè.", "D. Lúa mì."] },
-            { q: "Câu 6. Đặc điểm sinh thái của cây cà phê?", a: "A", opts: ["A. Thích hợp đất badan.", "B. Vùng đất đen.", "C. Nhiệt ôn hòa.", "D. Ánh sáng ổn định."] },
-            { q: "Câu 7. Cây cho chất kích thích, trồng nhiều ở nhiệt đới?", a: "C", opts: ["A. Bông.", "B. Cao su.", "C. Cà phê.", "D. Củ cải đường."] },
-            { q: "Câu 8. Vai trò của ngành chăn nuôi?", a: "B", opts: ["A. Hạn chế tài nguyên.", "B. Nguyên liệu cho công nghiệp.", "C. Chưa có hàng xuất khẩu.", "D. Vai trò thứ yếu."] },
-            { q: "Câu 9. Đặc điểm đúng về ngành chăn nuôi?", a: "C", opts: ["A. Thức ăn chậm phát triển.", "B. Chủ yếu chăn thả.", "C. Chất lượng tăng do công nghệ.", "D. Dịch bệnh kiểm soát tốt."] },
-            { q: "Câu 10. Vật nuôi ở vùng khô, chăn thả cận nhiệt và ôn đới?", a: "C", opts: ["A. Bò.", "B. Lợn.", "C. Cừu.", "D. Gia cầm."] },
-            { q: "Câu 11. Lâm nghiệp KHÔNG có vai trò nào?", a: "D", opts: ["A. Nghiên cứu khoa học.", "B. Bảo vệ môi trường.", "C. Cung cấp lâm sản.", "D. Gia tăng biến đổi khí hậu."] },
-            { q: "Câu 12. Đặc điểm đúng với ngành lâm nghiệp?", a: "B", opts: ["A. Bao gồm xuất khẩu rừng.", "B. Sinh trưởng tự nhiên quan trọng.", "C. Khai thác khó khăn.", "D. Quy mô hẹp."] },
-            { q: "Câu 13. Thủy sản KHÔNG có vai trò nào?", a: "B", opts: ["A. Thực phẩm dinh dưỡng.", "B. Chủ yếu cho công nghiệp tiêu dùng.", "C. Giải quyết việc làm.", "D. Khai thác tiềm năng."] },
-            { q: "Câu 14. Đặc điểm thủy sản thế giới?", a: "C", opts: ["A. Bao gồm dịch vụ.", "B. Công nghệ làm giảm nguồn lợi.", "C. Diện tích, chất lượng nước là tư liệu.", "D. Tính đồng nhất cao."] },
-            { q: "Câu 15. Nguyên nhân thủy sản nuôi trồng ngày càng phát triển?", a: "D", opts: ["A. Giá trị cao.", "B. Lương thực dư.", "C. Mặt nước lớn.", "D. Nhu cầu thị trường tăng."] }
+            { q: "Câu 1: Cơ quan nào là cơ quan chấp hành của Hội đồng nhân dân cùng cấp?", a: "A", opts: ["A. UBND.", "B. Tòa án.", "C. Viện kiểm sát.", "D. Công an."] },
+            { q: "Câu 2: Cơ quan nào thực hiện quyền công tố và kiểm sát hoạt động tư pháp?", a: "C", opts: ["A. Chính phủ.", "B. Tòa án nhân dân.", "C. Viện kiểm sát nhân dân.", "D. Bộ Tư pháp."] }
         ],
         ds: [
-            { doc: "Câu 1. Vai trò của ngành trồng trọt.", items: [
-                { s: "a) Một trong những vai trò quan trọng của ngành trồng trọt là cung cấp lương thực, thực phẩm cho người dân.", a: true },
-                { s: "b) Mía là cây trồng quan trọng ở miền khí hậu cận nhiệt đới.", a: false },
-                { s: "c) Trung Quốc là quốc gia có ngành trồng trọt phát triển.", a: true },
-                { s: "d) Những quốc gia có ngành trồng trọt phát triển nhờ điều kiện tự nhiên ưu đãi, công nghệ cao, quy mô sản xuất lớn...", a: true }
-            ]},
-            { doc: "Câu 2. Ngành chăn nuôi.", items: [
-                { s: "a) Chăn nuôi có vai trò quan trọng trong việc tạo ra nguồn hàng xuất khẩu có giá trị.", a: true },
-                { s: "b) Ngành chăn nuôi góp phần phát triển nền nông nghiệp bền vững.", a: true },
-                { s: "c) Hình thức chăn nuôi trên thế giới hiện nay chủ yếu là chăn thả.", a: false },
-                { s: "d) Gia cầm phân bố ở nhiều quốc gia trên thế giới do nhu cầu tăng cao, điều kiện thuận lợi, công nghiệp chế biến phát triển...", a: true }
-            ]},
-            { doc: "Câu 3. Tài nguyên rừng.", items: [
-                { s: "a) Các quốc gia có diện tích rừng trồng lớn là Trung Quốc, Ấn Độ, Liên bang Nga.", a: true },
-                { s: "b) Rừng trồng trên thế giới chủ yếu để lấy củi, phòng hộ.", a: false },
-                { s: "c) Các quốc gia có diện tích rừng lớn thì ngành khai thác gỗ chậm phát triển.", a: false },
-                { s: "d) Diện tích rừng suy giảm do nhiều nguyên nhân trong đó chủ yếu là cháy rừng và khai thác quá mức.", a: true }
-            ]},
-            { doc: "Câu 4. Sản lượng thủy sản thế giới giai đoạn 2019 - 2022.", items: [
-                { s: "a) Giai đoạn 2019 - 2022, sản lượng thủy sản trên thế giới tăng liên tục.", a: true },
-                { s: "b) Năm 2022, sản lượng thủy sản đánh bắt cao hơn sản lượng thủy sản nuôi trồng.", a: false },
-                { s: "c) Giai đoạn 2019 - 2022, sản lượng thủy sản đánh bắt tăng, nuôi trồng giảm.", a: false },
-                { s: "d) Sản lượng thủy sản nuôi trồng ngày càng tăng nhờ đẩy mạnh nuôi trồng, thị trường tiêu thụ rộng, công nghệ nuôi trồng cải tiến.", a: true }
-            ]}
-        ]
-    },
-    "27": {
-        tn: [
-            { q: "Câu 1. Ý nào sau đây KHÔNG ĐÚNG khi nói về tổ chức lãnh thổ nông nghiệp?", a: "C", opts: ["A. Là hệ thống liên kết không gian của các ngành.", "B. Có tính chất chuyên môn hóa, tập trung hóa.", "C. Phát triển mang tính tự phát.", "D. Sản xuất theo hướng liên ngành."] },
-            { q: "Câu 2. Việc tổ chức lãnh thổ nông nghiệp nhằm mục đích sử dụng hiệu quả nhất về", a: "B", opts: ["A. nguồn vốn đầu tư nước ngoài.", "B. tiềm năng tự nhiên, kinh tế - xã hội.", "C. máy móc nông nghiệp hiện đại.", "D. giống cây trồng biến đổi gen."] },
-            { q: "Câu 3. Việc tổ chức lãnh thổ nông nghiệp nhằm mục đích cuối cùng là", a: "D", opts: ["A. mở rộng diện tích canh tác tối đa.", "B. hạn chế tối đa máy móc.", "C. tập trung cây trồng vào một vùng.", "D. nâng cao hiệu quả kinh tế - xã hội và môi trường."] },
-            { q: "Câu 4. Đối tượng chính chịu sự tác động, sắp xếp của TCLTNN là", a: "C", opts: ["A. nhà máy công nghiệp.", "B. mạng lưới giao thông.", "C. cây trồng, vật nuôi.", "D. khu đô thị."] },
-            { q: "Câu 5. Kết quả của việc TCLTNN hợp lí là đạt hiệu quả cao về mặt", a: "A", opts: ["A. kinh tế, xã hội và môi trường.", "B. chính trị, quân sự.", "C. văn hóa, giáo dục.", "D. thể thao, du lịch."] },
-            { q: "Câu 6. TCLTNN được hiểu là hệ thống các biện pháp nhằm", a: "A", opts: ["A. Sắp xếp phối hợp các đối tượng trong không gian.", "B. Xóa bỏ sự khác biệt giữa các vùng.", "C. Chỉ tập trung tăng năng suất.", "D. Thay đổi hoàn toàn tự nhiên."] },
-            { q: "Câu 7. Một trong những vai trò quan trọng của TCLTNN là lợi thế về", a: "B", opts: ["A. phân bón hóa học.", "B. điều kiện tự nhiên và KT-XH.", "C. kênh mương nhân tạo.", "D. thị trường nước ngoài."] },
-            { q: "Câu 8. Vai trò quan trọng nhất của TCLTNN đối với phát triển kinh tế là", a: "B", opts: ["A. tăng lao động thủ công.", "B. chuyển sang nông nghiệp hàng hóa.", "C. xóa bỏ sản xuất hộ gia đình.", "D. giải quyết việc làm."] },
-            { q: "Câu 9. TCLTNN giúp sử dụng hiệu quả tài nguyên thiên nhiên do", a: "B", opts: ["A. khai thác tối đa tài nguyên.", "B. bố trí cây trồng vật nuôi phù hợp sinh thái.", "C. thay đổi hoàn toàn khí hậu.", "D. hạn chế khai thác đất."] },
-            { q: "Câu 10. Hình thức vùng nông nghiệp có đặc điểm nào sau đây?", a: "D", opts: ["A. Quy mô nhỏ lẻ.", "B. Hình thức thấp nhất.", "C. Sản xuất tự túc.", "D. Hình thức phát triển cao nhất."] },
-            { q: "Câu 11. Đặc điểm của hình thức kinh tế hộ gia đình?", a: "C", opts: ["A. Quy mô lớn, hướng thị trường.", "B. Sử dụng nhiều lao động thuê.", "C. Quy mô nhỏ, tự cung tự cấp là chính.", "D. Công nghệ tiên tiến vượt trội."] },
-            { q: "Câu 12. Mục đích chính của việc hình thành vùng chuyên canh là", a: "B", opts: ["A. phục vụ nhu cầu tại chỗ.", "B. tạo khối lượng nông sản hàng hóa lớn.", "C. hạn chế phân hóa lãnh thổ.", "D. giảm lệ thuộc thị trường."] },
-            { q: "Câu 13. Hình thức nào là đơn vị sản xuất cơ sở của TCLTNN?", a: "B", opts: ["A. Vùng nông nghiệp.", "B. Trang trại.", "C. Khu nông nghiệp công nghệ cao.", "D. Thể hợp nông nghiệp."] },
-            { q: "Câu 14. Nhân tố có ý nghĩa quyết định hình thành vùng chuyên môn hóa?", a: "C", opts: ["A. Địa hình.", "B. Nguồn nước.", "C. Thị trường tiêu thụ.", "D. Khí hậu."] },
-            { q: "Câu 15. Đặc trưng cơ bản của nông nghiệp hàng hóa là", a: "A", opts: ["A. quy mô lớn, gắn với thị trường.", "B. sản xuất đa canh tự túc.", "C. dựa vào kinh nghiệm truyền thống.", "D. tập trung ở nước đang phát triển."] },
-            { q: "Câu 16. Việc đẩy mạnh đa dạng hóa nông nghiệp giúp", a: "A", opts: ["A. giảm thiểu rủi ro thị trường.", "B. tăng chuyên môn hóa tuyệt đối.", "C. hạn chế dùng đất.", "D. giảm lao động nông nghiệp."] },
-            { q: "Câu 17. Xu hướng phát triển TCLTNN hiện nay là", a: "B", opts: ["A. mở rộng diện tích thủ công.", "B. liên kết chuỗi giá trị và nông nghiệp xanh.", "C. duy trì tự cung tự cấp.", "D. giảm ứng dụng khoa học."] }
-        ],
-        ds: [
-            { doc: "Câu 1. Phát triển nông nghiệp bền vững.", items: [
-                { s: "a) Phát triển nông nghiệp bền vững giúp giảm tác động tiêu cực đến môi trường.", a: true },
-                { s: "b) Sử dụng phân bón hữu cơ là một trong những biện pháp của nông nghiệp bền vững.", a: true },
-                { s: "c) Phát triển NN bền vững làm tăng chi phí SX nhưng không mang lại lợi ích lâu dài.", a: false }
-            ]},
-            { doc: "Câu 2. Ứng dụng khoa học công nghệ trong nông nghiệp.", items: [
-                { s: "a) Trang trại không phải là hình thức TCLTNN được áp dụng trong sản xuất NN hiện nay.", a: false },
-                { s: "b) Hạn chế trong phát triển nông nghiệp ở hầu hết các nước đang phát triển là quy mô sản xuất nhỏ lẻ, thiếu liên kết.", a: true },
-                { s: "c) Ý nghĩa của việc phát triển sản xuất chuyên canh trong nông nghiệp là đẩy mạnh phân công lao động theo lãnh thổ, phát triển sản xuất hàng hóa.", a: true },
-                { s: "d) Giải pháp chủ yếu để phát triển nông nghiệp xanh trên thế giới hiện nay là tăng liên kết theo chuỗi giá trị, ứng dụng KH-CN, phát triển nguồn nhân lực trình độ cao.", a: true }
-            ]},
-            { doc: "Câu 3. Mô hình sản xuất trang trại.", items: [
-                { s: "a) Hiện nay, trên thế giới có nhiều loại trang trại khác nhau, các trang trại đã ứng dụng KHKT trong sản xuất.", a: true },
-                { s: "b) Phát triển các trang trại góp phần khai thác hiệu quả tài nguyên, bảo vệ môi trường và có hiệu quả kinh tế cao.", a: true },
-                { s: "c) Đẩy mạnh phát triển mô hình trang trại góp phần tăng cường cơ sở hạ tầng và điều kiện sống ở nông thôn.", a: true },
-                { s: "d) Các trang trại mang lại ý nghĩa lớn cho các vùng nông thôn là giải quyết phần lớn việc làm cho lao động.", a: true }
-            ]},
-            { doc: "Câu 4. Biểu đồ cơ cấu trang trại phân theo lĩnh vực hoạt động ở nước ta giai đoạn 2011 - 2023.", items: [
-                { s: "a) Tỉ trọng trang trại nuôi trồng thủy sản có xu hướng tăng rất nhanh.", a: false },
-                { s: "b) Tỉ trọng trang trại khác luôn lớn hơn trang trại nuôi trồng thủy sản.", a: false },
-                { s: "c) Tỉ trọng trang trại chăn nuôi cao nhất là do chuyển sang nông nghiệp hàng hóa, cơ hội tiếp cận thị trường, hiệu quả kinh tế cao.", a: true },
-                { s: "d) Tỉ trọng trang trại trồng trọt giảm chủ yếu do khó khăn trong tiếp cận đất đai, hạn chế cơ sở hạ tầng, thay đổi chính sách, biến đổi khí hậu.", a: true }
-            ]}
+            { 
+                doc: "Về chức năng của UBND và HĐND địa phương.", 
+                items: [
+                    { s: "a) UBND là cơ quan chấp hành của HĐND cùng cấp.", a: true },
+                    { s: "b) UBND có quyền giám sát việc tuân theo Hiến pháp ở địa phương.", a: false },
+                    { s: "c) UBND tổ chức thực hiện nghị quyết của HĐND và văn bản cấp trên.", a: true },
+                    { s: "d) UBND quản lý kinh tế, giáo dục, an ninh tại địa phương.", a: true }
+                ] 
+            },
+            { 
+                doc: "Về vai trò của Chủ tịch nước.", 
+                items: [
+                    { s: "a) Chủ tịch nước là người đứng đầu Chính phủ, điều hành hành chính.", a: false },
+                    { s: "b) Chủ tịch nước thay mặt Nhà nước trong đối nội và đối ngoại.", a: true },
+                    { s: "c) Chủ tịch nước thống lĩnh lực lượng vũ trang nhân dân.", a: true },
+                    { s: "d) Chủ tịch nước có quyền tự soạn thảo và thông qua bộ luật.", a: false }
+                ] 
+            },
+            { 
+                doc: "Đoạn văn về Quyền Công tố: 'Viện kiểm sát thực hành quyền công tố... quyết định truy tố bị can ra trước Tòa án...'", 
+                items: [
+                    { s: "a) Chỉ có Viện kiểm sát mới có thẩm quyền thực hiện quyền công tố.", a: true },
+                    { s: "b) Quyền công tố gắn liền với mọi vụ án (dân sự, hình sự...).", a: false },
+                    { s: "c) Bản chất quyền công tố là nhân danh Nhà nước buộc tội.", a: true },
+                    { s: "d) Quyền công tố giúp đảm bảo không bỏ lọt tội phạm.", a: true }
+                ] 
+            },
+            { 
+                doc: "Đoạn văn về Kiểm sát tư pháp: 'Kiểm sát hoạt động tư pháp là kiểm sát tính hợp pháp của các hành vi, quyết định của cơ quan, tổ chức tư pháp...'", 
+                items: [
+                    { s: "a) Chỉ Viện Kiểm sát mới có chức năng kiểm sát hoạt động tư pháp.", a: true },
+                    { s: "b) Đây là một dạng giám sát tối cao của Quốc hội.", a: false },
+                    { s: "c) Kiểm sát tư pháp không mang tính quyền lực Nhà nước.", a: false },
+                    { s: "d) Đối tượng kiểm sát là tính hợp pháp của hành vi, quyết định tư pháp.", a: true }
+                ] 
+            }
         ]
     }
 };
-let corrects = 0, wrongs = 0;
-
-function shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-}
-
-function updateScore() {
-    document.getElementById('c-count').innerText = corrects;
-    document.getElementById('w-count').innerText = wrongs;
-}
-
-function renderSection(id) {
-    const area = document.getElementById(`area-${id}`);
-    area.innerHTML = "";
-    const sData = data[id];
-
-    const labelI = document.createElement('div');
-    labelI.className = 'part-label';
-    labelI.innerText = "I. Trắc nghiệm lựa chọn";
-    area.appendChild(labelI);
-
-    shuffle([...sData.tn]).forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'q-card';
-        card.innerHTML = `<div class="q-text">${item.q}</div>`;
-        const optsDiv = document.createElement('div');
-        optsDiv.className = 'options-grid';
-        item.opts.forEach(o => {
-            const btn = document.createElement('button');
-            btn.className = 'opt-item'; btn.innerText = o;
-            btn.onclick = () => {
-                if (optsDiv.classList.contains('disabled')) return;
-                if (o.charAt(0) === item.a) { btn.classList.add('correct'); corrects++; }
-                else { 
-                    btn.classList.add('wrong'); wrongs++;
-                    Array.from(optsDiv.children).forEach(b => { if(b.innerText.charAt(0) === item.a) b.classList.add('correct'); });
-                }
-                optsDiv.classList.add('disabled'); updateScore();
-            };
-            optsDiv.appendChild(btn);
-        });
-        card.appendChild(optsDiv); area.appendChild(card);
-    });
-
-    const labelII = document.createElement('div');
-    labelII.className = 'part-label';
-    labelII.innerText = "II. Đúng / Sai";
-    area.appendChild(labelII);
-
-    sData.ds.forEach(group => {
-        const card = document.createElement('div');
-        card.className = 'q-card';
-        card.innerHTML = `<div class="doc-content">${group.doc}</div><table class="ds-table"></table>`;
-        const table = card.querySelector('.ds-table');
-        group.items.forEach(item => {
-            const row = document.createElement('tr'); row.className = 'ds-row';
-            row.innerHTML = `<td class="ds-cell-text">${item.s}</td><td class="ds-cell-btns"></td>`;
-            const btnCell = row.querySelector('.ds-cell-btns');
-            ['Đúng', 'Sai'].forEach(lb => {
-                const b = document.createElement('button');
-                b.className = 'btn-ds'; b.innerText = lb;
-                b.onclick = () => {
-                    if (btnCell.classList.contains('disabled')) return;
-                    if ((lb === 'Đúng') === item.a) { b.classList.add('correct'); corrects++; }
-                    else { b.classList.add('wrong'); wrongs++; }
-                    btnCell.classList.add('disabled'); updateScore();
-                };
-                btnCell.appendChild(b);
-            });
-            table.appendChild(row);
-        });
-        area.appendChild(card);
-    });
-}
-
-function resetAll() {
-    if(confirm("Xáo trộn và làm lại từ đầu?")) {
-        corrects = 0; wrongs = 0; updateScore();
-        renderSection('25'); renderSection('26'); renderSection('27');
-        window.scrollTo(0,0);
-    }
-}
-
-renderSection('25'); renderSection('26'); renderSection('27');
-</script>
-</body>
-</html>
