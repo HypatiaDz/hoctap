@@ -61,84 +61,282 @@
 
 <script>
 const data = {
-    "25": {
-        tn: [
-            { q: "Câu 1: Bất kì ai trong điều kiện hoàn cảnh nhất định, cũng phải xử sự theo khuôn mẫu được pháp luật quy định phản ánh đặc điểm nào?", a: "D", opts: ["A. Tính cưỡng chế.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính quy phạm phổ biến."] },
-            { q: "Câu 2: Luật hôn nhân gia đình quy định điều kiện kết hôn giữa nam và nữ áp dụng cho tất cả mọi người phản ánh đặc điểm nào?", a: "D", opts: ["A. Tính xác định chặt chẽ về nội dung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính quy phạm phổ biến."] },
-            { q: "Câu 3: Những quy tắc xử sự chung được áp dụng nhiều lần, ở nhiều nơi đối với tất cả mọi người là thể hiện đặc điểm nào?", a: "C", opts: ["A. Tính chặt chẽ về hình thức.", "B. Tính kỉ luật nghiêm minh.", "C. Tính quy phạm phổ biến.", "D. Tính quyền lực, bắt buộc chung."] },
-            { q: "Câu 4: Những người có hành vi không đúng quy định sẽ bị cơ quan có thẩm quyền áp dụng biện pháp buộc họ phải tuân theo thể hiện đặc điểm nào?", a: "B", opts: ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực, bắt buộc chung.", "C. Hiệu lực tuyệt đối.", "D. Khả năng đảm bảo thi hành cao."] },
-            { q: "Câu 5: Tất cả cá nhân, tổ chức khi tham gia vào các quan hệ xã hội đều phải xử sự theo quy định của pháp luật thể hiện đặc điểm nào?", a: "C", opts: ["A. Tính xác định về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."] },
-            { q: "Câu 6: Tất cả mọi cá nhân, tổ chức nếu vi phạm pháp luật đều phải bị xử lý như nhau thể hiện đặc điểm nào?", a: "A", opts: ["A. Tính cưỡng chế, bắt buộc chung.", "B. Tính công khai.", "C. Tính dân chủ.", "D. Tính quy phạm phổ biến."] },
-            { q: "Câu 7: Pháp luật có vai trò như thế nào đối với công dân?", a: "D", opts: ["A. Cưỡng chế mọi nghĩa vụ.", "B. Bảo vệ mọi hình thức.", "C. Bảo vệ quyền, lợi ích tuyệt đối.", "D. Bảo vệ quyền và lợi ích hợp pháp."] },
-            { q: "Câu 8: Tính quy phạm phổ biến của pháp luật gắn liền với?", a: "B", opts: ["A. Các quan hệ kinh tế.", "B. Các quy tắc xử sự chung.", "C. Các phong tục tập quán.", "D. Các quy tắc đạo đức."] },
-            { q: "Câu 9: Văn bản pháp luật phải chính xác, dễ hiểu để người dân bình thường cũng có thể hiểu được là đặc điểm nào?", a: "B", opts: ["A. Tính quyền lực bắt buộc chung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."] },
-            { q: "Câu 10: Quy tắc xử sự chung, áp dụng nhiều lần, ở nhiều nơi, đối với tất cả mọi người là đặc điểm?", a: "C", opts: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính xác định chặt chẽ về nội dung.", "C. Tính quy phạm phổ biến.", "D. Tính quyền lực, bắt buộc chung."] },
-            { q: "Câu 11: Việc làm nào thể hiện pháp luật là phương tiện để nhà nước quản lí xã hội?", a: "A", opts: ["A. Kiểm tra các hoạt động kinh doanh.", "B. Tố cáo ngăn chặn vi phạm.", "C. Đăng kí kinh doanh khi đủ điều kiện.", "D. Đề nghị xem xét lại quyết định."] },
-            { q: "Câu 12: Cảnh sát giao thông xử phạt người vi phạm thể hiện vai trò gì của pháp luật?", a: "B", opts: ["A. Công cụ bảo vệ trật tự.", "B. Phương tiện để nhà nước quản lí xã hội.", "C. Công cụ để nhân dân đấu tranh.", "D. Phương tiện để nhà nước trừng trị kẻ phạm tội."] },
-            { q: "Câu 13: Pháp luật do nhà nước ban hành và đảm bảo thực hiện bằng quyền lực của nhà nước là đặc điểm nào?", a: "C", opts: ["A. Tính xác định về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."] },
-            { q: "Câu 14: Những việc được làm, những việc phải làm và những việc bị cấm đoán là nội dung của?", a: "C", opts: ["A. Đạo đức.", "B. Nghị quyết.", "C. Pháp luật.", "D. Chính sách."] },
-            { q: "Câu 15: Pháp luật có vai trò bảo vệ quyền và lợi ích hợp pháp của?", a: "A", opts: ["A. Công dân.", "B. Mọi nhu cầu cá nhân.", "C. Lợi ích tối đa.", "D. Quyền tự do tuyệt đối."] },
-            { q: "Câu 16: Khi quyền và lợi ích hợp pháp bị xâm phạm, công dân căn cứ vào pháp luật để khiếu nại thể hiện vai trò pháp luật là?", a: "D", opts: ["A. Công cụ quản lý.", "B. Quy tắc xử sự.", "C. Khuôn mẫu chung.", "D. Phương tiện bảo vệ quyền và lợi ích hợp pháp."] },
-            { q: "Câu 17: Nhận định pháp luật do Nhà nước ban hành và bảo đảm bằng quyền lực nhà nước thể hiện đặc điểm?", a: "C", opts: ["A. Tính quy phạm phổ biến.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính kỉ luật xã hội."] },
-            { q: "Câu 18: Việc mọi người nghiêm chỉnh chấp hành luật giao thông đường bộ là thể hiện đặc điểm nào?", a: "B", opts: ["A. Tính bắt buộc chung.", "B. Tính quy phạm phổ biến.", "C. Tính xác định về hình thức.", "D. Tính kỉ luật nghiêm minh."] },
-            { q: "Câu 19: Pháp luật là phương tiện để Nhà nước?", a: "C", opts: ["A. Bảo vệ các giai cấp.", "B. Bảo vệ các công dân.", "C. Quản lí xã hội.", "D. Quản lí công dân."] },
-            { q: "Câu 20: Chị T khiếu nại việc bị đuổi việc khi mang thai thể hiện vai trò gì của pháp luật?", a: "B", opts: ["A. Phương tiện quản lý xã hội.", "B. Bảo vệ quyền, lợi ích hợp pháp công dân.", "C. Công cụ đấu tranh giai cấp.", "D. Phương tiện thực hiện dân chủ."] },
-            { q: "Câu 21: Bất kỳ người nào vi phạm cũng bị cơ quan có thẩm quyền xử phạt theo quy định là đặc điểm?", a: "D", opts: ["A. Tính phổ biến.", "B. Tính hình thức.", "C. Tính chuẩn mực.", "D. Tính quyền lực, bắt buộc chung."] },
-            { q: "Câu 22: Cơ quan chức năng tiến hành chấn chỉnh các cơ sở kinh doanh trái phép thể hiện vai trò pháp luật là?", a: "C", opts: ["A. Bảo vệ quyền công dân.", "B. Thực hiện nghĩa vụ nhà nước.", "C. Phương tiện quản lý xã hội.", "D. Công cụ phát triển kinh tế."] },
-            { q: "Câu 23: Thông qua pháp luật, nhà nước kiểm tra, kiểm soát mọi hoạt động của các cá nhân, tổ chức là vai trò?", a: "C", opts: ["A. Phương tiện của công dân.", "B. Quy tắc xử sự xã hội.", "C. Quản lý xã hội.", "D. Bảo vệ đạo đức xã hội."] },
-            { q: "Câu 24: Văn bản luật cấp dưới không được trái với nội dung của văn bản luật cấp trên là thể hiện đặc điểm nào?", a: "C", opts: ["A. Tính bắt buộc chung.", "B. Quy phạm phổ biến.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính cưỡng chế."] },
-            { q: "Câu 25: Pháp luật mang tính quyền lực bắt buộc chung vì pháp luật được?", a: "A", opts: ["A. Đảm bảo bằng quyền lực nhà nước.", "B. Các tổ chức xã hội ban hành.", "C. Mọi người tự nguyện thi hành.", "D. Phù hợp với các quy tắc đạo đức."] },
-            { q: "Câu 26: Nhà nước Việt Nam quản lý xã hội chủ yếu bằng phương tiện nào?", a: "A", opts: ["A. Pháp luật.", "B. Tuyên truyền giáo dục.", "C. Quy tắc đạo đức.", "D. Chính sách kinh tế."] },
-            { q: "Câu 27: Cảnh sát giao thông xử phạt người không đội mũ bảo hiểm khi đi xe máy thể hiện tính?", a: "C", opts: ["A. Quy phạm phổ biến.", "B. Xác định về hình thức.", "C. Quyền lực, bắt buộc chung.", "D. Tự nguyện thi hành."] },
-            { q: "Câu 28: Để quản lý xã hội một cách có hiệu quả nhất, Nhà nước cần phải làm gì?", a: "A", opts: ["A. Ban hành pháp luật và tổ chức thực hiện.", "B. Chỉ cần sử dụng các quy tắc đạo đức.", "C. Tăng cường lực lượng vũ trang.", "D. Để xã hội tự điều chỉnh."] },
-            { q: "Câu 29: Nhận định: 'Pháp luật là phương tiện để bảo vệ quyền và lợi ích hợp pháp công dân' là?", a: "A", opts: ["A. Đúng.", "B. Sai.", "C. Chỉ đúng với cán bộ.", "D. Chỉ đúng với người nghèo."] },
-            { q: "Câu 30: Xét về mặt chủ thể thì pháp luật do ai ban hành?", a: "C", opts: ["A. Cơ quan, tổ chức xã hội.", "B. Các đơn vị địa phương.", "C. Nhà nước.", "D. Các cá nhân có uy tín."] },
-            { q: "Câu 31: Tính quy phạm phổ biến của pháp luật có nghĩa là pháp luật áp dụng cho?", a: "C", opts: ["A. Người lao động nghèo.", "B. Những người vi phạm tội.", "C. Tất cả mọi người trong xã hội.", "D. Chỉ cán bộ cơ quan nhà nước."] },
-            { q: "Câu 32: Đặc điểm nào giúp pháp luật được hiểu và thực hiện thống nhất trong cả nước?", a: "C", opts: ["A. Tính phổ biến.", "B. Tính cưỡng chế.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính răn đe."] },
-            { q: "Câu 33: Văn bản diễn đạt phải chính xác, một nghĩa để công dân hiểu và thực hiện đúng pháp luật là đặc điểm?", a: "A", opts: ["A. Tính xác định về hình thức.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính quy phạm phổ biến.", "D. Tính kỉ luật xã hội."] },
-            { q: "Câu 34 (SAI): Phát biểu nào SAI về vai trò của pháp luật?", a: "D", opts: ["A. Đảm bảo công bằng dân chủ.", "B. Tính phổ biến bắt buộc chung.", "C. Phù hợp lợi ích chung.", "D. Nội dung cố định không điều chỉnh."] },
-            { q: "Câu 35 (SAI): Phát biểu nào SAI về khái niệm pháp luật?", a: "D", opts: ["A. Do Quốc hội thông qua.", "B. Đảm bảo bằng quyền lực nhà nước.", "C. Điều chỉnh quan hệ xã hội.", "D. Là phương tiện duy nhất để quản lý."] },
-            { q: "Câu 36 (SAI): Nhận định nào SAI khi nói về đặc điểm pháp luật?", a: "A", opts: ["A. Chỉ bảo vệ lợi ích giai cấp thống trị.", "B. Có tính quyền lực bắt buộc chung.", "C. Có tính quy phạm phổ biến.", "D. Xác định chặt chẽ về hình thức."] },
-            { q: "Câu 37 (SAI): Nhận định SAI về vai trò nhà nước quản lý xã hội?", a: "D", opts: ["A. Nhà nước ban hành pháp luật.", "B. Nhà nước tổ chức thực hiện.", "C. Pháp luật có tính bắt buộc chung.", "D. Pháp luật là phương tiện duy nhất."] },
-            { q: "Câu 38 (SAI): Nhận định SAI về vai trò pháp luật với công dân?", a: "A", opts: ["A. Pháp luật chỉ bảo vệ quyền lợi người giàu.", "B. Bảo vệ lợi ích hợp pháp của dân.", "C. Công dân thực hiện quyền qua luật.", "D. Pháp luật là khuôn mẫu xử sự."] },
-            { q: "Câu 39 (SAI): Nhận định SAI về tính hình thức của pháp luật?", a: "B", opts: ["A. Ngôn ngữ phải chính xác.", "B. Pháp luật có tính bất biến không thay đổi.", "C. Văn bản cấp dưới không trái cấp trên.", "D. Đảm bảo hiểu và thực hiện thống nhất."] },
-            { q: "Câu 40 (SAI): Nhận định SAI về quản lý xã hội?", a: "B", opts: ["A. Quản lý bằng luật là hiệu quả nhất.", "B. Chỉ cần quản lý bằng đạo đức là đủ.", "C. Luật giúp ổn định xã hội.", "D. Luật giúp dân giám sát nhà nước."] },
-            { q: "Câu 41 (SAI): Nhận định SAI về quyền công dân?", a: "C", opts: ["A. Công dân thực hiện quyền theo luật.", "B. Luật bảo vệ lợi ích hợp pháp.", "C. Công dân được làm mọi thứ mình thích.", "D. Luật là căn cứ để dân khiếu nại."] },
-            { q: "Câu 42 (SAI): Nhận định SAI về đặc điểm pháp luật?", a: "A", opts: ["A. Pháp luật và đạo đức là một.", "B. Pháp luật do nhà nước ban hành.", "C. Pháp luật có tính cưỡng chế.", "D. Pháp luật áp dụng cho mọi người."] }
-        ],
-        ds: [
-            { doc: "Nhà hàng X của bà H sử dụng thực phẩm hết hạn gây ngộ độc. Ông D lập biên bản xử phạt. Anh M là bị hại có quyền yêu cầu bồi thường.", items: [
-                { s: "a) Bà H không phải là chủ thể sản xuất nên không có nghĩa vụ chấp hành pháp luật.", a: false },
-                { s: "b) Ông D làm tốt vai trò chủ thể nhà nước quản lý thông qua pháp luật.", a: true },
-                { s: "c) Việc xử phạt của cơ quan chức năng thể hiện tính quy phạm phổ biến.", a: false },
-                { s: "d) Anh M có quyền khởi kiện yêu cầu bồi thường thiệt hại.", a: true }
-            ]},
-            { doc: "Anh H lái xe có nồng độ cồn vượt mức nên bị CSGT phạt tiền và tước bằng lái.", items: [
-                { s: "a) Anh H đã thực hiện hành vi vi phạm pháp luật về giao thông.", a: true },
-                { s: "b) CSGT xử phạt thể hiện tính quyền lực bắt buộc chung.", a: true },
-                { s: "c) Việc anh H bị xử phạt thể hiện tính xác định chặt chẽ về hình thức.", a: false },
-                { s: "d) Thông qua xử phạt, pháp luật thể hiện vai trò quản lý xã hội.", a: true }
-            ]},
-            { doc: "M là đại lý xăng dầu niêm yết giá đúng luật, Q là đại lý găm hàng chờ giá lên bị cán bộ H xử phạt.", items: [
-                { s: "a) M và Q đều đang thực hiện đúng các quy tắc chung của pháp luật.", a: false },
-                { s: "b) Ông H ra quyết định xử phạt là thể hiện tính quyền lực.", a: true },
-                { s: "c) Việc xử phạt Q giúp ổn định thị trường, thể hiện vai trò quản lý của nhà nước.", a: true }
-            ]}
+  "phap_luat_va_doi_song": {
+    "trac_nghiem_4_phuong_an": [
+      {
+        "q": "Câu 1: Bất kì ai trong điều kiện hoàn cảnh nhất định, cũng phải xử sự theo khuôn mẫu được pháp luật quy định phản ánh đặc điểm cơ bản nào của pháp luật?",
+        "a": "D",
+        "opts": ["A. Tính cưỡng chế.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính quy phạm phổ biến."]
+      },
+      {
+        "q": "Câu 2: Luật hôn nhân gia đình quy định điều kiện kết hôn giữa nam và nữ áp dụng cho tất cả mọi người, không có ngoại lệ phản ánh đặc điểm cơ bản nào của pháp luật?",
+        "a": "D",
+        "opts": ["A. Tính xác định chặt chẽ về nội dung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính quy phạm phổ biến."]
+      },
+      {
+        "q": "Câu 3: Những quy tắc xử sự chung được áp dụng nhiều lần, ở nhiều nơi đối với tất cả mọi người là thể hiện đặc điểm nào sau đây của pháp luật?",
+        "a": "C",
+        "opts": ["A. Tính chặt chẽ về hình thức.", "B. Tính kỉ luật nghiêm minh.", "C. Tính quy phạm phổ biến.", "D. Tính quyền lực, bắt buộc chung."]
+      },
+      {
+        "q": "Câu 4: Những người có hành vi không đúng quy định của pháp luật sẽ bị cơ quan có thẩm quyền áp dụng các biện pháp cần thiết để buộc họ phải tuân theo thể hiện đặc điểm nào?",
+        "a": "B",
+        "opts": ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực, bắt buộc chung.", "C. Hiệu lực tuyệt đối.", "D. Khả năng đảm bảo thi hành cao."]
+      },
+      {
+        "q": "Câu 5: Tất cả mọi cá nhân, tổ chức khi tham gia vào các quan hệ xã hội đều phải xử sự theo quy định của pháp luật thể hiện đặc điểm nào?",
+        "a": "C",
+        "opts": ["A. Tính xác định về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."]
+      },
+      {
+        "q": "Câu 6: Tất cả mọi cá nhân, tổ chức nếu vi phạm pháp luật đều phải bị xử lý như nhau thể hiện đặc điểm nào?",
+        "a": "A",
+        "opts": ["A. Tính cưỡng chế, bắt buộc chung.", "B. Tính công khai.", "C. Tính dân chủ.", "D. Tính quy phạm phổ biến."]
+      },
+      {
+        "q": "Câu 7: Pháp luật có vai trò như thế nào đối với công dân?",
+        "a": "D",
+        "opts": ["A. Cưỡng chế mọi nghĩa vụ.", "B. Bảo vệ mọi hình thức.", "C. Bảo vệ quyền, lợi ích tuyệt đối.", "D. Bảo vệ quyền và lợi ích hợp pháp của công dân."]
+      },
+      {
+        "q": "Câu 8: Tính quy phạm phổ biến của pháp luật gắn liền với?",
+        "a": "B",
+        "opts": ["A. Các quan hệ kinh tế.", "B. Các quy tắc xử sự chung.", "C. Các phong tục tập quán.", "D. Các quy tắc đạo đức."]
+      },
+      {
+        "q": "Câu 9: Văn bản pháp luật phải chính xác, dễ hiểu để người dân bình thường cũng có thể hiểu được là đặc điểm nào?",
+        "a": "B",
+        "opts": ["A. Tính quyền lực bắt buộc chung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."]
+      },
+      {
+        "q": "Câu 10: Pháp luật là những quy tắc xử sự chung, là khuôn mẫu cho tất cả mọi người ở mọi nơi là đặc điểm nào?",
+        "a": "C",
+        "opts": ["A. Tính xác định về hình thức.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."]
+      },
+      {
+        "q": "Câu 11: Việc làm nào thể hiện pháp luật là phương tiện để nhà nước quản lý xã hội?",
+        "a": "A",
+        "opts": ["A. Kiểm tra các hoạt động kinh doanh.", "B. Tố cáo ngăn chặn hành vi vi phạm.", "C. Đăng ký kinh doanh khi đủ điều kiện.", "D. Đề nghị xem xét lại quyết định."]
+      },
+      {
+        "q": "Câu 12: Cảnh sát giao thông xử phạt người vi phạm để đảm bảo trật tự thể hiện vai trò gì?",
+        "a": "B",
+        "opts": ["A. Công cụ bảo vệ trật tự.", "B. Phương tiện để nhà nước quản lý xã hội.", "C. Công cụ để nhân dân đấu tranh.", "D. Phương tiện để nhà nước trừng trị kẻ phạm tội."]
+      },
+      {
+        "q": "Câu 13: Pháp luật do nhà nước ban hành và đảm bảo thực hiện bằng quyền lực của nhà nước là đặc điểm nào?",
+        "a": "C",
+        "opts": ["A. Tính xác định về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."]
+      },
+      {
+        "q": "Câu 14: Những việc được làm, những việc phải làm và những việc bị cấm đoán là nội dung của?",
+        "a": "C",
+        "opts": ["A. Đạo đức.", "B. Nghị quyết.", "C. Pháp luật.", "D. Chính sách."]
+      },
+      {
+        "q": "Câu 15: Pháp luật là phương tiện để công dân bảo vệ?",
+        "a": "A",
+        "opts": ["A. Quyền và lợi ích hợp pháp.", "B. Mọi nhu cầu của mình.", "C. Lợi ích cá nhân tối đa.", "D. Quyền tự do tuyệt đối."]
+      },
+      {
+        "q": "Câu 16: Khi quyền và lợi ích hợp pháp bị xâm phạm, công dân căn cứ vào pháp luật để khiếu nại thể hiện vai trò gì?",
+        "a": "D",
+        "opts": ["A. Công cụ quản lý xã hội.", "B. Quy tắc xử sự trong đời sống.", "C. Khuôn mẫu chung cho mọi người.", "D. Phương tiện bảo vệ quyền và lợi ích hợp pháp."]
+      },
+      {
+        "q": "Câu 17: Đặc điểm nào của pháp luật tạo nên sự khác biệt giữa pháp luật với các loại quy tắc đạo đức?",
+        "a": "C",
+        "opts": ["A. Tính quy phạm phổ biến.", "B. Tính phổ biến rộng rãi.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính chuẩn mực xã hội."]
+      },
+      {
+        "q": "Câu 18: Việc mọi người nghiêm chỉnh chấp hành luật giao thông đường bộ là thể hiện đặc điểm nào?",
+        "a": "B",
+        "opts": ["A. Tính bắt buộc chung.", "B. Tính quy phạm phổ biến.", "C. Tính xác định về hình thức.", "D. Tính kỉ luật nghiêm minh."]
+      },
+      {
+        "q": "Câu 19: Pháp luật là phương tiện để Nhà nước?",
+        "a": "C",
+        "opts": ["A. Bảo vệ các giai cấp.", "B. Bảo vệ các công dân.", "C. Quản lý xã hội.", "D. Quản lý công dân."]
+      },
+      {
+        "q": "Câu 20: Anh A bị giám đốc công ty đuổi việc không rõ lý do. Anh A đã dùng pháp luật để khiếu nại thể hiện vai trò pháp luật là?",
+        "a": "B",
+        "opts": ["A. Phương tiện quản lý xã hội.", "B. Bảo vệ quyền và lợi ích hợp pháp.", "C. Công cụ đấu tranh giai cấp.", "D. Phương tiện thực hiện dân chủ."]
+      },
+      {
+        "q": "Câu 21: Bất kỳ người nào vi phạm cũng bị cơ quan có thẩm quyền xử phạt theo quy định là đặc điểm?",
+        "a": "D",
+        "opts": ["A. Tính phổ biến.", "B. Tính hình thức.", "C. Tính chuẩn mực.", "D. Tính quyền lực, bắt buộc chung."]
+      },
+      {
+        "q": "Câu 22: Cơ quan chức năng tiến hành chấn chỉnh các cơ sở kinh doanh trái phép thể hiện vai trò pháp luật là?",
+        "a": "C",
+        "opts": ["A. Bảo vệ quyền công dân.", "B. Thực hiện nghĩa vụ nhà nước.", "C. Phương tiện quản lý xã hội.", "D. Công cụ phát triển kinh tế."]
+      },
+      {
+        "q": "Câu 23: Thông qua pháp luật, nhà nước kiểm tra, kiểm soát mọi hoạt động của cá nhân, tổ chức là vai trò?",
+        "a": "C",
+        "opts": ["A. Phương tiện của công dân.", "B. Quy tắc xử sự xã hội.", "C. Quản lý xã hội.", "D. Bảo vệ đạo đức xã hội."]
+      },
+      {
+        "q": "Câu 24: Nội dung của văn bản luật cấp dưới không được trái với nội dung của văn bản luật cấp trên là thể hiện đặc điểm nào?",
+        "a": "C",
+        "opts": ["A. Tính bắt buộc chung.", "B. Quy phạm phổ biến.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính cưỡng chế."]
+      },
+      {
+        "q": "Câu 25: Pháp luật mang tính quyền lực bắt buộc chung vì pháp luật được?",
+        "a": "A",
+        "opts": ["A. Đảm bảo bằng quyền lực nhà nước.", "B. Các tổ chức xã hội ban hành.", "C. Mọi người tự nguyện thi hành.", "D. Phù hợp với các quy tắc đạo đức."]
+      },
+      {
+        "q": "Câu 26: Nhà nước Việt Nam quản lý xã hội chủ yếu bằng?",
+        "a": "B",
+        "opts": ["A. Chính sách xã hội.", "B. Pháp luật.", "C. Tuyên truyền giáo dục.", "D. Các quy tắc đạo đức."]
+      },
+      {
+        "q": "Câu 27: Cảnh sát giao thông xử phạt người không đội mũ bảo hiểm thể hiện đặc trưng nào?",
+        "a": "C",
+        "opts": ["A. Quy phạm phổ biến.", "B. Xác định về hình thức.", "C. Quyền lực bắt buộc chung.", "D. Tính cưỡng chế."]
+      },
+      {
+        "q": "Câu 28: Để quản lý xã hội bằng pháp luật hiệu quả, nhà nước cần phải?",
+        "a": "A",
+        "opts": ["A. Ban hành và tổ chức thực hiện pháp luật.", "B. Tăng cường cưỡng chế xử phạt.", "C. Giảm bớt các quy định pháp lý.", "D. Dùng các quy tắc đạo đức thay thế."]
+      },
+      {
+        "q": "Câu 29: Đối với công dân, pháp luật có vai trò bảo vệ?",
+        "a": "B",
+        "opts": ["A. Mọi lợi ích cá nhân.", "B. Quyền và lợi ích hợp pháp.", "C. Các nhu cầu tự do.", "D. Quyền lợi của giai cấp."]
+      },
+      {
+        "q": "Câu 30: Xét về mặt chủ thể thì pháp luật do chủ thể nào ban hành?",
+        "a": "C",
+        "opts": ["A. Các tổ chức chính trị.", "B. Các hội nghề nghiệp.", "C. Nhà nước.", "D. Mọi công dân."]
+      },
+      {
+        "q": "Câu 31: Tính quy phạm phổ biến của pháp luật được áp dụng cho tất cả mọi người trong đời sống?",
+        "a": "C",
+        "opts": ["A. Cá nhân.", "B. Tập thể.", "C. Xã hội.", "D. Gia đình."]
+      },
+      {
+        "q": "Câu 32: Một trong những đặc điểm cơ bản của pháp luật thể hiện ở tính?",
+        "a": "C",
+        "opts": ["A. kỉ luật tự giác.", "B. bắt buộc riêng biệt.", "C. xác định chặt chẽ về hình thức.", "D. chuẩn mực tùy nghi."]
+      },
+      {
+        "q": "Câu 33: Văn bản pháp luật đòi hỏi cách diễn đạt phải chính xác, một nghĩa để ai cũng hiểu đúng là đặc điểm?",
+        "a": "A",
+        "opts": ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực bắt buộc chung.", "D. Tính dân chủ."]
+      },
+      {
+        "q": "Câu 34: Phát biểu nào sau đây sai về vai trò quản lý xã hội của pháp luật?",
+        "a": "D",
+        "opts": ["A. Pháp luật giúp ổn định trật tự.", "B. Pháp luật điều chỉnh các quan hệ.", "C. Pháp luật là công cụ quản lý.", "D. Pháp luật có nội dung cố định không thay đổi."]
+      },
+      {
+        "q": "Câu 35: Phát biểu nào sau đây sai về khái niệm pháp luật?",
+        "a": "D",
+        "opts": ["A. Pháp luật là hệ thống quy tắc.", "B. Pháp luật do nhà nước ban hành.", "C. Pháp luật mang tính bắt buộc.", "D. Pháp luật là phương tiện duy nhất quản lý xã hội."]
+      },
+      {
+        "q": "Câu 36: Phát biểu nào sau đây sai về vai trò của pháp luật?",
+        "a": "A",
+        "opts": ["A. Pháp luật không phù hợp quyền lợi chung.", "B. Pháp luật quản lý xã hội.", "C. Pháp luật bảo vệ công dân.", "D. Pháp luật duy trì trật tự."]
+      },
+      {
+        "q": "Câu 37: Phát biểu nào sau đây sai khi nói về vai trò của pháp luật?",
+        "a": "D",
+        "opts": ["A. Quản lý dân cư.", "B. Duy trì an ninh.", "C. Bảo vệ chủ quyền.", "D. Là phương tiện duy nhất quản lý xã hội."]
+      },
+      {
+        "q": "Câu 38: Phát biểu nào sau đây sai về đặc điểm của pháp luật?",
+        "a": "A",
+        "opts": ["A. Pháp luật không phù hợp quyền lợi chung.", "B. Pháp luật mang tính bắt buộc.", "C. Pháp luật có tính quy phạm.", "D. Pháp luật có tính hình thức."]
+      },
+      {
+        "q": "Câu 39: Phát biểu nào sau đây sai về quản lý xã hội bằng pháp luật?",
+        "a": "B",
+        "opts": ["A. Là phương pháp hiệu quả nhất.", "B. Là phương pháp cố định bất biến.", "C. Giúp đảm bảo công bằng.", "D. Đảm bảo tính dân chủ."]
+      },
+      {
+        "q": "Câu 40: Phát biểu nào sau đây sai về vai trò của pháp luật?",
+        "a": "B",
+        "opts": ["A. Pháp luật quản lý xã hội.", "B. Pháp luật là phương tiện duy nhất.", "C. Pháp luật bảo vệ quyền lợi.", "D. Pháp luật ổn định đời sống."]
+      },
+      {
+        "q": "Câu 41: Phát biểu nào sau đây sai về vai trò pháp luật đối với công dân?",
+        "a": "C",
+        "opts": ["A. Bảo vệ lợi ích hợp pháp.", "B. Là cơ sở thực hiện quyền.", "C. Là cơ sở thực hiện mọi yêu cầu cá nhân.", "D. Đảm bảo sự công bằng."]
+      },
+      {
+        "q": "Câu 42: Phát biểu nào sau đây sai về vai trò của pháp luật?",
+        "a": "A",
+        "opts": ["A. Pháp luật là phương tiện duy nhất quản lý xã hội.", "B. Pháp luật là công cụ quản lý.", "C. Pháp luật bảo vệ lợi ích.", "D. Pháp luật duy trì kỉ cương."]
+      }
+    ],
+    "trac_nghiem_tu_lieu": [
+      {
+        "tu_lieu": "Qua kiểm tra tình hình an ninh, trật tự... Công an tỉnh H phát hiện cơ sở Y sản xuất rượu không rõ nguồn gốc... đã lập biên bản xử phạt hành chính... Chủ cơ sở đã làm đơn khiếu nại gửi tới cơ quan chức năng để nghị xem xét lại...",
+        "cau_hoi": [
+          {
+            "q": "Câu 1: Pháp luật là phương tiện để công dân bảo vệ lợi ích hợp pháp thể hiện qua hành động nào?",
+            "a": "C",
+            "opts": ["A. Xử phạt vi phạm.", "B. Kiểm tra dấu hiệu.", "C. Gửi đơn khiếu nại.", "D. Điều chỉnh quyết định."]
+          },
+          {
+            "q": "Câu 2: Đặc điểm tính quy phạm phổ biến thể hiện qua việc?",
+            "a": "B",
+            "opts": ["A. Gửi đơn khiếu nại.", "B. Mọi công dân phải tuân thủ pháp luật kinh doanh.", "C. Xử phạt hành vi.", "D. Hoạt động kiểm tra."]
+          },
+          {
+            "q": "Câu 3: Vai trò quản lý xã hội thể hiện qua việc?",
+            "a": "A",
+            "opts": ["A. Kiểm tra giám sát các hoạt động.", "B. Bảo vệ quyền lợi.", "C. Tăng cường xử phạt.", "D. Nghiêm chỉnh chấp hành."]
+          },
+          {
+            "q": "Câu 4: Việc xử phạt cơ sở Y thể hiện đặc điểm nào?",
+            "a": "C",
+            "opts": ["A. Quy phạm phổ biến.", "B. Xác định hình thức.", "C. Quyền lực bắt buộc chung.", "D. Lợi nhuận kinh doanh."]
+          }
         ]
-    },
-    "26": {
-        tn: [
-            { q: "Câu 1: Đặc điểm nào sau đây quan trọng nhất của sản xuất nông nghiệp?", a: "B", opts: ["A. Sản xuất có tính mùa vụ.", "B. Đất trồng là tư liệu sản xuất chủ yếu.", "C. Đối tượng sản xuất là các sinh vật.", "D. Phụ thuộc nhiều vào tự nhiên."] },
-            { q: "Câu 2: Đối tượng của sản xuất nông nghiệp là?", a: "A", opts: ["A. Cây trồng và vật nuôi.", "B. Các loại máy móc nông nghiệp.", "C. Đất đai và nguồn nước.", "D. Phân bón và thuốc trừ sâu."] }
-        ],
-        ds: []
-    },
-    "27": {
-        tn: [
-            { q: "Câu 1: Hình thức tổ chức lãnh thổ nông nghiệp cao nhất là?", a: "D", opts: ["A. Trang trại.", "B. Hợp tác xã.", "C. Vùng nông nghiệp.", "D. Vùng chuyên canh."] }
-        ],
-        ds: []
-    }
+      }
+    ],
+    "trac_nghiem_dung_sai": [
+      {
+        "tinh_huong": "Vụ việc tại nhà hàng X của bà H và hoạt động của ông D (cán bộ cơ quan thẩm quyền)...",
+        "cau_hoi": [
+          {"id": "a", "q": "Bà H không phải chủ thể sản xuất nên không có nghĩa vụ chấp hành pháp luật.", "ans": "Sai"},
+          {"id": "b", "q": "Ông D đã làm tốt vai trò quản lý nhà nước đối với kinh doanh.", "ans": "Đúng"},
+          {"id": "c", "q": "Việc xử phạt thể hiện tính quy phạm phổ biến của pháp luật.", "ans": "Sai"},
+          {"id": "d", "q": "Anh M có quyền khởi kiện yêu cầu bồi thường thiệt hại.", "ans": "Đúng"}
+        ]
+      },
+      {
+        "tinh_huong": "Hoạt động đăng ký kinh doanh của chị V và anh B; việc chị V nói xấu ông M trên mạng...",
+        "cau_hoi": [
+          {"id": "a", "q": "Hoạt động đăng ký kinh doanh thể hiện tính quyền lực bắt buộc chung.", "ans": "Sai"},
+          {"id": "b", "q": "Ông M giữ vai trò chủ thể nhà nước trong quản lý sản xuất.", "ans": "Đúng"},
+          {"id": "c", "q": "Ông M có quyền khiếu nại để bảo vệ quyền lợi hợp pháp của mình.", "ans": "Đúng"},
+          {"id": "d", "q": "Việc xử phạt chị V thể hiện tính quy phạm phổ biến.", "ans": "Sai"}
+        ]
+      },
+      {
+        "tinh_huong": "Anh H lái xe có nồng độ cồn và bị xử phạt 6 triệu đồng, tước bằng lái 24 tháng...",
+        "cau_hoi": [
+          {"id": "a", "q": "Anh H đã có hành vi vi phạm pháp luật giao thông đường bộ.", "ans": "Đúng"},
+          {"id": "b", "q": "CSGT xử phạt anh H thể hiện tính quyền lực bắt buộc chung.", "ans": "Đúng"},
+          {"id": "c", "q": "Việc xử phạt thể hiện tính xác định chặt chẽ về hình thức.", "ans": "Sai"},
+          {"id": "d", "q": "Xử phạt vi phạm thể hiện vai trò quản lý xã hội của nhà nước.", "ans": "Đúng"}
+        ]
+      },
+      {
+        "tinh_huong": "Nhà máy xi măng A xả thải gây ô nhiễm, bị người dân phản ánh và cơ quan chức năng xử phạt...",
+        "cau_hoi": [
+          {"id": "a", "q": "Hình thức xử phạt phản ánh vai trò quản lý xã hội của pháp luật.", "ans": "Đúng"}
+        ]
+      }
+    ]
+  }
 };
 
 let corrects = 0, wrongs = 0;
