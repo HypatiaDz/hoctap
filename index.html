@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Giáo Dục Pháp Luật 10</title>
+    <title>Ôn Tập KTPL & Lịch Sử 10</title>
     <style>
-        :root { --primary: #1565c0; --bg: #f8f9fa; --accent: #e67e22; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); padding: 20px; line-height: 1.6; }
+        :root { --primary: #1565c0; --bg: #f8f9fa; --accent: #e67e22; --light: #e9ecef; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); padding: 20px; line-height: 1.6; margin: 0; }
         .container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .tabs { display: flex; margin-bottom: 20px; border-bottom: 2px solid var(--light); }
+        .tab { padding: 12px 24px; cursor: pointer; font-weight: bold; transition: all 0.3s; border-bottom: 3px solid transparent; }
+        .tab.active { color: var(--primary); border-bottom: 3px solid var(--primary); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
         .q-card { border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-bottom: 25px; background: #fff; }
         .q-text { font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; color: #333; }
         .doc-content { background: #fff8e1; border-left: 5px solid #ff8f00; padding: 15px; margin-bottom: 20px; font-style: italic; color: #5d4037; white-space: pre-wrap; }
@@ -22,9 +27,10 @@
         .correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
         .wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
         .disabled { pointer-events: none; opacity: 0.8; }
-        .score-bar { position: sticky; top: 10px; background: #343a40; color: white; padding: 15px; border-radius: 10px; display: flex; justify-content: space-around; z-index: 1000; margin-bottom: 20px; align-items: center; }
+        .score-bar { position: sticky; top: 0; background: #343a40; color: white; padding: 15px; border-radius: 0 0 10px 10px; display: flex; justify-content: space-around; z-index: 1000; margin-bottom: 20px; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
         .btn-reset-all { background: #dc3545; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
         .part-label { color: var(--accent); font-weight: bold; margin: 30px 0 15px; text-transform: uppercase; border-bottom: 2px solid var(--accent); display: inline-block; }
+        .loading { text-align: center; padding: 20px; font-style: italic; color: #666; }
     </style>
 </head>
 <body>
@@ -36,249 +42,462 @@
 </div>
 
 <div class="container">
-    <h1 style="text-align: center; text-transform: uppercase;">ÔN TẬP GIÁO DỤC PHÁP LUẬT 10</h1>
-    <div id="main-area"></div>
+    <h1 style="text-align: center; text-transform: uppercase;">ÔN TẬP KTPL & LỊCH SỬ 10</h1>
+
+    <div class="tabs">
+        <div class="tab active" data-tab="ktpl">Giáo dục pháp luật</div>
+        <div class="tab" data-tab="su">Lịch sử 10</div>
+    </div>
+
+    <div id="ktpl" class="tab-content active">
+        <div class="loading">Đang tải Giáo dục pháp luật...</div>
+    </div>
+    <div id="su" class="tab-content">
+        <div class="loading">Đang tải Lịch sử 10...</div>
+    </div>
 </div>
 
 <script>
 let corrects = 0, wrongs = 0;
 
 const quizData = {
-  tn: [
-    { id: 1, question: "Bất kì ai trong điều kiện hoàn cảnh nhất định, cũng phải xử sự theo khuôn mẫu được pháp luật quy định phản ánh đặc điểm cơ bản nào của pháp luật?", options: ["A. Tính cưỡng chế.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính quy phạm phổ biến."], answer: "D" },
-    { id: 2, question: "Luật hôn nhân gia đình quy định điều kiện kết hôn giữa nam và nữ áp dụng cho tất cả mọi người, không có ngoại lệ phản ánh đặc điểm cơ bản nào của pháp luật?", options: ["A. Tính xác định chặt chẽ về nội dung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính quy phạm phổ biến."], answer: "D" },
-    { id: 3, question: "Những quy tắc xử sự chung được áp dụng nhiều lần, ở nhiều nơi đối với tất cả mọi người là thể hiện đặc điểm nào sau đây của pháp luật?", options: ["A. Tính chặt chẽ về hình thức.", "B. Tính kỉ luật nghiêm minh.", "C. Tính quy phạm phổ biến.", "D. Tính quyền lực, bắt buộc chung."], answer: "C" },
-    { id: 4, question: "Những người có hành vi không đúng quy định của pháp luật sẽ bị cơ quan có thẩm quyền áp dụng các biện pháp cần thiết để buộc họ phải tuân theo. Điều này thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực, bắt buộc chung.", "C. Hiệu lực tuyệt đối.", "D. Khả năng đảm bảo thi hành cao."], answer: "B" },
-    { id: 5, question: "Tất cả mọi cá nhân, tổ chức ai cũng phải xử sự theo pháp luật. Điều đó thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính công khai.", "B. Tính dân chủ.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính quy phạm phổ biến."], answer: "C" },
-    { id: 6, question: "Tất cả mọi cá nhân, tổ chức nếu vi phạm pháp luật đều phải bị xử lý như nhau. Điều đó thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính cưỡng chế bắt buộc chung.", "B. Tính công khai.", "C. Tính dân chủ.", "D. Tính quy phạm phổ biến."], answer: "A" },
-    { id: 7, question: "Pháp luật có vai trò như thế nào đối với công dân?", options: ["A. Cưỡng chế mọi nghĩa vụ của công dân.", "B. Bảo vệ mọi hình thức của công dân.", "C. Bảo vệ quyền, lợi ích hợp pháp của công dân.", "D. Bảo vệ quyền và lợi ích hợp pháp của công dân."], answer: "D" },
-    { id: 8, question: "Tính quy phạm phổ biến của pháp luật là khuôn mẫu chung, được áp dụng nhiều lần, ở nhiều nơi, đối với tất cả mọi người trong đời sống xã hội, cho nên nó gắn liền với các", options: ["A. quy tắc bắt buộc chung.", "B. quy tắc xử sự chung.", "C. quy tắc bắt buộc riêng.", "D. quy tắc xử sự riêng."], answer: "B" },
-    { id: 9, question: "Văn bản pháp luật phải chính xác, dễ hiểu để người dân bình thường cũng có thể hiểu được là đặc điểm nào sau đây của pháp luật?", options: ["A. Tính quyền lực bắt buộc chung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."], answer: "B" },
-    { id: 10, question: "Đặc điểm nào của pháp luật là quy tắc xử sự chung, là khuôn mẫu chung, được áp dụng nhiều lần, ở nhiều nơi, đối với tất cả mọi người trong đời sống xã hội?", options: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính xác định chặt chẽ về nội dung.", "C. Tính quy phạm phổ biến.", "D. Tính quyền lực, bắt buộc chung."], answer: "C" },
-    { id: 11, question: "Việc làm nào dưới đây thể hiện pháp luật là phương tiện để nhà nước quản lí xã hội?", options: ["A. Kiểm tra các hoạt động kinh doanh của cá nhân.", "B. Tố cáo nhằm ngăn chặn hành vi vi phạm pháp luật.", "C. Đăng kí kinh doanh khi có đủ điều kiện hợp pháp.", "D. Đề nghị xem xét lại quyết định của cơ quan nhà nước."], answer: "A" },
-    { id: 12, question: "Căn cứ vào Luật Giao thông đường bộ, cảnh sát giao thông đã xử phạt những người vi phạm để đảm bảo trật tự an toàn giao thông. Trong những trường hợp này pháp luật đã thể hiện vai trò gì dưới đây?", options: ["A. Là công cụ để bảo vệ trật tự an toàn giao thông.", "B. Là phương tiện để nhà nước quản lí xã hội.", "C. Là công cụ để nhân dân đấu tranh với người vi phạm.", "D. Là phương tiện để nhà nước trừng trị kẻ phạm tội."], answer: "B" },
-    { id: 13, question: "Pháp luật do nhà nước ban hành và đảm bảo thực hiện bằng quyền lực của nhà nước là đặc điểm nào của pháp luật?", options: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."], answer: "C" },
-    { id: 14, question: "Những quy tắc xử sự chung về những việc được làm, những việc phải làm, những việc không được làm, những việc cấm đoán là phản ánh nội dung của khái niệm nào dưới đây?", options: ["A. Kinh tế.", "B. Đạo đức.", "C. Pháp luật.", "D. Chính trị."], answer: "C" },
-    { id: 15, question: "Pháp luật có vai trò như thế nào đối với công dân?", options: ["A. Bảo vệ quyền và lợi ích hợp pháp của công dân.", "B. Bảo vệ quyền, lợi ích tuyệt đối của công dân.", "C. Cưỡng chế mọi nghĩa vụ của công dân.", "D. Bảo vệ mọi nhu cầu, lợi ích của công dân."], answer: "A" },
-    { id: 16, question: "Pháp luật là phương tiện để công dân thực hiện và bảo vệ", options: ["A. lợi ích kinh tế của mình.", "B. quyền và nghĩa vụ của mình.", "C. các quyền của mình.", "D. quyền và lợi ích hợp pháp của mình."], answer: "D" },
-    { id: 17, question: "Pháp luật do Nhà nước ban hành và bảo đảm thực hiện bằng sức mạnh của quyền lực nhà nước. Nhận định này thể hiện đặc điểm nào sau đây của pháp luật?", options: ["A. Tính quy phạm phổ biến.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính hiệu lực bắt buộc chung."], answer: "C" },
-    { id: 18, question: "Trên đường phố tất cả mọi người nghiêm chỉnh chấp hành quy định của luật giao thông đường bộ là phản ánh đặc điểm cơ bản nào của pháp luật?", options: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính xác định chặt chẽ về nội dung."], answer: "B" },
-    { id: 19, question: "Pháp luật là phương tiện để Nhà nước", options: ["A. bảo vệ các giai cấp.", "B. bảo vệ các công dân.", "C. quản lí xã hội.", "D. quản lí công dân."], answer: "C" },
-    { id: 20, question: "Khi biết chị T mang thai, giám đốc công ty X đã ra quyết định chấm dứt hợp đồng với chị, chị đã làm đơn khiếu nại lên ban giám đốc công ty. Trong trường hợp này, pháp luật có vai trò như thế nào?", options: ["A. Nhà nước quản lý các tổ chức.", "B. Bảo vệ quyền, lợi ích hợp pháp của công dân.", "C. Nhà nước quản lý công dân.", "D. Thực hiện nghĩa vụ hợp pháp của công dân."], answer: "B" },
-    { id: 21, question: "Người bị xử phạt hành chính do không chấp hành hiệu lệnh của người điều khiển giao thông là biểu hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính xác định chặt chẽ về nội dung.", "D. Tính quyền lực, bắt buộc chung."], answer: "D" },
-    { id: 22, question: "Theo quy định của pháp luật, nội dung nào dưới đây thể hiện vai trò quản lí xã hội bằng pháp luật của nhà nước?", options: ["A. Đăng nhập cổng thông tin quốc gia.", "B. Tự do đăng ký kết hôn theo quy định.", "C. Chấn chỉnh việc kinh doanh trái phép.", "D. Ca ngợi phong trào phòng chống dịch."], answer: "C" },
-    { id: 23, question: "Nhờ có pháp luật, nhà nước mới kiểm tra, kiểm soát được các hoạt động của mọi cá nhân, tổ chức, cơ quan trong phạm vi lãnh thổ của mình. Nhận định này muốn đề cập đến", options: ["A. vai trò của pháp luật.", "B. chức năng của pháp luật.", "C. nhiệm vụ của pháp luật.", "D. đặc điểm của pháp luật."], answer: "A" },
-    { id: 24, question: "Nội dung của văn bản luật cấp dưới không được trái với nội dung của văn bản luật cấp trên là thể hiện", options: ["A. tính bắt buộc chung.", "B. quy phạm phổ biến.", "C. tính xác định chặt chẽ về hình thức.", "D. tính cưỡng chế."], answer: "C" },
-    { id: 25, question: "Pháp luật được đảm bảo thực hiện bằng", options: ["A. quyền lực nhà nước.", "B. quyền lực nhân dân.", "C. quyền lực xã hội.", "D. quyền lực chính trị."], answer: "A" },
-    { id: 26, question: "Nhà nước Việt Nam quản lí xã hội bằng phương tiện nào sau đây?", options: ["A. Pháp luật.", "B. Kinh tế.", "C. Chính trị.", "D. Đạo đức."], answer: "A" },
-    { id: 27, question: "Cảnh sát giao thông xử phạt hành chính người ngồi trên xe mô tô, xe gắn máy không đội mũ bảo hiểm. Quy định này thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính xác định chặt chẽ về nội dung.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính xác định chặt chẽ về hình thức."], answer: "C" },
-    { id: 28, question: "Để quản lí xã hội bằng pháp luật một cách hiệu quả trên quy mô toàn xã hội, đưa pháp luật vào đời sống thành nhận thức của từng người dân và của toàn xã hội, thì nhà nước phải", options: ["A. ban hành và tổ chức thực hiện pháp luật.", "B. tăng cường xử phạt người dân.", "C. tổ chức tốt lực lượng xử phạt người dân.", "D. ban hành và tổ chức phát triển kinh tế."], answer: "A" },
-    { id: 29, question: "Đối với công dân, pháp luật có vai trò như thế nào?", options: ["A. Bảo vệ quyền tự do tuyệt đối của công dân.", "B. Bảo vệ quyền và lợi ích hợp pháp của công dân.", "C. Bảo vệ lợi ích tuyệt đối của công dân.", "D. Bảo vệ mọi lợi ích của công dân."], answer: "B" },
-    { id: 30, question: "Xét về mặt chủ thể thì pháp luật do", options: ["A. cơ quan, tổ chức ban hành.", "B. địa phương ban hành.", "C. nhà nước ban hành.", "D. cá nhân ban hành."], answer: "C" },
-    { id: 31, question: "Tính quy phạm phổ biến của pháp luật là quy tắc xử sự chung, là khuôn mẫu chung, được áp dụng nhiều lần, ở nhiều nơi, đối với tất cả mọi người trong đời sống", options: ["A. cơ quan, trường học.", "B. gia đình.", "C. xã hội.", "D. tổ dân phố."], answer: "C" },
-    { id: 32, question: "Một trong những đặc điểm cơ bản của pháp luật thể hiện ở tính", options: ["A. bảo mật nội bộ.", "B. bao quát, định hướng tổng thể.", "C. xác định chặt chẽ về mặt hình thức.", "D. chuyên chế độc quyền."], answer: "C" },
-    { id: 33, question: "Văn bản đòi hỏi diễn đạt phải chính xác, một nghĩa để công dân hiểu và thực hiện đúng pháp luật là phản ánh đặc điểm cơ bản nào?", options: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính xác định chặt chẽ về nội dung.", "D. Tính quy phạm phổ biến."], answer: "A" }
-  ],
-
-  sai: [
-    { id: 34, question: "Phát biểu nào sau đây là sai về vai trò quản lý xã hội của pháp luật?", options: ["A. Pháp luật đảm bảo tính công bằng dân chủ.", "B. Pháp luật có tính phổ biến, bắt buộc chung.", "C. Pháp luật bảo đảm phù hợp với lợi ích chung.", "D. Pháp luật có nội dung cố định và không điều chỉnh."], answer: "D" },
-    { id: 35, question: "Phát biểu nào dưới đây là sai về khái niệm pháp luật?", options: ["A. Pháp luật do Quốc hội thông qua.", "B. Pháp luật bảo đảm bằng sức mạnh quyền lực của Nhà nước.", "C. Pháp luật điều chỉnh các quan hệ xã hội thống nhất.", "D. Pháp luật là phương tiện duy nhất để quản lí xã hội."], answer: "D" },
-    { id: 36, question: "Phát biểu nào sai về vai trò của pháp luật?", options: ["A. Pháp luật không phù hợp với quyền lợi, nghĩa vụ chung.", "B. Pháp luật có tính quy phạm phổ biến trong xã hội.", "C. Pháp luật điều chỉnh các quan hệ xã hội thống nhất.", "D. Pháp luật bảo đảm tính công bằng, dân chủ."], answer: "A" },
-    { id: 37, question: "Phát biểu nào sau đây là sai khi nói về vai trò của pháp luật?", options: ["A. Nhà nước quản lí xã hội chủ yếu bằng pháp luật.", "B. Pháp luật được đảm bảo bằng sức mạnh của nhà nước.", "C. Quản lí xã hội bằng pháp luật đảm bảo tính công bằng dân chủ.", "D. Pháp luật là phương tiện duy nhất để nhà nước quản lí xã hội."], answer: "D" },
-    { id: 38, question: "Phát biểu nào sai về đặc điểm của pháp luật?", options: ["A. Pháp luật không phù hợp với quyền lợi chung.", "B. Pháp luật có tính quy phạm phổ biến trong xã hội.", "C. Pháp luật bảo đảm tính công bằng, dân chủ.", "D. Pháp luật điều chỉnh các quan hệ xã hội thống nhất."], answer: "A" },
-    { id: 39, question: "Phát biểu nào sau đây sai về vai trò quản lí xã hội của pháp luật?", options: ["A. Để đảm bảo quyền tự do cơ bản của công dân.", "B. Đây là phương pháp quản lí cố định và bất biến.", "C. Đây là phương pháp quản lí dân chủ và hiệu quả nhất.", "D. Quản lí xã hội bằng pháp luật đảm bảo tính công bằng dân chủ."], answer: "B" },
-    { id: 40, question: "Phát biểu nào dưới đây là sai về vai trò của pháp luật?", options: ["A. Quản lí xã hội bằng pháp luật bảo đảm tính công bằng, dân chủ.", "B. Pháp luật là phương tiện duy nhất để nhà nước quản lí xã hội.", "C. Pháp luật được bảo đảm bằng sức mạnh quyền lực của nhà nước.", "D. Nhà nước quản lý xã hội chủ yếu bằng pháp luật."], answer: "B" },
-    { id: 41, question: "Phát biểu nào dưới đây là sai về vai trò của pháp luật đối với công dân?", options: ["A. Pháp luật xác lập và ghi nhận các quyền công dân.", "B. Pháp luật tạo cơ sở pháp lý để công dân bảo vệ lợi ích chính đáng.", "C. Pháp luật là cơ sở để công dân thực hiện mọi yêu cầu của mình.", "D. Pháp luật là cơ sở pháp lý để giải quyết khi xảy ra tranh chấp."], answer: "C" },
-    { id: 42, question: "Phát biểu nào sau đây là sai về vai trò của pháp luật?", options: ["A. Pháp luật là phương tiện duy nhất để nhà nước quản lí xã hội.", "B. Quản lí xã hội bằng pháp luật đảm bảo tính công bằng dân chủ.", "C. Pháp luật được đảm bảo bằng sức mạnh của nhà nước.", "D. Nhà nước quản lí xã hội chủ yếu bằng pháp luật."], answer: "A" }
-  ],
-
-  tinhHuong: [
-    {
-      id: 44,
-      title: "Cơ sở Y kinh doanh rượu không nguồn gốc",
-      content: "Qua kiểm tra tình hình an ninh, trật tự trên địa bàn thuộc thẩm quyền quản lý, Công an tỉnh H phát hiện cơ sở Y sản xuất, kinh doanh rượu không có giấy tờ, nguồn gốc xuất xứ. Tại thời điểm kiểm tra, trong kho hàng của cơ sở có một số thùng phuy nhựa chứa 1000 lít rượu không có tem nhãn hàng hóa theo quy định và 75 kg men không rõ nguồn gốc xuất xứ, chủ cơ sở không xuất trình được hồ sơ pháp lý liên quan đến hoạt động kinh doanh của mình. Công an tỉnh H đã lập biên bản và xử phạt hành chính đối với hành vi kinh doanh hàng hóa không rõ nguồn gốc xuất xứ của cơ sở Y theo quy định của pháp luật. Sau khi nhận quyết định xử phạt, thấy có một số nội dung ghi trong quyết định xử phạt mà mình không vi phạm, chủ cơ sở đã làm đơn khiếu nại gửi tới cơ quan chức năng để nghị xem xét lại và được cơ quan có thẩm quyền điều chỉnh một số nội dung trong quyết định xử phạt.",
-      questions: [
-        { question: "Câu 1: Pháp luật là phương tiện để công dân thực hiện quyền và bảo vệ lợi ích hợp pháp của mình được thể hiện như thế nào trong thông tin trên?", options: ["A. Xử phạt hành vi vi phạm.", "B. Kiểm tra dấu hiệu vi phạm.", "C. Gửi đơn khiếu nại tới cơ quan chức năng.", "D. Điều chỉnh quyết định xử phạt đã ban hành."], answer: "C" },
-        { question: "Câu 2: Đặc điểm về tính quy phạm phổ biến của pháp luật được thể hiện như thế nào trong thông tin trên?", options: ["A. Gửi đơn khiếu nại tới cơ quan chức năng.", "B. Mọi công dân phải tuân thủ pháp luật về kinh doanh.", "C. Xử phạt hành vi vi phạm pháp luật về kinh doanh.", "D. Hoạt động kiểm tra giám sát các cơ sở kinh doanh."], answer: "B" },
-        { question: "Câu 3: Vai trò quản lý xã hội của pháp luật được thể hiện như thế nào trong thông tin trên?", options: ["A. Kiểm tra giám sát các hoạt động kinh doanh của cá nhân.", "B. Bảo vệ quyền và lợi ích hợp pháp của mọi công dân.", "C. Tăng cường xử phạt để góp phần tăng ngân sách nhà nước.", "D. Mọi công dân đều nghiêm chỉnh chấp hành khi kinh doanh."], answer: "A" },
-        { question: "Câu 4: Việc xử phạt của công an tỉnh H đối với cơ sở Y thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính quy phạm phổ biến.", "B. Tính xác định về hình thức.", "C. Tính quyền lực bắt buộc chung.", "D. Tính lợi nhuận trong kinh doanh."], answer: "C" }
+  ktpl: {
+    tn: [
+      { id: 1, question: "Bất kì ai trong điều kiện hoàn cảnh nhất định, cũng phải xử sự theo khuôn mẫu được pháp luật quy định phản ánh đặc điểm cơ bản nào của pháp luật?", options: ["A. Tính cưỡng chế.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính quy phạm phổ biến."], answer: "D" },
+      { id: 2, question: "Luật hôn nhân gia đình quy định điều kiện kết hôn giữa nam và nữ áp dụng cho tất cả mọi người, không có ngoại lệ phản ánh đặc điểm cơ bản nào của pháp luật?", options: ["A. Tính xác định chặt chẽ về nội dung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính quy phạm phổ biến."], answer: "D" },
+      { id: 3, question: "Những quy tắc xử sự chung được áp dụng nhiều lần, ở nhiều nơi đối với tất cả mọi người là thể hiện đặc điểm nào sau đây của pháp luật?", options: ["A. Tính chặt chẽ về hình thức.", "B. Tính kỉ luật nghiêm minh.", "C. Tính quy phạm phổ biến.", "D. Tính quyền lực, bắt buộc chung."], answer: "C" },
+      { id: 4, question: "Những người có hành vi không đúng quy định của pháp luật sẽ bị cơ quan có thẩm quyền áp dụng các biện pháp cần thiết để buộc họ phải tuân theo. Điều này thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực, bắt buộc chung.", "C. Hiệu lực tuyệt đối.", "D. Khả năng đảm bảo thi hành cao."], answer: "B" },
+      { id: 5, question: "Tất cả mọi cá nhân, tổ chức ai cũng phải xử sự theo pháp luật. Điều đó thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính công khai.", "B. Tính dân chủ.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính quy phạm phổ biến."], answer: "C" },
+      { id: 6, question: "Tất cả mọi cá nhân, tổ chức nếu vi phạm pháp luật đều phải bị xử lý như nhau. Điều đó thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính cưỡng chế bắt buộc chung.", "B. Tính công khai.", "C. Tính dân chủ.", "D. Tính quy phạm phổ biến."], answer: "A" },
+      { id: 7, question: "Pháp luật có vai trò như thế nào đối với công dân?", options: ["A. Cưỡng chế mọi nghĩa vụ của công dân.", "B. Bảo vệ mọi hình thức của công dân.", "C. Bảo vệ quyền, lợi ích hợp pháp của công dân.", "D. Bảo vệ quyền và lợi ích hợp pháp của công dân."], answer: "D" },
+      { id: 8, question: "Tính quy phạm phổ biến của pháp luật là khuôn mẫu chung, được áp dụng nhiều lần, ở nhiều nơi, đối với tất cả mọi người trong đời sống xã hội, cho nên nó gắn liền với các", options: ["A. quy tắc bắt buộc chung.", "B. quy tắc xử sự chung.", "C. quy tắc bắt buộc riêng.", "D. quy tắc xử sự riêng."], answer: "B" },
+      { id: 9, question: "Văn bản pháp luật phải chính xác, dễ hiểu để người dân bình thường cũng có thể hiểu được là đặc điểm nào sau đây của pháp luật?", options: ["A. Tính quyền lực bắt buộc chung.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quy phạm phổ biến.", "D. Tính cưỡng chế."], answer: "B" },
+      { id: 10, question: "Đặc điểm nào của pháp luật là quy tắc xử sự chung, là khuôn mẫu chung, được áp dụng nhiều lần, ở nhiều nơi, đối với tất cả mọi người trong đời sống xã hội?", options: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính xác định chặt chẽ về nội dung.", "C. Tính quy phạm phổ biến.", "D. Tính quyền lực, bắt buộc chung."], answer: "C" },
+      { id: 11, question: "Việc làm nào dưới đây thể hiện pháp luật là phương tiện để nhà nước quản lí xã hội?", options: ["A. Kiểm tra các hoạt động kinh doanh của cá nhân.", "B. Tố cáo nhằm ngăn chặn hành vi vi phạm pháp luật.", "C. Đăng kí kinh doanh khi có đủ điều kiện hợp pháp.", "D. Đề nghị xem xét lại quyết định của cơ quan nhà nước."], answer: "A" },
+      { id: 12, question: "Căn cứ vào Luật Giao thông đường bộ, cảnh sát giao thông đã xử phạt những người vi phạm để đảm bảo trật tự an toàn giao thông. Trong những trường hợp này pháp luật đã thể hiện vai trò gì dưới đây?", options: ["A. Là công cụ để bảo vệ trật tự an toàn giao thông.", "B. Là phương tiện để nhà nước quản lí xã hội.", "C. Là công cụ để nhân dân đấu tranh với người vi phạm.", "D. Là phương tiện để nhà nước trừng trị kẻ phạm tội."], answer: "B" },
+      { id: 13, question: "Pháp luật do nhà nước ban hành và đảm bảo thực hiện bằng quyền lực của nhà nước là đặc điểm nào của pháp luật?", options: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính cưỡng chế."], answer: "C" },
+      { id: 14, question: "Những quy tắc xử sự chung về những việc được làm, những việc phải làm, những việc không được làm, những việc cấm đoán là phản ánh nội dung của khái niệm nào dưới đây?", options: ["A. Kinh tế.", "B. Đạo đức.", "C. Pháp luật.", "D. Chính trị."], answer: "C" },
+      { id: 15, question: "Pháp luật có vai trò như thế nào đối với công dân?", options: ["A. Bảo vệ quyền và lợi ích hợp pháp của công dân.", "B. Bảo vệ quyền, lợi ích tuyệt đối của công dân.", "C. Cưỡng chế mọi nghĩa vụ của công dân.", "D. Bảo vệ mọi nhu cầu, lợi ích của công dân."], answer: "A" },
+      { id: 16, question: "Pháp luật là phương tiện để công dân thực hiện và bảo vệ", options: ["A. lợi ích kinh tế của mình.", "B. quyền và nghĩa vụ của mình.", "C. các quyền của mình.", "D. quyền và lợi ích hợp pháp của mình."], answer: "D" },
+      { id: 17, question: "Pháp luật do Nhà nước ban hành và bảo đảm thực hiện bằng sức mạnh của quyền lực nhà nước. Nhận định này thể hiện đặc điểm nào sau đây của pháp luật?", options: ["A. Tính quy phạm phổ biến.", "B. Tính xác định chặt chẽ về hình thức.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính hiệu lực bắt buộc chung."], answer: "C" },
+      { id: 18, question: "Trên đường phố tất cả mọi người nghiêm chỉnh chấp hành quy định của luật giao thông đường bộ là phản ánh đặc điểm cơ bản nào của pháp luật?", options: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính xác định chặt chẽ về nội dung."], answer: "B" },
+      { id: 19, question: "Pháp luật là phương tiện để Nhà nước", options: ["A. bảo vệ các giai cấp.", "B. bảo vệ các công dân.", "C. quản lí xã hội.", "D. quản lí công dân."], answer: "C" },
+      { id: 20, question: "Khi biết chị T mang thai, giám đốc công ty X đã ra quyết định chấm dứt hợp đồng với chị, chị đã làm đơn khiếu nại lên ban giám đốc công ty. Trong trường hợp này, pháp luật có vai trò như thế nào?", options: ["A. Nhà nước quản lý các tổ chức.", "B. Bảo vệ quyền, lợi ích hợp pháp của công dân.", "C. Nhà nước quản lý công dân.", "D. Thực hiện nghĩa vụ hợp pháp của công dân."], answer: "B" },
+      { id: 21, question: "Người bị xử phạt hành chính do không chấp hành hiệu lệnh của người điều khiển giao thông là biểu hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính quy phạm phổ biến.", "C. Tính xác định chặt chẽ về nội dung.", "D. Tính quyền lực, bắt buộc chung."], answer: "D" },
+      { id: 22, question: "Theo quy định của pháp luật, nội dung nào dưới đây thể hiện vai trò quản lí xã hội bằng pháp luật của nhà nước?", options: ["A. Đăng nhập cổng thông tin quốc gia.", "B. Tự do đăng ký kết hôn theo quy định.", "C. Chấn chỉnh việc kinh doanh trái phép.", "D. Ca ngợi phong trào phòng chống dịch."], answer: "C" },
+      { id: 23, question: "Nhờ có pháp luật, nhà nước mới kiểm tra, kiểm soát được các hoạt động của mọi cá nhân, tổ chức, cơ quan trong phạm vi lãnh thổ của mình. Nhận định này muốn đề cập đến", options: ["A. vai trò của pháp luật.", "B. chức năng của pháp luật.", "C. nhiệm vụ của pháp luật.", "D. đặc điểm của pháp luật."], answer: "A" },
+      { id: 24, question: "Nội dung của văn bản luật cấp dưới không được trái với nội dung của văn bản luật cấp trên là thể hiện", options: ["A. tính bắt buộc chung.", "B. quy phạm phổ biến.", "C. tính xác định chặt chẽ về hình thức.", "D. tính cưỡng chế."], answer: "C" },
+      { id: 25, question: "Pháp luật được đảm bảo thực hiện bằng", options: ["A. quyền lực nhà nước.", "B. quyền lực nhân dân.", "C. quyền lực xã hội.", "D. quyền lực chính trị."], answer: "A" },
+      { id: 26, question: "Nhà nước Việt Nam quản lí xã hội bằng phương tiện nào sau đây?", options: ["A. Pháp luật.", "B. Kinh tế.", "C. Chính trị.", "D. Đạo đức."], answer: "A" },
+      { id: 27, question: "Cảnh sát giao thông xử phạt hành chính người ngồi trên xe mô tô, xe gắn máy không đội mũ bảo hiểm. Quy định này thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính xác định chặt chẽ về nội dung.", "B. Tính quy phạm phổ biến.", "C. Tính quyền lực, bắt buộc chung.", "D. Tính xác định chặt chẽ về hình thức."], answer: "C" },
+      { id: 28, question: "Để quản lí xã hội bằng pháp luật một cách hiệu quả trên quy mô toàn xã hội, đưa pháp luật vào đời sống thành nhận thức của từng người dân và của toàn xã hội, thì nhà nước phải", options: ["A. ban hành và tổ chức thực hiện pháp luật.", "B. tăng cường xử phạt người dân.", "C. tổ chức tốt lực lượng xử phạt người dân.", "D. ban hành và tổ chức phát triển kinh tế."], answer: "A" },
+      { id: 29, question: "Đối với công dân, pháp luật có vai trò như thế nào?", options: ["A. Bảo vệ quyền tự do tuyệt đối của công dân.", "B. Bảo vệ quyền và lợi ích hợp pháp của công dân.", "C. Bảo vệ lợi ích tuyệt đối của công dân.", "D. Bảo vệ mọi lợi ích của công dân."], answer: "B" },
+      { id: 30, question: "Xét về mặt chủ thể thì pháp luật do", options: ["A. cơ quan, tổ chức ban hành.", "B. địa phương ban hành.", "C. nhà nước ban hành.", "D. cá nhân ban hành."], answer: "C" },
+      { id: 31, question: "Tính quy phạm phổ biến của pháp luật là quy tắc xử sự chung, là khuôn mẫu chung, được áp dụng nhiều lần, ở nhiều nơi, đối với tất cả mọi người trong đời sống", options: ["A. cơ quan, trường học.", "B. gia đình.", "C. xã hội.", "D. tổ dân phố."], answer: "C" },
+      { id: 32, question: "Một trong những đặc điểm cơ bản của pháp luật thể hiện ở tính", options: ["A. bảo mật nội bộ.", "B. bao quát, định hướng tổng thể.", "C. xác định chặt chẽ về mặt hình thức.", "D. chuyên chế độc quyền."], answer: "C" },
+      { id: 33, question: "Văn bản đòi hỏi diễn đạt phải chính xác, một nghĩa để công dân hiểu và thực hiện đúng pháp luật là phản ánh đặc điểm cơ bản nào?", options: ["A. Tính xác định chặt chẽ về hình thức.", "B. Tính quyền lực, bắt buộc chung.", "C. Tính xác định chặt chẽ về nội dung.", "D. Tính quy phạm phổ biến."], answer: "A" }
+    ],
+    sai: [
+      { id: 34, question: "Phát biểu nào sau đây là sai về vai trò quản lý xã hội của pháp luật?", options: ["A. Pháp luật đảm bảo tính công bằng dân chủ.", "B. Pháp luật có tính phổ biến, bắt buộc chung.", "C. Pháp luật bảo đảm phù hợp với lợi ích chung.", "D. Pháp luật có nội dung cố định và không điều chỉnh."], answer: "D" },
+      { id: 35, question: "Phát biểu nào dưới đây là sai về khái niệm pháp luật?", options: ["A. Pháp luật do Quốc hội thông qua.", "B. Pháp luật bảo đảm bằng sức mạnh quyền lực của Nhà nước.", "C. Pháp luật điều chỉnh các quan hệ xã hội thống nhất.", "D. Pháp luật là phương tiện duy nhất để quản lí xã hội."], answer: "D" },
+      { id: 36, question: "Phát biểu nào sai về vai trò của pháp luật?", options: ["A. Pháp luật không phù hợp với quyền lợi, nghĩa vụ chung.", "B. Pháp luật có tính quy phạm phổ biến trong xã hội.", "C. Pháp luật điều chỉnh các quan hệ xã hội thống nhất.", "D. Pháp luật bảo đảm tính công bằng, dân chủ."], answer: "A" },
+      { id: 37, question: "Phát biểu nào sau đây là sai khi nói về vai trò của pháp luật?", options: ["A. Nhà nước quản lí xã hội chủ yếu bằng pháp luật.", "B. Pháp luật được đảm bảo bằng sức mạnh của nhà nước.", "C. Quản lí xã hội bằng pháp luật đảm bảo tính công bằng dân chủ.", "D. Pháp luật là phương tiện duy nhất để nhà nước quản lí xã hội."], answer: "D" },
+      { id: 38, question: "Phát biểu nào sai về đặc điểm của pháp luật?", options: ["A. Pháp luật không phù hợp với quyền lợi chung.", "B. Pháp luật có tính quy phạm phổ biến trong xã hội.", "C. Pháp luật bảo đảm tính công bằng, dân chủ.", "D. Pháp luật điều chỉnh các quan hệ xã hội thống nhất."], answer: "A" },
+      { id: 39, question: "Phát biểu nào sau đây sai về vai trò quản lí xã hội của pháp luật?", options: ["A. Để đảm bảo quyền tự do cơ bản của công dân.", "B. Đây là phương pháp quản lí cố định và bất biến.", "C. Đây là phương pháp quản lí dân chủ và hiệu quả nhất.", "D. Quản lí xã hội bằng pháp luật đảm bảo tính công bằng dân chủ."], answer: "B" },
+      { id: 40, question: "Phát biểu nào dưới đây là sai về vai trò của pháp luật?", options: ["A. Quản lí xã hội bằng pháp luật bảo đảm tính công bằng, dân chủ.", "B. Pháp luật là phương tiện duy nhất để nhà nước quản lí xã hội.", "C. Pháp luật được bảo đảm bằng sức mạnh quyền lực của nhà nước.", "D. Nhà nước quản lý xã hội chủ yếu bằng pháp luật."], answer: "B" },
+      { id: 41, question: "Phát biểu nào dưới đây là sai về vai trò của pháp luật đối với công dân?", options: ["A. Pháp luật xác lập và ghi nhận các quyền công dân.", "B. Pháp luật tạo cơ sở pháp lý để công dân bảo vệ lợi ích chính đáng.", "C. Pháp luật là cơ sở để công dân thực hiện mọi yêu cầu của mình.", "D. Pháp luật là cơ sở pháp lý để giải quyết khi xảy ra tranh chấp."], answer: "C" },
+      { id: 42, question: "Phát biểu nào sau đây là sai về vai trò của pháp luật?", options: ["A. Pháp luật là phương tiện duy nhất để nhà nước quản lí xã hội.", "B. Quản lí xã hội bằng pháp luật đảm bảo tính công bằng dân chủ.", "C. Pháp luật được đảm bảo bằng sức mạnh của nhà nước.", "D. Nhà nước quản lí xã hội chủ yếu bằng pháp luật."], answer: "A" }
+    ],
+    tinhHuong: [
+      {
+        id: 44,
+        title: "Cơ sở Y kinh doanh rượu không nguồn gốc",
+        content: "Qua kiểm tra tình hình an ninh, trật tự trên địa bàn thuộc thẩm quyền quản lý, Công an tỉnh H phát hiện cơ sở Y sản xuất, kinh doanh rượu không có giấy tờ, nguồn gốc xuất xứ. Tại thời điểm kiểm tra, trong kho hàng của cơ sở có một số thùng phuy nhựa chứa 1000 lít rượu không có tem nhãn hàng hóa theo quy định và 75 kg men không rõ nguồn gốc xuất xứ, chủ cơ sở không xuất trình được hồ sơ pháp lý liên quan đến hoạt động kinh doanh của mình. Công an tỉnh H đã lập biên bản và xử phạt hành chính đối với hành vi kinh doanh hàng hóa không rõ nguồn gốc xuất xứ của cơ sở Y theo quy định của pháp luật. Sau khi nhận quyết định xử phạt, thấy có một số nội dung ghi trong quyết định xử phạt mà mình không vi phạm, chủ cơ sở đã làm đơn khiếu nại gửi tới cơ quan chức năng để nghị xem xét lại và được cơ quan có thẩm quyền điều chỉnh một số nội dung trong quyết định xử phạt.",
+        questions: [
+          { question: "Câu 1: Pháp luật là phương tiện để công dân thực hiện quyền và bảo vệ lợi ích hợp pháp của mình được thể hiện như thế nào trong thông tin trên?", options: ["A. Xử phạt hành vi vi phạm.", "B. Kiểm tra dấu hiệu vi phạm.", "C. Gửi đơn khiếu nại tới cơ quan chức năng.", "D. Điều chỉnh quyết định xử phạt đã ban hành."], answer: "C" },
+          { question: "Câu 2: Đặc điểm về tính quy phạm phổ biến của pháp luật được thể hiện như thế nào trong thông tin trên?", options: ["A. Gửi đơn khiếu nại tới cơ quan chức năng.", "B. Mọi công dân phải tuân thủ pháp luật về kinh doanh.", "C. Xử phạt hành vi vi phạm pháp luật về kinh doanh.", "D. Hoạt động kiểm tra giám sát các cơ sở kinh doanh."], answer: "B" },
+          { question: "Câu 3: Vai trò quản lý xã hội của pháp luật được thể hiện như thế nào trong thông tin trên?", options: ["A. Kiểm tra giám sát các hoạt động kinh doanh của cá nhân.", "B. Bảo vệ quyền và lợi ích hợp pháp của mọi công dân.", "C. Tăng cường xử phạt để góp phần tăng ngân sách nhà nước.", "D. Mọi công dân đều nghiêm chỉnh chấp hành khi kinh doanh."], answer: "A" },
+          { question: "Câu 4: Việc xử phạt của công an tỉnh H đối với cơ sở Y thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính quy phạm phổ biến.", "B. Tính xác định về hình thức.", "C. Tính quyền lực bắt buộc chung.", "D. Tính lợi nhuận trong kinh doanh."], answer: "C" }
+        ]
+      },
+      {
+        id: 45,
+        title: "Anh T vượt đèn đỏ",
+        content: "Anh T đi xe máy vượt đèn đỏ nên bị cảnh sát giao thông lập biên bản xử phạt. Anh T trình bày vì gia đình có việc nên anh đi vội, không chú ý tín hiệu đèn giao thông. Anh mong muốn cảnh sát giao thông bỏ qua cho lỗi của mình. Người cảnh sát giải thích: \"Để bảo đảm trật tự, an toàn cho mọi người khi tham gia giao thông và giao thông được thông suốt, Nhà nước đã ban hành pháp luật quy định người tham gia giao thông phải chấp hành tín hiệu đèn giao thông, dừng xe trước vạch kẻ đường khi gặp đèn đỏ. Đây là quy tắc xử sự chung bắt buộc tất cả mọi người khi tham gia giao thông phải tuân thủ và thực hiện nghiêm túc ở mọi nơi, vào bất kì thời gian nào. Nếu không tuân thủ quy định này sẽ bị xử phạt\".",
+        questions: [
+          { question: "Câu 1: Việc cảnh sát giao thông lập biên bản xử phạt anh T là thể hiện tính", options: ["A. nhân văn, nhân ái.", "B. quyền lực nhà nước.", "C. quy phạm phổ biến.", "D. lợi ích cá nhân."], answer: "B" },
+          { question: "Câu 2: Vai trò quản lý xã hội của pháp luật được thể hiện như thế nào trong thông tin trên?", options: ["A. Bảo vệ quyền lợi của công dân.", "B. Điều chỉnh hành vi của công dân.", "C. Xác nhận tư cách quyền công dân.", "D. Xâm phạm lợi ích của công dân."], answer: "B" },
+          { question: "Câu 3: Việc cảnh sát giao thông tiến hành lập biên bản xử phạt những người có hành vi vi phạm các quy định của Luật giao thông đường bộ phản ánh vai trò nào dưới đây của pháp luật?", options: ["A. Bảo vệ quyền lợi của công dân.", "B. Xác nhận các quyền công dân.", "C. Quản lý xã hội.", "D. Tính quyền lực chung."], answer: "C" },
+          { question: "Câu 4: Theo quy định của pháp luật, mọi công dân có trách nhiệm chấp hành tín hiệu điều khiển giao thông để đảm bảo an toàn khi tham gia giao thông là thể hiện đặc điểm nào dưới đây của pháp luật", options: ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính xã hội hóa toàn diện."], answer: "A" },
+          { question: "Câu 5: Việc cảnh sát giao thông tiến hành lập biên bản xử phạt anh T thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính xã hội hóa toàn diện."], answer: "B" }
+        ]
+      },
+      {
+        id: 46,
+        title: "Đại lý xăng dầu anh M, N, ông Q",
+        content: "Trên cùng một địa bàn có anh M và anh N và ông Q cùng làm đại lý phân phối xăng dầu, M cố gắng duy trì nguồn hàng để cung cấp ổn định cho người dân. Ông Q đang trong giai đoạn chuẩn bị các điều kiện kinh doanh nên chú trọng hoàn thiện các quy định về phòng cháy chữa cháy để cơ quan chức năng kiểm tra. Anh N do giá xăng dầu tăng cao, việc kinh doanh có nguy cơ thua lỗ nên treo biển tạm thời không bán với lý do sửa chữa cửa hàng, ảnh hưởng đến nhu cầu của người dân nên bị tố cáo. Ông H cán bộ chức năng đã xử phạt anh N.",
+        questions: [
+          { question: "Câu 1: Việc làm của chủ thể nào trong thông tin trên thể hiện tính quy phạm phổ biến của pháp luật?", options: ["A. Anh M và anh N.", "B. Ông Q và anh N.", "C. Anh M và ông Q.", "D. Ông H và anh N."], answer: "C" },
+          { question: "Câu 2: Việc làm của cá nhân nào dưới đây thể hiện tính quyền lực bắt buộc chung của pháp luật?", options: ["A. Anh M.", "B. Anh N.", "C. Ông Q", "D. Ông H."], answer: "D" },
+          { question: "Câu 3: Các anh M, anh N và ông Q trong thông tin trên đóng vai trò là chủ thể nào dưới đây trong kinh tế?", options: ["A. Chủ thể sản xuất.", "B. Chủ thể tiêu dùng.", "C. Chủ thể trung gian.", "D. Chủ thể nhà nước."], answer: "C" }
+        ]
+      },
+      {
+        id: 47,
+        title: "Khách sạn chị M, chị H",
+        content: "Trên cùng một địa bàn, chị M và chị H cùng kinh doanh dịch vụ khách sạn. Trong một lần kiểm tra, phát hiện khách sạn của chị M chưa trang bị đầy đủ thiết bị phòng cháy chữa cháy theo quy định, anh Q cán bộ đoàn kiểm tra đã tiến hành lập biên bản và yêu cầu chị M bổ sung đầy đủ mới cấp phép hoạt động trở lại. Nghi ngờ chị H tố cáo mình, chị M đã ghép ảnh chị H với anh Q rồi chia sẻ lên mạng xã hội với nội dung vì anh Q có quan hệ tình cảm với chị H nên có hành vi bao che cho chị H, bài viết sau đó được nhiều người chia sẻ khiến uy tín của anh Q và chị H ảnh hưởng nghiêm trọng. Vì vậy anh Q đã làm đơn đề nghị cơ quan chức năng kiểm tra, sau đó anh P cán bộ có thẩm quyền đã kiểm tra và ra quyết định xử phạt chị M về hành vi xúc phạm nhân phẩm danh dự người khác.",
+        questions: [
+          { question: "Câu 1: Chủ thể nào trong thông tin trên đã vận dụng đúng tính quyền lực bắt buộc chung khi thi hành pháp luật?", options: ["A. Chị M và chị H.", "B. Chị M và anh Q.", "C. Anh Q và anh P", "D. Anh Q và chị H."], answer: "C" },
+          { question: "Câu 2: Chủ thể nào đã vận dụng đúng pháp luật để bảo vệ quyền và lợi ích hợp pháp của mình?", options: ["A. Chị M.", "B. Anh Q.", "C. Chị H.", "D. Anh P."], answer: "B" },
+          { question: "Câu 3: Việc anh Q và anh P căn cứ vào pháp luật ra các quyết định xử phạt các chủ thể vi phạm là thể hiện vai trò nào dưới đây của pháp luật?", options: ["A. Bảo vệ quyền lợi người tiêu dùng.", "B. Bảo vệ môi trường sinh thái.", "C. Bảo vệ lợi ích hợp pháp của công dân.", "D. Vai trò quản lý xã hội của nhà nước"], answer: "D" }
+        ]
+      }
+    ],
+    dungSai: [
+      {
+        id: 49,
+        content: "Nhận được tin báo của quần chúng nhân dân về việc phát hiện có dấu hiệu vi phạm trong hoạt động chế biến thực phẩm tại nhà hàng X do bà H làm chủ...",
+        items: [
+          { statement: "A. Bà H không phải là chủ thể sản xuất nên không có nghĩa vụ phải chấp hành các quy định của pháp luật.", correct: false },
+          { statement: "B. Ông D đã làm tốt vai trò là chủ thể nhà nước trong việc quản lý nhà nước đối với hoạt động kinh doanh.", correct: true },
+          { statement: "C. Việc xử phạt của cơ quan chức năng thể hiện tính quy phạm phổ biến của pháp luật", correct: false },
+          { statement: "D. Anh M có quyền khởi kiện để yêu cầu bà H phải bồi thường thiệt hại cho bản thân mình", correct: true }
+        ]
+      },
+      {
+        id: 50,
+        content: "Kết thúc buổi liên hoan gặp gỡ kỉ niệm 20 năm ngày ra trường, trên đường lái xe về nhà, anh H cùng người bạn bị cảnh sát giao thông yêu cầu dừng xe để kiểm tra nồng độ cồn...",
+        items: [
+          { statement: "A. Anh H và người bạn đã có hành vi vi phạm pháp luật về giao thông đường bộ.", correct: true },
+          { statement: "B. Cảnh sát giao thông xử phạt anh H thể hiện tính quyền lực bắt buộc chung của pháp luật.", correct: true },
+          { statement: "C. Việc anh H bị xử phạt thể hiện tính xác định chặt chẽ về hình thức của pháp luật.", correct: false },
+          { statement: "D. Thông qua việc xử phạt người vi phạm, pháp luật đã thể hiện vai trò quản lý xã hội của nhà nước.", correct: true }
+        ]
+      },
+      {
+        id: 60,
+        content: "Sau khi tốt nghiệp đại học, chị V và anh B cùng nộp hồ sơ đăng ký kinh doanh hàng nội thất...",
+        items: [
+          { statement: "A. Hoạt động tiến hành đăng ký kinh doanh của chị V và anh B thể hiện tính quyền lực bắt buộc chung của pháp luật.", correct: false },
+          { statement: "B. Ông M giữ vai trò là chủ thể nhà nước trong hoạt động quản lý sản xuất kinh doanh", correct: true },
+          { statement: "C. Ông M có quyền khiếu nại để bảo vệ quyền và lợi ích hợp pháp của mình do chị V xâm phạm.", correct: true },
+          { statement: "D. Việc xử phạt chị V của cơ quan chức năng thể hiện tính quy phạm phổ biến của pháp luật.", correct: false }
+        ]
+      },
+      {
+        id: 62,
+        content: "Nhà máy xi măng A đặt tại xã A, huyện B, tỉnh C đã đi vào hoạt động được hơn 1 năm...",
+        items: [
+          { statement: "A. Nhà máy A đã không thể hiện đúng trách nhiệm xã hội của chủ thể sản xuất.", correct: true },
+          { statement: "B. Việc người dân phản ánh đến cơ quan chức năng là thể hiện vai trò của pháp luật trong quản lý xã hội", correct: false },
+          { statement: "C. Hình thức xử phạt và yêu cầu khắc phục hậu quả là thể hiện tính xác định chặt chẽ về hình thức của pháp luật.", correct: true },
+          { statement: "D. Hình thức xử phạt và yêu cầu khắc phục hậu quả phản ánh vai trò quản lý xã hội của pháp luật", correct: true }
+        ]
+      },
+      {
+        id: "ontap1",
+        title: "Câu 1: Nhiệm vụ của UBND",
+        content: "Sau khi tìm hiểu về HĐND, H thắc mắc: \"Vậy còn UBND thì làm những việc gì cụ thể hả T?\". T giải thích: \"Nếu HĐND là người đưa ra quyết định thì UBND chính là cơ quan tổ chức thực hiện những quyết định đó và quản lý mọi mặt của đời sống địa phương theo pháp luật\". Để hiểu rõ hơn, H và T cùng thảo luận về các nhiệm vụ thực tế mà UBND thường xuyên đảm nhận tại nơi họ sinh sống.",
+        items: [
+          { statement: "a) UBND là cơ quan chấp hành của Hội đồng nhân dân cùng cấp.", correct: true },
+          { statement: "b) UBND có quyền giám sát việc tuân theo Hiến pháp và pháp luật ở địa phương.", correct: false },
+          { statement: "c) UBND tổ chức thực hiện các nghị quyết của HĐND và các văn bản chỉ đạo của cơ quan nhà nước cấp trên.", correct: true },
+          { statement: "d) UBND quản lý nhà nước ở địa phương về các lĩnh vực như kinh tế, giáo dục, y tế, an ninh, trật tự xã hội.", correct: true }
+        ]
+      },
+      {
+        id: "ontap2",
+        title: "Câu 2: Phiên tòa xét xử tội danh 'Cố ý gây thương tích'",
+        content: "Tại phiên tòa xét xử tội danh \"Cố ý gây thương tích\", bị cáo X cho rằng mình chỉ tự vệ chính đáng khi bị nhóm của người bị hại tấn công trước. Luật sư bào chữa là ông Y đã đưa ra các kết quả giám định pháp y mới về các vết thương cũ trên người X để chứng minh lời khai này là có cơ sở. Trong quá trình xét hỏi, Kiểm sát viên liên tục bác bỏ các lập luận này bằng những biên bản lấy lời khai ban đầu. Thẩm phán T với vai trò chủ tọa đã điều hành phần tranh luận rất công bằng, cho phép luật sư Y được đối đáp trực tiếp với Kiểm sát viên về từng chứng cứ cụ thể. Cuối cùng, nhận thấy bản giám định mới do Y cung cấp là chứng cứ quan trọng chưa được xem xét kỹ, Thẩm phán T đã quyết định hoãn phiên tòa để tiến hành giám định lại nhằm đảm bảo sự công minh của pháp luật.",
+        items: [
+          { statement: "a) Thẩm phán T có quyền yêu cầu luật sư Y dừng việc đưa ra chứng cứ mới nếu nó mâu thuẫn với hồ sơ của Viện kiểm sát.", correct: false },
+          { statement: "b) Việc Thẩm phán T cho phép đối đáp trực tiếp giữa luật sư và Kiểm sát viên là thực hiện nguyên tắc tranh tụng trong xét xử.", correct: true },
+          { statement: "c) Quyết định hoãn phiên tòa của Thẩm phán T là trái quy định vì phiên tòa đã bước vào phần tranh luận thì phải ra bản án ngay.", correct: false },
+          { statement: "d) Luật sư Y có quyền trình bày chứng cứ, tài liệu và đồ vật để bào chữa cho bị cáo X ngay tại phiên tòa.", correct: true }
+        ]
+      },
+      {
+        id: "ontap3",
+        title: "Câu 3: Chủ tịch nước",
+        content: "Tại một buổi tọa đàm về Hiến pháp, ông X (đại diện cơ quan lập pháp) trình bày về việc Quốc hội vừa bầu tân Chủ tịch nước. Anh Y (một cử tri) thắc mắc liệu Chủ tịch nước có quyền tự mình ban hành luật hay không. Giải đáp điều này, Giáo sư T giải thích rằng Chủ tịch nước là người đứng đầu Nhà nước, thay mặt nước Cộng hòa xã hội chủ nghĩa Việt Nam về đối nội và đối ngoại. Ông T nhấn mạnh Chủ tịch nước không trực tiếp làm luật nhưng có thẩm quyền công bố Hiến pháp, luật và pháp lệnh. Ngoài ra, Chủ tịch nước còn giữ vai trò Thống lĩnh lực lượng vũ trang nhân dân và giữ chức vụ Chủ tịch Hội đồng Quốc phòng và An ninh.",
+        items: [
+          { statement: "a) Chủ tịch nước là người đứng đầu Chính phủ, trực tiếp điều hành các hoạt động hành chính hàng ngày của đất nước.", correct: false },
+          { statement: "b) Một trong những chức năng quan trọng của Chủ tịch nước là thay mặt Nhà nước trong các quan hệ đối nội và đối ngoại.", correct: true },
+          { statement: "c) Chủ tịch nước có thẩm quyền thống lĩnh lực lượng vũ trang nhân dân và giữ chức Chủ tịch Hội đồng Quốc phòng và An ninh.", correct: true },
+          { statement: "d) Chủ tịch nước có quyền tự mình soạn thảo và thông qua các bộ luật mà không cần qua biểu quyết tại Quốc hội", correct: false }
+        ]
+      },
+      {
+        id: "ontap4",
+        title: "Câu 4: Vai trò của Quốc hội",
+        content: "Trong giờ học Luật Hiến pháp, bạn X thắc mắc về vai trò của Quốc hội trong bộ máy nhà nước. Giảng viên T giải thích rằng Quốc hội là cơ quan đại biểu cao nhất của Nhân dân: lập hiến, lập pháp; quyết định các vấn đề quan trọng của đất nước và giám sát tối cao đối với hoạt động của Nhà nước. Bạn Y đặt câu hỏi liệu Quốc hội có quyền bãi miễn các chức danh cao cấp như Chủ tịch nước hay Thủ tướng không. Giảng viên T khẳng định đó là quyền quyết định về nhân sự cấp cao của Quốc hội. Ngoài ra, ông T nhấn mạnh rằng mọi kế hoạch phát triển kinh tế - xã hội và ngân sách nhà nước hằng năm đều phải được Quốc hội xem xét, thông qua thì mới có hiệu lực thi hành.",
+        items: [
+          { statement: "a) Quốc hội là cơ quan duy nhất có quyền lập hiến và lập pháp", correct: true },
+          { statement: "b) Chức năng giám sát tối cao của Quốc hội chỉ giới hạn đối với các doanh nghiệp tư nhân trong nền kinh tế.", correct: false },
+          { statement: "c) Quốc hội có thẩm quyền bầu, miễn nhiệm, bãi nhiệm phó Chủ tịch nước, Thủ tướng chính phủ.", correct: true },
+          { statement: "d) Các kế hoạch về ngân sách nhà nước do Chính phủ tự quyết định và thực hiện mà không cần sự thông qua của Quốc hội.", correct: false }
+        ]
+      },
+      {
+        id: "ontap5",
+        title: "Câu 5: Tòa án nhân dân",
+        content: "Tòa án nhân dân là cơ quan xét xử của nước Cộng hòa xã hội chủ nghĩa Việt Nam, thực hiện quyền tư pháp. Tòa án nhân dân gồm Tòa án nhân dân tối cao và các Tòa án khác do luật định. Tòa án nhân dân có nhiệm vụ bảo vệ công lý, bảo vệ quyền con người, quyền công dân, bảo vệ chế độ xã hội chủ nghĩa, bảo vệ lợi ích của Nhà nước, quyền và lợi ích hợp pháp của tổ chức, cá nhân. Bằng hoạt động của mình, Tòa án góp phần giáo dục công dân trung thành với Tổ quốc, nghiêm chỉnh chấp hành pháp luật, tôn trọng những quy tắc của cuộc sống xã hội, ý thức đấu tranh phòng, chống tội phạm, các vi phạm pháp luật khác.",
+        items: [
+          { statement: "A. Việc phân chia thành TAND tối cao và các Tòa án khác là căn cứ vào chức năng nhiệm vụ của mỗi tòa án.", correct: false },
+          { statement: "B. Chức năng xét xử của tòa án gắn liền với hoạt động công tố và kiểm sát hoạt động tư pháp.", correct: false },
+          { statement: "C. Thông qua hoạt động xét xử công bằng đúng pháp luật, tòa án góp phần bảo vệ công lý và quyền con người.", correct: true },
+          { statement: "D. Tòa án nhân dân là cơ quan chuyên môn thuộc Chính phủ Nước Cộng hòa xã hội nghĩa Việt Nam", correct: false }
+        ]
+      },
+      {
+        id: "ontap6",
+        title: "Câu 6: Nguyên tắc xét xử của Tòa án nhân dân",
+        content: "Việc xét xử sơ thẩm của Tòa án nhân dân có Hội thẩm tham gia, trừ trường hợp xét xử theo thủ tục rút gọn. Thẩm phán, Hội thẩm xét xử độc lập và chỉ tuân theo pháp luật; nghiêm cấm cơ quan, tổ chức, cá nhân can thiệp vào việc xét xử của Thẩm phán, Hội thẩm. Tòa án nhân dân xét xử công khai. Trong trường hợp đặc biệt cần giữ bí mật nhà nước, thuần phong, mỹ tục của dân tộc, bảo vệ người chưa thành niên hoặc giữ bí mật đời tư theo yêu cầu chính đáng của đương sự, Tòa án nhân dân có thể xét xử kín. Tòa án nhân dân xét xử tập thể và quyết định theo đa số, trừ trường hợp xét xử theo thủ tục rút gọn. Nguyên tắc tranh tụng trong xét xử được bảo đảm. Chế độ xét xử sơ thẩm, phúc thẩm được bảo đảm. Quyền bào chữa của bị can, bị cáo, quyền bảo vệ lợi ích hợp pháp của đương sự được bảo đảm.",
+        items: [
+          { statement: "A. Xét xử công khai là thể hiện tính công bằng dân chủ.", correct: true },
+          { statement: "B. Tòa án xét xử kín khi có yêu cầu của bị can hoặc bị cáo.", correct: false },
+          { statement: "C. Mọi vụ án đều phải được xét xử sơ thẩm và phúc thẩm", correct: false },
+          { statement: "D. Khi xét xử mọi bị can, bị cáo đều có quyền bào chữa.", correct: true }
+        ]
+      },
+      {
+        id: "ontap7",
+        title: "Câu 7: Viện Kiểm sát nhân dân",
+        content: "Viện Kiểm sát nhân dân do Viện trưởng lãnh đạo. Viện trưởng Viện Kiểm sát nhân dân cấp dưới chịu sự lãnh đạo của Viện trưởng Viện Kiểm sát nhân dân cấp trên. Viện trưởng các Viện Kiểm sát cấp dưới chịu sự lãnh đạo thống nhất của Viện trưởng Viện Kiểm sát nhân dân tối cao. Viện kiểm sát cấp trên có trách nhiệm kiểm tra, xử lí nghiêm minh vi phạm pháp luật của Viện Kiểm sát cấp dưới. Viện trưởng Viện Kiểm sát cấp trên có quyền rút, đình chỉ, huỷ bỏ quyết định trái pháp luật của Viện trưởng Viện Kiểm sát cấp dưới.",
+        items: [
+          { statement: "A. Viện kiểm sát nhân dân là cơ quan ngang Bộ và trực thuộc Chính phủ.", correct: false },
+          { statement: "B. Viện trưởng viện Kiểm sát nhân dân tối cao do Quốc hội bầu hoặc phê chuẩn.", correct: true },
+          { statement: "C. Viện trưởng viện Kiểm sát nhân dân các cấp do Viện trưởng viện kiểm sát nhân dân tối cao phê chuẩn.", correct: false },
+          { statement: "D. Viện trưởng viện Kiểm sát nhân dân tối cao có thể đình chỉ quyết định của Viện trưởng viện Kiểm sát nhân dân cấp dưới.", correct: true }
+        ]
+      },
+      {
+        id: "ontap8",
+        title: "Câu 8: Quyền công tố",
+        content: "Quyền công tố là quyền nhân danh Nhà nước thực hiện việc truy cứu trách nhiệm hình sự đối với người phạm tội. Quyền này thuộc về Nhà nước, được Nhà nước giao cho một cơ quan thực hiện (ở nước ta là Viện kiểm sát nhân dân) để phát hiện tội phạm và truy cứu trách nhiệm hình sự đối với người phạm tội. Cơ quan có chức năng thực hành quyền công tố phải có trách nhiệm bảo đảm việc thu thập đầy đủ tài liệu, chứng cứ để xác định tội phạm và người phạm tội. Trên cơ sở đó quyết định truy tố bị can ra trước Tòa án và bảo vệ sự buộc tội đó trước phiên tòa.",
+        items: [
+          { statement: "A. Chỉ có Viện kiểm sát mới có thẩm quyền thực hiện quyền công tố.", correct: true },
+          { statement: "B. Quyền công tố chỉ gắn liền với vụ án hình sự và người phạm tội.", correct: false },
+          { statement: "C. Bản chất của thực hành quyền công tố là nhân danh Nhà nước.", correct: true },
+          { statement: "D. Quyền công tố là quyền buộc tội đối với cá nhân vi phạm hình sự.", correct: true }
+        ]
+      },
+      {
+        id: "ontap9",
+        title: "Câu 9: Kiểm sát hoạt động tư pháp",
+        content: "Kiểm sát hoạt động tư pháp là hoạt động của Viện kiểm sát nhân dân để kiểm sát tính hợp pháp của các hành vi, quyết định của cơ quan, tổ chức, cá nhân trong hoạt động tư pháp, được thực hiện ngay từ khi tiếp nhận và giải quyết tố giác, tin báo về tội phạm, kiến nghị khởi tố và trong suốt quá trình giải quyết vụ án hình sự; trong việc giải quyết vụ án hành chính, vụ việc dân sự, hôn nhân và gia đình, kinh doanh, thương mại, lao động; việc thi hành án, việc giải quyết khiếu nại, tố cáo trong hoạt động tư pháp; các hoạt động tư pháp khác theo quy định của pháp luật.",
+        items: [
+          { statement: "A. Chỉ có Viện Kiểm sát mới có chức năng kiểm sát hoạt động tư pháp.", correct: true },
+          { statement: "B. Kiểm tra hoạt động tư pháp là một dạng nhà nước giám sát về tư pháp.", correct: false },
+          { statement: "C. Kiểm tra hoạt động tư pháp không mang tính quyền lực Nhà nước.", correct: false },
+          { statement: "D. Đối tượng kiểm tra hoạt động tư pháp là tính hợp pháp của các hành vi, quyết định của cơ quan, tổ chức, cá nhân trong hoạt động tư pháp.", correct: true }
+        ]
+      }
+    ]
+  },
+  su: {
+    cachMang: {
+      tn: [
+        { id: 1, question: "Cuộc cách mạng công nghiệp lần thứ nhất diễn ra vào giữa thế kỉ XVIII, khởi đầu ở nước", options: ["A. Anh.", "B. Mĩ.", "C. Đức.", "D. Pháp."], answer: "A" },
+        { id: 2, question: "Cuộc cách mạng công nghiệp lần thứ nhất chủ yếu diễn ra ở khu vực nào sau đây?", options: ["A. Châu Á và châu Âu", "B. Châu Âu và Bắc Mĩ", "C. Châu Á và châu Phi", "D. Châu Phi và Mĩ Latinh"], answer: "B" },
+        { id: 3, question: "Một trong những thành tựu tiêu biểu của cuộc cách mạng công nghiệp lần thứ nhất là việc phát minh ra", options: ["A. máy bay", "B. ô tô", "C. máy hơi nước", "D. máy tính"], answer: "C" },
+        { id: 4, question: "Việc phát minh ra máy hơi nước cuối thế kỉ XVII đã", options: ["A. thúc đẩy sự phát triển của ngành giao thông vận tải.", "B. khiến máy móc thay thế hoàn toàn lao động tay chân.", "C. thúc đẩy tự động hóa trong quá trình sản xuất vật chất.", "D. tạo tiền đề cho sự ra đời của ngành công nghệ thông tin."], answer: "A" },
+        { id: 5, question: "Cuối thế kỉ XVIII, phát minh nào sau đây đã khởi đầu quá trình công nghiệp hóa ở nước Anh?", options: ["A. Máy tính điện tử", "B. Trí tuệ nhân tạo", "C. Máy hơi nước", "D. Động cơ điện"], answer: "C" },
+        { id: 6, question: "Nội dung nào sau đây phản ánh thành tựu của cuộc cách mạng công nghiệp lần thứ nhất trong lĩnh vực giao thông vận tải?", options: ["A. Xuất hiện lò luyện quặng theo phương pháp mới", "B. Sự ra đời và hoàn thiện của động cơ đốt trong", "C. Sự phát triển mạnh của ô tô và ngành hàng không", "D. Sự xuất hiện của tàu thủy chạy bằng hơi nước"], answer: "D" },
+        { id: 7, question: "Nội dung nào sau đây phản ánh đúng ý nghĩa của các cuộc cách mạng công nghiệp thời kì cận đại về mặt văn hóa?", options: ["A. Dẫn đến sự hình thành các lực lượng xã hội mới.", "B. Thúc đẩy sự giao lưu và kết nối văn hoá toàn cầu.", "C. Tạo động lực cho sự tăng trưởng của công nghiệp.", "D. Tạo ra sự dịch chuyển trong tỉ lệ cư dân thành thị"], answer: "B" },
+        { id: 8, question: "Nội dung nào sau đây phản ánh thành tựu của cuộc cách mạng công nghiệp lần thứ nhất trong lĩnh vực luyện kim?", options: ["A. Xuất hiện lò luyện quặng theo phương pháp mới", "B. Sự ra đời và hoàn thiện của động cơ hơi nước", "C. Sự phát triển mạnh của ô tô và ngành hàng không", "D. Sự xuất hiện của chiếc đầu máy xe lửa đầu tiên"], answer: "A" },
+        { id: 9, question: "Trong cuộc cách mạng công nghiệp lần thứ nhất, phát minh kĩ thuật nào sau đây đã tạo ra bước chuyển căn bản trong nền sản xuất tư bản chủ nghĩa?", options: ["A. Động cơ đốt trong.", "B. Máy điện tín", "C. Máy tính điện tử.", "D. Máy hơi nước."], answer: "D" },
+        { id: 10, question: "Trong cuộc cách mạng công nghiệp lần thứ nhất, Rô-bớt Phơn-tơn đã chế tạo thành công", options: ["A. máy tính điện tử.", "B. tàu thủy chạy bằng hơi nước.", "C. hệ thống máy tự động.", "D. động cơ điện xoay chiều"], answer: "B" },
+        { id: 11, question: "Cuộc cách mạng công nghiệp lần thứ nhất diễn ra ở châu Âu và Bắc Mỹ là quá trình", options: ["A. công nghiệp hóa, hiện đại hóa các nước tư bản châu Âu.", "B. hình thành hai giai cấp cơ bản là tư sản và công nhân.", "C. cơ khí hóa nền sản xuất thay thế cho lao động thủ công.", "D. hình thành nền tảng kinh tế của chủ nghĩa tư bản."], answer: "C" },
+        { id: 12, question: "Trong cuộc cách mạng công nghiệp lần thứ nhất, Xti-phen-xơn đã chế tạo thành công", options: ["A. đầu máy xe lửa.", "B. động cơ hơi nước.", "C. máy tính điện tử.", "D. bóng đèn điện."], answer: "A" },
+        { id: 13, question: "Động cơ đốt trong được phát minh trong cuộc cách mạng công nghiệp lần thứ nhất có ý nghĩa", options: ["A. thúc đẩy cơ giới hoá sản xuất.", "B. khởi đầu quá trình công nghiệp hoá.", "C. giúp liên lạc ngày càng thuận tiện.", "D. mở đầu thời kì sản xuất hàng loạt."], answer: "A" },
+        { id: 14, question: "Việc phát minh ra lò luyện quặng theo phương pháp mới trong cuộc cách mạng công nghiệp lần thứ nhất đã mang lại tác dụng nào sau đây?", options: ["A. Thúc đẩy việc ứng dụng điện vào cuộc sống.", "B. Thúc đẩy sự phát triển của ngành cơ khí chế tạo", "C. Dẫn đến sự ra đời và phát triển của động cơ học.", "D. Đẩy mạnh quá trình công nghiệp hóa đất nước."], answer: "B" },
+        { id: 15, question: "Đặc trưng cơ bản của cuộc cách mạng công nghiệp cuối thế kỉ XVIII – đầu thế kỉ XIX là", options: ["A. ứng dụng điện tử và công nghệ thông tin để tự động hóa sản xuất.", "B. sử dụng điện năng với sự ra đời của dây chuyền sản xuất hàng loạt.", "C. sử dụng năng lượng hơi nước và cơ giới hóa quá trình sản xuất.", "D. quy trình sản xuất được tối ưu hóa trên nền tảng công nghệ số."], answer: "C" },
+        { id: 16, question: "Nhận xét nào sau đây là đúng về cuộc cách mạng công nghiệp lần thứ nhất từ nửa sau thế kỉ XVIII?", options: ["A. Đánh dấu bước chuyển của nhân loại từ văn minh nông nghiệp sang văn minh công nghiệp.", "B. Những phát minh về khoa học đã tạo tiền đề trực tiếp dẫn đến những phát minh về kĩ thuật.", "C. Sự xuất hiện của sản xuất hàng loạt theo dây chuyền và tiêu chuẩn hóa các loại hàng hóa.", "D. Tự động hóa cao độ trong sản xuất hàng hóa bằng cách sử dụng rộng rãi máy tính điện tử."], answer: "A" },
+        { id: 17, question: "Cuộc cách mạng công nghiệp lần thứ hai được khởi đầu ở một trong những quốc gia nào sau đây?", options: ["A. Trung Quốc", "B. Nhật Bản", "C. Đức", "D. Pháp."], answer: "C" },
+        { id: 18, question: "Cuộc cách mạng công nghiệp lần thứ hai được tiến hành trong khoảng thời gian nào sau đây?", options: ["A. Cuối thế kỉ XX đầu thế kỉ XXI", "B. Cuối thế kỉ XIX đầu thế kỉ XX", "C. Cuối thế kỉ XVII đầu thế kỉ XVIII", "D. Cuối thế kỉ XVIII đầu thế kỉ XIX"], answer: "B" },
+        { id: 19, question: "Quốc gia nào sau đây ở châu Âu đã khởi đầu cuộc cách mạng công nghiệp lần thứ hai?", options: ["A. Mĩ.", "B. Pháp.", "C. Nhật Bản.", "D. Trung Quốc."], answer: "B" },
+        { id: 20, question: "Cuộc cách mạng công nghiệp lần thứ hai đã sử dụng rộng rãi nhiều nguồn năng lượng vào sản xuất công nghiệp, ngoại trừ", options: ["A. than đá.", "B. điện.", "C. hạt nhân.", "D. dầu mỏ."], answer: "C" },
+        { id: 21, question: "Một trong những thành tựu tiêu biểu của cuộc cách mạng công nghiệp lần thứ hai là việc phát minh ra", options: ["A. máy điện tín.", "B. thiết bị điện tử.", "C. máy hơi nước.", "D. máy tính."], answer: "A" },
+        { id: 22, question: "Nội dung nào sau đây phản ánh thành tựu của cuộc cách mạng công nghiệp lần thứ hai trong lĩnh vực giao thông vận tải?", options: ["A. Xuất hiện lò luyện quặng theo phương pháp mới.", "B. Sự ra đời và hoàn thiện của sản xuất dây chuyền.", "C. Sự phát triển mạnh của ô tô và ngành hàng không.", "D. Sự xuất hiện của tàu thủy chạy bằng hơi nước."], answer: "C" },
+        { id: 23, question: "Việc phát minh ra phương pháp sử dụng lò cao trong luyện kim của cuộc cách mạng công nghiệp lần thứ hai đã mang lại tác dụng nào sau đây?", options: ["A. thúc đẩy việc ứng dụng điện vào cuộc sống.", "B. thúc đẩy sản lượng thép thế giới tăng nhanh", "C. dẫn đến sự ra đời và phát triển của động cơ học.", "D. đẩy mạnh quá trình công nghiệp hóa đất nước."], answer: "B" },
+        { id: 24, question: "Trong cuộc cách mạng công nghiệp lần thứ hai, Thô – mát Ê – đi - xơn đã phát minh ra", options: ["A. bóng đèn điện.", "B. động cơ hơi nước.", "C. máy tính điện tử.", "D. linh kiện bán dẫn."], answer: "A" },
+        { id: 25, question: "Những phát minh về điện trong cuộc cách mạng công nghiệp lần thứ hai đã", options: ["A. tạo cơ sở trực tiếp cho sự ra đời của công nghiệp chế tạo ô tô và máy bay.", "B. mở ra khả năng ứng dụng nguồn năng lượng mới vào cuộc sống và sản xuất.", "C. thúc đẩy mạnh mẽ quá trình khu vực hóa và toàn cầu hóa nền kinh tế thế giới.", "D. đưa nhân loại bước sang một nền văn minh mới: văn minh hậu công nghiệp."], answer: "B" },
+        { id: 26, question: "Thành tựu nào sau đây đã được ra đời từ cuộc cách mạng công nghiệp lần thứ nhất và tiếp tục được cải tiến, ứng dụng rộng rãi trong cuộc cách mạng công nghiệp lần thứ hai?", options: ["A. máy hơi nước.", "B. động cơ đốt trong.", "C. máy tính điện tử.", "D. thiết bị điện tử."], answer: "A" },
+        { id: 27, question: "Nội dung nào sau đây là điểm khác biệt của cuộc cách mạng công nghiệp lần thứ hai so với cuộc cách mạng công nghiệp lần thứ nhất?", options: ["A. Các phát minh máy móc đều dựa trên sự cải tiến công cụ sẵn có.", "B. Tự động hóa cao độ bằng cách sử dụng rộng rãi máy tính điện tử.", "C. Những phát minh khoa học là cơ sở cho những phát minh kĩ thuật.", "D. Mở rộng cao độ phạm vi, khả năng khám phá, chinh phục vũ trụ."], answer: "C" },
+        { id: 28, question: "Trong cuộc cách mạng công nghiệp lần thứ hai, phát minh nào sau đây đã đánh dấu sự ra đời của ngành hàng không thế giới?", options: ["A. Ô tô", "B. Động cơ điện", "C. Máy điện tín", "D. Máy bay"], answer: "D" },
+        { id: 29, question: "Trong cuộc cách mạng công nghiệp lần thứ hai, phát minh nào sau đây giúp cho việc liên lạc ngày càng trở nên thuận tiện hơn?", options: ["A. Động cơ đốt trong", "B. Động cơ điện", "C. Máy điện tín", "D. Máy hơi nước"], answer: "C" },
+        { id: 30, question: "Nhận xét nào sau đây là đúng về cuộc cách mạng công nghiệp lần thứ hai từ nửa sau thế kỉ XIX?", options: ["A. Đánh dấu bước chuyển từ nền sản xuất thủ công, manh mún sang nền sản xuất cơ khí hóa.", "B. Thời gian từ phát minh khoa học đến ứng dụng vào trong sản xuất ngày càng được rút ngắn.", "C. Sự xuất hiện của sản xuất hàng loạt theo dây chuyền và tiêu chuẩn hóa các loại hàng hóa.", "D. Tự động hóa cao độ trong sản xuất hàng hóa bằng cách sử dụng rộng rãi máy tính điện tử."], answer: "B" },
+        { id: 31, question: "Các cuộc cách mạng công nghiệp thời kì cận đại không có ý nghĩa nào sau đây?", options: ["A. Thúc đầy nền kinh tế phát triển mạnh.", "B. Hình thành các trung tâm công nghiệp.", "C. Dẫn đến sự ra đời của giai cấp tư sản.", "D. Thúc đẩy quá trình liên kết khu vực."], answer: "C" },
+        { id: 32, question: "Nội dung nào sau đây không phản ánh đúng ý nghĩa của các cuộc cách mạng công nghiệp thời kì cận đại?", options: ["A. Thúc đẩy sự phát triển của lực lượng sản xuất.", "B. Nhiều trung tâm công nghiệp mới hình thành.", "C. Thúc đẩy chuyển biến mạnh mẽ trong nông nghiệp.", "D. Giải quyết triệt để mâu thuẫn trong xã hội tư bản."], answer: "D" },
+        { id: 33, question: "Cách mạng công nghiệp thời kì cận đại đã dẫn đến sự hình thành hai giai cấp", options: ["A. tư sản và vô sản.", "B. tư sản và tiểu tư sản.", "C. nông dân và công nhân.", "D. nông dân và địa chủ"], answer: "A" },
+        { id: 34, question: "Một trong những ý nghĩa của các cuộc cách mạng công nghiệp thời kì cận đại đối với kinh tế là", options: ["A. thúc đẩy sự tăng trưởng của công nghiệp.", "B. hình thành hai giai cấp tư sản và vô sản.", "C. hình thành lối sống, tác phong công nghiệp.", "D. thúc đẩy giao lưu, kết nối văn hoá toàn cầu"], answer: "A" },
+        { id: 35, question: "Nội dung nào sau đây không phản ánh đúng ý nghĩa của các cuộc cách mạng công nghiệp thời kì hiện đại?", options: ["A. Hình thành hai giai cấp cơ bản trong xã hội tư bản là tư sản và vô sản.", "B. Tạo ra các ngành sản xuất tự động, năng suất lao động được tăng cao", "C. Thúc đẩy quá trình toàn cầu hóa và khu vực hóa nền kinh tế thế giới", "D. Thúc đẩy giao lưu văn hóa giữa các quốc gia và khu vực trên thế giới"], answer: "A" }
+      ],
+      dungSai: [
+        {
+          id: "cm1",
+          content: "Sản lượng thép của các nước: Năm 1880 (Anh 1,3; Mỹ 1,2; Đức 0,7 triệu tấn), Năm 1900 (Anh 4,9; Mỹ 10,2; Đức 6,4 triệu tấn). Tỉ lệ tăng: Anh 377%, Mỹ 850%, Đức 910%. Năm 1860, Anh và Pháp đứng đầu và thứ hai trong nền sản xuất công nghiệp thế giới, nhưng đến năm 1913, Mỹ và Đức lại chiếm hai vị trí đó.",
+          items: [
+            { statement: "a. Cuối thế kỉ XIX đầu thế kỉ XX, sản lượng thép của các nước tư bản tăng lên nhanh chóng là nhờ những tiến bộ kĩ thuật trong cuộc cách mạng công nghiệp lần thứ nhất.", correct: false },
+            { statement: "b. Từ năm 1860 đến năm 1913, vị thế trong sản xuất công nghiệp của các nước Anh, Pháp, Mĩ, Đức trên thế giới có sự thay đổi.", correct: true },
+            { statement: "c. Anh, Mỹ, Đức đều là những quốc gia khởi đầu cuộc cách mạng công nghiệp lần thứ hai nhưng tốc độ tăng trưởng trong ngành sản xuất thép không đồng đều.", correct: false },
+            { statement: "d. Từ năm 1880 đến năm 1900, tốc độ tăng trưởng sản lượng thép của nước Đức gấp hơn 9 lần tốc độ tăng trưởng sản lượng thép của nước Anh.", correct: true }
+          ]
+        },
+        {
+          id: "cm2",
+          content: "“Từ thập niên 1780 trở đi, động cơ hơi nước đã được sử dụng ở các nhà máy... Đến năm 1825 tăng lên 15000 cỗ máy hơi nước với tổng công suất 375000 mã lực.”",
+          items: [
+            { statement: "a. Động cơ hơi nước là một trong những phát minh tiêu biểu của cách mạng công nghiệp lần thứ nhất.", correct: true },
+            { statement: "b. Động cơ hơi nước bắt đầu được sử dụng trong các nhà máy từ cuối thế kỉ XVII.", correct: false },
+            { statement: "c. Không chỉ được ứng dụng trong các lĩnh vực sản xuất vật chất, động cơ hơi nước còn được ứng dụng rộng rãi trong các ngành luyện kim, khai mỏ.", correct: true },
+            { statement: "d. Trong vòng 25 năm (1800 – 1825), tổng số máy hơi nước của nước Anh đã tăng hơn 46 lần.", correct: true }
+          ]
+        },
+        {
+          id: "cm3",
+          content: "“Sự săn sóc duy nhất của giai cấp tư sản đối với công nhân là pháp luật... Không thể thuyết phục mà chỉ khiến họ sợ hãi...” (Ph. Ăng-ghen, Tình cảnh giai cấp công nhân Anh)",
+          items: [
+            { statement: "a. “Tình cảnh giai cấp công nhân Anh” của Ăng-ghen là một tác phẩm văn học nghệ thuật tiêu biểu cuối thế kỉ XIX.", correct: false },
+            { statement: "b. Giai cấp tư sản và công nhân là hai giai cấp đồng minh, được hình thành từ các cuộc cách mạng công nghiệp thời cận đại.", correct: false },
+            { statement: "c. Trong xã hội tư bản, giai cấp công nhân bị tư sản áp bức bóc lột nặng nề thông qua pháp luật hà khắc và sức mạnh thô bạo.", correct: true },
+            { statement: "d. Mâu thuẫn đối kháng giữa giai cấp công nhân và tư sản đã tạo ra những tiền đề dẫn đến các cuộc cách mạng tư sản.", correct: false }
+          ]
+        },
+        {
+          id: "cm4",
+          content: "Năm 1908, Công ty Pho ở Mĩ cho ra đời loại xe ô tô mẫu T... Năm 1914, Hen-ri Pho sản xuất hàng loạt xe ô tô Pho mẫu T với động cơ đốt trong, đánh dấu sự ra đời dây chuyền sản xuất hàng loạt trên quy mô lớn.",
+          items: [
+            { statement: "a. Những thành tựu trong việc cải tiến động cơ đốt trong đã tạo tiền đề cho sự ra đời và phát triển của ngành công nghiệp chế tạo ô tô, máy bay.", correct: true },
+            { statement: "b. Ô tô, máy bay là những thành tựu tiêu biểu trong lĩnh vực giao thông vận tải của các cuộc cách mạng công nghiệp thời kì hiện đại.", correct: true },
+            { statement: "c. Sự ra đời của máy bay đầu thế kỉ XX đã mở ra khả năng phát triển một loại hình giao thông vận tải hoàn toàn mới lúc bấy giờ.", correct: true },
+            { statement: "d. Hen-ri Pho là người đầu tiên đã áp dụng máy móc để xây dựng dây chuyền lắp ráp sản xuất ô tô hàng loạt ở nước Mĩ.", correct: true }
+          ]
+        },
+        {
+          id: "cm5",
+          content: "“Liên quan tới cách mạng công nghiệp 4.0... đến năm 2035, 34% lao động tại Anh, 42% lao động tại Mĩ, 49% lao động tại Nhật Bản sẽ bị AI và Robot thay thế...”",
+          items: [
+            { statement: "a. Đoạn tư liệu đưa ra những dự đoán về sự thay đổi của lực lượng lao động dưới tác động của cuộc cách mạng công nghiệp lần thứ tư.", correct: true },
+            { statement: "b. Cuộc cách mạng công nghiệp lần thứ tư chỉ dẫn đến những hệ lụy tiêu cực cho lực lượng lao động trong tương lai.", correct: false },
+            { statement: "c. Cuộc cách mạng công nghiệp lần thứ tư dẫn đến nguy cơ tình trạng thất nghiệp trên toàn cầu sẽ gia tăng.", correct: true },
+            { statement: "d. AI, Robot chỉ có thể thay thế sức lao động của con người trong lĩnh vực sản xuất vật chất.", correct: false }
+          ]
+        },
+        {
+          id: "cm6",
+          content: "Động lực chính của hai cuộc cách mạng công nghiệp thời kì hiện đại là khoa học và công nghệ số.\nCuộc cách mạng công nghiệp lần thứ ba bắt đầu với sự ra đời và lan tỏa của công nghệ thông tin, sử dụng điện tử và công nghệ thông tin để tự động hóa sản xuất. Cuộc cách mạng này thường được gọi là cuộc cách mạng máy tính hay cách mạng số bởi vì nó được xúc tác bởi sự phát triển của chất bán dẫn, siêu máy tính, máy tính cá nhân (thập niên 1970 và 1980) và internet (thập niên 1990). Công nghệ logic kĩ thuật số, MOSFET (bóng bán dẫn MOS), chip mạch tích hợp (IC) và các công nghệ dẫn xuất của chúng bao gồm máy tính, bộ vi xử lý, điện thoại di động và internet đã làm thay đổi các kĩ thuật sản xuất và kinh doanh truyền thống, tăng năng suất và là động lực thúc đẩy cho cuộc cách mạng công nghiệp lần thứ tư.\nCách mạng công nghiệp lần thứ tư có động lực là sự kết hợp của vật lý/hữu hình (trí tuệ nhân tạo AI, in 3D, vật liệu thông minh, robot AI, xe tự lái…), công nghệ số (trí tuệ nhân tạo – AI, vạn vật kết nối – IoT) và công nghệ sinh học (biến đổi gen, liệu pháp gen, công nghệ nano).\n(Sách giáo viên Lịch sử 10, bộ chân trời sáng tạo, tr.104)",
+          items: [
+            { statement: "a. Cách mạng công nghiệp lần thứ ba và cách mạng công nghiệp lần thứ tư là các cuộc cách mạng công nghiệp thời kì cận đại.", correct: false },
+            { statement: "b. Những thành tựu của cách mạng công nghiệp lần thứ ba đã tạo tiền đề thúc đẩy sự phát triển của cách mạng công nghiệp lần thứ tư.", correct: true },
+            { statement: "c. Ba động lực chính của cuộc cách mạng công nghiệp lần thứ tư là vật lý/hữu hình, công nghệ số và công nghệ sinh học.", correct: true },
+            { statement: "d. Các động lực chính của cuộc cách mạng công nghiệp lần thứ tư có quan hệ chặt chẽ với nhau và quan hệ chặt chẽ với các công nghệ khác.", correct: true }
+          ]
+        },
+        {
+          id: "cm7",
+          content: "“Năm 1972, tiến sĩ A – lan Kay, một nhà khoa học máy tính ở Mỹ, đã trình bày khái niệm về máy tính cá nhân. Năm 1973, máy tính Alto được ra mắt, được trang bị một giao diện đồ họa (GUI) và là thế hệ đầu tiên của máy tính cá nhân. Giao diện này cho phép người dùng có hình ảnh trực quan hơn thông qua việc sử dụng các thiết bị trỏ như chuột hoặc bàn cảm ứng. Năm 1984, Ma – xin – tốt, một máy tính cá nhân được trang bị hệ điều hành và giao diện đồ họa được phát triển bởi công ty máy tính Apple tại Mỹ. Sự ra đời của giao diện đồ họa (GUI) đã hiện thực hóa việc người dùng phổ thông có thể sử dụng được máy tính bởi chúng cung cấp một hệ sinh thái thân thiện với người dùng. Những năm sau đó, giá thiết bị giảm xuống làm cho việc sử dụng máy tính cá nhân trở nên cực kì phổ biến.”\n(Cục Thông tin Khoa học và Công nghệ Quốc gia (2018), “Định hướng hiện thực hóa xã hội siêu thông minh của Nhật Bản”, Tổng luận Khoa học – công nghệ, số 4, tr.4)",
+          items: [
+            { statement: "a. Máy tính cá nhân ra đời đầu tiên ở nước Mĩ vào thập niên 70 của thế kỉ XIX.", correct: false },
+            { statement: "b. Máy tính cá nhân ra đời là một trong những thành tựu tiêu biểu của cách mạng công nghiệp lần thứ ba.", correct: true },
+            { statement: "c. “Alto” và “Ma – xin – tốt” được nhắc đến trong đoạn tư liệu là các thế hệ khác nhau của máy tính cá nhân.", correct: true },
+            { statement: "d. Một trong những nguyên nhân khiến việc sử dụng máy tính cá nhân ngày càng trở nên phổ biến là do chi phí sản xuất ngày càng rẻ.", correct: true }
+          ]
+        },
+        {
+          id: "cm8",
+          content: "“Một khi cuộc cách mạng của Apple – máy tính cá nhân – Windows chứng tỏ cho mọi người thấy giá trị của khả năng số hóa thông tin và kiểm soát thông tin trên máy tính và các phần mềm văn bản, và một khi trình duyệt khiến internet trở nên sống động và cho phép các trang web có thể nhảy múa, hát và trình diễn, thì tất cả mọi người đều muốn số hóa mọi thứ càng nhiều càng tốt để họ có thể gửi những thông tin này tới người khác qua internet”.\n(Thô – mát L. Phờ - ri – man, Thế giới phẳng, NXB Trẻ, TP. Hồ Chí Minh, 2018, tr.91)",
+          items: [
+            { statement: "a. Đoạn tư liệu cung cấp thông tin về những thành tựu trên mọi lĩnh vực của các cuộc cách mạng công nghiệp thời kì hiện đại.", correct: false },
+            { statement: "b. “Máy tính cá nhân”, “Windows”, “Internet” là những thành tựu tiêu biểu được khởi nguồn từ cuộc cách mạng công nghiệp lần thứ tư.", correct: false },
+            { statement: "c. Sự ra đời của máy tính cá nhân, hệ điều hành, internet đã đánh dấu sự ra đời của cuộc cách mạng số hóa.", correct: true },
+            { statement: "d. Chỉ khi có sự xuất hiện của internet, con người mới nảy sinh nhu cầu trao đổi và chia sẻ thông tin với nhau.", correct: false }
+          ]
+        },
+        {
+          id: "cm9",
+          content: "“Xô – phi – a là rô – bốt đầu tiên trong lịch sử được A – rập Xê – út cấp quyền công dân như con người vào ngày 25 - 10 – 2017. Xô – phi – a được kích hoạt vào ngày 19 – 4 – 2015 tại Mỹ, được trang bị công nghệ trí tuệ nhân tạo, công nghệ nhận diện khuôn mặt, giọng nói và khả năng xử lý dữ liệu bằng hình ảnh. Rô – bốt này có khả năng trò chuyện và được kì vọng có thể phục vụ trong các lĩnh vực chăm sóc sức khỏe, dịch vụ khách hàng hay giáo dục”.\n(Sách giáo khoa Lịch sử 10, bộ chân trời sáng tạo, tr.56)",
+          items: [
+            { statement: "a. Rô – bốt Xô – phi – a là rô – bốt đầu tiên trên thế giới mà con người sáng tạo ra.", correct: false },
+            { statement: "b. Rô – bốt Xô – phi – a là một sản phẩm của cuộc cách mạng công nghiệp lần thứ tư.", correct: true },
+            { statement: "c. Rô – bốt Xô – phi – a là một trong những thành tựu tiêu biểu trên lĩnh vực công nghệ sinh học.", correct: false },
+            { statement: "d. Rô – bốt Xô – phi – a được sáng chế ra vào đầu thế kỉ XXI nhằm phục vụ trực tiếp cho cuộc sống của con người trên nhiều lĩnh vực.", correct: true }
+          ]
+        }
       ]
     },
-    {
-      id: 45,
-      title: "Anh T vượt đèn đỏ",
-      content: "Anh T đi xe máy vượt đèn đỏ nên bị cảnh sát giao thông lập biên bản xử phạt. Anh T trình bày vì gia đình có việc nên anh đi vội, không chú ý tín hiệu đèn giao thông. Anh mong muốn cảnh sát giao thông bỏ qua cho lỗi của mình. Người cảnh sát giải thích: \"Để bảo đảm trật tự, an toàn cho mọi người khi tham gia giao thông và giao thông được thông suốt, Nhà nước đã ban hành pháp luật quy định người tham gia giao thông phải chấp hành tín hiệu đèn giao thông, dừng xe trước vạch kẻ đường khi gặp đèn đỏ. Đây là quy tắc xử sự chung bắt buộc tất cả mọi người khi tham gia giao thông phải tuân thủ và thực hiện nghiêm túc ở mọi nơi, vào bất kì thời gian nào. Nếu không tuân thủ quy định này sẽ bị xử phạt\".",
-      questions: [
-        { question: "Câu 1: Việc cảnh sát giao thông lập biên bản xử phạt anh T là thể hiện tính", options: ["A. nhân văn, nhân ái.", "B. quyền lực nhà nước.", "C. quy phạm phổ biến.", "D. lợi ích cá nhân."], answer: "B" },
-        { question: "Câu 2: Vai trò quản lý xã hội của pháp luật được thể hiện như thế nào trong thông tin trên?", options: ["A. Bảo vệ quyền lợi của công dân.", "B. Điều chỉnh hành vi của công dân.", "C. Xác nhận tư cách quyền công dân.", "D. Xâm phạm lợi ích của công dân."], answer: "B" },
-        { question: "Câu 3: Việc cảnh sát giao thông tiến hành lập biên bản xử phạt những người có hành vi vi phạm các quy định của Luật giao thông đường bộ phản ánh vai trò nào dưới đây của pháp luật?", options: ["A. Bảo vệ quyền lợi của công dân.", "B. Xác nhận các quyền công dân.", "C. Quản lý xã hội.", "D. Tính quyền lực chung."], answer: "C" },
-        { question: "Câu 4: Theo quy định của pháp luật, mọi công dân có trách nhiệm chấp hành tín hiệu điều khiển giao thông để đảm bảo an toàn khi tham gia giao thông là thể hiện đặc điểm nào dưới đây của pháp luật", options: ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính xã hội hóa toàn diện."], answer: "A" },
-        { question: "Câu 5: Việc cảnh sát giao thông tiến hành lập biên bản xử phạt anh T thể hiện đặc điểm nào dưới đây của pháp luật?", options: ["A. Tính quy phạm phổ biến.", "B. Tính quyền lực bắt buộc chung.", "C. Tính xác định chặt chẽ về hình thức.", "D. Tính xã hội hóa toàn diện."], answer: "B" }
-      ]
-    },
-    {
-      id: 46,
-      title: "Đại lý xăng dầu anh M, N, ông Q",
-      content: "Trên cùng một địa bàn có anh M và anh N và ông Q cùng làm đại lý phân phối xăng dầu, M cố gắng duy trì nguồn hàng để cung cấp ổn định cho người dân. Ông Q đang trong giai đoạn chuẩn bị các điều kiện kinh doanh nên chú trọng hoàn thiện các quy định về phòng cháy chữa cháy để cơ quan chức năng kiểm tra. Anh N do giá xăng dầu tăng cao, việc kinh doanh có nguy cơ thua lỗ nên treo biển tạm thời không bán với lý do sửa chữa cửa hàng, ảnh hưởng đến nhu cầu của người dân nên bị tố cáo. Ông H cán bộ chức năng đã xử phạt anh N.",
-      questions: [
-        { question: "Câu 1: Việc làm của chủ thể nào trong thông tin trên thể hiện tính quy phạm phổ biến của pháp luật?", options: ["A. Anh M và anh N.", "B. Ông Q và anh N.", "C. Anh M và ông Q.", "D. Ông H và anh N."], answer: "C" },
-        { question: "Câu 2: Việc làm của cá nhân nào dưới đây thể hiện tính quyền lực bắt buộc chung của pháp luật?", options: ["A. Anh M.", "B. Anh N.", "C. Ông Q", "D. Ông H."], answer: "D" },
-        { question: "Câu 3: Các anh M, anh N và ông Q trong thông tin trên đóng vai trò là chủ thể nào dưới đây trong kinh tế?", options: ["A. Chủ thể sản xuất.", "B. Chủ thể tiêu dùng.", "C. Chủ thể trung gian.", "D. Chủ thể nhà nước."], answer: "C" }
-      ]
-    },
-    {
-      id: 47,
-      title: "Khách sạn chị M, chị H",
-      content: "Trên cùng một địa bàn, chị M và chị H cùng kinh doanh dịch vụ khách sạn. Trong một lần kiểm tra, phát hiện khách sạn của chị M chưa trang bị đầy đủ thiết bị phòng cháy chữa cháy theo quy định, anh Q cán bộ đoàn kiểm tra đã tiến hành lập biên bản và yêu cầu chị M bổ sung đầy đủ mới cấp phép hoạt động trở lại. Nghi ngờ chị H tố cáo mình, chị M đã ghép ảnh chị H với anh Q rồi chia sẻ lên mạng xã hội với nội dung vì anh Q có quan hệ tình cảm với chị H nên có hành vi bao che cho chị H, bài viết sau đó được nhiều người chia sẻ khiến uy tín của anh Q và chị H ảnh hưởng nghiêm trọng. Vì vậy anh Q đã làm đơn đề nghị cơ quan chức năng kiểm tra, sau đó anh P cán bộ có thẩm quyền đã kiểm tra và ra quyết định xử phạt chị M về hành vi xúc phạm nhân phẩm danh dự người khác.",
-      questions: [
-        { question: "Câu 1: Chủ thể nào trong thông tin trên đã vận dụng đúng tính quyền lực bắt buộc chung khi thi hành pháp luật?", options: ["A. Chị M và chị H.", "B. Chị M và anh Q.", "C. Anh Q và anh P", "D. Anh Q và chị H."], answer: "C" },
-        { question: "Câu 2: Chủ thể nào đã vận dụng đúng pháp luật để bảo vệ quyền và lợi ích hợp pháp của mình?", options: ["A. Chị M.", "B. Anh Q.", "C. Chị H.", "D. Anh P."], answer: "B" },
-        { question: "Câu 3: Việc anh Q và anh P căn cứ vào pháp luật ra các quyết định xử phạt các chủ thể vi phạm là thể hiện vai trò nào dưới đây của pháp luật?", options: ["A. Bảo vệ quyền lợi người tiêu dùng.", "B. Bảo vệ môi trường sinh thái.", "C. Bảo vệ lợi ích hợp pháp của công dân.", "D. Vai trò quản lý xã hội của nhà nước"], answer: "D" }
+    vanMinh: {
+      tn: [
+        { id: 1, question: "Từ thế kỉ VII đến cuối thế kỉ XV là giai đoạn văn minh Đông Nam Á", options: ["A. bước đầu hình thành.", "B. bước đầu phát triển.", "C. phát triển rực rỡ.", "D. tiếp tục phát triển."], answer: "C" },
+        { id: 2, question: "Văn minh phương Tây bắt đầu ảnh hưởng đến Đông Nam Á trong giai đoạn", options: ["A. đầu Công nguyên đến thế kỉ VII.", "B. thế kỉ VII đến thế kỉ XV.", "C. thế kỉ XVI đến thế kỉ XIX.", "D. thế kỉ XIX đến nay."], answer: "C" },
+        { id: 3, question: "Trong khoảng thời gian từ đầu Công nguyên đến thế kỉ VII, thành tựu nổi bật nhất của văn minh Đông Nam Á là", options: ["A. sự ra đời và bước đầu phát triển của các nhà nước.", "B. hình thành các quốc gia thống nhất và lớn mạnh.", "C. các quốc gia phát triển đến thời kì cực thịnh.", "D. các quốc gia có nhiều chuyển biến mới về văn hoá."], answer: "A" },
+        { id: 4, question: "Một trong những yếu tố tác động đến sự khủng hoảng và suy vong của nhiều quốc gia phong kiến Đông Nam Á từ thế kỉ XVI đến thế kỉ XIX là", options: ["A. sự du nhập của Thiên Chúa giáo.", "B. sự xâm nhập của các nước phương Tây.", "C. sự xâm nhập và lan tỏa của Hồi giáo.", "D. sự bành trướng và xâm lược của Trung Hoa."], answer: "B" },
+        { id: 5, question: "Từ đầu Công nguyên đến thế kỉ VII, quốc gia cổ đại nào sau đây đã được hình thành trên lãnh thổ Việt Nam ngày nay?", options: ["A. Chao – Phray – a.", "B. Ta – ru – ma.", "C. Phù Nam.", "D. Ma – lay – u"], answer: "C" },
+        { id: 6, question: "Văn minh Đông Nam Á giai đoạn đầu Công nguyên đến thế kỉ VII có điểm tương đồng nào sau đây so với văn minh Đông Nam Á giai đoạn thế kỉ VII đến thế kỉ XV?", options: ["A. Có sự xâm nhập và lan tỏa của Hồi giáo", "B. Có sự xâm nhập và lan tỏa của Thiên chúa giáo", "C. Chịu ảnh hưởng sâu sắc của văn minh Ấn Độ", "D. Chịu ảnh hưởng sâu sắc của văn minh phương Tây"], answer: "C" },
+        { id: 7, question: "Văn minh Đông Nam Á từ thế kỉ XVI đến thế kỉ XIX có điểm khác biệt nào sau đây so với văn minh Đông Nam Á giai đoạn thế kỉ VII đến thế kỉ XV?", options: ["A. Bắt đầu hình thành các quốc gia phong kiến lớn mạnh.", "B. Có sự du nhập của yếu tố văn hóa đến từ phương Tây", "C. Chịu ảnh hưởng sâu sắc của văn minh Trung Hoa", "D. Nền văn minh bước vào giai đoạn phát triển cực thịnh"], answer: "B" },
+        { id: 8, question: "Một trong những đặc điểm nổi bật của văn minh Đông Nam Á từ thế kỉ VII-XV là", options: ["A. Ảnh hưởng của văn minh Ấn Độ đối với khu vực chưa thể hiện rõ nét", "B. Văn minh phương Tây bắt đầu ảnh hưởng trên một số lĩnh vực", "C. tiếp thu có chọn lọc thành tựu của văn minh Ấn Độ và Trung Hoa", "D. sự suy yếu về chính trị và văn hóa của các quốc gia phong kiến."], answer: "C" },
+        { id: 9, question: "Nội dung nào sau đây phản ánh đúng đặc điểm của nghệ thuật điêu khắc ở khu vực Đông Nam Á thời kì cổ - trung đại?", options: ["A. Chịu ảnh hưởng nghệ thuật điêu khắc từ bên ngoài", "B. kiến trúc và điêu khắc hoàn toàn độc lập với nhau", "C. Có sự đa dạng trong loại hình và ít có tính thống nhất", "D. Nghệ thuật điêu khắc ít chịu ảnh hưởng của tôn giáo"], answer: "A" },
+        { id: 10, question: "Nguyên nhân chủ yếu dẫn đến sự phát triển rực rỡ của văn hóa Đông Nam Á từ thế kỉ X – XV là", options: ["A. ảnh hưởng mạnh mẽ của văn minh Ấn Độ", "B. sự tiếp thu có chọn lọc văn minh Trung Hoa", "C. quá trình sáp nhập và hợp nhất các tiểu quốc", "D. sự phát triển về kinh tế và ổn định chính trị"], answer: "C" },
+        { id: 11, question: "“Cư dân Đông Nam Á thờ thần Lúa để bảo trợ cho sản xuất nông nghiệp”. Thông tin trên phản ánh tín ngưỡng nào sau đây của cư dân Đông Nam Á?", options: ["A. Tín ngưỡng thờ cúng tổ tiên", "B. Tín ngưỡng phồn thực", "C. Tín ngưỡng thờ thần tự nhiên", "D. Tín ngưỡng thờ thần động vật"], answer: "B" },
+        { id: 12, question: "“Dù ai đi ngược về xuôi Nhớ ngày giỗ tổ mùng mười tháng ba” Ngày giỗ tổ Hùng Vương của Việt Nam hàng năm là một biểu hiện của hình thức tín ngưỡng nào sau đây?", options: ["A. Thờ thần động vật.", "B. Thờ thần tự nhiên.", "C. Thờ cúng tổ tiên.", "D. Tín ngưỡng phồn thực."], answer: "C" },
+        { id: 13, question: "Nội dung nào sau đây phản ánh đúng đặc điểm của các hình thức tín ngưỡng bản địa của cư dân Đông Nam Á?", options: ["A. Xuất hiện trước các tôn giáo và được bảo tồn trong quá trình phát triển", "B. Tồn tại độc lập với các tôn giáo từ bên ngoài du nhập và có sự thống nhất", "C. Các tín ngưỡng đa dạng nhưng không có sự tương đồng giữa các quốc gia", "D. Xuất phát từ đặc thù kinh tế nông nghiệp và có sự thống nhất trong đa dạng."], answer: "A" },
+        { id: 14, question: "“Cư dân Đông Nam Á thờ các con vật gần gũi với cuộc sống của xã hội nông nghiệp như trâu, cóc, chim, rắn…”. Thông tin trên phản ánh tín ngưỡng nào sau đây của cư dân Đông Nam Á?", options: ["A. Tín ngưỡng thờ cúng tổ tiên", "B. Tín ngưỡng phồn thực", "C. Tín ngưỡng thờ thần tự nhiên", "D. Tín ngưỡng thờ thần động vật"], answer: "D" },
+        { id: 15, question: "Tôn giáo nào sau đây có nguồn gốc từ Ấn Độ và được truyền bá mạnh mẽ vào khu vực Đông Nam Á?", options: ["A. Phật giáo", "B. Đạo giáo", "C. Hồi giáo", "D. Thiên chúa giáo"], answer: "A" },
+        { id: 16, question: "Từ thế kỉ XVI, thông qua hoạt động của các giáo sĩ phương Tây, tôn giáo nào sau đây đã từng bước được du nhập vào Đông Nam Á?", options: ["A. Phật giáo", "B. Đạo giáo", "C. Hồi giáo", "D. Thiên chúa giáo"], answer: "D" },
+        { id: 17, question: "Từ khoảng thế kỉ XIII, tôn giáo nào theo chân các thương nhân A-rập và Ấn Độ du nhập vào Đông Nam Á?", options: ["A. Ấn Độ giáo.", "B. Thiên Chúa giáo.", "C. Phật giáo.", "D. Hồi giáo."], answer: "D" },
+        { id: 18, question: "Những tôn giáo nào sau đây có nguồn gốc từ Ấn Độ và được truyền bá mạnh mẽ vào khu vực Đông Nam Á?", options: ["A. Phật giáo, Hin-đu giáo.", "B. Phật giáo, Hồi giáo", "C. Hồi giáo, Hin-đu giáo.", "D. Hin-đu giáo, Công giáo."], answer: "A" },
+        { id: 19, question: "Ở khu vực Đông Nam Á, quốc gia nào sau đây chịu ảnh hưởng sâu sắc nhất của văn minh Trung Hoa?", options: ["A. Việt Nam.", "B. Thái Lan.", "C. Ma-lai-xi-a.", "D. Mi-an-ma."], answer: "A" },
+        { id: 20, question: "Nội dung nào sau đây phản ánh đúng đặc điểm của các tôn giáo ở khu vực Đông Nam Á thời kì cổ - trung đại?", options: ["A. Các tôn giáo đều được du nhập trước khi tín ngưỡng bản địa hình thành.", "B. Các tôn giáo đa dạng nhưng cùng tồn tại và phát triển một cách hòa hợp.", "C. Hồi giáo được du nhập đầu tiên vào Đông Nam Á và nhanh chóng phát triển.", "D. Quá trình du nhập của các tôn giáo không thông qua hoạt động thương mại."], answer: "B" },
+        { id: 21, question: "Trên cơ sở tiếp thu một phần chữ Hán của Trung Quốc, người Việt đã sáng tạo ra chữ viết riêng của mình, có tên gọi là", options: ["A. chữ Chăm cổ.", "B. chữ Nôm.", "C. Chữ Khơ-me cổ.", "D. chữ Mã Lai cổ."], answer: "B" },
+        { id: 22, question: "Người Chăm, người Khơ – me, người Thái… ở khu vực Đông Nam Á đã sáng tạo ra chữ viết riêng của mình trên cơ sở tiếp thu chữ viết cổ của quốc gia nào sau đây?", options: ["A. Nhật Bản", "B. Ai Cập", "C. Ấn Độ", "D. Trung Quốc"], answer: "C" },
+        { id: 23, question: "Người Việt đã sáng tạo ra chữ Nôm trên cơ sở tiếp thu chữ Hán của quốc gia nào sau đây?", options: ["A. Nhật Bản", "B. Ai Cập", "C. Ấn Độ", "D. Trung Quốc"], answer: "D" },
+        { id: 24, question: "Nội dung nào sau đây phản ánh đúng đặc điểm về chữ viết ở khu vực Đông Nam Á thời kì cổ - trung đại?", options: ["A. Chịu ảnh hưởng của chữ viết từ bên ngoài", "B. Ra đời sớm, trước khi xuất hiện Nhà nước", "C. Có sự đa dạng nhưng thiếu tính thống nhất", "D. Ra đời cùng quá trình du nhập tôn giáo"], answer: "A" },
+        { id: 25, question: "Nội dung nào sau đây phản ánh đúng ý nghĩa của việc cư dân Đông Nam Á sáng tạo ra chữ viết riêng của mình từ thời kì cổ - trung đại?", options: ["A. Tạo điều kiện cho sự ra đời của Nhà nước và các quốc gia thống nhất.", "B. Thể hiện tinh thần tự chủ, không vay mượn yếu tố văn hóa bên ngoài.", "C. Tạo điều kiện cho sự phát triển rực rỡ của nền văn học dân tộc.", "D. Tạo tiền đề trực tiếp cho sự phát triển kinh tế, khoa học kĩ thuật."], answer: "C" },
+        { id: 26, question: "Một trong những công trình kiến trúc Phật giáo điển hình ở khu vực Đông Nam Á là", options: ["A. chùa Vàng", "B. cố cung Bắc Kinh", "C. Đền Ăng-co-vát.", "D. lăng mộ Ta – giơ Ma - han."], answer: "C" },
+        { id: 27, question: "Một trong những công trình điêu khắc tiêu biểu ở khu vực Đông Nam Á thời kì cổ - trung đại là", options: ["A. trống đồng Đông Sơn", "B. tượng lực sĩ ném đĩa", "C. tượng thần vệ nữ Mi – lô", "D. đấu trường La Mã"], answer: "A" },
+        { id: 28, question: "Nội dung nào sau đây là điểm tương đồng giữa văn minh Đông Nam Á thời kì cổ - trung đại với văn minh phương Tây thời kì cổ đại?", options: ["A. Cùng theo một tôn giáo, tín ngưỡng", "B. Có thành tựu phong phú, đa dạng", "C. Có kinh tế nông nghiệp là chủ đạo", "D. Cùng sử dụng chung một ngôn ngữ"], answer: "B" },
+        { id: 29, question: "Nội dung nào sau đây là nguy cơ của nền văn minh Đông Nam Á trước xu thế toàn cầu hóa hiện nay?", options: ["A. Phát triển ngày càng đa dạng, phong phú hơn.", "B. Tiếp nhận thêm nhiều yếu tố văn hóa mới tích cực.", "C. Đánh mất dần bản sắc văn hóa của các dân tộc.", "D. Học hỏi được những tiến bộ kĩ thuật bên ngoài."], answer: "C" },
+        { id: 30, question: "Nội dung nào sau đây không phản ánh đúng đặc điểm của nghệ thuật kiến trúc, điêu khắc ở khu vực Đông Nam Á thời kì cổ - trung đại?", options: ["A. Chịu ảnh hưởng sâu sắc của tôn giáo", "B. kiến trúc và điêu khắc độc lập với nhau", "C. Có tính thống nhất trong đa dạng", "D. Đạt trình độ cao và mang tính độc đáo"], answer: "B" },
+        { id: 31, question: "Một trong những công trình kiến trúc điển hình ở khu vực Đông Nam Á thời kì cổ - trung đại là", options: ["A. Ăng - co Vát.", "B. đền Pác - tê - nông.", "C. đấu trường Rô - ma", "D. kim tự tháp"], answer: "A" },
+        { id: 32, question: "Điền vào chỗ trống để hoàn thành câu dưới đây: “Khu đền Ăng-co Vát và Ăng-co Thom ở Cam-pu-chia, Thạt Luổng ở Lào, tháp Chăm ở Việt Nam vừa mang dáng dấp kiến trúc của ..............., vừa có nét độc đáo riêng của nền văn hoá dân tộc, là những di tích lịch sử - văn hoá nổi tiếng thế giới”.", options: ["A. Trung Quốc", "B. Thái Lan", "C. Ấn Độ", "D. In-đô-nê-xi-a"], answer: "C" },
+        { id: 33, question: "Công trình kiến trúc nào ở khu vực Đông Nam Á là di sản văn hóa thế giới?", options: ["A. tháp Thạt Luổng", "B. Đền Pác – tê – nông", "C. Vạn lý trường thành", "D. Kim tự tháp"], answer: "A" },
+        { id: 34, question: "Nghệ thuật kiến trúc Đông Nam Á thời kì cổ - trung đại chịu ảnh hưởng mạnh mẽ của kiến trúc", options: ["A. Ấn Độ.", "B. Ai Cập.", "C. Hi Lạp.", "D. La Mã."], answer: "A" }
+      ],
+      dungSai: [
+        {
+          id: "vm1",
+          content: "Vương quốc Pa – gan tồn tại trong khoảng thế kỉ X – XIII, từng là một vương quốc thịnh vượng ở Đông Nam Á. Các quốc vương của Pa – gan rất tôn sùng Phật giáo nên đã cho xây dựng khoảng 5000 ngôi chùa, tháp dọc theo bờ sông I – ra – oa – đi. Hiện nay, thành cổ Pa – gan còn lại di tích của gần 2000 ngôi chùa, tháp cho thấy đây từng là một trung tâm Phật giáo lớn sánh ngang với Ăng co Vát của Campuchia. Trong đó, lớn nhất phải kể đến ngôi đền Ananđa, được xây dựng vào thế kỉ XII với kiến trúc công phu, chi tiết. Ngọn tháp cao nhất ở đền được mạ vàng, mỗi khi ánh bình minh hay hoàng hôn chiếu vào tạo ra sự lấp lánh huyền ảo. Năm 2019, Tổ chức UNESCO đã công nhận thành phố cổ Pagan là Di sản văn hóa thế giới.",
+          items: [
+            { statement: "a. Thành phố cổ Pa – gan chính là minh chứng cho sự tồn tại của vương quốc Pa – gan hùng mạnh thời trung đại.", correct: true },
+            { statement: "b. Vương quốc Pa- gan thuộc đất nước Mi – an – ma hiện nay là vương quốc có Phật giáo, Đạo giáo và Hin – đu giáo rất phát triển.", correct: false },
+            { statement: "c. Trong quá trình tồn tại của mình, các quốc vương của Pa – gan đã cho xây dựng khoảng 5000 ngôi chùa và hầu hết vẫn còn lại di tích đến ngày nay.", correct: false },
+            { statement: "d. Thành phố cổ Pa – gan là một trong số nhiều di tích còn lại ngày nay ở Đông Nam Á được công nhận là di sản văn hóa thế giới.", correct: true }
+          ]
+        },
+        {
+          id: "vm2",
+          content: "“Dù ai đi ngược về xuôi Nhớ ngày giỗ tổ mùng mười tháng ba” Ngày giỗ tổ Hùng Vương của Việt Nam hàng năm là một biểu hiện của hình thức tín ngưỡng nào sau đây?",
+          items: [
+            { statement: "a. Lễ hội té nước là một tín ngưỡng đặc sắc của khu vực Đông Nam Á.", correct: true },
+            { statement: "b. Nền kinh tế nông nghiệp lúa nước đóng vai trò chủ đạo là một trong những nguồn gốc sâu xa hình thành nên lễ hội té nước ở các quốc gia Đông Nam Á.", correct: true },
+            { statement: "c. Lễ hội té nước có nhiều tên gọi khác nhau, được tổ chức ở nhiều thời điểm khác nhau ở các nước Đông Nam Á.", correct: false },
+            { statement: "d. Lễ hội té nước cũng đồng thời là nghi thức đón năm mới của tất cả các quốc gia Đông Nam Á.", correct: false }
+          ]
+        },
+        {
+          id: "vm3",
+          content: "Trong những dịp như lễ đính hôn, tiệc mừng nhà mới và đặc biệt là khi ốm đau…, người Lào đều tổ chức lễ Ba – xi để bày tỏ sự đoàn kết, tương thân tương ái trong gia đình và cộng đồng. Buổi lễ Ba – xi có nguồn gốc giao thoa giữa đạo Phật, đạo Bà – la – môn và thuyết vạn vật hữu linh, tới nay vẫn giữ vị trí quan trọng trong đời sống tín ngưỡng, văn hóa ở Lào. Trong buổi lễ, già làng chủ trì tụng kinh và cầu chúc sức khỏe, may mắn. Sau đó, những người tham gia thay phiên nhau cầu chúc cho người thân khỏe mạnh và buộc các sợi dây bông quanh cổ tay của họ. Sợi dây sẽ được mọi người giữ đeo trong ba ngày để bày tỏ sự gắn kết mối quan hệ.",
+          items: [
+            { statement: "a. Lễ Ba – xi là một nét độc đáo trong đời sống tín ngưỡng, văn hóa của nước Lào trong lịch sử và hiện nay.", correct: true },
+            { statement: "b. Người Lào chỉ tổ chức lễ Ba – xi khi chào đón năm mới và trong lễ cưới.", correct: false },
+            { statement: "c. Lễ Ba – xi chính là kết quả của sự giao thoa giữa tôn giáo du nhập từ bên ngoài với tín ngưỡng bản địa.", correct: true },
+            { statement: "d. Ở Lào, lễ hội Ba – xi chỉ có ý nghĩa duy nhất là cầu chúc sức khỏe, may mắn cho những người thân trong gia đình.", correct: false }
+          ]
+        }
       ]
     }
-  ],
-
-  dungSai: [
-    {
-      id: 49,
-      content: "Nhận được tin báo của quần chúng nhân dân về việc phát hiện có dấu hiệu vi phạm trong hoạt động chế biến thực phẩm tại nhà hàng X do bà H làm chủ...",
-      items: [
-        { statement: "A. Bà H không phải là chủ thể sản xuất nên không có nghĩa vụ phải chấp hành các quy định của pháp luật.", correct: false },
-        { statement: "B. Ông D đã làm tốt vai trò là chủ thể nhà nước trong việc quản lý nhà nước đối với hoạt động kinh doanh.", correct: true },
-        { statement: "C. Việc xử phạt của cơ quan chức năng thể hiện tính quy phạm phổ biến của pháp luật", correct: false },
-        { statement: "D. Anh M có quyền khởi kiện để yêu cầu bà H phải bồi thường thiệt hại cho bản thân mình", correct: true }
-      ]
-    },
-    {
-      id: 50,
-      content: "Kết thúc buổi liên hoan gặp gỡ kỉ niệm 20 năm ngày ra trường, trên đường lái xe về nhà, anh H cùng người bạn bị cảnh sát giao thông yêu cầu dừng xe để kiểm tra nồng độ cồn...",
-      items: [
-        { statement: "A. Anh H và người bạn đã có hành vi vi phạm pháp luật về giao thông đường bộ.", correct: true },
-        { statement: "B. Cảnh sát giao thông xử phạt anh H thể hiện tính quyền lực bắt buộc chung của pháp luật.", correct: true },
-        { statement: "C. Việc anh H bị xử phạt thể hiện tính xác định chặt chẽ về hình thức của pháp luật.", correct: false },
-        { statement: "D. Thông qua việc xử phạt người vi phạm, pháp luật đã thể hiện vai trò quản lý xã hội của nhà nước.", correct: true }
-      ]
-    },
-    {
-      id: 60,
-      content: "Sau khi tốt nghiệp đại học, chị V và anh B cùng nộp hồ sơ đăng ký kinh doanh hàng nội thất...",
-      items: [
-        { statement: "A. Hoạt động tiến hành đăng ký kinh doanh của chị V và anh B thể hiện tính quyền lực bắt buộc chung của pháp luật.", correct: false },
-        { statement: "B. Ông M giữ vai trò là chủ thể nhà nước trong hoạt động quản lý sản xuất kinh doanh", correct: true },
-        { statement: "C. Ông M có quyền khiếu nại để bảo vệ quyền và lợi ích hợp pháp của mình do chị V xâm phạm.", correct: true },
-        { statement: "D. Việc xử phạt chị V của cơ quan chức năng thể hiện tính quy phạm phổ biến của pháp luật.", correct: false }
-      ]
-    },
-    {
-      id: 62,
-      content: "Nhà máy xi măng A đặt tại xã A, huyện B, tỉnh C đã đi vào hoạt động được hơn 1 năm...",
-      items: [
-        { statement: "A. Nhà máy A đã không thể hiện đúng trách nhiệm xã hội của chủ thể sản xuất.", correct: true },
-        { statement: "B. Việc người dân phản ánh đến cơ quan chức năng là thể hiện vai trò của pháp luật trong quản lý xã hội", correct: false },
-        { statement: "C. Hình thức xử phạt và yêu cầu khắc phục hậu quả là thể hiện tính xác định chặt chẽ về hình thức của pháp luật.", correct: true },
-        { statement: "D. Hình thức xử phạt và yêu cầu khắc phục hậu quả phản ánh vai trò quản lý xã hội của pháp luật", correct: true }
-      ]
-    },
-    {
-      id: "ontap1",
-      title: "Câu 1: Nhiệm vụ của UBND",
-      content: "Sau khi tìm hiểu về HĐND, H thắc mắc: \"Vậy còn UBND thì làm những việc gì cụ thể hả T?\". T giải thích: \"Nếu HĐND là người đưa ra quyết định thì UBND chính là cơ quan tổ chức thực hiện những quyết định đó và quản lý mọi mặt của đời sống địa phương theo pháp luật\". Để hiểu rõ hơn, H và T cùng thảo luận về các nhiệm vụ thực tế mà UBND thường xuyên đảm nhận tại nơi họ sinh sống.",
-      items: [
-        { statement: "a) UBND là cơ quan chấp hành của Hội đồng nhân dân cùng cấp.", correct: true },
-        { statement: "b) UBND có quyền giám sát việc tuân theo Hiến pháp và pháp luật ở địa phương.", correct: false },
-        { statement: "c) UBND tổ chức thực hiện các nghị quyết của HĐND và các văn bản chỉ đạo của cơ quan nhà nước cấp trên.", correct: true },
-        { statement: "d) UBND quản lý nhà nước ở địa phương về các lĩnh vực như kinh tế, giáo dục, y tế, an ninh, trật tự xã hội.", correct: true }
-      ]
-    },
-    {
-      id: "ontap2",
-      title: "Câu 2: Phiên tòa xét xử tội danh 'Cố ý gây thương tích'",
-      content: "Tại phiên tòa xét xử tội danh \"Cố ý gây thương tích\", bị cáo X cho rằng mình chỉ tự vệ chính đáng khi bị nhóm của người bị hại tấn công trước. Luật sư bào chữa là ông Y đã đưa ra các kết quả giám định pháp y mới về các vết thương cũ trên người X để chứng minh lời khai này là có cơ sở. Trong quá trình xét hỏi, Kiểm sát viên liên tục bác bỏ các lập luận này bằng những biên bản lấy lời khai ban đầu. Thẩm phán T với vai trò chủ tọa đã điều hành phần tranh luận rất công bằng, cho phép luật sư Y được đối đáp trực tiếp với Kiểm sát viên về từng chứng cứ cụ thể. Cuối cùng, nhận thấy bản giám định mới do Y cung cấp là chứng cứ quan trọng chưa được xem xét kỹ, Thẩm phán T đã quyết định hoãn phiên tòa để tiến hành giám định lại nhằm đảm bảo sự công minh của pháp luật.",
-      items: [
-        { statement: "a) Thẩm phán T có quyền yêu cầu luật sư Y dừng việc đưa ra chứng cứ mới nếu nó mâu thuẫn với hồ sơ của Viện kiểm sát.", correct: false },
-        { statement: "b) Việc Thẩm phán T cho phép đối đáp trực tiếp giữa luật sư và Kiểm sát viên là thực hiện nguyên tắc tranh tụng trong xét xử.", correct: true },
-        { statement: "c) Quyết định hoãn phiên tòa của Thẩm phán T là trái quy định vì phiên tòa đã bước vào phần tranh luận thì phải ra bản án ngay.", correct: false },
-        { statement: "d) Luật sư Y có quyền trình bày chứng cứ, tài liệu và đồ vật để bào chữa cho bị cáo X ngay tại phiên tòa.", correct: true }
-      ]
-    },
-    {
-      id: "ontap3",
-      title: "Câu 3: Chủ tịch nước",
-      content: "Tại một buổi tọa đàm về Hiến pháp, ông X (đại diện cơ quan lập pháp) trình bày về việc Quốc hội vừa bầu tân Chủ tịch nước. Anh Y (một cử tri) thắc mắc liệu Chủ tịch nước có quyền tự mình ban hành luật hay không. Giải đáp điều này, Giáo sư T giải thích rằng Chủ tịch nước là người đứng đầu Nhà nước, thay mặt nước Cộng hòa xã hội chủ nghĩa Việt Nam về đối nội và đối ngoại. Ông T nhấn mạnh Chủ tịch nước không trực tiếp làm luật nhưng có thẩm quyền công bố Hiến pháp, luật và pháp lệnh. Ngoài ra, Chủ tịch nước còn giữ vai trò Thống lĩnh lực lượng vũ trang nhân dân và giữ chức vụ Chủ tịch Hội đồng Quốc phòng và An ninh.",
-      items: [
-        { statement: "a) Chủ tịch nước là người đứng đầu Chính phủ, trực tiếp điều hành các hoạt động hành chính hàng ngày của đất nước.", correct: false },
-        { statement: "b) Một trong những chức năng quan trọng của Chủ tịch nước là thay mặt Nhà nước trong các quan hệ đối nội và đối ngoại.", correct: true },
-        { statement: "c) Chủ tịch nước có thẩm quyền thống lĩnh lực lượng vũ trang nhân dân và giữ chức Chủ tịch Hội đồng Quốc phòng và An ninh.", correct: true },
-        { statement: "d) Chủ tịch nước có quyền tự mình soạn thảo và thông qua các bộ luật mà không cần qua biểu quyết tại Quốc hội", correct: false }
-      ]
-    },
-    {
-      id: "ontap4",
-      title: "Câu 4: Vai trò của Quốc hội",
-      content: "Trong giờ học Luật Hiến pháp, bạn X thắc mắc về vai trò của Quốc hội trong bộ máy nhà nước. Giảng viên T giải thích rằng Quốc hội là cơ quan đại biểu cao nhất của Nhân dân: lập hiến, lập pháp; quyết định các vấn đề quan trọng của đất nước và giám sát tối cao đối với hoạt động của Nhà nước. Bạn Y đặt câu hỏi liệu Quốc hội có quyền bãi miễn các chức danh cao cấp như Chủ tịch nước hay Thủ tướng không. Giảng viên T khẳng định đó là quyền quyết định về nhân sự cấp cao của Quốc hội. Ngoài ra, ông T nhấn mạnh rằng mọi kế hoạch phát triển kinh tế - xã hội và ngân sách nhà nước hằng năm đều phải được Quốc hội xem xét, thông qua thì mới có hiệu lực thi hành.",
-      items: [
-        { statement: "a) Quốc hội là cơ quan duy nhất có quyền lập hiến và lập pháp", correct: true },
-        { statement: "b) Chức năng giám sát tối cao của Quốc hội chỉ giới hạn đối với các doanh nghiệp tư nhân trong nền kinh tế.", correct: false },
-        { statement: "c) Quốc hội có thẩm quyền bầu, miễn nhiệm, bãi nhiệm phó Chủ tịch nước, Thủ tướng chính phủ.", correct: true },
-        { statement: "d) Các kế hoạch về ngân sách nhà nước do Chính phủ tự quyết định và thực hiện mà không cần sự thông qua của Quốc hội.", correct: false }
-      ]
-    },
-    {
-      id: "ontap5",
-      title: "Câu 5: Tòa án nhân dân",
-      content: "Tòa án nhân dân là cơ quan xét xử của nước Cộng hòa xã hội chủ nghĩa Việt Nam, thực hiện quyền tư pháp. Tòa án nhân dân gồm Tòa án nhân dân tối cao và các Tòa án khác do luật định. Tòa án nhân dân có nhiệm vụ bảo vệ công lý, bảo vệ quyền con người, quyền công dân, bảo vệ chế độ xã hội chủ nghĩa, bảo vệ lợi ích của Nhà nước, quyền và lợi ích hợp pháp của tổ chức, cá nhân. Bằng hoạt động của mình, Tòa án góp phần giáo dục công dân trung thành với Tổ quốc, nghiêm chỉnh chấp hành pháp luật, tôn trọng những quy tắc của cuộc sống xã hội, ý thức đấu tranh phòng, chống tội phạm, các vi phạm pháp luật khác.",
-      items: [
-        { statement: "A. Việc phân chia thành TAND tối cao và các Tòa án khác là căn cứ vào chức năng nhiệm vụ của mỗi tòa án.", correct: false },
-        { statement: "B. Chức năng xét xử của tòa án gắn liền với hoạt động công tố và kiểm sát hoạt động tư pháp.", correct: false },
-        { statement: "C. Thông qua hoạt động xét xử công bằng đúng pháp luật, tòa án góp phần bảo vệ công lý và quyền con người.", correct: true },
-        { statement: "D. Tòa án nhân dân là cơ quan chuyên môn thuộc Chính phủ Nước Cộng hòa xã hội nghĩa Việt Nam", correct: false }
-      ]
-    },
-    {
-      id: "ontap6",
-      title: "Câu 6: Nguyên tắc xét xử của Tòa án nhân dân",
-      content: "Việc xét xử sơ thẩm của Tòa án nhân dân có Hội thẩm tham gia, trừ trường hợp xét xử theo thủ tục rút gọn. Thẩm phán, Hội thẩm xét xử độc lập và chỉ tuân theo pháp luật; nghiêm cấm cơ quan, tổ chức, cá nhân can thiệp vào việc xét xử của Thẩm phán, Hội thẩm. Tòa án nhân dân xét xử công khai. Trong trường hợp đặc biệt cần giữ bí mật nhà nước, thuần phong, mỹ tục của dân tộc, bảo vệ người chưa thành niên hoặc giữ bí mật đời tư theo yêu cầu chính đáng của đương sự, Tòa án nhân dân có thể xét xử kín. Tòa án nhân dân xét xử tập thể và quyết định theo đa số, trừ trường hợp xét xử theo thủ tục rút gọn. Nguyên tắc tranh tụng trong xét xử được bảo đảm. Chế độ xét xử sơ thẩm, phúc thẩm được bảo đảm. Quyền bào chữa của bị can, bị cáo, quyền bảo vệ lợi ích hợp pháp của đương sự được bảo đảm.",
-      items: [
-        { statement: "A. Xét xử công khai là thể hiện tính công bằng dân chủ.", correct: true },
-        { statement: "B. Tòa án xét xử kín khi có yêu cầu của bị can hoặc bị cáo.", correct: false },
-        { statement: "C. Mọi vụ án đều phải được xét xử sơ thẩm và phúc thẩm", correct: false },
-        { statement: "D. Khi xét xử mọi bị can, bị cáo đều có quyền bào chữa.", correct: true }
-      ]
-    },
-    {
-      id: "ontap7",
-      title: "Câu 7: Viện Kiểm sát nhân dân",
-      content: "Viện Kiểm sát nhân dân do Viện trưởng lãnh đạo. Viện trưởng Viện Kiểm sát nhân dân cấp dưới chịu sự lãnh đạo của Viện trưởng Viện Kiểm sát nhân dân cấp trên. Viện trưởng các Viện Kiểm sát cấp dưới chịu sự lãnh đạo thống nhất của Viện trưởng Viện Kiểm sát nhân dân tối cao. Viện kiểm sát cấp trên có trách nhiệm kiểm tra, xử lí nghiêm minh vi phạm pháp luật của Viện Kiểm sát cấp dưới. Viện trưởng Viện Kiểm sát cấp trên có quyền rút, đình chỉ, huỷ bỏ quyết định trái pháp luật của Viện trưởng Viện Kiểm sát cấp dưới.",
-      items: [
-        { statement: "A. Viện kiểm sát nhân dân là cơ quan ngang Bộ và trực thuộc Chính phủ.", correct: false },
-        { statement: "B. Viện trưởng viện Kiểm sát nhân dân tối cao do Quốc hội bầu hoặc phê chuẩn.", correct: true },
-        { statement: "C. Viện trưởng viện Kiểm sát nhân dân các cấp do Viện trưởng viện kiểm sát nhân dân tối cao phê chuẩn.", correct: false },
-        { statement: "D. Viện trưởng viện Kiểm sát nhân dân tối cao có thể đình chỉ quyết định của Viện trưởng viện Kiểm sát nhân dân cấp dưới.", correct: true }
-      ]
-    },
-    {
-      id: "ontap8",
-      title: "Câu 8: Quyền công tố",
-      content: "Quyền công tố là quyền nhân danh Nhà nước thực hiện việc truy cứu trách nhiệm hình sự đối với người phạm tội. Quyền này thuộc về Nhà nước, được Nhà nước giao cho một cơ quan thực hiện (ở nước ta là Viện kiểm sát nhân dân) để phát hiện tội phạm và truy cứu trách nhiệm hình sự đối với người phạm tội. Cơ quan có chức năng thực hành quyền công tố phải có trách nhiệm bảo đảm việc thu thập đầy đủ tài liệu, chứng cứ để xác định tội phạm và người phạm tội. Trên cơ sở đó quyết định truy tố bị can ra trước Tòa án và bảo vệ sự buộc tội đó trước phiên tòa.",
-      items: [
-        { statement: "A. Chỉ có Viện kiểm sát mới có thẩm quyền thực hiện quyền công tố.", correct: true },
-        { statement: "B. Quyền công tố chỉ gắn liền với vụ án hình sự và người phạm tội.", correct: false },
-        { statement: "C. Bản chất của thực hành quyền công tố là nhân danh Nhà nước.", correct: true },
-        { statement: "D. Quyền công tố là quyền buộc tội đối với cá nhân vi phạm hình sự.", correct: true }
-      ]
-    },
-    {
-      id: "ontap9",
-      title: "Câu 9: Kiểm sát hoạt động tư pháp",
-      content: "Kiểm sát hoạt động tư pháp là hoạt động của Viện kiểm sát nhân dân để kiểm sát tính hợp pháp của các hành vi, quyết định của cơ quan, tổ chức, cá nhân trong hoạt động tư pháp, được thực hiện ngay từ khi tiếp nhận và giải quyết tố giác, tin báo về tội phạm, kiến nghị khởi tố và trong suốt quá trình giải quyết vụ án hình sự; trong việc giải quyết vụ án hành chính, vụ việc dân sự, hôn nhân và gia đình, kinh doanh, thương mại, lao động; việc thi hành án, việc giải quyết khiếu nại, tố cáo trong hoạt động tư pháp; các hoạt động tư pháp khác theo quy định của pháp luật.",
-      items: [
-        { statement: "A. Chỉ có Viện Kiểm sát mới có chức năng kiểm sát hoạt động tư pháp.", correct: true },
-        { statement: "B. Kiểm tra hoạt động tư pháp là một dạng nhà nước giám sát về tư pháp.", correct: false },
-        { statement: "C. Kiểm tra hoạt động tư pháp không mang tính quyền lực Nhà nước.", correct: false },
-        { statement: "D. Đối tượng kiểm tra hoạt động tư pháp là tính hợp pháp của các hành vi, quyết định của cơ quan, tổ chức, cá nhân trong hoạt động tư pháp.", correct: true }
-      ]
-    }
-  ]
+  }
 };
 
 function shuffle(array) {
@@ -290,167 +509,230 @@ function shuffle(array) {
 }
 
 function updateScore() {
-  document.getElementById('c-count').innerText = corrects;
-  document.getElementById('w-count').innerText = wrongs;
+  document.getElementById('c-count').textContent = corrects;
+  document.getElementById('w-count').textContent = wrongs;
 }
 
-function renderQuiz() {
-  const area = document.getElementById('main-area');
+function renderMultipleChoice(labelText, questions) {
+  const activeArea = document.querySelector('.tab-content.active');
+  let section = document.createElement('div');
+  section.innerHTML = `<div class="part-label">${labelText}</div>`;
+  activeArea.appendChild(section);
+
+  shuffle([...questions]).forEach(q => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.innerHTML = `<div class="q-text">${q.question}</div>`;
+    const grid = document.createElement('div');
+    grid.className = 'options-grid';
+    q.options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'opt-item';
+      btn.textContent = opt;
+      btn.onclick = () => {
+        if (grid.classList.contains('disabled')) return;
+        grid.classList.add('disabled');
+        const correctOpt = q.options.find(o => o.startsWith(q.answer));
+        if (opt === correctOpt) {
+          btn.classList.add('correct');
+          corrects++;
+        } else {
+          btn.classList.add('wrong');
+          wrongs++;
+          Array.from(grid.children).forEach(b => {
+            if (b.textContent === correctOpt) b.classList.add('correct');
+          });
+        }
+        updateScore();
+      };
+      grid.appendChild(btn);
+    });
+    card.appendChild(grid);
+    section.appendChild(card);
+  });
+}
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    const target = document.getElementById(tab.dataset.tab);
+    target.classList.add('active');
+    target.innerHTML = '<div class="loading">Đang tải nội dung...</div>';
+    setTimeout(() => renderTab(tab.dataset.tab), 300);
+  });
+});
+
+function renderTab(tabId) {
+  const area = document.getElementById(tabId);
   area.innerHTML = '';
 
-  // Phần I: Trắc nghiệm 4 lựa chọn
-  let section = document.createElement('div');
-  section.innerHTML = '<div class="part-label">Phần I: Trắc nghiệm lựa chọn (4 phương án)</div>';
-  area.appendChild(section);
+  if (tabId === 'ktpl') {
+    renderMultipleChoice("Phần I: Trắc nghiệm lựa chọn", quizData.ktpl.tn);
+    renderMultipleChoice("Phần II: Tìm phát biểu SAI", quizData.ktpl.sai);
 
-  shuffle([...quizData.tn]).forEach(q => {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    card.innerHTML = `<div class="q-text">${q.question}</div>`;
-    const grid = document.createElement('div');
-    grid.className = 'options-grid';
-    q.options.forEach(opt => {
-      const btn = document.createElement('button');
-      btn.className = 'opt-item';
-      btn.innerText = opt;
-      btn.onclick = () => {
-        if (grid.classList.contains('disabled')) return;
-        grid.classList.add('disabled');
-        if (opt.startsWith(q.answer)) {
-          btn.classList.add('correct');
-          corrects++;
-        } else {
-          btn.classList.add('wrong');
-          wrongs++;
-          Array.from(grid.children).forEach(b => {
-            if (b.innerText.startsWith(q.answer)) b.classList.add('correct');
-          });
-        }
-        updateScore();
-      };
-      grid.appendChild(btn);
-    });
-    card.appendChild(grid);
-    area.appendChild(card);
-  });
-
-  // Phần II: Phát biểu sai
-  section = document.createElement('div');
-  section.innerHTML = '<div class="part-label">Phần II: Tìm phát biểu SAI</div>';
-  area.appendChild(section);
-
-  shuffle([...quizData.sai]).forEach(q => {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    card.innerHTML = `<div class="q-text">${q.question}</div>`;
-    const grid = document.createElement('div');
-    grid.className = 'options-grid';
-    q.options.forEach(opt => {
-      const btn = document.createElement('button');
-      btn.className = 'opt-item';
-      btn.innerText = opt;
-      btn.onclick = () => {
-        if (grid.classList.contains('disabled')) return;
-        grid.classList.add('disabled');
-        if (opt.startsWith(q.answer)) {
-          btn.classList.add('correct');
-          corrects++;
-        } else {
-          btn.classList.add('wrong');
-          wrongs++;
-          Array.from(grid.children).forEach(b => {
-            if (b.innerText.startsWith(q.answer)) b.classList.add('correct');
-          });
-        }
-        updateScore();
-      };
-      grid.appendChild(btn);
-    });
-    card.appendChild(grid);
-    area.appendChild(card);
-  });
-
-  // Phần III: Tình huống
-  section = document.createElement('div');
-  section.innerHTML = '<div class="part-label">Phần III: Đọc tình huống trả lời câu hỏi</div>';
-  area.appendChild(section);
-
-  quizData.tinhHuong.forEach(group => {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    card.innerHTML = `<div class="doc-content">${group.content}</div>`;
-    group.questions.forEach(q => {
-      const qDiv = document.createElement('div');
-      qDiv.innerHTML = `<div class="q-text">${q.question}</div>`;
-      const grid = document.createElement('div');
-      grid.className = 'options-grid';
-      q.options.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = 'opt-item';
-        btn.innerText = opt;
-        btn.onclick = () => {
-          if (grid.classList.contains('disabled')) return;
-          grid.classList.add('disabled');
-          if (opt.startsWith(q.answer)) {
-            btn.classList.add('correct');
-            corrects++;
-          } else {
-            btn.classList.add('wrong');
-            wrongs++;
-            Array.from(grid.children).forEach(b => {
-              if (b.innerText.startsWith(q.answer)) b.classList.add('correct');
-            });
-          }
-          updateScore();
-        };
-        grid.appendChild(btn);
+    let section = document.createElement('div');
+    section.innerHTML = '<div class="part-label">Phần III: Đọc tình huống trả lời câu hỏi</div>';
+    area.appendChild(section);
+    quizData.ktpl.tinhHuong.forEach(group => {
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      card.innerHTML = `<div class="doc-content">${group.content}</div>`;
+      group.questions.forEach(q => {
+        const qDiv = document.createElement('div');
+        qDiv.innerHTML = `<div class="q-text">${q.question}</div>`;
+        const grid = document.createElement('div');
+        grid.className = 'options-grid';
+        q.options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.className = 'opt-item';
+          btn.textContent = opt;
+          btn.onclick = () => {
+            if (grid.classList.contains('disabled')) return;
+            grid.classList.add('disabled');
+            const correctOpt = q.options.find(o => o.startsWith(q.answer));
+            if (opt === correctOpt) {
+              btn.classList.add('correct');
+              corrects++;
+            } else {
+              btn.classList.add('wrong');
+              wrongs++;
+              Array.from(grid.children).forEach(b => {
+                if (b.textContent === correctOpt) b.classList.add('correct');
+              });
+            }
+            updateScore();
+          };
+          grid.appendChild(btn);
+        });
+        qDiv.appendChild(grid);
+        card.appendChild(qDiv);
       });
-      qDiv.appendChild(grid);
-      card.appendChild(qDiv);
+      area.appendChild(card);
     });
-    area.appendChild(card);
-  });
 
-  // Phần IV: Đúng/Sai
-  section = document.createElement('div');
-  section.innerHTML = '<div class="part-label">Phần IV: Trắc nghiệm Đúng / Sai (bao gồm Ôn tập lớp 10)</div>';
-  area.appendChild(section);
-
-  quizData.dungSai.forEach(group => {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    card.innerHTML = `<div class="doc-content">${group.content || group.title}</div>`;
-    const table = document.createElement('table');
-    table.className = 'ds-table';
-    group.items.forEach(item => {
-      const tr = document.createElement('tr');
-      tr.className = 'ds-row';
-      tr.innerHTML = `<td class="ds-cell-text">${item.statement}</td><td class="ds-cell-btns"></td>`;
-      const btnCell = tr.querySelector('.ds-cell-btns');
-      ['Đúng', 'Sai'].forEach(label => {
-        const btn = document.createElement('button');
-        btn.className = 'btn-ds';
-        btn.innerText = label;
-        btn.onclick = () => {
-          if (btnCell.classList.contains('disabled')) return;
-          btnCell.classList.add('disabled');
-          const isCorrect = (label === 'Đúng' && item.correct) || (label === 'Sai' && !item.correct);
-          if (isCorrect) {
-            btn.classList.add('correct');
-            corrects++;
-          } else {
-            btn.classList.add('wrong');
-            wrongs++;
-          }
-          updateScore();
-        };
-        btnCell.appendChild(btn);
+    section = document.createElement('div');
+    section.innerHTML = '<div class="part-label">Phần IV: Trắc nghiệm Đúng / Sai</div>';
+    area.appendChild(section);
+    quizData.ktpl.dungSai.forEach(group => {
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      card.innerHTML = `<div class="doc-content">${group.content || group.title || ''}</div>`;
+      const table = document.createElement('table');
+      table.className = 'ds-table';
+      group.items.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = 'ds-row';
+        tr.innerHTML = `<td class="ds-cell-text">${item.statement}</td><td class="ds-cell-btns"></td>`;
+        const btnCell = tr.querySelector('.ds-cell-btns');
+        ['Đúng', 'Sai'].forEach(label => {
+          const btn = document.createElement('button');
+          btn.className = 'btn-ds';
+          btn.textContent = label;
+          btn.onclick = () => {
+            if (btnCell.classList.contains('disabled')) return;
+            btnCell.classList.add('disabled');
+            const isCorrect = (label === 'Đúng' && item.correct) || (label === 'Sai' && !item.correct);
+            if (isCorrect) {
+              btn.classList.add('correct');
+              corrects++;
+            } else {
+              btn.classList.add('wrong');
+              wrongs++;
+            }
+            updateScore();
+          };
+          btnCell.appendChild(btn);
+        });
+        table.appendChild(tr);
       });
-      table.appendChild(tr);
+      card.appendChild(table);
+      area.appendChild(card);
     });
-    card.appendChild(table);
-    area.appendChild(card);
-  });
+  } else if (tabId === 'su') {
+    renderMultipleChoice("Chủ đề 4: Các cuộc cách mạng công nghiệp - Trắc nghiệm lựa chọn", quizData.su.cachMang.tn);
+
+    let section = document.createElement('div');
+    section.innerHTML = '<div class="part-label">Chủ đề 4: Các cuộc cách mạng công nghiệp - Đúng / Sai</div>';
+    area.appendChild(section);
+    quizData.su.cachMang.dungSai.forEach(group => {
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      card.innerHTML = `<div class="doc-content">${group.content}</div>`;
+      const table = document.createElement('table');
+      table.className = 'ds-table';
+      group.items.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = 'ds-row';
+        tr.innerHTML = `<td class="ds-cell-text">${item.statement}</td><td class="ds-cell-btns"></td>`;
+        const btnCell = tr.querySelector('.ds-cell-btns');
+        ['Đúng', 'Sai'].forEach(label => {
+          const btn = document.createElement('button');
+          btn.className = 'btn-ds';
+          btn.textContent = label;
+          btn.onclick = () => {
+            if (btnCell.classList.contains('disabled')) return;
+            btnCell.classList.add('disabled');
+            const isCorrect = (label === 'Đúng' && item.correct) || (label === 'Sai' && !item.correct);
+            if (isCorrect) {
+              btn.classList.add('correct');
+              corrects++;
+            } else {
+              btn.classList.add('wrong');
+              wrongs++;
+            }
+            updateScore();
+          };
+          btnCell.appendChild(btn);
+        });
+        table.appendChild(tr);
+      });
+      card.appendChild(table);
+      area.appendChild(card);
+    });
+
+    renderMultipleChoice("Chủ đề 5: Văn minh Đông Nam Á thời cổ - trung đại - Trắc nghiệm lựa chọn", quizData.su.vanMinh.tn);
+
+    section = document.createElement('div');
+    section.innerHTML = '<div class="part-label">Chủ đề 5: Văn minh Đông Nam Á - Đúng / Sai</div>';
+    area.appendChild(section);
+    quizData.su.vanMinh.dungSai.forEach(group => {
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      card.innerHTML = `<div class="doc-content">${group.content}</div>`;
+      const table = document.createElement('table');
+      table.className = 'ds-table';
+      group.items.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = 'ds-row';
+        tr.innerHTML = `<td class="ds-cell-text">${item.statement}</td><td class="ds-cell-btns"></td>`;
+        const btnCell = tr.querySelector('.ds-cell-btns');
+        ['Đúng', 'Sai'].forEach(label => {
+          const btn = document.createElement('button');
+          btn.className = 'btn-ds';
+          btn.textContent = label;
+          btn.onclick = () => {
+            if (btnCell.classList.contains('disabled')) return;
+            btnCell.classList.add('disabled');
+            const isCorrect = (label === 'Đúng' && item.correct) || (label === 'Sai' && !item.correct);
+            if (isCorrect) {
+              btn.classList.add('correct');
+              corrects++;
+            } else {
+              btn.classList.add('wrong');
+              wrongs++;
+            }
+            updateScore();
+          };
+          btnCell.appendChild(btn);
+        });
+        table.appendChild(tr);
+      });
+      card.appendChild(table);
+      area.appendChild(card);
+    });
+  }
 }
 
 function resetApp() {
@@ -458,13 +740,13 @@ function resetApp() {
     corrects = 0;
     wrongs = 0;
     updateScore();
-    renderQuiz();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const activeTab = document.querySelector('.tab.active').dataset.tab;
+    renderTab(activeTab);
   }
 }
 
-// Khởi chạy
-renderQuiz();
+// Khởi chạy ban đầu
+renderTab('ktpl');
 </script>
 </body>
 </html>
