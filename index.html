@@ -155,10 +155,11 @@ const quizData = {
         { "q": "Câu 100: Nội dung nào sau đây không phản ánh đúng vai trò của lễ hội đối với đời sống văn hóa tinh thần của các dân tộc Việt Nam?", "a": "B", "opts": ["A. Là dịp bày tỏ lòng biết ơn sự che chở, phù hộ của thần linh, tổ tiên.", "B. Là cơ sở vật chất tạo nên sự phát triển kinh tế - văn hóa - xã hội.", "C. Góp phần giữ gìn và truyền thừa bản sắc văn hóa qua các thế hệ.", "D. Là dịp các thành viên gặp gỡ, giao lưu và thắt chặt tình đoàn kết."] }
     ]
 };
+
 // Render Lịch sử 10
 function renderHistory() {
     const container = document.getElementById('su-content');
-    let html = `<h2 class="part-label">Trắc nghiệm Lịch sử 10</h2>`;
+    let html = `<h2 class="part-label">Trắc nghiệm Lịch sử 10 (${quizData.su.tn.length} câu)</h2>`;
    
     quizData.su.tn.forEach(q => {
         html += `
@@ -176,7 +177,6 @@ function renderHistory() {
    
     container.innerHTML = html;
 
-    // Xử lý chọn đáp án
     document.querySelectorAll('.opt-item').forEach(item => {
         item.addEventListener('click', function() {
             const qId = parseInt(this.dataset.id);
@@ -195,10 +195,7 @@ function renderHistory() {
             document.getElementById('c-count').textContent = corrects;
             document.getElementById('w-count').textContent = wrongs;
 
-            // Disable tất cả lựa chọn của câu này
-            card.querySelectorAll('.opt-item').forEach(opt => {
-                opt.style.pointerEvents = 'none';
-            });
+            card.querySelectorAll('.opt-item').forEach(opt => opt.style.pointerEvents = 'none');
         });
     });
 }
