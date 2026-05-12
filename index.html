@@ -29,14 +29,13 @@
 
 <div class="container">
     <h1 style="text-align: center; color: #4fc3f7;">ÔN TẬP LỊCH SỬ 10</h1>
-    
     <div id="su-content"></div>
 </div>
 
 <script>
 let corrects = 0, wrongs = 0;
 
-const quizData = {
+const rawData = {
     "tn": [
         { "q": "Câu 1. Quốc gia khởi đầu trong cuộc cách mạng công nghiệp lần thứ nhất diễn ra vào giữa thế kỉ XVIII là", "a": "A", "opts": ["A. Anh.", "B. Mỹ.", "C. Đức.", "D. Pháp."] },
         { "q": "Câu 2. Ở thế kỉ XVIII, những tiến bộ về kĩ thuật ở Anh chủ yếu diễn ra trong các ngành nào?", "a": "A", "opts": ["A. Dệt, luyện kim và phát minh máy móc.", "B. Ngành luyện kim, khai thác mỏ và dệt.", "C. Dệt, luyện kim và giao thông vận tải.", "D. Khai thác mỏ, dệt và giao thông vận tải."] },
@@ -140,6 +139,17 @@ const quizData = {
         { "q": "Câu 100: Nội dung nào sau đây không phản ánh đúng vai trò của lễ hội đối với đời sống văn hóa tinh thần của các dân tộc Việt Nam?", "a": "B", "opts": ["A. Là dịp bày tỏ lòng biết ơn sự che chở, phù hộ của thần linh, tổ tiên.", "B. Là cơ sở vật chất tạo nên sự phát triển kinh tế - văn hóa - xã hội.", "C. Góp phần giữ gìn và truyền thừa bản sắc văn hóa qua các thế hệ.", "D. Là dịp các thành viên gặp gỡ, giao lưu và thắt chặt tình đoàn kết."] }
     ]
 };
+
+// Chuyển đổi dữ liệu
+const quizData = {
+    tn: rawData.tn.map((item, index) => ({
+        id: index + 1,
+        question: item.q,
+        options: item.opts,
+        answer: item.a
+    }))
+};
+
 function renderHistory() {
     const container = document.getElementById('su-content');
     let html = `<h2 class="part-label">Trắc nghiệm Lịch sử 10 (${quizData.tn.length} câu)</h2>`;
