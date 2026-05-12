@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập KTPL & Lịch Sử 10</title>
+    <title>Ôn Tập Lịch Sử 10</title>
     <style>
-        :root { --primary: #1565c0; --bg: #f8f9fa; --accent: #e67e22; --light: #e9ecef; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #121212; color: #e0e0e0; padding: 20px; line-height: 1.6; margin: 0; }
+        :root { --primary: #1565c0; --bg: #121212; --accent: #e67e22; --light: #333; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: #e0e0e0; padding: 20px; margin: 0; }
         .container { max-width: 1000px; margin: auto; background: #1e1e1e; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-        .tabs { display: flex; margin-bottom: 20px; border-bottom: 2px solid #333; }
-        .tab { padding: 12px 24px; cursor: pointer; font-weight: bold; transition: all 0.3s; border-bottom: 3px solid transparent; color: #bbb; }
-        .tab.active { color: #4fc3f7; border-bottom: 3px solid #4fc3f7; }
+        .score-bar { position: sticky; top: 0; background: #1e1e1e; color: white; padding: 15px; border-radius: 0 0 10px 10px; display: flex; justify-content: space-around; z-index: 1000; margin-bottom: 20px; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .btn-reset-all { background: #d32f2f; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .part-label { color: #ff9800; font-weight: bold; margin: 20px 0 15px; text-transform: uppercase; border-bottom: 2px solid #ff9800; display: inline-block; }
         .q-card { border: 1px solid #333; padding: 20px; border-radius: 10px; margin-bottom: 25px; background: #252525; }
         .q-text { font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; color: #fff; }
-        .options-grid { display: grid; gap: 10px; margin-bottom: 10px; }
+        .options-grid { display: grid; gap: 10px; }
         .opt-item { padding: 12px 15px; border: 1px solid #444; border-radius: 8px; cursor: pointer; background: #2a2a2a; text-align: left; transition: 0.2s; }
         .opt-item:hover { background: #333; }
         .correct { background: #1b5e20 !important; border-color: #4caf50 !important; }
         .wrong { background: #b71c1c !important; border-color: #f44336 !important; }
-        .score-bar { position: sticky; top: 0; background: #1e1e1e; color: white; padding: 15px; border-radius: 0 0 10px 10px; display: flex; justify-content: space-around; z-index: 1000; margin-bottom: 20px; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .btn-reset-all { background: #d32f2f; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        .part-label { color: #ff9800; font-weight: bold; margin: 30px 0 15px; text-transform: uppercase; border-bottom: 2px solid #ff9800; display: inline-block; }
     </style>
 </head>
 <body>
@@ -29,27 +26,18 @@
     <span>❌ Sai: <span id="w-count">0</span></span>
     <button class="btn-reset-all" onclick="resetApp()">LÀM LẠI & XÁO TRỘN</button>
 </div>
+
 <div class="container">
-    <h1 style="text-align: center; color: #4fc3f7;">ÔN TẬP KTPL & LỊCH SỬ 10</h1>
-    <div class="tabs">
-        <div class="tab" data-tab="ktpl">Giáo dục pháp luật</div>
-        <div class="tab active" data-tab="su">Lịch sử 10</div>
-    </div>
-   
-    <div id="ktpl" class="tab-content">
-        <p style="text-align:center; color:#888; padding:50px;">Chưa có dữ liệu Giáo dục pháp luật</p>
-    </div>
-   
-    <div id="su" class="tab-content active">
-        <div id="su-content"></div>
-    </div>
+    <h1 style="text-align: center; color: #4fc3f7;">ÔN TẬP LỊCH SỬ 10</h1>
+    
+    <div id="su-content"></div>
 </div>
 
 <script>
-// ==================== DỮ LIỆU LỊCH SỬ 10 ====================
+let corrects = 0, wrongs = 0;
+
 const quizData = {
-    su: {
-        "tn": [
+    "tn": [
         { "q": "Câu 1. Quốc gia khởi đầu trong cuộc cách mạng công nghiệp lần thứ nhất diễn ra vào giữa thế kỉ XVIII là", "a": "A", "opts": ["A. Anh.", "B. Mỹ.", "C. Đức.", "D. Pháp."] },
         { "q": "Câu 2. Ở thế kỉ XVIII, những tiến bộ về kĩ thuật ở Anh chủ yếu diễn ra trong các ngành nào?", "a": "A", "opts": ["A. Dệt, luyện kim và phát minh máy móc.", "B. Ngành luyện kim, khai thác mỏ và dệt.", "C. Dệt, luyện kim và giao thông vận tải.", "D. Khai thác mỏ, dệt và giao thông vận tải."] },
         { "q": "Câu 3. Phát minh nào trong cuộc cách mạng công nghiệp đã tạo tiền đề cho sự ra đời và phát triển của ô tô, máy bay và thúc đẩy ngành khai thác dầu mỏ?", "a": "C", "opts": ["A. Phương pháp nấu than cốc.", "B. Chế tạo ra hệ thống máy tự động.", "C. Phát minh động cơ đốt trong.", "D. Phương pháp luyện kim 'put-đinh'."] },
@@ -152,13 +140,11 @@ const quizData = {
         { "q": "Câu 100: Nội dung nào sau đây không phản ánh đúng vai trò của lễ hội đối với đời sống văn hóa tinh thần của các dân tộc Việt Nam?", "a": "B", "opts": ["A. Là dịp bày tỏ lòng biết ơn sự che chở, phù hộ của thần linh, tổ tiên.", "B. Là cơ sở vật chất tạo nên sự phát triển kinh tế - văn hóa - xã hội.", "C. Góp phần giữ gìn và truyền thừa bản sắc văn hóa qua các thế hệ.", "D. Là dịp các thành viên gặp gỡ, giao lưu và thắt chặt tình đoàn kết."] }
     ]
 };
-
-// Render
 function renderHistory() {
     const container = document.getElementById('su-content');
-    let html = `<h2 class="part-label">Trắc nghiệm Lịch sử 10 (${quizData.su.tn.length} câu)</h2>`;
+    let html = `<h2 class="part-label">Trắc nghiệm Lịch sử 10 (${quizData.tn.length} câu)</h2>`;
    
-    quizData.su.tn.forEach(q => {
+    quizData.tn.forEach(q => {
         html += `
         <div class="q-card" id="q-${q.id}">
             <div class="q-text">${q.question}</div>
@@ -178,7 +164,7 @@ function renderHistory() {
         item.addEventListener('click', function() {
             const qId = parseInt(this.dataset.id);
             const selected = this.dataset.answer;
-            const question = quizData.su.tn.find(q => q.id === qId);
+            const question = quizData.tn.find(q => q.id === qId);
             const card = document.getElementById(`q-${qId}`);
 
             if (selected === question.answer) {
@@ -197,21 +183,7 @@ function renderHistory() {
     });
 }
 
-let corrects = 0, wrongs = 0;
-
-document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            document.getElementById(tab.dataset.tab).classList.add('active');
-        });
-    });
-
-    renderHistory();
-});
+document.addEventListener('DOMContentLoaded', renderHistory);
 
 function resetApp() {
     corrects = 0;
