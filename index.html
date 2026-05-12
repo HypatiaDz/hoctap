@@ -18,8 +18,8 @@
         .options-grid { display: grid; gap: 10px; margin-bottom: 10px; }
         .opt-item { padding: 12px 15px; border: 1px solid #dee2e6; border-radius: 8px; cursor: pointer; background: #fff; text-align: left; transition: 0.2s; }
         .opt-item:hover { background: #f1f3f5; }
-        .correct { background: #d4edda !important; border-color: #28a745 !important; }
-        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; }
+        .correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
+        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
         .score-bar { position: sticky; top: 0; background: #343a40; color: white; padding: 15px; border-radius: 0 0 10px 10px; display: flex; justify-content: space-around; z-index: 1000; margin-bottom: 20px; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
         .btn-reset-all { background: #dc3545; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
         .part-label { color: var(--accent); font-weight: bold; margin: 30px 0 15px; text-transform: uppercase; border-bottom: 2px solid var(--accent); display: inline-block; }
@@ -37,11 +37,11 @@
         <div class="tab" data-tab="ktpl">Giáo dục pháp luật</div>
         <div class="tab active" data-tab="su">Lịch sử 10</div>
     </div>
-    
+   
     <div id="ktpl" class="tab-content">
         <p style="text-align:center; color:#666; padding:50px;">Chưa có dữ liệu Giáo dục pháp luật</p>
     </div>
-    
+   
     <div id="su" class="tab-content active">
         <div id="su-content"></div>
     </div>
@@ -51,7 +51,8 @@
 let corrects = 0, wrongs = 0;
 
 const quizData = {
-    "tn": [
+    su: {
+        "tn": [
         { "q": "Câu 1. Quốc gia khởi đầu trong cuộc cách mạng công nghiệp lần thứ nhất diễn ra vào giữa thế kỉ XVIII là", "a": "A", "opts": ["A. Anh.", "B. Mỹ.", "C. Đức.", "D. Pháp."] },
         { "q": "Câu 2. Ở thế kỉ XVIII, những tiến bộ về kĩ thuật ở Anh chủ yếu diễn ra trong các ngành nào?", "a": "A", "opts": ["A. Dệt, luyện kim và phát minh máy móc.", "B. Ngành luyện kim, khai thác mỏ và dệt.", "C. Dệt, luyện kim và giao thông vận tải.", "D. Khai thác mỏ, dệt và giao thông vận tải."] },
         { "q": "Câu 3. Phát minh nào trong cuộc cách mạng công nghiệp đã tạo tiền đề cho sự ra đời và phát triển của ô tô, máy bay và thúc đẩy ngành khai thác dầu mỏ?", "a": "C", "opts": ["A. Phương pháp nấu than cốc.", "B. Chế tạo ra hệ thống máy tự động.", "C. Phát minh động cơ đốt trong.", "D. Phương pháp luyện kim 'put-đinh'."] },
@@ -154,13 +155,12 @@ const quizData = {
         { "q": "Câu 100: Nội dung nào sau đây không phản ánh đúng vai trò của lễ hội đối với đời sống văn hóa tinh thần của các dân tộc Việt Nam?", "a": "B", "opts": ["A. Là dịp bày tỏ lòng biết ơn sự che chở, phù hộ của thần linh, tổ tiên.", "B. Là cơ sở vật chất tạo nên sự phát triển kinh tế - văn hóa - xã hội.", "C. Góp phần giữ gìn và truyền thừa bản sắc văn hóa qua các thế hệ.", "D. Là dịp các thành viên gặp gỡ, giao lưu và thắt chặt tình đoàn kết."] }
     ]
 };
-
 // Render Lịch sử 10
 function renderHistory() {
     const container = document.getElementById('su-content');
     let html = `<h2 class="part-label">Trắc nghiệm Lịch sử 10</h2>`;
-    
-    quizData.su.tn.forEach((q, index) => {
+   
+    quizData.su.tn.forEach(q => {
         html += `
         <div class="q-card" id="q-${q.id}">
             <div class="q-text">${q.question}</div>
@@ -173,29 +173,32 @@ function renderHistory() {
             </div>
         </div>`;
     });
-    
+   
     container.innerHTML = html;
 
-    // Xử lý click chọn đáp án
+    // Xử lý chọn đáp án
     document.querySelectorAll('.opt-item').forEach(item => {
         item.addEventListener('click', function() {
-            const qId = this.dataset.id;
+            const qId = parseInt(this.dataset.id);
             const selected = this.dataset.answer;
-            const correctAns = quizData.su.tn.find(q => q.id == qId).answer;
+            const question = quizData.su.tn.find(q => q.id === qId);
             const card = document.getElementById(`q-${qId}`);
 
-            if (selected === correctAns) {
+            if (selected === question.answer) {
                 this.classList.add('correct');
                 corrects++;
             } else {
                 this.classList.add('wrong');
                 wrongs++;
             }
+
             document.getElementById('c-count').textContent = corrects;
             document.getElementById('w-count').textContent = wrongs;
 
-            // Disable các lựa chọn khác
-            card.querySelectorAll('.opt-item').forEach(opt => opt.style.pointerEvents = 'none');
+            // Disable tất cả lựa chọn của câu này
+            card.querySelectorAll('.opt-item').forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
         });
     });
 }
