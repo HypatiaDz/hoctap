@@ -1,207 +1,1454 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Lịch Sử 10</title>
-    <style>
-        :root { --primary: #1565c0; --bg: #121212; --accent: #e67e22; --light: #333; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: #e0e0e0; padding: 20px; margin: 0; }
-        .container { max-width: 1000px; margin: auto; background: #1e1e1e; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-        .score-bar { position: sticky; top: 0; background: #1e1e1e; color: white; padding: 15px; border-radius: 0 0 10px 10px; display: flex; justify-content: space-around; z-index: 1000; margin-bottom: 20px; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .btn-reset-all { background: #d32f2f; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        .part-label { color: #ff9800; font-weight: bold; margin: 20px 0 15px; text-transform: uppercase; border-bottom: 2px solid #ff9800; display: inline-block; }
-        .q-card { border: 1px solid #333; padding: 20px; border-radius: 10px; margin-bottom: 25px; background: #252525; }
-        .q-text { font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; color: #fff; }
-        .options-grid { display: grid; gap: 10px; }
-        .opt-item { padding: 12px 15px; border: 1px solid #444; border-radius: 8px; cursor: pointer; background: #2a2a2a; text-align: left; transition: 0.2s; }
-        .opt-item:hover { background: #333; }
-        .correct { background: #1b5e20 !important; border-color: #4caf50 !important; }
-        .wrong { background: #b71c1c !important; border-color: #f44336 !important; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ôn Thi Lịch Sử 11 (KNTT) - Lý Thuyết & 82+ Câu Trắc Nghiệm (Bài 1 - 4)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --bg-surface: #111827;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-focus: #6366f1;
+      --primary: #6366f1;
+      --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+      --accent: #06b6d4;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --success: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.12);
+      --danger: #f43f5e;
+      --danger-bg: rgba(244, 63, 94, 0.12);
+      --warning: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Light theme support */
+    body.light-theme {
+      --bg: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: #ffffff;
+      --border: rgba(0, 0, 0, 0.08);
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --success-bg: #ecfdf5;
+      --danger-bg: #fff1f2;
+      --warning-bg: #fffbeb;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.12) 0px, transparent 50%);
+      background-attachment: fixed;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding-bottom: 70px;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px;
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      background: var(--primary-gradient);
+      color: white;
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .nav-tabs {
+      display: flex;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 999px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      gap: 4px;
+    }
+
+    body.light-theme .nav-tabs {
+      background: #f1f5f9;
+    }
+
+    .nav-tab-btn {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-tab-btn.active {
+      background: var(--primary-gradient);
+      color: white;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+
+    .theme-toggle-btn:hover {
+      background: var(--border);
+    }
+
+    /* Page Switcher */
+    .view-page {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .view-page.active {
+      display: block;
+    }
+
+    /* Banner */
+    .hero-banner {
+      background: var(--primary-gradient);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      color: white;
+      box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.4);
+      margin-bottom: 25px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::after {
+      content: "🏛️";
+      font-size: 9rem;
+      position: absolute;
+      right: 20px;
+      bottom: -30px;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .hero-banner h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-banner p {
+      font-size: 1.02rem;
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    /* QUIZ VIEW CONTROLS */
+    .controls-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .lesson-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .lesson-btn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lesson-btn:hover {
+      color: var(--text);
+      border-color: var(--primary);
+    }
+
+    .lesson-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 250px;
+      max-width: 400px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 9px 16px 9px 38px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .action-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-tool {
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-tool:hover {
+      background: var(--border);
+    }
+
+    .btn-exam-mode {
+      background: linear-gradient(135deg, #ef4444 0%, #f43f5e 100%);
+      color: white;
+      border: none;
+    }
+    .btn-exam-mode:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .stat-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-val {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .stat-val.score { color: var(--success); }
+    .stat-val.wrong { color: var(--danger); }
+
+    .stat-lbl {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    /* Exam countdown timer bar */
+    #examTimerBar {
+      display: none;
+      background: var(--danger-bg);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      color: var(--danger);
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 20px rgba(244, 63, 94, 0.15);
+    }
+
+    /* Question Cards */
+    .quiz-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .quiz-card:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .quiz-card.answered-correct {
+      border-left: 6px solid var(--success);
+      background: linear-gradient(90deg, var(--success-bg) 0%, var(--bg-card) 30%);
+    }
+
+    .quiz-card.answered-wrong {
+      border-left: 6px solid var(--danger);
+      background: linear-gradient(90deg, var(--danger-bg) 0%, var(--bg-card) 30%);
+    }
+
+    .q-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .badge-pill {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-l1 { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-l2 { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-l3 { background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
+    .badge-l4 { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    .q-text {
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+
+    .opt-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .opt-item {
+      display: flex;
+      align-items: center;
+      padding: 13px 18px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      cursor: pointer;
+      font-size: 0.94rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .opt-item:hover:not(.locked) {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.08);
+      transform: translateX(4px);
+    }
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      font-weight: 700;
+      margin-right: 14px;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .opt-item.correct {
+      border-color: var(--success) !important;
+      background: var(--success-bg) !important;
+      color: var(--success) !important;
+      font-weight: 700;
+    }
+    .opt-item.correct .opt-key {
+      background: var(--success);
+      color: white;
+      border-color: var(--success);
+    }
+
+    .opt-item.wrong {
+      border-color: var(--danger) !important;
+      background: var(--danger-bg) !important;
+      color: var(--danger) !important;
+      font-weight: 700;
+    }
+    .opt-item.wrong .opt-key {
+      background: var(--danger);
+      color: white;
+      border-color: var(--danger);
+    }
+
+    .locked { cursor: default; }
+
+    /* Explanation box */
+    .explain-card {
+      margin-top: 16px;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px dashed var(--border);
+      font-size: 0.92rem;
+      color: var(--text);
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    body.light-theme .explain-card {
+      background: #f1f5f9;
+    }
+
+    .explain-card.show { display: block; }
+    .explain-card strong { color: var(--accent); }
+
+    /* ================= THEORY VIEW STYLING ================= */
+    .theory-toc {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toc-link {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .toc-link:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .lesson-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .lesson-section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+
+    .lesson-icon {
+      font-size: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .lesson-title-text h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .lesson-title-text span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .theory-block {
+      margin-bottom: 26px;
+    }
+
+    .theory-block h3 {
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theory-block p, .theory-block li {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .theory-block ul {
+      padding-left: 22px;
+      margin-bottom: 14px;
+    }
+
+    /* Highlight Card / Alert inside Theory */
+    .note-box {
+      background: var(--warning-bg);
+      border-left: 4px solid var(--warning);
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      margin: 16px 0;
+      font-size: 0.92rem;
+    }
+
+    .note-box strong { color: var(--warning); }
+
+    .tag-term {
+      background: rgba(99, 102, 241, 0.2);
+      color: #a5b4fc;
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    /* Comparison Table in Theory */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 18px 0;
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .custom-table th, .custom-table td {
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+    }
+
+    .custom-table th {
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Sticky Bottom Score Bar */
+    .floating-bar {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 40px);
+      max-width: 900px;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 90;
+    }
+
+    .btn-reset {
+      background: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      padding: 7px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-reset:hover {
+      background: var(--danger);
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .top-nav { flex-direction: column; gap: 12px; }
+      .brand { align-self: flex-start; }
+      .nav-tabs { width: 100%; justify-content: center; }
+      .hero-banner { padding: 22px; }
+      .hero-banner h1 { font-size: 1.5rem; }
+      .search-box { max-width: 100%; width: 100%; }
+      .quiz-card { padding: 20px; }
+      .lesson-section { padding: 22px; }
+      .floating-bar { font-size: 0.82rem; padding: 10px 16px; }
+    }
+  </style>
 </head>
 <body>
-<div class="score-bar">
-    <span>✅ Đúng: <span id="c-count">0</span></span>
-    <span>❌ Sai: <span id="w-count">0</span></span>
-    <button class="btn-reset-all" onclick="resetApp()">LÀM LẠI & XÁO TRỘN</button>
-</div>
 
-<div class="container">
-    <h1 style="text-align: center; color: #4fc3f7;">ÔN TẬP LỊCH SỬ 10</h1>
-    <div id="su-content"></div>
-</div>
+  <div class="container">
+    
+    <!-- Top Navigation Header -->
+    <nav class="top-nav">
+      <div class="brand">
+        <span>⚡ Lịch Sử 11</span>
+        <span class="brand-badge">KNTT Mới</span>
+      </div>
 
-<script>
-let corrects = 0, wrongs = 0;
+      <div class="nav-tabs">
+        <button class="nav-tab-btn active" id="tabBtnQuiz" onclick="switchView('quiz')">
+          <span>📝 Luyện Trắc Nghiệm</span>
+        </button>
+        <button class="nav-tab-btn" id="tabBtnTheory" onclick="switchView('theory')">
+          <span>📖 Sổ Tay Lý Thuyết Full</span>
+        </button>
+      </div>
 
-const rawData = {
-    "tn": [
-        { "q": "Câu 1. Quốc gia khởi đầu trong cuộc cách mạng công nghiệp lần thứ nhất diễn ra vào giữa thế kỉ XVIII là", "a": "A", "opts": ["A. Anh.", "B. Mỹ.", "C. Đức.", "D. Pháp."] },
-        { "q": "Câu 2. Ở thế kỉ XVIII, những tiến bộ về kĩ thuật ở Anh chủ yếu diễn ra trong các ngành nào?", "a": "B", "opts": ["A. Dệt, luyện kim và phát minh máy móc.", "B. Ngành luyện kim, khai thác mỏ và dệt.", "C. Dệt, luyện kim và giao thông vận tải.", "D. Khai thác mỏ, dệt và giao thông vận tải."] },
-        { "q": "Câu 3. Phát minh nào trong cuộc cách mạng công nghiệp đã tạo tiền đề cho sự ra đời và phát triển của ô tô, máy bay và thúc đẩy ngành khai thác dầu mỏ?", "a": "C", "opts": ["A. Phương pháp nấu than cốc.", "B. Chế tạo ra hệ thống máy tự động.", "C. Phát minh động cơ đốt trong.", "D. Phương pháp luyện kim 'put-đinh'."] },
-        { "q": "Câu 4. Thành tựu khoa học và kĩ thuật quan trọng nhất của cuộc Cách mạng công nghiệp lần thứ hai từ giữa thế kỉ XIX đến đầu thế kỉ XX là", "a": "D", "opts": ["A. máy hơi nước và điện.", "B. động cơ đốt trong và ô tô.", "C. máy hơi nước và điện thoại.", "D. điện và động cơ đốt trong."] },
-        { "q": "Câu 5. Trong cuộc cách mạng công nghiệp lần thứ nhất ở thế kỉ XVIII - XIX, phát minh kĩ thuật nào đã tạo ra bước chuyển căn bản trong nền sản xuất tư bản chủ nghĩa?", "a": "D", "opts": ["A. Động cơ đốt trong.", "B. Máy kéo sợi Gien-ni.", "C. Máy tính điện tử.", "D. Máy hơi nước."] },
-        { "q": "Câu 6. Trong các thế kỉ XVIII - XIX, những thành tựu đạt được trong cuộc cách mạng công nghiệp lần thứ nhất đã đưa con người bước sang thời đại", "a": "A", "opts": ["A. “văn minh công nghiệp”.", "B. “văn minh nông nghiệp”.", "C. “văn minh thông tin”.", "D. “văn minh trí tuệ”."] },
-        { "q": "Câu 7. Nội dung nào dưới đây phản ánh không đúng ý nghĩa của việc phát minh ra máy hơi nước ở Anh (1784)?", "a": "D", "opts": ["A. Lao động bằng tay được thay thế dần bằng máy móc.", "B. Tốc độ sản xuất và năng suất lao động tăng vượt bậc.", "C. Tạo ra động lực mới, khởi đầu quá trình công nghiệp hóa.", "D. Biến nước Anh trở thành “công xưởng của thế giới”."] },
-        { "q": "Câu 8. Cuộc cách mạng công nghiệp thời cận đại không có những tác động nào sau đây?", "a": "D", "opts": ["A. Thúc đẩy sự phát triển kinh tế, nâng cao năng suất lao động.", "B. Hình thành và phát triển các trung tâm công nghiệp, thành thị.", "C. Gây ô nhiễm môi trường, bóc lột lao động và xâm chiếm thuộc địa.", "D. Thúc đẩy toàn cầu hóa, tự động hóa, thương mại điện tử, tự do thông tin."] },
-        { "q": "Câu 9. Ý nào không phản ánh đúng điều kiện ở nước Anh khi tiến hành cách mạng công nghiệp ở thế kỉ XVIII?", "a": "C", "opts": ["A. Tình hình chính trị ổn định từ sau cách mạng tư sản.", "B. Nước Anh có nguồn tài nguyên khoáng sản phong phú.", "C. Xuất hiện nhiều các trung tâm công nghiệp ở các thành thị.", "D. Nguồn tích lũy tư bản và lực lượng lao động khá dồi dào."] },
-        { "q": "Câu 10. Nội dung nào không phản ánh đúng hệ quả tích cực của cuộc cách mạng công nghiệp thời kì cận đại?", "a": "D", "opts": ["A. Thúc đẩy sự phát triển của lực lượng sản xuất.", "B. Nhiều trung tâm công nghiệp mới hình thành.", "C. Thúc đẩy chuyển biến mạnh mẽ trong nông nghiệp.", "D. Giải quyết triệt để mâu thuẫn trong xã hội tư bản."] },
-        { "q": "Câu 11. Đặc trưng cơ bản của cuộc cách mạng công nghiệp cuối thế kỉ XVIII – đầu thế kỉ XIX là", "a": "A", "opts": ["A. sử dụng năng lượng nước, hơi nước và cơ giới hóa sản xuất.", "B. ứng dụng điện tử và công nghệ thông tin để tự động hóa sản xuất.", "C. sử dụng năng lượng điện với sự ra đời của các dây chuyền sản xuất hàng loạt.", "D. quy trình, phương thức sản xuất được tối ưu hóa dựa trên nền tảng công nghệ số."] },
-        { "q": "Câu 12. Một trong những hệ quả tiêu cực của các cách mạng công nghiệp thời kì cận đại là", "a": "C", "opts": ["A. sản xuất nông nghiệp chuyển sang phương thức chuyên canh hoặc thâm canh.", "B. hình thành hai giai cấp cơ bản trong xã hội tư bản là giai cấp tư sản và vô sản.", "C. cuộc đấu tranh giữa giai cấp vô sản với giai cấp tư sản không ngừng tăng lên.", "D. sự ra đời của nhiều trung tâm công nghiệp mới và thành thị đông dân xuất hiện."] },
-        { "q": "Câu 13. Cuộc cách mạng công nghiệp diễn ra vào nửa sau thế kỉ XVIII - đầu thế kỉ XIX ở châu Âu là quá trình", "a": "C", "opts": ["A. công nghiệp hóa, hiện đại hóa các nước tư bản châu Âu.", "B. hình thành hai giai cấp cơ bản là tư sản và công nhân.", "C. cơ khí hóa nền sản xuất thay thế cho lao động thủ công.", "D. hình thành nền tảng kinh tế của chủ nghĩa tư bản."] },
-        { "q": "Câu 14. Những điều kiện cần và đủ để nước Anh tiến hành cách mạng công nghiệp từ những năm 60 của thế kỷ XVIII là", "a": "D", "opts": ["A. tư bản, công nhân lao động làm thuê.", "B. tư bản và các thiết bị máy móc hiện đại.", "C. kĩ thuật, đội ngũ công nhân làm thuê đông.", "D. tư bản, nhân công và sự phát triển kĩ thuật."] },
-        { "q": "Câu 15. Thời hiện đại, cuộc cách mạng công nghiệp lần thứ ba còn được gọi là", "a": "B", "opts": ["A. cách mạng 4.0.", "B. cách mạng kĩ thuật số.", "C. cách mạng kĩ thuật.", "D. cách mạng công nghệ."] },
-        { "q": "Câu 16. Cách mạng công nghiệp lần thứ tư còn được gọi là", "a": "D", "opts": ["A. cách mạng kĩ thuật số.", "B. cách mạng công nghiệp nhẹ.", "C. cách mạng kĩ thuật.", "D. cách mạng 4.0."] },
-        { "q": "Câu 17. Thành tựu trong công cuộc chinh phục vũ trụ của cuộc cách mạng công nghiệp lần thứ ba gắn liền với hai cường quốc Mỹ và", "a": "C", "opts": ["A. Anh.", "B. Trung Quốc.", "C. Liên Xô.", "D. Ấn Độ."] },
-        { "q": "Câu 18. Thành tựu của cách mạng công nghiệp lần thứ tư không bao gồm", "a": "B", "opts": ["A. internet.", "B. máy hơi nước.", "C. công nghệ thông tin.", "D. máy tính."] },
-        { "q": "Câu 19. Tự động hóa và công nghệ Robot ra đời có điểm hạn chế là gì?", "a": "A", "opts": ["A. Nguy cơ người lao động bị mất việc làm.", "B. Gây ra tình trạng ô nhiễm môi trường.", "C. Gây ra sự phân hóa giàu nghèo trong xã hội.", "D. Con người bị lệ thuộc vào thiết bị thông minh."] },
-        { "q": "Câu 20. Ý nào sau đây không phải là thành tựu cơ bản của cách mạng công nghiệp lần thứ ba?", "a": "A", "opts": ["A. Trí tuệ nhân tạo (AI).", "B. Mạng Internet không dây.", "C. Máy tính.", "D. Chinh phục vũ trụ."] },
-        { "q": "Câu 21. Sự phát triển của Internet hiện nay làm cho việc tìm kiếm và chia sẻ thông tin vô cùng nhanh chóng và thuận tiện, tuy nhiên nó cũng có hạn chế về", "a": "B", "opts": ["A. thay đổi thế giới quan của con người.", "B. dễ bị xâm nhập, đánh mất dữ liệu cá nhân.", "C. con người bị lệ thuộc vào thiết bị thông minh.", "D. tính chính xác của thông tin được chia sẻ."] },
-        { "q": "Câu 22. Nội dung nào dưới đây là không phản ánh đúng về cuộc cách mạng công nghiệp lần thứ tư?", "a": "A", "opts": ["A. Các thành tựu khoa học - công nghệ làm cho tài nguyên thiên nhiên, lao động phổ thông ngày càng mất lợi thế.", "B. Tạo ra sự chênh lệch về trình độ phát triển, khoảng cách giàu nghèo giữa các quốc gia có xu hướng mở rộng thêm.", "C. Chỉ tác động đến lĩnh vực khoa học và công nghệ, không ảnh hưởng đến giáo dục đào tạo và lĩnh vực khác của nhà nước.", "D. Làm xuất hiện nhiều hình thức tội phạm mới, sử dụng công nghệ cao để trốn thuế, lừa đảo, chiếm đoạt tài sản của người khác."] },
-        { "q": "Câu 23. Một trong những khó khăn cơ bản của giai cấp công nhân Việt Nam trước tác động của cuộc cách mạng công nghiệp lần thứ tư là", "a": "A", "opts": ["A. chưa đáp ứng được yêu cầu về trình độ, chuyên môn, kĩ năng nghề nghiệp.", "B. lao động giản đơn trong các dây chuyền sản xuất có nguy cơ bị thay thế.", "C. số lượng công nhân trong doanh nghiệp có vốn đầu tư nước ngoài tăng.", "D. số lượng, chất lượng công nhân trong doanh nghiệp nhà nước giảm mạnh."] },
-        { "q": "Câu 24. Đặc điểm lớn nhất của cuộc Cách mạng khoa học - kĩ thuật sau Chiến tranh thế giới thứ hai là", "a": "B", "opts": ["A. Kĩ thuật trở thành lực lượng sản xuất trực tiếp.", "B. Khoa học trở thành lực lượng sản xuất trực tiếp.", "C. Sự bùng nổ của các lĩnh vực khoa học – công nghệ.", "D. Mọi phát minh kĩ thuật đều bắt nguồn từ sản xuất."] },
-        { "q": "Câu 25. Một trong những hệ quả của các cuộc cách mạng công nghiệp thời hiện đại là", "a": "A", "opts": ["A. Hình thành và phát triển xu thế toàn cầu hóa.", "B. Tạo ra những tiến bộ cho cách mạng xã hội chủ nghĩa.", "C. Tạo ra những tiền đề độc quyền thay thế tự do cạnh tranh.", "D. Chủ nghĩa tư bản độc quyền nhà nước ra đời."] },
-        { "q": "Câu 26. Hoạt động kinh tế chính của cư dân Đông Nam Á thời cổ - trung đại là", "a": "A", "opts": ["A. nông nghiệp trồng lúa nước.", "B. buôn bán bằng đường biển.", "C. khai thác lâm thổ sản.", "D. sản xuất thủ công nghiệp."] },
-        { "q": "Câu 27. Trên cơ sở nền văn minh bản địa, cư dân Đông Nam Á cổ đại đã sớm tiếp thu ảnh hưởng của các nền văn minh nào sau đây?", "a": "A", "opts": ["A. Ấn Độ, Trung Hoa.", "B. Ấn Độ, phương Tây.", "C. Trung Hoa, phương Tây.", "D. Ấn Độ, Trung Hoa, phương Tây."] },
-        { "q": "Câu 28. Văn hóa Ấn Độ đã được truyền bá đến khu vực Đông Nam Á chủ yếu bằng con đường", "a": "A", "opts": ["A. giao thương buôn bán.", "B. truyền bá áp đặt.", "C. xâm lược, thống trị.", "D. giao lưu hữu nghị."] },
-        { "q": "Câu 29. Từ những thế kỉ đầu Công nguyên, ở Đông Nam Á đã có sự du nhập Phật giáo, Hin-đu giáo là từ nền văn minh lớn nào?", "a": "D", "opts": ["A. phương Tây.", "B. Trung Quốc.", "C. Nhật Bản.", "D. Ấn Độ."] },
-        { "q": "Câu 30. Đặc trưng khí hậu gió mùa nóng ẩm, kèm theo mưa nhiều đã tác động như thế nào đến khu vực Đông Nam Á?", "a": "C", "opts": ["A. Khí hậu trở nên khô cằn, hình thành một số hoang mạc.", "B. Thảm thực vật kém phong phú, khó có điều kiện phát triển.", "C. Cung cấp đủ nước cho sinh hoạt và sản xuất của con người.", "D. Dân cư thưa thớt, không thể hình thành các đô thị đông đúc."] },
-        { "q": "Câu 31. Nền văn minh Văn Lang – Âu Lạc còn được gọi là văn minh", "a": "A", "opts": ["A. Sông Hồng.", "B. Sông Mã.", "C. Sa Huỳnh.", "D. Óc Eo."] },
-        { "q": "Câu 32. Địa bàn cư trú chủ yếu của cư dân Việt cổ thuộc khu vực nào trên lãnh thổ Việt Nam ngày nay?", "a": "A", "opts": ["A. Bắc bộ và Bắc Trung bộ.", "B. Trung bộ ngày nay.", "C. Nam bộ ngày nay.", "D. Trên toàn lãnh thổ Việt Nam."] },
-        { "q": "Câu 33. Kinh tế chính của cư dân Văn Lang – Âu Lạc là", "a": "B", "opts": ["A. săn bắn, hái lượm.", "B. nông nghiệp lúa nước.", "C. thương nghiệp.", "D. thủ công nghiệp."] },
-        { "q": "Câu 34. Bộ máy nhà nước Văn Lang - Âu Lạc được tổ chức theo 3 cấp từ trên xuống đứng đầu là", "a": "D", "opts": ["A. Vua – Quan văn, quan võ – Lạc dân.", "B. Vua – Lạc hầu, Lạc tướng – Tù trưởng.", "C. Vua – Quý tộc, vương hầu – Bộ chính.", "D. Vua – Lạc hầu, Lạc tướng – Bộ chính."] },
-        { "q": "Câu 35. Hiện vật nào sau đây tiêu biểu cho trình độ chế tác của cư dân Văn Lang – Âu Lạc?", "a": "A", "opts": ["A. Trống đồng Đông Sơn.", "B. Tiền đồng Óc Eo.", "C. Phù điêu Khương Mỹ.", "D. Tượng Phật Đồng Dương."] },
-        { "q": "Câu 36. Địa bàn cư trú chủ yếu của cư dân Chăm-pa cổ thuộc khu vực nào trên lãnh thổ Việt Nam ngày nay?", "a": "B", "opts": ["A. Bắc bộ và Bắc Trung bộ.", "B. Trung và Nam Trung bộ.", "C. Khu vực Nam bộ.", "D. Cư trú rải rác trên khắp cả nước."] },
-        { "q": "Câu 37. Nền văn minh Chăm-pa được phát triển dựa trên nền văn hóa", "a": "C", "opts": ["A. Đồng Nai.", "B. Đông Sơn.", "C. Sa Huỳnh.", "D. Óc Eo."] },
-        { "q": "Câu 38. Nền văn minh Phù Nam được phát triển dựa trên nền văn hóa", "a": "D", "opts": ["A. Đồng Dầu.", "B. Sa Huỳnh.", "C. Đông Sơn.", "D. Óc Eo."] },
-        { "q": "Câu 39. Hoạt động kinh tế chủ yếu của cư dân cổ Phù Nam là", "a": "B", "opts": ["A. nông nghiệp.", "B. buôn bán.", "C. thủ công nghiệp.", "D. chăn nuôi, trồng trọt."] },
-        { "q": "Câu 40. Địa bàn cư trú chủ yếu của cư dân Phù Nam thuộc khu vực nào trên đất nước Việt Nam ngày nay?", "a": "B", "opts": ["A. Bắc bộ và Bắc Trung bộ.", "B. Khu vực Nam bộ.", "C. Đồng bằng Sông Hồng.", "D. Trung bộ và Nam bộ."] },
-        { "q": "Câu 41. Đặc điểm chung của các nền văn minh cổ trên đất nước Việt Nam là", "a": "B", "opts": ["A. hình thành bên lưu vực của các con sông lớn.", "B. có sự giao thoa giữa văn hóa bản địa và bên ngoài.", "C. chịu ảnh hưởng từ nền văn hóa Trung Hoa.", "D. lấy phát triển thương nghiệp làm kinh tế chính."] },
-        { "q": "Câu 42. Ý nào sau đây thể hiện đúng đặc điểm của nền văn minh Chăm-pa?", "a": "A", "opts": ["A. Chỉ tiếp thu những thành tựu của nền văn minh Ấn Độ.", "B. Có sự giao thoa giữa văn minh Trung Hoa và Ấn Độ.", "C. Kết hợp giữa văn hóa bản địa với văn hóa Ấn Độ.", "D. Kết hợp giữa văn hóa Đại Việt với văn hóa Phù Nam."] },
-        { "q": "Câu 43. Nội dung nào sau đây không phải là cơ sở hình thành của nhà nước Văn Lang-Âu Lạc?", "a": "B", "opts": ["A. Điều kiện tự nhiên thuận lợi cho phát triển kinh tế nông nghiệp.", "B. Chịu ảnh hưởng từ các nền văn minh bên ngoài: Ấn Độ, Trung Hoa.", "C. Sự tan rã của công xã nguyên thủy dẫn đến sự phân hóa xã hội.", "D. Xuất phát từ nhu cầu đoàn kết phát triển kinh tế, chống ngoại xâm."] },
-        { "q": "Câu 44. Nền văn minh Phù Nam được hình thành trên cơ sở", "a": "B", "opts": ["A. điều kiện tự nhiên không thuận lợi cho phát triển nông nghiệp.", "B. chịu ảnh hưởng mạnh mẽ của nền văn minh Ấn Độ.", "C. hình thành dựa trên sự phát triển của nền văn hóa Sa Huỳnh.", "D. tiếp thu hoàn toàn những đặc trưng của văn minh Ấn Độ."] },
-        { "q": "Câu 45. Nội dung nào dưới đây không phản ánh đúng đời sống tinh thần của người Việt cổ trong xã hội Văn Lang - Âu Lạc?", "a": "A", "opts": ["A. Hoạt động kinh tế chính là nông nghiệp lúa nước.", "B. Tin tưởng phồn thực, thờ cúng ông bà tổ tiên.", "C. Tục xăm mình, ăn trầu, nhuộm răng đen.", "D. Âm nhạc phát triển cả về nhạc cụ lẫn loại hình biểu diễn."] },
-        { "q": "Câu 46. Nội dung nào dưới đây không phải là thành tựu tiêu biểu của nền văn minh Chăm-pa?", "a": "B", "opts": ["A. Sáng tạo chữ viết riêng trên cơ sở chữ Phạn (Ấn Độ).", "B. Chịu ảnh hưởng của nền văn minh Ấn Độ.", "C. Có đời sống vật chất và tinh thần phong phú.", "D. Xây dựng nhiều công trình kiến trúc tôn giáo."] },
-        { "q": "Câu 47. Biểu hiện nào sau đây chứng tỏ quốc gia Phù Nam có thương nghiệp phát triển?", "a": "B", "opts": ["A. Là quốc gia cổ phát triển hưng thịnh ở Đông Nam Á.", "B. Có nhiều thương cảng quan trọng trên con đường ngoại thương quốc tế.", "C. Sự phát triển của nông nghiệp và sản phẩm phụ nông nghiệp.", "D. Là quốc gia có kinh tế thương nghiệp phát triển nhất khu vực Đông Nam Á."] },
-        { "q": "Câu 48. Nội dung nào sau đây không phải là cơ sở hình thành của văn minh Chăm-pa?", "a": "D", "opts": ["A. Chịu ảnh hưởng từ nền văn minh Ấn Độ.", "B. Hình thành trên cơ sở của nền văn hóa Sa Huỳnh.", "C. Lưu giữ và phát huy nền văn hóa bản địa.", "D. Chịu ảnh hưởng của nền văn hóa Trung Hoa."] },
-        { "q": "Câu 49. Nội dung nào sau đây phản ánh đúng đặc điểm của vương quốc Phù Nam?", "a": "B", "opts": ["A. Là quốc gia phát triển trên cơ sở văn hóa Sa Huỳnh.", "B. Là quốc gia có kinh tế thương nghiệp phát triển.", "C. Có nền kinh tế phát triển nhất khu vực Đông Nam Á.", "D. Là quốc gia hình thành sớm nhất trên lãnh thổ Việt Nam."] },
-        { "q": "Câu 50. Nhận xét nào dưới đây là đúng về đặc điểm của các nền văn minh cổ trên lãnh thổ Việt Nam?", "a": "C", "opts": ["A. Chỉ tiếp thu những thành tựu của nền văn minh Ấn Độ.", "B. Chỉ có sự giao thoa giữa văn minh Trung Hoa và Ấn Độ.", "C. Kết hợp giữa văn hóa bản địa với văn hóa bên ngoài.", "D. Chỉ chịu ảnh hưởng từ nền văn hóa Trung Hoa."] },
-        { "q": "Câu 51. Điểm giống nhau trong tổ chức xã hội của các quốc gia cổ trên lãnh thổ Việt Nam là", "a": "B", "opts": ["A. Gồm có vua, quan, quý tộc, dân thường.", "B. Chia làm hai giai cấp thống trị và bị trị.", "C. Đứng đầu nhà nước là vua có mọi quyền hành.", "D. Gồm quý tộc, quan lại và bình dân."] },
-        { "q": "Câu 52. Nhận xét nào sau đây thể hiện đúng đặc điểm của bộ máy nhà nước Văn Lang-Âu Lạc?", "a": "D", "opts": ["A. Xây dựng bộ máy chuyên chế ở trình độ cao.", "B. Bộ máy nhà nước đảm bảo tính dân chủ.", "C. Chưa hoàn chỉnh bộ máy nhà nước sơ khai.", "D. Tổ chức đơn giản, sơ khai nhưng thể hiện được chủ quyền."] },
-        { "q": "Câu 53. Nhận xét nào dưới đây là đúng về vai trò của các nền văn minh cổ trên lãnh thổ Việt Nam?", "a": "C", "opts": ["A. Tạo nên sự tách biệt, đối lập trong truyền thống văn hóa Việt.", "B. Tạo cơ sở cho sự ra đời của một nền văn hóa mới.", "C. Tạo nên sự đa dạng, đặc trưng của truyền thống văn hóa Việt.", "D. Tạo điều kiện để giao lưu hòa tan với các nền văn hóa khu vực."] },
-        { "q": "Câu 54: Nhận xét nào dưới đây là không đúng về vai trò của nền văn minh Văn Lang - Âu Lạc đối với tiến trình phát triển của lịch sử Việt Nam?", "a": "C", "opts": ["A. Là nền văn minh đầu tiên của dân tộc Việt Nam.", "B. Phác họa và định hình bản sắc dân tộc, tránh nguy cơ bị đồng hóa.", "C. Đưa Việt Nam trở thành quốc gia giàu mạnh nhất khu vực.", "D. Đặt nền tảng cho sự phát triển của các nền văn minh sau này."] },
-        { "q": "Câu 55: Điểm giống nhau về cơ sở hình thành của các nền văn minh cổ trên lãnh thổ Việt Nam là", "a": "D", "opts": ["A. đều chịu ảnh hưởng từ nền văn minh Ấn Độ.", "B. đều hình thành ở những vùng đất đại khái.", "C. đều chịu ảnh hưởng bởi văn minh Trung Hoa.", "D. xuất phát từ nhu cầu bảo vệ cuộc sống cộng đồng."] },
-        { "q": "Câu 56: Nhận xét nào dưới đây là đúng về vai trò của nền văn minh Chăm-pa đối với tiến trình phát triển của lịch sử Việt Nam?", "a": "A", "opts": ["A. Là một bộ phận hình thành bản sắc văn hóa Việt Nam.", "B. Tạo nên sự tách biệt trong lịch sử văn hóa dân tộc.", "C. Cung cấp nguồn sử liệu quý giá cho lịch sử thế giới.", "D. Là cội nguồn của nền văn minh tiếp theo của dân tộc."] },
-        { "q": "Câu 57: Đặc điểm của bộ máy Nhà nước Văn Lang – Âu Lạc là", "a": "C", "opts": ["A. Đã hoàn chỉnh, do vua Hùng đứng đầu.", "B. Khá hoàn chỉnh, đứng đầu là vua Hùng.", "C. Đơn giản, sơ khai, chưa hoàn chỉnh.", "D. Ra đời sớm nhất ở khu vực Đông Nam Á."] },
-        { "q": "Câu 58: Nội dung nào sau đây không phải là cơ sở tự nhiên dẫn tới sự hình thành của văn minh Văn Lang - Âu Lạc?", "a": "D", "opts": ["A. Khí hậu nhiệt đới ẩm gió mùa.", "B. Giàu có về khoáng sản.", "C. Hệ thống sông ngòi dày đặc.", "D. Đất đai khô cằn, khó canh tác."] },
-        { "q": "Câu 59: Quốc gia nào sau đây là nhà nước đầu tiên ở Việt Nam?", "a": "D", "opts": ["A. Phù Nam.", "B. Chăm-pa.", "C. Âu Lạc.", "D. Văn Lang."] },
-        { "q": "Câu 60: Phong tục nào sau đây không phải là phong tục truyền thống của người Việt cổ?", "a": "A", "opts": ["A. Thờ Chúa.", "B. Ăn trầu.", "C. Nhuộm răng.", "D. Xăm mình."] },
-        { "q": "Câu 61: Người Việt cổ không có tín ngưỡng nào sau đây?", "a": "B", "opts": ["A. Thờ cúng tổ tiên.", "B. Thờ Đức Phật.", "C. Sùng bái tự nhiên.", "D. Tín ngưỡng phồn thực."] },
-        { "q": "Câu 62: Ý nào phản ánh không đúng cơ sở dẫn đến sự ra đời sớm nhà nước Văn Lang – Âu Lạc?", "a": "A", "opts": ["A. Yêu cầu phát triển buôn bán với các tộc người khác.", "B. Yêu cầu của hoạt động trị thủy để phục vụ nông nghiệp.", "C. Yêu cầu của các cuộc đấu tranh chống giặc ngoại xâm.", "D. Những chuyển biến cơ bản trong đời sống kinh tế - xã hội."] },
-        { "q": "Câu 63: Chữ viết, tư tưởng, tôn giáo, mô hình nhà nước và pháp luật Ấn Độ đã du nhập vào Chăm-pa qua đâu?", "a": "A", "opts": ["A. Các thương nhân.", "B. Dân du mục.", "C. Các cuộc chiến tranh xâm lược.", "D. Qua các đoàn thám hiểm."] },
-        { "q": "Câu 64: Thành tựu văn hóa nào của cư dân Chăm-pa còn tồn tại đến ngày nay và được công nhận là di sản văn hóa thế giới?", "a": "C", "opts": ["A. Hoàng thành Thăng Long.", "B. Cổ đô Huế.", "C. Thánh địa Mỹ Sơn.", "D. Phố cổ Hội An."] },
-        { "q": "Câu 65: Nhân tố quan trọng hàng đầu nào đã đưa đến sự phát triển mạnh mẽ của ngoại thương đường biển ở Phù Nam?", "a": "C", "opts": ["A. Nông nghiệp phát triển, tạo nhiều sản phẩm dư thừa.", "B. Kĩ thuật đóng tàu có bước phát triển mới.", "C. Điều kiện tự nhiên, vị trí địa lí thuận lợi.", "D. Sự thúc đẩy mạnh mẽ của hoạt động nội thương."] },
-        { "q": "Câu 66: Các hoạt động kinh tế chính của cư dân Phù Nam là", "a": "B", "opts": ["A. Sản xuất nông nghiệp, kết hợp đánh cá, săn bắn và khai thác hải sản.", "B. Nghề nông trồng lúa, thủ công nghiệp, ngoại thương đường biển.", "C. Thủ công nghiệp, buôn bán với các nước châu Âu và Nam Á.", "D. Thủ công nghiệp, khai thác hải sản, ngoại thương đường biển."] },
-        { "q": "Câu 67: Điểm giống nhau trong đời sống kinh tế của cư dân Phù Nam với Văn Lang - Âu Lạc và Chăm-pa là gì?", "a": "A", "opts": ["A. Làm nông trồng lúa, kết hợp với một số nghề thủ công.", "B. Phát triển đánh bắt thủy hải sản và khai thác lâm sản.", "C. Đẩy mạnh giao lưu buôn bán với bên ngoài.", "D. Nghề khai thác lâm thổ sản khá phát triển."] },
-        { "q": "Câu 68: Chế độ nào sau đây được bảo lưu lâu dài trong cộng đồng người Chăm?", "a": "B", "opts": ["A. Chế độ phụ hệ.", "B. Chế độ mẫu hệ.", "C. Chế độ vua - tôi.", "D. Chế độ quan - dân."] },
-        { "q": "Câu 69: Loại hình kiến trúc tiêu biểu của người Chăm là", "a": "A", "opts": ["A. đền tháp.", "B. chùa chiền.", "C. cung điện.", "D. nhà thờ."] },
-        { "q": "Câu 70: Văn minh Ấn Độ du nhập vào Phù Nam qua:", "a": "B", "opts": ["A. Các nhà sư.", "B. Thương nhân và các nhà truyền giáo.", "C. Các cuộc chiến tranh xâm lược.", "D. Các đoàn người di cư."] },
-        { "q": "Câu 71: Dưới triều đại nhà Lê (thế kỉ XV), bộ luật thành văn nào sau đây được ban hành?", "a": "C", "opts": ["A. Hình luật.", "B. Hình thư.", "C. Quốc triều hình luật.", "D. Hoàng Việt luật lệ."] },
-        { "q": "Câu 72: Triều đại nào mở đầu cho thời đại phong kiến độc lập của dân tộc ta?", "a": "B", "opts": ["A. Triều Lý.", "B. Triều Ngô.", "C. Triều Lê.", "D. Triều Nguyễn."] },
-        { "q": "Câu 73: Các nhà nước phong kiến Việt Nam được xây dựng theo thể chế", "a": "D", "opts": ["A. Quân chủ lập hiến.", "B. Chiếm hữu nô lệ.", "C. Dân chủ cộng hòa.", "D. Quân chủ chuyên chế."] },
-        { "q": "Câu 74: Bộ máy nhà nước chuyên chế trung ương tập quyền của Đại Việt được hoàn chỉnh dưới triều đại nào?", "a": "C", "opts": ["A. Thời Lý.", "B. Thời Trần.", "C. Thời Lê sơ.", "D. Thời Hồ."] },
-        { "q": "Câu 75: Lễ cày tịch điền mang ý nghĩa nào sau đây?", "a": "A", "opts": ["A. Nhà nước coi trọng sản xuất nông nghiệp.", "B. Nhà nước coi trọng bảo vệ độc lập dân tộc.", "C. Cổ vũ tinh thần chiến đấu của quân dân ta.", "D. Khuyến khích nhân dân phát triển thương nghiệp."] },
-        { "q": "Câu 76: Trung tâm chính trị - văn hóa và đô thị lớn nhất Đại Việt trong các thế kỉ X-XV là", "a": "C", "opts": ["A. Phố Hiến.", "B. Thanh Hà.", "C. Thăng Long.", "D. Hội An."] },
-        { "q": "Câu 77: “Tam giáo đồng nguyên” là sự hòa hợp của các tôn giáo nào sau đây?", "a": "A", "opts": ["A. Phật giáo - Đạo giáo - Nho giáo.", "B. Phật giáo - Nho giáo - Thiên Chúa giáo.", "C. Phật giáo - Đạo giáo - Tín ngưỡng dân gian.", "D. Nho giáo - Phật giáo - Ấn Độ giáo."] },
-        { "q": "Câu 78: Hai loại hình văn học chính của Đại Việt dưới các triều đại phong kiến gồm", "a": "D", "opts": ["A. văn học nhà nước và văn học dân gian.", "B. văn học viết và văn học truyền miệng.", "C. văn học nhà nước và văn học tự do.", "D. văn học dân gian và văn học viết."] },
-        { "q": "Câu 79: Chữ Nôm trở thành chữ viết chính thống dưới triều đại phong kiến nào của nước ta?", "a": "D", "opts": ["A. Nhà Lý.", "B. Nhà Trần.", "C. Lê sơ.", "D. Tây Sơn."] },
-        { "q": "Câu 80: Việc cho dựng bia đá ở Văn Miếu Quốc Tử Giám thể hiện chính sách nào sau đây của các triều đại phong kiến Việt Nam?", "a": "A", "opts": ["A. Nhà nước coi trọng giáo dục, khoa cử.", "B. Ghi danh những anh hùng có công với nước.", "C. Ghi lại tiến trình phát triển của lịch sử dân tộc.", "D. Đề cao vai trò của sản xuất nông nghiệp."] },
-        { "q": "Câu 81: Nội dung nào sau đây không phải là cơ sở hình thành nền văn minh Đại Việt?", "a": "C", "opts": ["A. Có cội nguồn từ các nền văn minh cổ xưa trên đất nước Việt Nam.", "B. Tiếp thu chọn lọc từ thành tựu của các nền văn minh bên ngoài.", "C. Nho giáo là tư tưởng chính thống trong suốt các triều đại phong kiến.", "D. Trải qua quá trình đấu tranh, củng cố độc lập dân tộc của quân và dân ta."] },
-        { "q": "Câu 82: Nội dung nào sau đây không phải là chính sách của nhà nước phong kiến Đại Việt trong khuyến khích nông nghiệp phát triển?", "a": "A", "opts": ["A. Khuyến khích phát triển buôn bán với các nước phương Tây.", "B. Khuyến khích khai hoang, mở rộng diện tích đất canh tác.", "C. Tổ chức nghi lễ cày ruộng tịch điền khuyến khích sản xuất.", "D. Nhà nước quan tâm trị thủy, bảo vệ sức khỏe nông nghiệp."] },
-        { "q": "Câu 83: Nội dung nào dưới đây phản ánh đúng vai trò của “Quan xưởng” trong thủ công nghiệp nhà nước?", "a": "C", "opts": ["A. Tạo ra sản phẩm chất lượng cao để trao đổi buôn bán trong và ngoài nước.", "B. Huy động lực lượng thợ thủ công tay nghề cao phục vụ chế tác, buôn bán.", "C. Tạo ra sản phẩm mẫu hỗ trợ thủ công nghiệp cả nước phát triển.", "D. Tạo ra các sản phẩm hỗ trợ thủ công nghiệp của nước phát triển."] },
-        { "q": "Câu 84: Văn học chữ Nôm ra đời có ý nghĩa nào sau đây?", "a": "C", "opts": ["A. Thể hiện sự phát triển của văn minh Đại Việt thời Lý-Trần.", "B. Vai trò của việc tiếp thu văn hóa Ấn Độ vào Đại Việt.", "C. Thể hiện sự sáng tạo, tiếp biến văn hóa của người Việt.", "D. Ảnh hưởng của việc truyền bá văn hóa vào Việt Nam."] },
-        { "q": "Câu 85: Nội dung nào sau đây là một trong những cơ sở của việc hình thành nền văn minh Đại Việt là", "a": "A", "opts": ["A. Có cội nguồn từ các nền văn minh lâu đời tồn tại trên đất nước Việt Nam.", "B. Hình thành từ việc lưu truyền các kinh nghiệm sản xuất nông nghiệp.", "C. Có nguồn gốc từ việc tiếp thu hoàn toàn văn minh bên ngoài.", "D. Chịu ảnh hưởng sâu sắc từ nền văn hóa Trung Hoa qua ngàn năm Bắc thuộc."] },
-        { "q": "Câu 86: Vì sao Nho giáo sớm trở thành hệ tư tưởng của chế độ phong kiến ở Đại Việt?", "a": "B", "opts": ["A. Được phổ biến rộng rãi trong nhân dân.", "B. Góp phần củng cố quyền lực của giai cấp thống trị.", "C. Chung sống hòa bình với các tín ngưỡng dân gian.", "D. Nội dung dễ tiếp thu, nhân dân dễ tiếp cận."] },
-        { "q": "Câu 87: Tên bộ luật thành văn đầu tiên của văn minh Đại Việt là", "a": "B", "opts": ["A. Hình Luật.", "B. Hình thư.", "C. Hồng Đức.", "D. Gia Long."] },
-        { "q": "Câu 88: Bộ luật nào được biên soạn khá đầy đủ và hoàn chỉnh trong lịch sử Việt Nam từ thế kỉ X-XV?", "a": "B", "opts": ["A. Hình Luật.", "B. Quốc triều hình luật.", "C. Hình thư.", "D. Hoàng Việt luật lệ."] },
-        { "q": "Câu 89: Trong tiến trình phát triển của lịch sử của dân tộc Việt Nam, nền văn minh Đại Việt không mang ý nghĩa nào sau đây?", "a": "D", "opts": ["A. Thể hiện tinh thần quật khởi và sức lao động sáng tạo, bền bỉ của nhân dân.", "B. Chứng minh sự phát triển vượt bậc của dân tộc Việt Nam trên nhiều lĩnh vực.", "C. Góp phần to lớn tạo nên sức mạnh dân tộc chống ngoại xâm, bảo vệ độc lập.", "D. Là nền tảng để dân tộc Việt Nam sánh ngang với các cường quốc trên thế giới."] },
-        { "q": "Câu 90: Nhận xét nào sau đây là đúng khi nói về đặc điểm của nền văn minh Đại Việt?", "a": "A", "opts": ["A. Văn minh Đại Việt phát triển đa dạng, phong phú, mang đậm tính dân tộc.", "B. Văn minh Đại Việt phát triển đa dạng, lâu đời và có tính dân chủ.", "C. Là sự kết hợp hoàn toàn giữa văn minh Trung Hoa và văn minh Ấn Độ.", "D. Thiết chế chính trị của các triều đại phong kiến Đại Việt đều mang tính dân chủ."] },
-        { "q": "Câu 91: Hiện nay, Việt Nam có bao nhiêu dân tộc?", "a": "D", "opts": ["A. 58.", "B. 60.", "C. 51.", "D. 54."] },
-        { "q": "Câu 92: Các lễ hội của các dân tộc ở Việt Nam thường gắn liền với những hoạt động sản xuất nào?", "a": "C", "opts": ["A. Công nghiệp.", "B. Thương nghiệp.", "C. Nông nghiệp.", "D. Thủ công nghiệp."] },
-        { "q": "Câu 93: Vì sao ngày nay các dân tộc có xu hướng sử dụng trang phục giống người Kinh?", "a": "A", "opts": ["A. Để hòa hợp, đoàn kết dân tộc.", "B. Đẹp hơn trang phục truyền thống.", "C. Do thay đổi môi trường sống.", "D. Thuận tiện trong lao động và di lại."] },
-        { "q": "Câu 94: Dân tộc có số lượng đông nhất ở Việt Nam hiện nay là dân tộc", "a": "A", "opts": ["A. Kinh.", "B. Tày.", "C. Mèo.", "D. Mường."] },
-        { "q": "Câu 95: Tín ngưỡng truyền thống nào mà hầu hết các dân tộc ở Việt Nam đều thực hiện?", "a": "A", "opts": ["A. Thờ cúng tổ tiên.", "B. Thờ cúng Thánh Gióng.", "C. Thờ sinh thực khí.", "D. Thờ cúng Thánh Tản Viên."] },
-        { "q": "Câu 96: Ngữ hệ nào có nhiều dân tộc sử dụng nhất?", "a": "A", "opts": ["A. Nam Á.", "B. H’Mông – Dao.", "C. Thái – Ka-dai.", "D. Hán – Tạng."] },
-        { "q": "Câu 97: Ngôn ngữ chính thức của nhà nước Việt Nam hiện nay và là phương tiện giao tiếp giữa các dân tộc là:", "a": "B", "opts": ["A. Tiếng Nôm.", "B. Tiếng Việt.", "C. Tiếng Thái.", "D. Tiếng Anh."] },
-        { "q": "Câu 98: Các dân tộc ở Việt Nam chủ yếu hoạt động sản xuất trong lĩnh vực nào?", "a": "B", "opts": ["A. Thủ công nghiệp.", "B. Nông nghiệp.", "C. Xây dựng đền đài.", "D. Thương nghiệp."] },
-        { "q": "Câu 99: Chọn cụm từ thích hợp điền vào chỗ chấm để hoàn thiện khái niệm sau: “…… là một nhóm các ngôn ngữ có cùng nguồn gốc, có những đặc điểm tương đồng về ngữ âm, thanh điệu, cú pháp và vốn từ vựng cơ bản”.", "a": "A", "opts": ["A. Ngữ hệ.", "B. Tiếng nói.", "C. Chữ viết.", "D. Ngôn từ."] },
-        { "q": "Câu 100: Nội dung nào sau đây không phản ánh đúng vai trò của lễ hội đối với đời sống văn hóa tinh thần của các dân tộc Việt Nam?", "a": "D", "opts": ["A. Là dịp bày tỏ lòng biết ơn sự che chở, phù hộ của thần linh, tổ tiên.", "B. Là cơ sở vật chất tạo nên sự phát triển kinh tế - văn hóa - xã hội.", "C. Góp phần giữ gìn và truyền thừa bản sắc văn hóa qua các thế hệ.", "D. Là dịp các thành viên gặp gỡ, giao lưu và thắt chặt tình đoàn kết."] }
-    ]
-};
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" onclick="toggleTheme()" title="Đổi giao diện Sáng / Tối" id="themeBtn">
+          🌙
+        </button>
+      </div>
+    </nav>
 
-// Chuyển đổi dữ liệu
-const quizData = {
-    tn: rawData.tn.map((item, index) => ({
-        id: index + 1,
-        question: item.q,
-        options: item.opts,
-        answer: item.a
-    }))
-};
+    <!-- ================= VIEW 1: TRẮC NGHIỆM ================= -->
+    <div id="quizView" class="view-page active">
+      
+      <div class="hero-banner">
+        <h1>Ngân Hàng 82+ Câu Trắc Nghiệm</h1>
+        <p>Bao quát toàn diện Bài 1 đến Bài 4 — Có lời giải chi tiết, mẹo nhận diện bẫy đề thi và chế độ thi thử tính giờ chuẩn 10 điểm.</p>
+      </div>
 
-function renderHistory() {
-    const container = document.getElementById('su-content');
-    let html = `<h2 class="part-label">Trắc nghiệm Lịch sử 10 (${quizData.tn.length} câu)</h2>`;
-   
-    quizData.tn.forEach(q => {
-        html += `
-        <div class="q-card" id="q-${q.id}">
-            <div class="q-text">${q.question}</div>
-            <div class="options-grid">
-                ${q.options.map((opt, i) => `
-                    <div class="opt-item" data-id="${q.id}" data-answer="${String.fromCharCode(65 + i)}">
-                        ${opt}
-                    </div>
-                `).join('')}
-            </div>
-        </div>`;
-    });
-   
-    container.innerHTML = html;
+      <!-- Controls -->
+      <div class="controls-panel">
+        <div class="filter-row">
+          <div class="lesson-tabs">
+            <button class="lesson-btn active" data-filter="all" onclick="filterQuestions('all')">Tất cả bài (82)</button>
+            <button class="lesson-btn" data-filter="1" onclick="filterQuestions('1')">Bài 1: CM Tư Sản</button>
+            <button class="lesson-btn" data-filter="2" onclick="filterQuestions('2')">Bài 2: CNTB</button>
+            <button class="lesson-btn" data-filter="3" onclick="filterQuestions('3')">Bài 3: Liên Xô</button>
+            <button class="lesson-btn" data-filter="4" onclick="filterQuestions('4')">Bài 4: CNXH</button>
+          </div>
+        </div>
 
-    document.querySelectorAll('.opt-item').forEach(item => {
-        item.addEventListener('click', function() {
-            const qId = parseInt(this.dataset.id);
-            const selected = this.dataset.answer;
-            const question = quizData.tn.find(q => q.id === qId);
-            const card = document.getElementById(`q-${qId}`);
+        <div class="filter-row">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchKeyword" placeholder="Tìm kiếm câu hỏi, từ khóa, tên nhân vật..." oninput="handleSearch()">
+          </div>
 
-            if (selected === question.answer) {
-                this.classList.add('correct');
-                corrects++;
-            } else {
-                this.classList.add('wrong');
-                wrongs++;
+          <div class="action-group">
+            <button class="btn-tool" onclick="switchView('theory')">📖 Mở lý thuyết ôn lại</button>
+            <button class="btn-tool btn-exam-mode" onclick="startMockExam()">⏱️ Thi thử 40 câu</button>
+            <button class="btn-tool" onclick="shuffleCurrentQuestions()">🔀 Đảo câu hỏi</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exam Timer Alert -->
+      <div id="examTimerBar">
+        ⏱️ CHẾ ĐỘ THI THỬ (40 CÂU) — THỜI GIAN CÒN LẠI: <span id="timerCountdown" style="font-family: 'JetBrains Mono', monospace; font-size: 1.2rem;">45:00</span>
+        <button onclick="exitMockExam()" style="margin-left: 15px; padding: 4px 12px; border-radius: 8px; border: none; background: #f43f5e; color: white; cursor: pointer; font-weight: bold;">Dừng thi</button>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-val" id="totalQuestionsCount">0</div>
+          <div class="stat-lbl">Tổng số câu</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="answeredCount" style="color: #6366f1;">0</div>
+          <div class="stat-lbl">Đã làm</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val score" id="correctCount">0</div>
+          <div class="stat-lbl">Số câu đúng</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val wrong" id="wrongCount">0</div>
+          <div class="stat-lbl">Số câu sai</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="accuracyRate" style="color: #f59e0b;">0 / 10</div>
+          <div class="stat-lbl">Điểm ước tính</div>
+        </div>
+      </div>
+
+      <!-- Container of Quiz Cards -->
+      <div id="quizContainer"></div>
+
+      <!-- Sticky Floating Progress Bar -->
+      <div class="floating-bar">
+        <div style="font-weight: 700;">
+          Tiến độ: <span id="bottomScore" style="color: var(--primary);">0 / 0 câu</span>
+        </div>
+        <div>
+          <button class="btn-reset" onclick="resetQuiz()">🔄 Làm lại từ đầu</button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ================= VIEW 2: LÝ THUYẾT CHI TIẾT (FULL TEXTBOOK) ================= -->
+    <div id="theoryView" class="view-page">
+      
+      <div class="hero-banner" style="background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #6366f1 100%);">
+        <h1>📖 Sổ Tay Lý Thuyết Trọng Tâm (Bài 1 – 4)</h1>
+        <p>Hệ thống toàn bộ kiến thức cốt lõi SGK Lịch sử 11 Mới (Bộ sách Kết nối tri thức với cuộc sống). Quên phần nào bấm sang đây đọc lại ngay!</p>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="theory-toc">
+        <span style="font-weight: 700; color: var(--text-muted); font-size: 0.88rem;">CHUYỂN NHANH ĐẾN:</span>
+        <a href="#theory-b1" class="toc-link">Bài 1: CM Tư Sản</a>
+        <a href="#theory-b2" class="toc-link">Bài 2: CNTB Xác Lập & Độc Quyền</a>
+        <a href="#theory-b3" class="toc-link">Bài 3: Liên Bang Xô Viết</a>
+        <a href="#theory-b4" class="toc-link">Bài 4: CNXH từ 1945 đến nay</a>
+      </div>
+
+      <!-- BÀI 1 -->
+      <section class="lesson-section" id="theory-b1">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">⚔️</div>
+          <div class="lesson-title-text">
+            <h2>BÀI 1: Một Số Vấn Đề Chung Về Cách Mạng Tư Sản</h2>
+            <span>Chủ đề 1: Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <h3>1. Bốn Tiền Đề Của Cách Mạng Tư Sản</h3>
+          <ul>
+            <li><strong>Kinh tế:</strong> Phương thức sản xuất TBCN hình thành và phát triển trong lòng chế độ phong kiến (hoặc thuộc địa), nhưng bị chế độ phong kiến / thực dân kìm hãm bằng thuế má, luật lệ, rào cản độc quyền.
+              <br>👉 <em>Ví dụ nổi bật:</em> Ở Anh có phong trào <span class="tag-term">Rào đất cướp ruộng</span> biến nông dân thành người làm thuê. Ở Bắc Mỹ, thực dân Anh áp đặt các đạo luật hàng hải và sắc thuế hà khắc (thuế tem, thuế chè).
+            </li>
+            <li><strong>Chính trị:</strong> Sự duy trì của chế độ <span class="tag-term">Quân chủ chuyên chế</span> bảo thủ (Anh, Pháp) hoặc sự cai trị độc đoán của chính quốc thực dân (Bắc Mỹ).</li>
+            <li><strong>Xã hội:</strong> Phân hóa giai cấp sâu sắc. 
+              <br>👉 Giai cấp <span class="tag-term">Tư sản</span> giàu có nhưng không có quyền chính trị. 
+              <br>👉 Tầng lớp <span class="tag-term">Quý tộc mới</span> (chỉ có ở Anh) kinh doanh theo lối tư bản. 
+              <br>👉 Tầng lớp <span class="tag-term">Chủ nô đồn điền</span> (ở Bắc Mỹ) bóc lột nô lệ da đen. 
+              <br>👉 Xã hội Pháp trước 1789 chia làm <strong>3 Đẳng cấp:</strong> Đẳng cấp 1 (Tăng lữ), Đẳng cấp 2 (Quý tộc) - được đặc quyền miễn thuế; Đẳng cấp thứ ba (Tư sản, nông dân, bình dân) gánh mọi thứ thuế.
+            </li>
+            <li><strong>Tư tưởng:</strong> 
+              <br>👉 <strong>Anh:</strong> Dùng ngọn cờ <span class="tag-term">Thanh giáo</span> (Calvinism cải cách) chống lại Anh giáo phong kiến.
+              <br>👉 <strong>Bắc Mỹ:</strong> Tư tưởng dân chủ tư sản của Thomas Paine, Thomas Jefferson (Tuyên ngôn Độc lập 1776).
+              <br>👉 <strong>Pháp:</strong> Trào lưu <span class="tag-term">Triết học Ánh sáng</span> thế kỉ XVIII:
+              <em>Montesquieu</em> (đề xướng Tam quyền phân lập: Lập pháp, Hành pháp, Tư pháp); <em>Voltaire</em> (chống Giáo hội phong kiến); <em>Rousseau</em> (Khế ước xã hội, chủ quyền thuộc về nhân dân).
+            </li>
+          </ul>
+        </div>
+
+        <div class="theory-block">
+          <h3>2. Mục Tiêu & Nhiệm Vụ</h3>
+          <ul>
+            <li><strong>Mục tiêu:</strong> Lật đổ phong kiến/thực dân, xác lập nhà nước tư sản, mở đường cho CNTB phát triển.</li>
+            <li><strong>Nhiệm vụ dân tộc:</strong> Thống nhất thị trường dân tộc, giành độc lập giải phóng dân tộc (Bắc Mỹ, Hà Lan).</li>
+            <li><strong>Nhiệm vụ dân chủ:</strong> Xóa bỏ đẳng cấp phong kiến, bảo đảm quyền tự do dân chủ tư sản, giải quyết vấn đề ruộng đất cho nông dân.</li>
+          </ul>
+        </div>
+
+        <div class="theory-block">
+          <h3>3. So Sánh Các Cuộc Cách Mạng Tư Sản Lớn</h3>
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Tiêu chí</th>
+                  <th>Cách mạng Anh (XVII)</th>
+                  <th>Chiến tranh 13 bang Bắc Mỹ (XVIII)</th>
+                  <th>Cách mạng Pháp (1789)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Lãnh đạo</strong></td>
+                  <td>Tư sản + Quý tộc mới</td>
+                  <td>Tư sản + Chủ nô đồn điền</td>
+                  <td>Giai cấp Tư sản</td>
+                </tr>
+                <tr>
+                  <td><strong>Động lực chính</strong></td>
+                  <td colspan="3" style="text-align: center; color: var(--accent); font-weight: bold;">Quần chúng nhân dân (nông dân, thị dân, thợ thủ công, nô lệ...)</td>
+                </tr>
+                <tr>
+                  <td><strong>Hình thức</strong></td>
+                  <td>Nội chiến</td>
+                  <td>Chiến tranh giải phóng dân tộc</td>
+                  <td>Cách mạng dân chủ tư sản</td>
+                </tr>
+                <tr>
+                  <td><strong>Thể chế sau CM</strong></td>
+                  <td>Quân chủ lập hiến</td>
+                  <td>Cộng hòa liên bang</td>
+                  <td>Cộng hòa</td>
+                </tr>
+                <tr>
+                  <td><strong>Đánh giá tính chất</strong></td>
+                  <td>Không triệt để</td>
+                  <td>Không triệt để (giữ chế độ nô lệ)</td>
+                  <td><strong>Triệt để nhất</strong> (xóa sạch phong kiến, chia ruộng cho dân)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <strong>⚠️ BẪY TRẮC NGHIỆM BÀI 1:</strong> Động lực quyết định thắng lợi là <strong>Quần chúng nhân dân</strong>, còn Lãnh đạo là <strong>Giai cấp tư sản</strong>. Cách mạng tư sản đầu tiên là ở Hà Lan (XVI). Cách mạng Pháp triệt để nhất nhờ chính sách của phái Giacôbanh.
+        </div>
+      </section>
+
+
+      <!-- BÀI 2 -->
+      <section class="lesson-section" id="theory-b2">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">🏭</div>
+          <div class="lesson-title-text">
+            <h2>BÀI 2: Sự Xác Lập Và Phát Triển Của Chủ Nghĩa Tư Bản</h2>
+            <span>Từ tự do cạnh tranh sang độc quyền đến Chủ nghĩa tư bản hiện đại</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <h3>1. Sự Xác Lập Của CNTB</h3>
+          <ul>
+            <li>Diễn ra qua hàng loạt cuộc CMTS và cải cách: Anh (XVII), Pháp & Mỹ (XVIII), làn sóng 1848 - 1849, Thống nhất Đức (Bismarck - sắt và máu), Thống nhất Ý, Cải cách nông nô ở Nga (1861), Nội chiến Mỹ (1861 - 1865: bãi bỏ nô lệ), Duy tân Minh Trị ở Nhật Bản (1868).</li>
+            <li><strong>Thời điểm xác lập:</strong> Đến <span class="tag-term">cuối thế kỉ XIX</span>, CNTB thắng thế hoàn toàn phong kiến trên phạm vi toàn cầu.</li>
+          </ul>
+        </div>
+
+        <div class="theory-block">
+          <h3>2. Quá Trình Sang Giai Đoạn Độc Quyền (Chủ Nghĩa Đế Quốc)</h3>
+          <ul>
+            <li><strong>Nguyên nhân:</strong> Tác động của Cách mạng công nghiệp lần thứ hai (điện lực, dầu mỏ, động cơ đốt trong) thúc đẩy tích tụ và tập trung sản xuất $\rightarrow$ hình thành các <span class="tag-term">Tổ chức độc quyền</span> (Cartel, Syndicate, Trust, Concern).</li>
+            <li><strong>5 Đặc trưng của Chủ nghĩa đế quốc (V.I. Lênin):</strong>
+              <br>1️⃣ Hình thành các tổ chức độc quyền chi phối toàn bộ đời sống kinh tế.
+              <br>2️⃣ Sự dung hợp giữa tư bản ngân hàng và công nghiệp thành <span class="tag-term">Tư bản tài chính</span> và bọn <span class="tag-term">Đầu sỏ tài chính</span>.
+              <br>3️⃣ <span class="tag-term">Xuất khẩu tư bản</span> (đưa vốn ra nước ngoài đầu tư, bóc lột lợi nhuận) thay vì chỉ xuất khẩu hàng hóa.
+              <br>4️⃣ Sự phân chia thị trường thế giới giữa các tập đoàn tư bản xuyên quốc gia.
+              <br>5️⃣ Sự phân chia xong đất đai thuộc địa giữa các đế quốc $\rightarrow$ dẫn đến mâu thuẫn tranh giành thuộc địa $\rightarrow$ Chiến tranh thế giới thứ nhất (1914 - 1918).
+            </li>
+            <li><strong>Đặc điểm các nước đế quốc:</strong>
+              <br>🇬🇧 <strong>Anh:</strong> Đế quốc <em>thực dân</em> ("Mặt trời không bao giờ lặn").
+              <br>🇫🇷 <strong>Pháp:</strong> Đế quốc <em>cho vay lãi</em> (2/3 tư bản dùng cho nước khác vay lấy lãi cao).
+              <br>🇩🇪 <strong>Đức:</strong> Đế quốc <em>quân phiệt, hiếu chiến</em> ("kẻ đói ăn khát thuộc địa").
+              <br>🇺🇸 <strong>Mỹ:</strong> Xứ sở của các <em>Tơrớt (Trust)</em> khổng lồ: Rockefeller (Vua dầu mỏ), Morgan (Vua thép).
+            </li>
+          </ul>
+        </div>
+
+        <div class="theory-block">
+          <h3>3. Chủ Nghĩa Tư Bản Hiện Đại</h3>
+          <ul>
+            <li><strong>Khái niệm:</strong> Là giai đoạn của CNTB từ <span class="tag-term">sau CTTG II (1945)</span> đến nay.</li>
+            <li><strong>Đặc trưng cốt lõi:</strong>
+              <br>👉 Lực lượng sản xuất phát triển vượt bậc nhờ Cách mạng Khoa học - Công nghệ.
+              <br>👉 <span class="tag-term">Độc quyền nhà nước</span>: Sự kết hợp giữa tư bản độc quyền tư nhân và nhà nước tư sản nhằm điều tiết kinh tế.
+              <br>👉 Cơ cấu lao động dịch chuyển: Lao động trí tuệ, dịch vụ và công nghệ thông tin tăng vọt.
+              <br>👉 Toàn cầu hóa sâu rộng thông qua các công ty xuyên quốc gia (TNCs).
+            </li>
+            <li><strong>Tiềm năng:</strong> Trình độ KH-CN cao, năng lực tài chính lớn, kinh nghiệm quản trị kinh tế thị trường.</li>
+            <li><strong>Thách thức:</strong> Khủng hoảng kinh tế chu kỳ, phân hóa giàu - nghèo ngày càng nghiêm trọng (phong trào <em>"Chúng tôi là 99%"</em>), xung đột xã hội, biến đổi khí hậu.</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- BÀI 3 -->
+      <section class="lesson-section" id="theory-b3">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">⭐</div>
+          <div class="lesson-title-text">
+            <h2>BÀI 3: Sự Hình Thành Liên Bang Cộng Hòa Xã Hội Chủ Nghĩa Xô Viết</h2>
+            <span>Chủ đề 2: Chủ nghĩa xã hội từ năm 1917 đến nay</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <h3>1. Bối Cảnh Thành Lập</h3>
+          <ul>
+            <li>Thắng lợi của <span class="tag-term">Cách mạng tháng Mười Nga (1917)</span> thành lập nhà nước công nông đầu tiên do V.I. Lênin lãnh đạo.</li>
+            <li>Đánh bại cuộc can thiệp vũ trang của 14 nước đế quốc và nội chiến (1918 - 1920). Thực hiện Chính sách kinh tế mới (NEP) năm 1921.</li>
+            <li><strong>3 Nhu cầu liên minh:</strong>
+              <br>🛡️ <em>Quốc phòng:</em> Hợp lực đối phó sự bao vây, chống phá của các nước đế quốc phương Tây.
+              <br>⚙️ <em>Kinh tế:</em> Phân công lao động, chia sẻ tài nguyên để khôi phục kinh tế bị tàn phá sau chiến tranh.
+              <br>🚩 <em>Chính trị:</em> Cùng chung bản chất Nhà nước Xô viết và chịu sự lãnh đạo thống nhất của <span class="tag-term">Đảng Bôn-sê-vích (Đảng Cộng sản)</span>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="theory-block">
+          <h3>2. Quá Trình Thành Lập</h3>
+          <ul>
+            <li><strong>Ngày 30/12/1922:</strong> Tại Mát-xcơ-va, <em>Đại hội lần thứ X các Xô viết toàn Nga</em> thông qua:
+              <br>1️⃣ <strong>Bản Tuyên bố thành lập Liên bang CHXHCN Xô viết (Liên Xô - USSR)</strong>.
+              <br>2️⃣ <strong>Bản Hiệp ước Liên bang</strong>.
+            </li>
+            <li><strong>4 Nước Cộng hòa đầu tiên gia nhập (1922):</strong>
+              <br>1. CHLB Xô viết Nga (RSFSR).
+              <br>2. CHXHCN Xô viết U-crai-na.
+              <br>3. CHXHCN Xô viết Bê-lô-rút-xi-a.
+              <br>4. CHLB Xô viết Ngoại Cáp-ca-dơ (gồm 3 nước: Ác-mê-ni-a, A-déc-bai-gian, Gioóc-ghi-a).
+            </li>
+            <li><strong>Tháng 1/1924:</strong> <em>Bản Hiến pháp đầu tiên của Liên Xô</em> được thông qua, hoàn tất việc tổ chức nhà nước.</li>
+            <li>Đến năm 1940, Liên bang Xô viết phát triển gồm <span class="tag-term">15 nước Cộng hòa</span>.</li>
+          </ul>
+        </div>
+
+        <div class="theory-block">
+          <h3>3. Nguyên Tắc & Ý Nghĩa</h3>
+          <ul>
+            <li><strong>Nguyên tắc:</strong> Tự nguyện, bình đẳng, tôn trọng chủ quyền và tương trợ lẫn nhau.</li>
+            <li><strong>Ý nghĩa trong nước:</strong> Tạo sức mạnh tổng hợp để thực hiện công nghiệp hóa (vươn lên số 1 châu Âu, số 2 thế giới trước CTTG II), củng cố quốc phòng và đánh thắng phát xít Đức.</li>
+            <li><strong>Ý nghĩa quốc tế:</strong> Cổ vũ phong trào giải phóng dân tộc ở các nước thuộc địa; khẳng định chủ nghĩa Mác - Lênin về giải quyết vấn đề dân tộc.</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- BÀI 4 -->
+      <section class="lesson-section" id="theory-b4">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">🌏</div>
+          <div class="lesson-title-text">
+            <h2>BÀI 4: Sự Phát Triển Của Chủ Nghĩa Xã Hội Từ Sau CTTG II Đến Nay</h2>
+            <span>Từ mở rộng thành hệ thống thế giới, khủng hoảng đến kiên trì đổi mới</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <h3>1. Giai Đoạn Mở Rộng (1945 – Nửa Đầu Những Năm 70)</h3>
+          <ul>
+            <li><strong>Đông Âu:</strong> 1944 - 1945 thành lập các nhà nước Dân chủ nhân dân. Đến năm <span class="tag-term">1949</span> bước vào xây dựng CNXH $\rightarrow$ <strong>CNXH vượt ra khỏi một nước (Liên Xô), trở thành một hệ thống thế giới</strong>.</li>
+            <li><strong>Châu Á:</strong> 
+              <br>👉 CHDCND Triều Tiên (1948).
+              <br>👉 Nước CHND Trung Hoa thành lập (<span class="tag-term">01/10/1949</span>): Nối liền CNXH từ Âu sang Á, thay đổi cán cân quyền lực thế giới.
+              <br>👉 Việt Nam (1954 giải phóng miền Bắc, 1975 thống nhất cả nước).
+              <br>👉 Lào (12/1975).
+            </li>
+            <li><strong>Mỹ Latinh:</strong> Cách mạng <span class="tag-term">Cu-ba</span> thành công (01/01/1959), tuyên bố tiến lên CNXH năm 1961 $\rightarrow$ trở thành "Lá cờ đầu", hòn đảo tự do, tiền đồn của CNXH ở Tây bán cầu.</li>
+          </ul>
+        </div>
+
+        <div class="theory-block">
+          <h3>2. Khủng Hoảng Và Sự Sụp Đổ Của CNXH Ở Liên Xô & Đông Âu</h3>
+          <ul>
+            <li><strong>Thời gian:</strong> Khủng hoảng từ sau 1973 (khủng hoảng dầu mỏ), sụp đổ ở Đông Âu (1989 - 1990) và Liên Xô (<span class="tag-term">25/12/1991</span> - Goóc-ba-chốp từ chức).</li>
+            <li><strong>Nguyên nhân sụp đổ:</strong>
+              <br>👉 <em>Chủ quan (quyết định):</em> Duy trì quá lâu mô hình kế hoạch hóa tập trung quan liêu bao cấp; chậm áp dụng KH-CN; độc đoán, sùng bái cá nhân; sai lầm nghiêm trọng trong đường lối "cải tổ" (đa nguyên chính trị, từ bỏ vai trò lãnh đạo của Đảng).
+              <br>👉 <em>Khách quan:</em> Hoạt động chống phá quyết liệt của các thế lực đế quốc thông qua chiến lược <span class="tag-term">Diễn biến hòa bình</span>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="theory-block">
+          <h3>3. Công Cuộc Kiên Trì Và Cải Cách, Đổi Mới (Từ 1991 Đến Nay)</h3>
+          <ul>
+            <li><strong>Bốn nước kiên định con đường XHCN:</strong> Trung Quốc, Việt Nam, Lào, Cu-ba.</li>
+            <li><strong>🇨🇳 Trung Quốc:</strong>
+              <br>👉 Khởi xướng Cải cách - mở cửa từ <span class="tag-term">tháng 12/1978</span> (HNTW 3 khóa XI do Đặng Tiểu Bình khởi xướng).
+              <br>👉 Trọng tâm: <strong>Lấy phát triển kinh tế làm trung tâm</strong>, kiên trì 4 nguyên tắc cơ bản, xây dựng CNXH mang đặc sắc Trung Quốc.
+              <br>👉 Thành tựu: Từ 2010 trở thành nền kinh tế lớn thứ hai thế giới (sau Mỹ), phóng thành công tàu Thần Châu đưa người vào vũ trụ (2003).
+            </li>
+            <li><strong>🇻🇳 Việt Nam:</strong> Đề ra đường lối Đổi mới toàn diện tại <span class="tag-term">Đại hội VI (tháng 12/1986)</span>, kinh tế tăng trưởng liên tục, chính trị - xã hội ổn định vững chắc.</li>
+            <li><strong>🇱🇦 Lào:</strong> Bắt đầu đổi mới từ năm 1986 tại Đại hội IV.</li>
+            <li><strong>🇨🇺 Cu-ba:</strong> Vượt qua bao vây cấm vận, tiến hành "Cập nhật hóa mô hình kinh tế - xã hội" từ năm 2011.</li>
+          </ul>
+        </div>
+
+        <div class="note-box">
+          <strong>💡 KẾT LUẬN QUAN TRỌNG:</strong> Sự sụp đổ của Liên Xô và Đông Âu chỉ là sự sụp đổ của <em>một mô hình CNXH cụ thể bị tha hóa, xơ cứng</em>, chứ không phải sự sụp đổ của <em>lý tưởng CNXH khoa học</em>. Sự thành công của Việt Nam và Trung Quốc chứng minh sức sống mãnh liệt của CNXH khi biết vận dụng sáng tạo vào thực tiễn!
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Import 82 questions
+    const fullQuestionBank = [
+      // Bài 1
+      { id: 1, lesson: 1, question: "Trào lưu Triết học Ánh sáng thế kỉ XVIII là tiền đề tư tưởng trực tiếp của cuộc cách mạng tư sản nào sau đây?", options: ["Cách mạng tư sản Anh.", "Chiến tranh giành độc lập của 13 thuộc địa Anh ở Bắc Mỹ.", "Cách mạng tư sản Pháp.", "Cách mạng tư sản Hà Lan."], correct: 2, explain: "Triết học Ánh sáng (với Montesquieu, Voltaire, Rousseau) là vũ khí lý luận dọn đường cho Cách mạng tư sản Pháp năm 1789 bùng nổ." },
+      { id: 2, lesson: 1, question: "Điểm khác biệt cơ bản về giai cấp lãnh đạo của Cách mạng tư sản Anh thế kỉ XVII so với Cách mạng tư sản Pháp thế kỉ XVIII là", options: ["có sự lãnh đạo duy nhất của giai cấp công nhân.", "có sự liên minh chặt chẽ giữa tư sản và tầng lớp quý tộc mới.", "có sự liên minh giữa tư sản với tầng lớp chủ nô đồn điền.", "được lãnh đạo độc tôn bởi phái Giacôbanh."], correct: 1, explain: "Ở Anh, quá trình 'rào đất cướp ruộng' hình thành tầng lớp Quý tộc mới có quyền lợi gắn với tư sản, liên minh cùng tư sản lãnh đạo cách mạng." },
+      { id: 3, lesson: 1, question: "Lực lượng nào sau đây đóng vai trò là động lực chính, quyết định thắng lợi của các cuộc cách mạng tư sản thời cận đại?", options: ["Giai cấp tư sản.", "Tầng lớp quý tộc mới.", "Quần chúng nhân dân (nông dân, thị dân, thợ thủ công).", "Tầng lớp chủ nô đồn điền."], correct: 2, explain: "Tư sản là lực lượng lãnh đạo, nhưng quần chúng nhân dân là động lực chính đông đảo và quyết định tiến trình thắng lợi của cách mạng." },
+      { id: 4, lesson: 1, question: "Vấn đề nào sau đây thuộc về nhiệm vụ dân tộc của một cuộc cách mạng tư sản?", options: ["Xóa bỏ chế độ đẳng cấp phong kiến.", "Thống nhất thị trường dân tộc và giải phóng dân tộc.", "Đòi các quyền tự do ngôn luận, tự do hội họp.", "Chia ruộng đất cho giai cấp nông dân cày cấy."], correct: 1, explain: "Nhiệm vụ dân tộc gồm xóa bỏ tình trạng cát cứ phong kiến, thống nhất thị trường dân tộc hoặc đánh đuổi thực dân giành độc lập." },
+      { id: 5, lesson: 1, question: "Trước khi bùng nổ Cách mạng năm 1789, xã hội nước Pháp bị phân chia thành ba đẳng cấp là", options: ["Tư sản, Nông dân và Bình dân thành thị.", "Tăng lữ, Quý tộc và Đẳng cấp thứ ba.", "Quý tộc mới, Tư sản và Vô sản.", "Địa chủ, Nông dân và Thợ thủ công."], correct: 1, explain: "3 đẳng cấp: Tăng lữ (Đẳng cấp 1), Quý tộc (Đẳng cấp 2) hưởng mọi đặc quyền; Đẳng cấp thứ ba (Tư sản, nông dân, bình dân) chịu mọi thứ thuế nhưng không có quyền chính trị." },
+      { id: 6, lesson: 1, question: "Vì sao Cách mạng tư sản Pháp cuối thế kỉ XVIII được đánh giá là cuộc cách mạng tư sản triệt để nhất thời cận đại?", options: ["Đã thiết lập được chế độ quân chủ lập hiến đầu tiên trên thế giới.", "Lật đổ hoàn toàn phong kiến, thiết lập nền cộng hòa, giải quyết ruộng đất cho nông dân.", "Không để xảy ra bất kì sự đổ máu nào trong suốt tiến trình cách mạng.", "Đã xóa bỏ hoàn toàn chế độ tư hữu tư bản chủ nghĩa."], correct: 1, explain: "Cách mạng Pháp lật đổ hoàn toàn chế độ phong kiến, giải quyết ruộng đất cho nông dân, thiết lập nền cộng hòa dân chủ (đặc biệt dưới thời phái Giacôbanh)." },
+      { id: 7, lesson: 1, question: "Hệ tư tưởng tôn giáo nào được giai cấp tư sản Anh sử dụng làm vũ khí tư tưởng chống lại chế độ phong kiến thế kỉ XVII?", options: ["Thanh giáo (Calvinism cải cách).", "Ki-tô giáo chính thống.", "Đạo Hồi Sunni.", "Phật giáo Đại thừa."], correct: 0, explain: "Tư sản và quý tộc mới ở Anh dùng Thanh giáo (tôn giáo trong sạch, cải cách từ đạo Tin Lành) để chống lại Anh giáo phong kiến." },
+      { id: 8, lesson: 1, question: "Văn kiện nào của cuộc Chiến tranh giành độc lập 13 thuộc địa Anh ở Bắc Mỹ đã khẳng định quyền bình đẳng và quyền sống của con người?", options: ["Tuyên ngôn Nhân quyền và Dân quyền (1789).", "Tuyên ngôn Độc lập (1776).", "Hiến pháp Hợp chúng quốc Mỹ năm 1787.", "Sắc lệnh Ruộng đất (1917)."], correct: 1, explain: "Tuyên ngôn Độc lập nước Mỹ do Thomas Jefferson khởi thảo (công bố 4/7/1776) khẳng định quyền tự do, bình đẳng và mưu cầu hạnh phúc." },
+      { id: 9, lesson: 1, question: "Ai là tác giả của thuyết 'Tam quyền phân lập' (Lập pháp, Hành pháp, Tư pháp) trong trào lưu Triết học Ánh sáng Pháp?", options: ["Vôn-te (Voltaire).", "Mông-te-xki-ơ (Montesquieu).", "Rút-xô (Rousseau).", "Đi-đơ-rô (Diderot)."], correct: 1, explain: "Mông-te-xki-ơ (Montesquieu) trong tác phẩm 'Tinh thần pháp luật' đã đề xướng học thuyết phân chia 3 quyền lập pháp, hành pháp và tư pháp để chống chuyên chế độc đoán." },
+      { id: 10, lesson: 1, question: "Sự kiện nào sau đây được coi là ngòi nổ trực tiếp làm bùng nổ Chiến tranh giành độc lập của 13 thuộc địa Anh ở Bắc Mỹ?", options: ["Đại hội lục địa lần thứ nhất được triệu tập.", "Sự kiện chè Bô-xtơn (Boston Tea Party) năm 1773.", "Sự kiện tấn công pháo đài - nhà tù Ba-xti.", "Vua Sác-lơ I triệu tập Quốc hội Anh đòi tăng thuế."], correct: 1, explain: "Tháng 12/1773, nhân dân Bô-xtơn cải trang thành thổ dân da đỏ tấn công 3 tàu chở chè của Anh, đổ 342 thùng chè xuống biển, làm bùng lên ngòi nổ chiến tranh." },
+      { id: 11, lesson: 1, question: "Cuộc cách mạng tư sản nào sau đây diễn ra dưới hình thức một cuộc nội chiến giữa Quốc hội và phe Nhà vua?", options: ["Cách mạng tư sản Pháp.", "Cách mạng tư sản Anh.", "Cách mạng tư sản Hà Lan.", "Chiến tranh giành độc lập ở Bắc Mỹ."], correct: 1, explain: "Cách mạng tư sản Anh diễn ra dưới hình thức nội chiến giữa quân đội Quốc hội (do Cromwell lãnh đạo) và phe bảo hoàng của Vua Sác-lơ I." },
+      { id: 12, lesson: 1, question: "Điểm chung về mục tiêu của các cuộc cách mạng tư sản cận đại là", options: ["xóa bỏ chế độ tư hữu, chia đều ruộng đất cho người nghèo.", "lật đổ chế độ phong kiến hoặc ách thống trị thực dân, mở đường cho CNTB phát triển.", "giải phóng hoàn toàn giai cấp vô sản khỏi ách bóc lột của tư bản.", "thiết lập nhà nước chuyên chính vô sản do công nhân lãnh đạo."], correct: 1, explain: "Mọi cuộc cách mạng tư sản đều nhằm thủ tiêu rào cản phong kiến/thực dân để xác lập quyền lực tư sản và mở đường cho kinh tế TBCN." },
+      { id: 13, lesson: 1, question: "Sau thắng lợi của cuộc Cách mạng tư sản thế kỉ XVII, nước Anh đã xác lập thể chế chính trị nào sau đây?", options: ["Cộng hòa liên bang.", "Quân chủ chuyên chế.", "Quân chủ lập hiến.", "Độc tài quân sự phát xít."], correct: 2, explain: "Sau cuộc 'Cách mạng Quang vinh' 1688, nước Anh xác lập thể chế Quân chủ lập hiến (Vua trị vì nhưng không cai trị, quyền lực thực tế thuộc về Quốc hội)." },
+      { id: 14, lesson: 1, question: "Cuộc cách mạng tư sản đầu tiên trên thế giới nổ ra vào thế kỉ XVI là", options: ["Cách mạng tư sản Anh.", "Cách mạng Nê-đéc-lan (Hà Lan).", "Cách mạng tư sản Pháp.", "Chiến tranh giành độc lập 13 thuộc địa Bắc Mỹ."], correct: 1, explain: "Cuộc đấu tranh giải phóng dân tộc lật đổ ách thống trị của phong kiến Tây Ban Nha ở Nê-đéc-lan (thế kỉ XVI) được coi là cuộc cách mạng tư sản đầu tiên." },
+      { id: 15, lesson: 1, question: "Hiện tượng 'Cừu ăn thịt người' mà nhà văn Thomas More mô tả ở nước Anh thời cận đại gắn liền với sự kiện kinh tế nào?", options: ["Phong trào rào đất cướp ruộng của quý tộc mới.", "Dịch bệnh làm cừu nổi loạn cắn phá mùa màng.", "Sự phá sản của các công xưởng dệt len dạ.", "Chính sách cấm chăn nuôi của Hoàng gia Anh."], correct: 0, explain: "Phong trào 'rào đất cướp ruộng' lấy đất nuôi cừu lấy lông bán cho các xưởng dệt khiến nông dân Anh mất hết ruộng đất, biến thành thợ làm thuê." },
+      { id: 16, lesson: 1, question: "Trong cuộc Chiến tranh giành độc lập ở Bắc Mỹ, lực lượng nào sau đây đã liên minh với giai cấp tư sản để lãnh đạo cuộc chiến?", options: ["Tầng lớp Quý tộc mới.", "Tầng lớp Chủ nô ở miền Nam.", "Giai cấp vô sản công nghiệp.", "Giai cấp nông dân tự do."], correct: 1, explain: "Ở Bắc Mỹ, tư sản công thương nghiệp miền Bắc liên minh chặt chẽ với tầng lớp chủ nô đồn điền ở miền Nam để lãnh đạo cách mạng (George Washington là một chủ nô)." },
+      { id: 17, lesson: 1, question: "Sự kiện nào đánh dấu đỉnh cao của Cách mạng tư sản Pháp thế kỉ XVIII?", options: ["Phá ngục Ba-xti ngày 14/7/1789.", "Xử tử vua Lu-i XVI năm 1793.", "Chính quyền Giacôbanh do Rô-be-spie đứng đầu được thành lập (1793 - 1794).", "Cuộc đảo chính của Na-pô-lê-ông năm 1799."], correct: 2, explain: "Nền chuyên chính Giacôbanh (1793-1794) do Rô-be-spie đứng đầu là giai đoạn đỉnh cao với các biện pháp dân chủ triệt để, chia ruộng đất cho nông dân và dẹp thù trong giặc ngoài." },
+      { id: 18, lesson: 1, question: "Một trong những hạn chế lớn nhất của bản Tuyên ngôn Độc lập Mỹ (1776) và Hiến pháp Mỹ (1787) là", options: ["không thừa nhận quyền tư hữu tài sản cá nhân.", "không xóa bỏ chế độ nô lệ da đen và không cho phụ nữ quyền bầu cử.", "tiếp tục thần phục vương quyền của Quốc vương Anh.", "không thành lập được chính quyền liên bang thống nhất."], correct: 1, explain: "Hiến pháp Mỹ 1787 duy trì chế độ bóc lột nô lệ tàn bạo đối với người da đen ở miền Nam và tước đoạt quyền chính trị của phụ nữ, thổ dân da đỏ." },
+      { id: 19, lesson: 1, question: "Cơ quan quyền lực nào ở nước Anh thời cận đại đại diện cho quyền lợi của giai cấp tư sản và quý tộc mới?", options: ["Hội đồng Cơ mật Hoàng gia.", "Quốc hội (Nghị viện).", "Giáo hội Anh giáo.", "Tòa án Tối cao quân đội."], correct: 1, explain: "Quốc hội Anh gồm Viện Thứ dân đại diện cho tư sản, quý tộc mới; đối lập với quyền chuyên chế độc đoán của nhà vua." },
+      { id: 20, lesson: 1, question: "Tư tưởng nào của Jean-Jacques Rousseau đã ảnh hưởng sâu sắc đến tư tưởng dân chủ của Cách mạng Pháp?", options: ["Thuyết 'Bàn tay vô hình'.", "Thuyết 'Khế ước xã hội'.", "Thuyết 'Vô chính phủ'.", "Thuyết 'Định mệnh tôn giáo'."], correct: 1, explain: "Rousseau nổi tiếng với tác phẩm 'Khế ước xã hội' (Du contrat social), khẳng định chủ quyền tối cao thuộc về nhân dân, nếu chính quyền vi phạm thì nhân dân có quyền lật đổ." },
+      { id: 21, lesson: 1, question: "Nhiệm vụ dân tộc và nhiệm vụ dân chủ trong các cuộc cách mạng tư sản có mối quan hệ như thế nào?", options: ["Hoàn toàn độc lập và tách rời, không ảnh hưởng đến nhau.", "Gắn bó mật thiết, tác động qua lại nhằm mở đường cho CNTB phát triển.", "Nhiệm vụ dân chủ luôn phải hoàn thành trước nhiệm vụ dân tộc hàng thế kỷ.", "Cách mạng tư sản chỉ thực hiện nhiệm vụ dân tộc, không có nhiệm vụ dân chủ."], correct: 1, explain: "Nhiệm vụ dân tộc (thống nhất, độc lập) và dân chủ (xóa bỏ đẳng cấp, ruộng đất, tự do) đan xen và bổ trợ nhau để giải phóng sức sản xuất của CNTB." },
+      { id: 22, lesson: 1, question: "Ngày 14/7/1789, nhân dân Pa-ri tấn công pháo đài - nhà tù Ba-xti mang ý nghĩa lịch sử gì?", options: ["Đánh dấu cách mạng tư sản Pháp bắt đầu bùng nổ.", "Đánh dấu sự kết thúc của cách mạng Pháp.", "Thiết lập nền độc tài quân sự của Na-pô-lê-ông.", "Hoàn thành việc chia ruộng đất cho người nghèo."], correct: 0, explain: "Nhà tù Ba-xti là biểu tượng kiên cố của chế độ quân chủ chuyên chế Pháp. Đập tan pháo đài này mở đầu cho sự bùng nổ của Cách mạng Pháp (ngày Quốc khánh Pháp)." },
+
+      // Bài 2
+      { id: 23, lesson: 2, question: "Chủ nghĩa tư bản chính thức được xác lập trên phạm vi toàn cầu vào khoảng thời gian nào?", options: ["Cuối thế kỉ XVII.", "Cuối thế kỉ XVIII.", "Cuối thế kỉ XIX.", "Sau Chiến tranh thế giới thứ hai (1945)."], correct: 2, explain: "Đến cuối thế kỉ XIX, sau khi cách mạng công nghiệp hoàn thành ở các nước phát triển, CNTB đã thắng thế hoàn toàn phong kiến trên phạm vi toàn cầu." },
+      { id: 24, lesson: 2, question: "Yếu tố trực tiếp thúc đẩy sự chuyển biến của chủ nghĩa tư bản từ giai đoạn tự do cạnh tranh sang giai đoạn độc quyền là", options: ["cuộc khủng hoảng kinh tế 1929 - 1933.", "tác động của Cách mạng công nghiệp lần thứ hai làm xuất hiện các tổ chức độc quyền.", "sự bùng nổ của phong trào công nhân quốc tế.", "sự sụp đổ của hệ thống thuộc địa phong kiến."], correct: 1, explain: "Các phát minh KH-KT trong CMCN lần thứ hai đòi hỏi nguồn vốn khổng lồ, thúc đẩy quá trình tích tụ và tập trung sản xuất, hình thành các tổ chức độc quyền." },
+      { id: 25, lesson: 2, question: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Anh vào cuối thế kỉ XIX - đầu thế kỉ XX là", options: ["Chủ nghĩa đế quốc cho vay lãi.", "Chủ nghĩa đế quốc quân phiệt, hiếu chiến.", "Chủ nghĩa đế quốc thực dân với hệ thống thuộc địa rộng lớn nhất.", "Chủ nghĩa đế quốc gắn liền với chế độ nô lệ đồn điền."], correct: 2, explain: "Đế quốc Anh sở hữu hệ thống thuộc địa trải khắp toàn cầu, chiếm 1/4 diện tích và 1/4 dân số thế giới ('Mặt trời không bao giờ lặn')." },
+      { id: 26, lesson: 2, question: "Vì sao Chủ nghĩa đế quốc Pháp cuối thế kỉ XIX - đầu thế kỉ XX được gọi là 'Chủ nghĩa đế quốc cho vay lãi'?", options: ["Vì Pháp chỉ mở ngân hàng trong nước, không đầu tư công nghiệp.", "Pháp xuất khẩu tư bản phần lớn dưới hình thức cho vay lấy lãi cao, đặc biệt cho Nga vay.", "Pháp hoàn toàn không có thuộc địa ở châu Á và châu Phi.", "Pháp là trung tâm tài chính duy nhất in tiền đô la cho thế giới."], correct: 1, explain: "2/3 số tư bản xuất khẩu của Pháp dùng để cho chính phủ và các công ty nước ngoài (chủ yếu là Nga, Thổ Nhĩ Kỳ, Mỹ Latinh) vay lấy lãi suất kếch xù." },
+      { id: 27, lesson: 2, question: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Đức vào cuối thế kỉ XIX - đầu thế kỉ XX là gì?", options: ["Chủ nghĩa đế quốc cho vay lãi.", "Chủ nghĩa đế quốc thực dân.", "Chủ nghĩa đế quốc quân phiệt, hiếu chiến.", "Chủ nghĩa đế quốc dung hòa, yêu chuộng hòa bình."], correct: 2, explain: "Đức là chủ nghĩa đế quốc 'quân phiệt, hiếu chiến' vì giai cấp quý tộc quân phiệt Phổ lãnh đạo, kinh tế phát triển nhanh nhưng ít thuộc địa nên hung hăng đòi chia lại thế giới." },
+      { id: 28, lesson: 2, question: "Ở Mỹ cuối thế kỉ XIX - đầu thế kỉ XX, các tổ chức độc quyền khổng lồ thường được gọi là gì?", options: ["Cácten (Cartel).", "Xanhđica (Syndicate).", "Tơrớt (Trust).", "Cộng đồng kinh tế."], correct: 2, explain: "Ở Mỹ hình thành các Tơrớt (Trust) khổng lồ thống trị các ngành kinh tế trọng yếu như Vua dầu mỏ (Rockefeller), Vua thép (Morgan)." },
+      { id: 29, lesson: 2, question: "Một trong 5 đặc trưng cơ bản của chủ nghĩa đế quốc do V.I. Lênin khái quát là", options: ["chỉ xuất khẩu hàng hóa, nghiêm cấm xuất khẩu tư bản.", "sự hình thành tư bản tài chính và tầng lớp đầu sỏ tài chính.", "kinh tế vận hành hoàn toàn theo kế hoạch hóa nhà nước.", "xóa bỏ mọi hình thức cạnh tranh trên thị trường."], correct: 1, explain: "Sự thâm nhập lẫn nhau giữa tư bản ngân hàng và tư bản công nghiệp hình thành nên 'tư bản tài chính' và bọn 'đầu sỏ tài chính' thâu tóm kinh tế lẫn chính trị." },
+      { id: 30, lesson: 2, question: "Điểm khác biệt cơ bản giữa 'Xuất khẩu hàng hóa' và 'Xuất khẩu tư bản' là", options: ["xuất khẩu tư bản là đưa vốn ra nước ngoài để bóc lột nhân công và thu lợi nhuận cao.", "xuất khẩu hàng hóa mang lại lợi nhuận cao hơn xuất khẩu tư bản gấp nhiều lần.", "xuất khẩu tư bản chỉ xuất hiện trong thời kỳ tự do cạnh tranh thời cận đại.", "xuất khẩu tư bản không cần thông qua các ngân hàng tài chính."], correct: 0, explain: "Xuất khẩu tư bản là mang vốn đầu tư trực tiếp (mở nhà máy, đồn điền) hoặc gián tiếp (cho vay lãi) ở nước ngoài nhằm thu siêu lợi nhuận từ lao động rẻ mạt." },
+      { id: 31, lesson: 2, question: "Khái niệm 'Chủ nghĩa tư bản hiện đại' dùng để chỉ giai đoạn phát triển nào của chủ nghĩa tư bản?", options: ["Từ giữa thế kỉ XVI đến giữa thế kỉ XVIII.", "Từ cuối thế kỉ XIX đến trước năm 1914.", "Từ sau Chiến tranh thế giới thứ hai (1945) đến nay.", "Từ sau khi trật tự hai cực I-an-ta tan rã (1991) đến nay."], correct: 2, explain: "CNTB hiện đại là khái niệm chỉ chủ nghĩa tư bản từ sau Chiến tranh thế giới thứ hai (1945) đến nay với sự phát triển vượt bậc của KH-CN và vai trò điều tiết của nhà nước." },
+      { id: 32, lesson: 2, question: "Bản chất của Chủ nghĩa tư bản độc quyền nhà nước trong CNTB hiện đại là gì?", options: ["Nhà nước xóa bỏ quyền lực của các tập đoàn tư bản tư nhân.", "Sự kết hợp giữa tư bản độc quyền tư nhân và nhà nước tư sản để phục vụ lợi ích tư bản.", "Nhà nước tư sản giao toàn bộ quyền điều hành đất nước cho công đoàn lao động.", "Kinh tế thị trường tự do hoàn toàn không có bất kì sự kiểm soát nào."], correct: 1, explain: "Độc quyền nhà nước là sự dung hợp sức mạnh của các tổ chức độc quyền tư nhân với bộ máy nhà nước tư sản nhằm duy trì địa vị thống trị và cứu vãn khủng hoảng." },
+      { id: 33, lesson: 2, question: "Một trong những thay đổi lớn về cơ cấu lao động trong thời kì Chủ nghĩa tư bản hiện đại là", options: ["tỉ lệ lao động chân tay giản đơn ngày càng tăng cao.", "tỉ lệ lao động trí thức, lao động trong ngành dịch vụ và công nghệ tăng nhanh.", "lao động nông nghiệp chiếm trên 80% lực lượng lao động xã hội.", "hoàn toàn không còn phụ nữ tham gia lực lượng lao động."], correct: 1, explain: "Dưới tác động của Cách mạng KH-CN, cơ cấu lao động chuyển dịch mạnh từ sản xuất vật chất sang dịch vụ và các ngành nghề tri thức công nghệ cao." },
+      { id: 34, lesson: 2, question: "Tiềm năng nổi bật nhất giúp Chủ nghĩa tư bản hiện đại tiếp tục phát triển là", options: ["khả năng độc quyền tuyệt đối toàn bộ tài nguyên thiên nhiên thế giới.", "trình độ khoa học – công nghệ cao, nguồn vốn lớn và kinh nghiệm quản trị kinh tế.", "đã xóa bỏ được mâu thuẫn đối kháng giữa người giàu và người nghèo.", "sự biến mất hoàn toàn của các cuộc khủng hoảng kinh tế chu kỳ."], correct: 1, explain: "Tiềm năng của CNTB hiện đại nằm ở cơ sở vật chất - kĩ thuật tiên tiến, khả năng dẫn dắt đổi mới sáng tạo KH-CN và kinh nghiệm điều hành kinh tế thị trường." },
+      { id: 35, lesson: 2, question: "Mâu thuẫn cơ bản, sâu sắc nhất trong lòng xã hội của Chủ nghĩa tư bản hiện đại là", options: ["mâu thuẫn giữa các quốc gia phong kiến với các nước công nghiệp phát triển.", "mâu thuẫn giữa tính chất xã hội hóa cao của lực lượng sản xuất với chế độ chiếm hữu tư nhân TBCN.", "mâu thuẫn về tôn giáo giữa Công giáo và Tin lành.", "mâu thuẫn tranh giành tài nguyên Mặt Trăng giữa các siêu cường."], correct: 1, explain: "Đây là mâu thuẫn kinh tế cơ bản của CNTB: Lực lượng sản xuất mang tính xã hội hóa toàn cầu nhưng tư liệu sản xuất lại thuộc về một nhóm thiểu số tư bản độc quyền." },
+      { id: 36, lesson: 2, question: "Sự kiện nào ở nước Mỹ (1861 - 1865) đã mở đường cho CNTB ở Mỹ phát triển mạnh mẽ?", options: ["Chiến tranh giành độc lập của 13 bang thuộc địa.", "Cuộc Nội chiến giữa miền Bắc (tư bản) và miền Nam (chủ nô).", "Cuộc khủng hoảng kinh tế thừa 1929 - 1933.", "Việc ban hành Đạo luật cấm độc quyền Sherman."], correct: 1, explain: "Nội chiến Mỹ (1861-1865) kết thúc với thắng lợi của miền Bắc dưới sự lãnh đạo của Abraham Lincoln, xóa bỏ chế độ nô lệ, thống nhất thị trường dân tộc." },
+      { id: 37, lesson: 2, question: "Cuộc Duy tân Minh Trị ở Nhật Bản (1868) mang tính chất của một cuộc", options: ["cách mạng vô sản.", "cách mạng tư sản không triệt để.", "cuộc khởi nghĩa nông dân chống phong kiến.", "cuộc chiến tranh tôn giáo giải phóng dân tộc."], correct: 1, explain: "Minh Trị duy tân do Thiên hoàng Minh Trị tiến hành đã xóa bỏ chế độ Mạc phủ, cải cách theo lối phương Tây, mở đường cho CNTB phát triển (mang tính CMTS không triệt để)." },
+      { id: 38, lesson: 2, question: "Quá trình thống nhất nước Đức vào những năm 70 của thế kỉ XIX được thực hiện bằng con đường", options: ["tổng tuyển cử dân chủ hòa bình dưới sự giám sát của quốc tế.", "khởi nghĩa của giai cấp công nhân và nông dân Đức.", "'Sắt và máu' (chiến tranh quân sự) do quý tộc quân phiệt Phổ lãnh đạo.", "thương lượng ngoại giao với Đế quốc Nga."], correct: 2, explain: "Thủ tướng Phổ Ôt-tô von Bix-mác (Bismarck) chủ trương thống nhất nước Đức bằng chính sách 'sắt và máu' thông qua 3 cuộc chiến tranh với Đan Mạch, Áo và Pháp." },
+      { id: 39, lesson: 2, question: "Hậu quả nghiêm trọng nhất từ sự phân chia thuộc địa không đều giữa các nước đế quốc cuối thế kỉ XIX là", options: ["sự bùng nổ của các cuộc chiến tranh đế quốc nhằm chia lại thị trường (tiêu biểu là CTTG I).", "các nước đế quốc tự nguyện trao trả độc lập cho thuộc địa.", "sự hình thành các tổ chức từ thiện bảo vệ quyền con người.", "kinh tế toàn cầu đình trệ hoàn toàn không phát triển được."], correct: 0, explain: "Mâu thuẫn giữa các nước đế quốc già (nhiều thuộc địa như Anh, Pháp) và đế quốc trẻ (ít thuộc địa nhưng kinh tế phát triển nhanh như Đức, Mỹ) đã dẫn tới CTTG I (1914-1918)." },
+      { id: 40, lesson: 2, question: "Trong giai đoạn CNTB hiện đại, sự xuất hiện của các công ty xuyên quốc gia (TNCs) chứng minh cho xu thế nào?", options: ["Xu thế đóng cửa tự cung tự cấp của các quốc gia tư bản.", "Xu thế quốc tế hóa và toàn cầu hóa kinh tế sâu sắc.", "Sự sụp đổ của hệ thống ngân hàng thương mại quốc tế.", "Sự từ bỏ thị trường nước ngoài của các cường quốc tư bản."], correct: 1, explain: "Các công ty xuyên quốc gia điều hành sản xuất, kinh doanh trên phạm vi đa quốc gia, là biểu hiện sống động của xu thế toàn cầu hóa kinh tế." },
+      { id: 41, lesson: 2, question: "Cải cách nông nô ở Nga năm 1861 do Sa hoàng A-lếch-xan-đơ II ban hành có ý nghĩa gì đối với sự phát triển của CNTB?", options: ["Giải phóng nông nô, cung cấp nguồn nhân công tự do dồi dào cho sản xuất TBCN.", "Thiết lập nhà nước Xô viết công nông đầu tiên ở châu Âu.", "Xóa bỏ hoàn toàn quyền sở hữu ruộng đất của địa chủ quý tộc phong kiến.", "Đưa nước Nga trở thành nước tư bản công nghiệp số 1 thế giới."], correct: 0, explain: "Cải cách 1861 tuyên bố nông nô được tự do thân thể, tạo nguồn nhân lực làm thuê khổng lồ chảy vào các nhà máy, mở đường cho CNTB Nga phát triển." },
+      { id: 42, lesson: 2, question: "Phong trào 'Chiếm lấy phố Wall' (Occupy Wall Street) ở Mỹ năm 2011 với khẩu hiệu 'Chúng tôi là 99%' phản ánh thách thức nào của CNTB hiện đại?", options: ["Thiếu hụt nguồn lao động có tay nghề cao trong ngành công nghệ.", "Sự phân hóa giàu nghèo sâu sắc và bất bình đẳng kinh tế nghiêm trọng.", "Sự sụp đổ của hệ thống an ninh mạng quốc gia.", "Chính sách cấm đoán đầu tư nước ngoài của chính phủ Mỹ."], correct: 1, explain: "Khẩu hiệu 'Chúng tôi là 99%' phản ánh sự bất bình của 99% người dân trước việc 1% giới tài phiệt độc quyền kiểm soát phần lớn tài sản của quốc gia." },
+
+      // Bài 3
+      { id: 43, lesson: 3, question: "Liên bang Cộng hoà xã hội chủ nghĩa Xô viết (Liên Xô) được thành lập trên cơ sở sự kiện nào?", options: ["Cách mạng tháng Hai năm 1917 thắng lợi.", "Cách mạng tháng Mười Nga năm 1917 thắng lợi.", "Đại hội lần thứ X các Xô viết toàn Nga (30/12/1922).", "Bản Hiến pháp đầu tiên của Liên Xô được thông qua năm 1924."], correct: 2, explain: "Ngày 30/12/1922, Đại hội X các Xô viết toàn Nga đã thông qua Bản Tuyên bố thành lập Liên bang CHXHCN Xô viết và Hiệp ước Liên bang." },
+      { id: 44, lesson: 3, question: "Bốn nước Cộng hoà Xô viết đầu tiên tự nguyện gia nhập Liên bang Xô viết vào năm 1922 gồm có:", options: ["Nga, U-crai-na, Bê-lô-rút-xi-a và Ngoại Cáp-ca-dơ.", "Nga, Ba Lan, U-crai-na và Mông Cổ.", "Nga, Tiệp Khắc, Bun-ga-ri và Bê-lô-rút-xi-a.", "Nga, Ca-dắc-xtan, U-dơ-bê-ki-xtan và Ngoại Cáp-ca-dơ."], correct: 0, explain: "4 nước ban đầu: CHLB Xô viết Nga, U-crai-na, Bê-lô-rút-xi-a và CHLB Ngoại Cáp-ca-dơ (gồm Armenia, Azerbaijan, Gruzia)." },
+      { id: 45, lesson: 3, question: "Cộng hòa Liên bang Xô viết Ngoại Cáp-ca-dơ (gia nhập Liên Xô năm 1922) gồm ba nước nào?", options: ["Ác-mê-ni-a, A-déc-bai-gian và Gioóc-ghi-a (Gru-di-a).", "Lát-vi-a, Lít-va và E-xtô-ni-a.", "Ca-dắc-xtan, Kư-rơ-gư-xtan và Tát-gi-ki-xtan.", "Ba Lan, Hung-ga-ri và Ru-ma-ni."], correct: 0, explain: "CHLB Xô viết Ngoại Cáp-ca-dơ hình thành từ sự liên kết của 3 nước thuộc vùng núi Cáp-ca-dơ: Ác-mê-ni-a, A-déc-bai-gian và Gioóc-ghi-a." },
+      { id: 46, lesson: 3, question: "Quá trình thành lập Nhà nước Liên bang Xô viết chính thức hoàn thành khi nào?", options: ["Cách mạng tháng Mười Nga vừa nổ ra thành công năm 1917.", "Khi đánh bại hoàn toàn cuộc can thiệp vũ trang của 14 nước đế quốc năm 1920.", "Bản Hiến pháp đầu tiên của Liên Xô được thông qua vào tháng 1/1924.", "Khi V.I. Lênin qua đời vào đầu năm 1924."], correct: 2, explain: "Tháng 1/1924, Đại hội Xô viết toàn Liên bang lần thứ hai đã thông qua bản Hiến pháp đầu tiên, hoàn thiện cơ cấu tổ chức nhà nước Liên bang Xô viết." },
+      { id: 47, lesson: 3, question: "Nguyên tắc cơ bản hàng đầu trong việc thành lập Liên bang Cộng hòa xã hội chủ nghĩa Xô viết là gì?", options: ["Bắt buộc dùng vũ lực sáp nhập toàn bộ lãnh thổ cũ của Sa hoàng.", "Sự tự nguyện, bình đẳng và tương trợ lẫn nhau giữa các dân tộc.", "Trao quyền cai trị tuyệt đối cho người dân tộc Nga trên toàn lãnh thổ.", "Chỉ liên minh phòng thủ quân sự, không hỗ trợ về mặt kinh tế."], correct: 1, explain: "V.I. Lênin nhấn mạnh Liên bang phải được xây dựng dựa trên sự tự nguyện, bình đẳng, không dân tộc nào có đặc quyền, cùng đoàn kết xây dựng CNXH." },
+      { id: 48, lesson: 3, question: "Đối với công cuộc xây dựng đất nước của Liên Xô, sự hình thành Liên bang có ý nghĩa to lớn nào sau đây?", options: ["Tạo ra sức mạnh tổng hợp to lớn để phục hồi kinh tế, thực hiện công nghiệp hóa và bảo vệ đất nước.", "Lập tức giúp Liên Xô vượt qua Mỹ để trở thành cường quốc kinh tế số 1 thế giới.", "Cho phép Liên Xô xóa bỏ quân đội thường trực.", "Giúp Liên Xô gia nhập các tổ chức kinh tế của các nước phương Tây."], correct: 0, explain: "Việc liên kết các nước cộng hòa đã tập hợp nguồn lực tài nguyên, nhân lực để Liên Xô hoàn thành công nghiệp hóa xã hội chủ nghĩa và chiến thắng phát xít." },
+      { id: 49, lesson: 3, question: "Tính đến năm 1940, Liên bang Cộng hoà xã hội chủ nghĩa Xô viết gồm có bao nhiêu nước cộng hoà thành viên?", options: ["4 nước.", "11 nước.", "15 nước.", "20 nước."], correct: 2, explain: "Từ 4 nước ban đầu năm 1922, qua quá trình phát triển, đến năm 1940 Liên bang Xô viết gồm có 15 nước Cộng hòa thành viên." },
+      { id: 50, lesson: 3, question: "Chính sách kinh tế nào được Lênin đề xướng vào tháng 3/1921 nhằm giúp nước Nga phục hồi kinh tế sau nội chiến?", options: ["Chính sách Cộng sản thời chiến.", "Chính sách Kinh tế mới (NEP).", "Kế hoạch 5 năm phát triển kinh tế quốc dân.", "Chính sách 'Cải tổ' (Perestroika)."], correct: 1, explain: "Tháng 3/1921, Đại hội X Đảng Bôn-sê-vích thông qua NEP, bãi bỏ chế độ trưng thu lương thực thừa, thay bằng thuế lương thực, mở rộng buôn bán tự do." },
+      { id: 51, lesson: 3, question: "Lãnh tụ thiên tài có công lao to lớn nhất trong việc sáng lập ra Nhà nước Xô viết và Liên bang Xô viết là ai?", options: ["I.V. Xta-lin (Stalin).", "V.I. Lê-nin (Lenin).", "M. Goóc-ba-chốp (Gorbachev).", "N. Khơ-rút-xốp (Khrushchev)."], correct: 1, explain: "V.I. Lê-nin là người lãnh đạo CM Tháng Mười 1917, sáng lập Nhà nước Xô viết đầu tiên và trực tiếp chỉ đạo soạn thảo cương lĩnh thành lập Liên bang Xô viết." },
+      { id: 52, lesson: 3, question: "Tên gọi chính thức bằng tiếng Nga của Liên bang Xô viết viết tắt là gì?", options: ["USA.", "USSR (hoặc CCCP).", "NATO.", "EU."], correct: 1, explain: "Viết tắt tiếng Nga là CCCP (Союз Советских Социалистических Республик), tiếng Anh là USSR (Union of Soviet Socialist Republics)." },
+      { id: 53, lesson: 3, question: "Đối với phong trào giải phóng dân tộc ở các nước thuộc địa, sự ra đời của Liên Xô có ý nghĩa nào sau đây?", options: ["Chứng minh tính đúng đắn của chủ nghĩa Mác - Lênin và là nguồn cổ vũ, ủng hộ to lớn.", "Buộc các nước thực dân châu Âu phải lập tức giải tán hệ thống thuộc địa.", "Cung cấp quyền bảo hộ hạt nhân tuyệt đối cho mọi phong trào giải phóng dân tộc.", "Đưa tất cả các nước thuộc địa trở thành thành viên của Liên bang Xô viết."], correct: 0, explain: "Sự ra đời của Liên bang Xô viết chứng minh con đường tự giải phóng theo CN Mác - Lênin là hiện thực, trở thành chỗ dựa tinh thần và vật chất cho các dân tộc bị áp bức." },
+      { id: 54, lesson: 3, question: "Bài học quý báu nhất về mặt xây dựng khối đại đoàn kết dân tộc từ sự ra đời của Liên bang Xô viết là gì?", options: ["Phải dùng sức mạnh quân sự áp đảo để đồng hóa các dân tộc thiểu số.", "Phải tôn trọng quyền tự quyết, bình đẳng và tương trợ lẫn nhau giữa các dân tộc.", "Chỉ nên hợp tác về mặt quân sự, không nên trao đổi kinh tế văn hóa.", "Ưu tiên xóa bỏ hoàn toàn bản sắc văn hóa của các dân tộc ít người."], correct: 1, explain: "Bài học lịch sử của Liên Xô là sự tôn trọng bình đẳng, bác bỏ tư tưởng dân tộc lớn (sô-vanh nước lớn), tôn trọng quyền bình đẳng và văn hóa dân tộc." },
+      { id: 55, lesson: 3, question: "Bối cảnh quốc tế nào đòi hỏi các nước cộng hòa Xô viết phải nhanh chóng liên kết chặt chẽ thành một khối thống nhất năm 1922?", options: ["Sự bao vây, cấm vận và đe dọa vũ trang từ các nước đế quốc tư bản phương Tây.", "Sự bùng nổ của cuộc Chiến tranh thế giới thứ hai.", "Mối đe dọa xâm lược từ phe Trục phát xít Đức - Ý - Nhật.", "Yêu cầu thành lập một đồng tiền chung châu Âu."], correct: 0, explain: "Sau nội chiến, các nước đế quốc tư bản vẫn bao vây cấm vận và rắp tâm tiêu diệt nhà nước công nông non trẻ, buộc các nước Xô viết phải liên minh phòng thủ." },
+      { id: 56, lesson: 3, question: "Địa phương nào được chọn làm nơi diễn ra Đại hội lần thứ X các Xô viết toàn Nga thông qua quyết định thành lập Liên bang?", options: ["Thành phố Pê-tơ-rô-grát.", "Thủ đô Mát-xcơ-va (Moskva).", "Thành phố Ki-ép (Kyiv).", "Thành phố Min-xcơ (Minsk)."], correct: 1, explain: "Đại hội lần thứ X các Xô viết toàn Nga diễn ra tại Thủ đô Mát-xcơ-va (Moskva) vào ngày 30/12/1922." },
+      { id: 57, lesson: 3, question: "Đảng nào giữ vai trò lãnh đạo duy nhất và tuyệt đối trong suốt tiến trình thành lập và phát triển của Liên bang Xô viết?", options: ["Đảng Dân chủ Lập hiến (Cadet).", "Đảng Xã hội Cách mạng (Es-ser).", "Đảng Men-sê-vích.", "Đảng Bôn-sê-vích Nga (sau này là Đảng Cộng sản Liên Xô)."], correct: 3, explain: "Đảng Bôn-sê-vích (Đảng Cộng sản) do Lênin đứng đầu là lực lượng chính trị duy nhất lãnh đạo quần chúng làm nên CM Tháng Mười và sáng lập Liên Xô." },
+      { id: 58, lesson: 3, question: "Sau thắng lợi của Cách mạng tháng Mười (1917), tại Nga đã ra đời hai sắc lệnh lịch sử đầu tiên là", options: ["Sắc lệnh Hòa bình và Sắc lệnh Ruộng đất.", "Sắc lệnh Đổi mới và Sắc lệnh Tự do.", "Sắc lệnh Kháng chiến và Sắc lệnh Kiến quốc.", "Sắc lệnh Tổng động viên và Sắc lệnh Thuế lương thực."], correct: 0, explain: "Đại hội Xô viết toàn Nga khóa II họp đêm 25/10/1917 đã thông qua Sắc lệnh Hòa bình (chấm dứt chiến tranh đế quốc) và Sắc lệnh Ruộng đất (chia ruộng cho dân cày)." },
+      { id: 59, lesson: 3, question: "Mô hình nhà nước của Liên bang Xô viết được xây dựng theo thể chế nào sau đây?", options: ["Cộng hòa đại nghị tư sản.", "Cộng hòa Xô viết - nhà nước của giai cấp công nhân và nhân dân lao động.", "Quân chủ lập hiến có Sa hoàng đứng đầu.", "Độc tài quân phiệt tập trung."], correct: 1, explain: "Nhà nước Xô viết là nhà nước kiểu mới, cơ quan quyền lực cao nhất là các Xô viết đại biểu của công nhân, nông dân và binh lính." },
+      { id: 60, lesson: 3, question: "Trong quá trình xây dựng CNXH trước năm 1941, Liên Xô đã đạt được thành tựu công nghiệp nổi bật nào?", options: ["Trở thành cường quốc công nghiệp đứng đầu châu Âu và đứng thứ hai thế giới (sau Mỹ).", "Hoàn toàn chấm dứt sản xuất vũ khí để phục vụ sản xuất tiêu dùng.", "Vượt qua Mỹ về tổng sản lượng công nghiệp xe hơi.", "Trở thành nước xuất khẩu dầu mỏ lớn nhất sang các nước Tây Âu."], correct: 0, explain: "Qua hai kế hoạch 5 năm (1928-1937), Liên Xô đã cơ bản hoàn thành công nghiệp hóa xã hội chủ nghĩa, vươn lên đứng đầu châu Âu và đứng thứ hai thế giới." },
+      { id: 61, lesson: 3, question: "Vấn đề nào sau đây KHÔNG PHẢI là cơ sở dẫn đến sự thành lập Liên bang Xô viết năm 1922?", options: ["Có chung mục tiêu xây dựng CNXH dưới sự lãnh đạo của Đảng Cộng sản.", "Nhu cầu hợp tác kinh tế để khắc phục hậu quả chiến tranh tàn phá nặng nề.", "Nhu cầu liên minh quân sự chống lại sự đe dọa của các thế lực thù địch phương Tây.", "Sự thống trị và áp đặt quyền lực độc đoán của một vị hoàng đế phong kiến."], correct: 3, explain: "Liên Xô thành lập trên tinh thần tự nguyện bình đẳng của các nước cộng hòa công nông, hoàn toàn không có sự thống trị của hoàng đế phong kiến." },
+      { id: 62, lesson: 3, question: "Thắng lợi của Liên Xô trước chủ nghĩa phát xít trong Chiến tranh thế giới thứ hai (1939 - 1945) đã chứng minh", options: ["chủ nghĩa xã hội không cần xây dựng nền quốc phòng vững mạnh.", "tính ưu việt và sức mạnh to lớn của khối đại đoàn kết các dân tộc trong Liên bang Xô viết.", "các nước tư bản phương Tây luôn ủng hộ Liên Xô hết lòng.", "vũ khí hạt nhân là yếu tố duy nhất quyết định mọi thắng lợi chiến tranh."], correct: 1, explain: "Chiến thắng vĩ đại trước phát xít Đức khẳng định sức mạnh chính trị - tinh thần và sự đoàn kết vững chắc của các dân tộc anh em trong mái nhà chung Xô viết." },
+
+      // Bài 4
+      { id: 63, lesson: 4, question: "Sự kiện nào sau đây đánh dấu chủ nghĩa xã hội đã vượt ra khỏi phạm vi một nước (Liên Xô) để trở thành một hệ thống thế giới?", options: ["Nước Việt Nam Dân chủ Cộng hòa ra đời năm 1945.", "Sự ra đời của các nước Dân chủ nhân dân Đông Âu và bước vào xây dựng CNXH (1949).", "Thắng lợi của Cách mạng Cuba năm 1959.", "Nước Cộng hòa Dân chủ Nhân dân Triều Tiên thành lập năm 1948."], correct: 1, explain: "Từ năm 1949, khi các nước dân chủ nhân dân Đông Âu hoàn thành cải cách dân chủ và tiến hành xây dựng CNXH, CNXH đã trở thành hệ thống thế giới." },
+      { id: 64, lesson: 4, question: "Sự kiện ngày 01/10/1949 tại Trung Quốc có ý nghĩa quan trọng nào sau đây đối với hệ thống XHCN thế giới?", options: ["Làm cho chủ nghĩa xã hội mở rộng và nối liền một dải từ lục địa Âu sang Á.", "Đánh dấu sự sụp đổ hoàn toàn của chủ nghĩa thực dân mới trên toàn thế giới.", "Đưa Trung Quốc trở thành nền kinh tế lớn thứ hai thế giới ngay trong năm 1949.", "Mở đầu công cuộc cải cách - mở cửa hiện đại hóa Trung Quốc."], correct: 0, explain: "Nước CHND Trung Hoa ra đời (1/10/1949) nối liền CNXH từ Trung - Đông Âu sang tận bờ Thái Bình Dương, làm thay đổi sâu sắc tương quan lực lượng toàn cầu." },
+      { id: 65, lesson: 4, question: "Quốc gia nào sau đây được mệnh danh là 'Lá cờ đầu', tiền đồn của chủ nghĩa xã hội ở khu vực Tây bán cầu?", options: ["Chi-lê.", "Cu-ba.", "Vê-nê-du-ê-la.", "Ngoại Mông Cổ."], correct: 1, explain: "Cách mạng Cuba thành công (1959) và tuyên bố tiến lên CNXH năm 1961 ngay sát nách đế quốc Mỹ, trở thành 'ngọn hải đăng', tiền đồn CNXH ở Tây bán cầu." },
+      { id: 66, lesson: 4, question: "Sự kiện nào sau đây đánh dấu sự sụp đổ hoàn toàn của chế độ xã hội chủ nghĩa ở Liên Xô sau 74 năm tồn tại?", options: ["Bức tường Béc-lin sụp đổ năm 1989.", "M. Goóc-ba-chốp lên nắm quyền Tổng Bí thư Đảng năm 1985.", "Goóc-ba-chốp từ chức Tổng thống và cờ búa liềm trên nóc điện Crem-li bị hạ xuống (25/12/1991).", "Hiệp ước Vác-sa-va chính thức giải thể vào tháng 7/1991."], correct: 2, explain: "Tối 25/12/1991, M. Goóc-ba-chốp tuyên bố từ chức Tổng thống Liên Xô, lá cờ búa liềm Liên bang Xô viết bị hạ xuống, đánh dấu Liên Xô chấm dứt tồn tại." },
+      { id: 67, lesson: 4, question: "Nguyên nhân sâu xa và mang tính quyết định dẫn đến sự khủng hoảng và sụp đổ của CNXH ở Liên Xô và Đông Âu là", options: ["sự cạn kiệt toàn diện về các nguồn tài nguyên khoáng sản trong nước.", "duy trì quá lâu mô hình kinh tế kế hoạch hóa tập trung quan liêu bao cấp, đường lối lãnh đạo chủ quan duy ý chí.", "sự cạnh tranh kinh tế thương mại từ các nền kinh tế mới nổi ở châu Á.", "Liên Xô hoàn toàn thất bại trong việc chế tạo vũ khí công nghệ cao."], correct: 1, explain: "Nguyên nhân chủ quan (duy trì mô hình tập trung quan liêu bao cấp kìm hãm sản xuất, tệ sùng bái cá nhân, sai lầm nghiêm trọng trong cải tổ) là nhân tố quyết định dẫn đến sụp đổ." },
+      { id: 68, lesson: 4, question: "Chiến lược nào của các thế lực thù địch phương Tây đã góp phần thúc đẩy sự sụp đổ của chế độ XHCN ở Liên Xô và Đông Âu?", options: ["Chiến lược 'Chiến tranh tổng lực'.", "Chiến lược 'Diễn biến hòa bình'.", "Chiến lược 'Phản ứng linh hoạt'.", "Chiến lược 'Vành đai thép'."], correct: 1, explain: "Các thế lực chống phá phương Tây đẩy mạnh chiến lược 'Diễn biến hòa bình', kích động mâu thuẫn sắc tộc, thâm nhập tư tưởng, mua chuộc các phần tử cơ hội thoái hóa." },
+      { id: 69, lesson: 4, question: "Đường lối Cải cách - mở cửa của Trung Quốc được khởi xướng tại Hội nghị Trung ương 3 khóa XI vào thời điểm nào?", options: ["Tháng 10 năm 1949.", "Tháng 12 năm 1978.", "Tháng 12 năm 1986.", "Tháng 12 năm 1991."], correct: 1, explain: "Hội nghị Ban Chấp hành Trung ương Đảng Cộng sản Trung Quốc khóa XI (tháng 12/1978) do Đặng Tiểu Bình khởi xướng đã quyết định mở ra thời kỳ Cải cách - mở cửa." },
+      { id: 70, lesson: 4, question: "Mục tiêu trọng tâm cốt lõi trong đường lối Cải cách - mở cửa của Trung Quốc từ năm 1978 là", options: ["lấy cải cách hệ thống chính trị đa đảng làm trọng tâm.", "lấy phát triển kinh tế làm trung tâm, kiên trì bốn nguyên tắc cơ bản.", "tập trung phát triển công nghiệp nặng và kinh tế tập trung.", "xóa bỏ toàn bộ các thành phần kinh tế tư nhân và đầu tư nước ngoài."], correct: 1, explain: "Trung Quốc kiên trì: Lấy phát triển kinh tế làm trung tâm, tiến hành cải cách mở cửa, xây dựng CNXH mang đặc sắc Trung Quốc." },
+      { id: 71, lesson: 4, question: "Đảng Cộng sản Việt Nam đã chính thức đề ra đường lối Đổi mới đất nước toàn diện tại kỳ Đại hội nào?", options: ["Đại hội IV (năm 1976).", "Đại hội V (năm 1982).", "Đại hội VI (tháng 12/1986).", "Đại hội VII (năm 1991)."], correct: 2, explain: "Đại hội đại biểu toàn quốc lần thứ VI của Đảng (12/1986) nhìn thẳng vào sự thật, đánh giá đúng sự thật và khởi xướng công cuộc Đổi mới toàn diện đất nước." },
+      { id: 72, lesson: 4, question: "Từ năm 2010 đến nay, nền kinh tế Trung Quốc đã vươn lên vị trí thứ mấy trên thế giới?", options: ["Thứ nhất (vượt qua Mỹ).", "Thứ hai (sau Mỹ).", "Thứ ba (sau Nhật Bản).", "Thứ tư (sau Đức)."], correct: 1, explain: "Nhờ thành tựu của công cuộc Cải cách - mở cửa, từ năm 2010, Trung Quốc đã vượt qua Nhật Bản để trở thành nền kinh tế lớn thứ hai thế giới (sau Mỹ)." },
+      { id: 73, lesson: 4, question: "Bốn quốc gia hiện nay vẫn kiên định con đường đi lên chủ nghĩa xã hội gồm có:", options: ["Trung Quốc, Việt Nam, Lào, Cu-ba.", "Nga, Trung Quốc, Triều Tiên, Việt Nam.", "Việt Nam, Lào, Cam-pu-chia, Mi-an-ma.", "Cu-ba, Vê-nê-du-ê-la, Bô-li-vi-a, Ni-ca-ra-goa."], correct: 0, explain: "4 nước kiên định xây dựng CNXH dựa trên nền tảng chủ nghĩa Mác - Lênin là: Trung Quốc, Việt Nam, Lào và Cu-ba." },
+      { id: 74, lesson: 4, question: "Công cuộc đổi mới của Đảng Nhân dân Cách mạng Lào được tiến hành từ năm nào?", options: ["Năm 1975.", "Năm 1986.", "Năm 1991.", "Năm 2000."], correct: 1, explain: "Cùng thời điểm với Việt Nam, Đảng Nhân dân Cách mạng Lào đã đề ra đường lối đổi mới toàn diện tại Đại hội đại biểu toàn quốc lần thứ IV (năm 1986)." },
+      { id: 75, lesson: 4, question: "Từ công cuộc cải cách, đổi mới ở các nước như Trung Quốc, Việt Nam, chúng ta có thể rút ra bài học lịch sử quan trọng nào?", options: ["Muốn phát triển thì phải lập tức từ bỏ mục tiêu độc lập dân tộc và CNXH.", "Kiên định mục tiêu CNXH nhưng phải vận dụng sáng tạo, phù hợp với hoàn cảnh thực tiễn của đất nước.", "Phải sao chép nguyên mẫu mô hình kinh tế của các cường quốc phương Tây.", "Chỉ nên tập trung cải cách chính trị trước, kinh tế để sau."], correct: 1, explain: "Đổi mới không phải là thay đổi mục tiêu XHCN mà là làm cho mục tiêu đó được thực hiện hiệu quả hơn bằng con đường, bước đi và phương pháp phù hợp với thực tiễn." },
+      { id: 76, lesson: 4, question: "Tổ chức Hiệp ước Vác-sa-va (thành lập năm 1955) là liên minh mang tính chất gì giữa Liên Xô và các nước XHCN Đông Âu?", options: ["Liên minh kinh tế và thương mại thuần túy.", "Liên minh phòng thủ quân sự - chính trị mang tính chất tự vệ.", "Tổ chức văn hóa và bảo tồn di sản thế giới.", "Tổ chức phát hành đồng tiền chung châu Âu."], correct: 1, explain: "Hiệp ước Vác-sa-va là liên minh phòng thủ quân sự - chính trị của các nước XHCN Đông Âu và Liên Xô nhằm đối phó với khối quân sự NATO của phương Tây." },
+      { id: 77, lesson: 4, question: "Hội đồng Tương trợ Kinh tế (SEV) thành lập năm 1949 nhằm mục đích gì?", options: ["Thúc đẩy sự hợp tác, tương trợ kinh tế giữa Liên Xô và các nước XHCN Đông Âu.", "Cạnh tranh độc quyền khai thác dầu mỏ ở Trung Đông.", "Cho các nước thuộc địa vay tiền với lãi suất cao để kiếm lời.", "Thành lập ngân hàng dự trữ vàng cho khối NATO."], correct: 0, explain: "SEV được thành lập nhằm tăng cường sự hợp tác, phân công lao động và giúp đỡ lẫn nhau cùng phát triển kinh tế giữa các nước trong hệ thống XHCN." },
+      { id: 78, lesson: 4, question: "Sự sụp đổ của CNXH ở Liên Xô và Đông Âu năm 1989 - 1991 là sự sụp đổ của", options: ["toàn bộ lý tưởng cao đẹp của chủ nghĩa xã hội khoa học.", "một mô hình chủ nghĩa xã hội cụ thể chứa đựng nhiều khuyết tật và sai lầm.", "con đường đấu tranh giải phóng dân tộc của nhân loại.", "học thuyết triết học Mác - Lênin về quy luật phát triển xã hội."], correct: 1, explain: "Đó là sự sụp đổ của một mô hình CNXH cụ thể (mô hình Xô viết tập trung bao cấp xơ cứng), chứ không phải là sự sụp đổ của bản chất lý tưởng CNXH khoa học." },
+      { id: 79, lesson: 4, question: "Chuyến bay đưa nhà du hành vũ trụ Dương Lợi Vĩ bay vào không gian năm 2003 trên con tàu nào đã khẳng định vị thế khoa học của Trung Quốc?", options: ["Tàu Phương Đông 1.", "Tàu Apollo 11.", "Tàu Thần Châu 5 (Shenzhou 5).", "Tàu Con thoi Discovery."], correct: 2, explain: "Tháng 10/2003, Trung Quốc phóng thành công tàu Thần Châu 5 đưa phi hành gia Dương Lợi Vĩ vào quỹ đạo Trái Đất, trở thành quốc gia thứ 3 trên thế giới tự đưa người vào vũ trụ." },
+      { id: 80, lesson: 4, question: "Từ năm 2011, Đảng Cộng sản Cuba đã thông qua chủ trương quan trọng nào để đưa đất nước vượt qua khó khăn kinh tế?", options: ["Chủ trương gia nhập khối quân sự NATO.", "Chủ trương Cập nhật hóa mô hình kinh tế - xã hội.", "Từ bỏ hoàn toàn chế độ sở hữu toàn dân về tư liệu sản xuất.", "Tiến hành chiến tranh tái chiếm căn cứ Guantanamo."], correct: 1, explain: "Đại hội VI Đảng Cộng sản Cuba (2011) đã thông qua đường lối 'Cập nhật hóa mô hình kinh tế - xã hội', mở rộng kinh tế tư nhân nhỏ và tự doanh nhưng giữ vững định hướng XHCN." },
+      { id: 81, lesson: 4, question: "Thành tựu vĩ đại nhất của công cuộc Đổi mới ở Việt Nam sau gần 40 năm (từ 1986 đến nay) là gì?", options: ["Đưa Việt Nam trở thành quốc gia có thu nhập bình quân đầu người cao nhất thế giới.", "Kinh tế tăng trưởng liên tục, đời sống nhân dân cải thiện vượt bậc, giữ vững ổn định chính trị và nâng cao vị thế quốc tế.", "Xóa bỏ hoàn toàn khoảng cách chênh lệch giàu nghèo trong toàn xã hội.", "Trở thành cường quốc quân sự sở hữu kho vũ khí hạt nhân hàng đầu châu Á."], correct: 1, explain: "Đổi mới đã đưa Việt Nam từ một nước nghèo thiếu đói trở thành nước đang phát triển có thu nhập trung bình, kinh tế năng động và uy tín quốc tế ngày càng cao." },
+      { id: 82, lesson: 4, question: "Điểm chung nổi bật trong đường lối đổi mới, cải cách của Việt Nam và Trung Quốc là", options: ["kiên trì sự lãnh đạo của Đảng Cộng sản và lấy phát triển kinh tế làm trọng tâm.", "thực hiện đa nguyên chính trị, đa đảng đối lập ngay từ đầu.", "tập trung tư nhân hóa toàn bộ đất đai và các ngành kinh tế then chốt.", "chỉ giao thương với các nước trong khối Xã hội chủ nghĩa."], correct: 0, explain: "Cả Việt Nam và Trung Quốc đều kiên quyết giữ vững vai trò lãnh đạo tuyệt đối của Đảng Cộng sản, ổn định chính trị để tập trung toàn lực phát triển kinh tế thị trường." }
+    ];
+
+    let currentQuestions = [...fullQuestionBank];
+    let userAnswers = {};
+    let currentFilter = 'all';
+    let isExamMode = false;
+    let examTimer = null;
+    let timeLeft = 45 * 60;
+
+    // SWITCH VIEW (Quiz vs Theory)
+    function switchView(viewName) {
+      document.querySelectorAll('.view-page').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-btn').forEach(el => el.classList.remove('active'));
+
+      if (viewName === 'quiz') {
+        document.getElementById('quizView').classList.add('active');
+        document.getElementById('tabBtnQuiz').classList.add('active');
+      } else {
+        document.getElementById('theoryView').classList.add('active');
+        document.getElementById('tabBtnTheory').classList.add('active');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // THEME TOGGLE
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+      const isLight = document.body.classList.contains('light-theme');
+      document.getElementById('themeBtn').textContent = isLight ? '☀️' : '🌙';
+    }
+
+    // RENDER QUIZ
+    function renderQuiz() {
+      const container = document.getElementById('quizContainer');
+      container.innerHTML = '';
+
+      if (currentQuestions.length === 0) {
+        container.innerHTML = '<p style="text-align:center; padding: 50px; color: var(--text-muted); font-size: 1.1rem;">Không tìm thấy câu hỏi phù hợp. Hãy thử từ khóa khác!</p>';
+        updateStats();
+        return;
+      }
+
+      currentQuestions.forEach((q, idx) => {
+        const card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.id = `card-${q.id}`;
+
+        const isAnswered = userAnswers[q.id] !== undefined;
+        const selectedOpt = userAnswers[q.id];
+
+        if (isAnswered) {
+          if (selectedOpt === q.correct) {
+            card.classList.add('answered-correct');
+          } else {
+            card.classList.add('answered-wrong');
+          }
+        }
+
+        const badgeClass = `badge-l${q.lesson}`;
+        const lessonName = `Bài ${q.lesson}`;
+
+        let optionsHtml = '';
+        const optKeys = ['A', 'B', 'C', 'D'];
+
+        q.options.forEach((optText, oIdx) => {
+          let optClass = 'opt-item';
+          if (isAnswered) {
+            optClass += ' locked';
+            if (oIdx === q.correct) {
+              optClass += ' correct';
+            } else if (oIdx === selectedOpt) {
+              optClass += ' wrong';
             }
+          }
 
-            document.getElementById('c-count').textContent = corrects;
-            document.getElementById('w-count').textContent = wrongs;
-
-            card.querySelectorAll('.opt-item').forEach(opt => opt.style.pointerEvents = 'none');
+          optionsHtml += `
+            <div class="${optClass}" onclick="selectOption(${q.id}, ${oIdx})">
+              <span class="opt-key">${optKeys[oIdx]}</span>
+              <span>${optText}</span>
+            </div>
+          `;
         });
+
+        card.innerHTML = `
+          <div class="q-meta">
+            <div style="display:flex; gap:8px;">
+              <span class="badge-pill ${badgeClass}">${lessonName}</span>
+              <span class="badge-pill" style="background:rgba(255,255,255,0.06); color:var(--text-muted);">Câu ${idx + 1}</span>
+            </div>
+          </div>
+          <div class="q-text">${q.question}</div>
+          <div class="opt-list">
+            ${optionsHtml}
+          </div>
+          <div class="explain-card ${isAnswered ? 'show' : ''}" id="explain-${q.id}">
+            <strong>💡 Giải thích chi tiết & SGK:</strong> ${q.explain}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateStats();
+    }
+
+    // SELECT OPTION
+    function selectOption(qId, optIdx) {
+      if (userAnswers[qId] !== undefined) return;
+      userAnswers[qId] = optIdx;
+      renderQuiz();
+    }
+
+    // UPDATE STATS
+    function updateStats() {
+      const total = currentQuestions.length;
+      let answered = 0;
+      let correct = 0;
+      let wrong = 0;
+
+      currentQuestions.forEach(q => {
+        if (userAnswers[q.id] !== undefined) {
+          answered++;
+          if (userAnswers[q.id] === q.correct) {
+            correct++;
+          } else {
+            wrong++;
+          }
+        }
+      });
+
+      document.getElementById('totalQuestionsCount').textContent = total;
+      document.getElementById('answeredCount').textContent = answered;
+      document.getElementById('correctCount').textContent = correct;
+      document.getElementById('wrongCount').textContent = wrong;
+
+      const scoreOn10 = total > 0 ? ((correct / total) * 10).toFixed(1) : 0;
+      document.getElementById('accuracyRate').textContent = `${scoreOn10} / 10`;
+
+      const accuracy = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+      document.getElementById('bottomScore').textContent = `${correct} / ${total} câu đúng (${accuracy}% chính xác)`;
+    }
+
+    // FILTER QUESTIONS
+    function filterQuestions(filter) {
+      if (isExamMode) {
+        if (!confirm('Bạn đang trong chế độ thi thử! Đổi bộ lọc sẽ hủy bài thi hiện tại. Bạn có muốn tiếp tục?')) return;
+        exitMockExam();
+      }
+
+      currentFilter = filter;
+      document.getElementById('searchKeyword').value = '';
+
+      document.querySelectorAll('.lesson-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === filter) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      if (filter === 'all') {
+        currentQuestions = [...fullQuestionBank];
+      } else {
+        const lessonNum = parseInt(filter);
+        currentQuestions = fullQuestionBank.filter(q => q.lesson === lessonNum);
+      }
+
+      renderQuiz();
+    }
+
+    // SEARCH
+    function handleSearch() {
+      const kw = document.getElementById('searchKeyword').value.trim().toLowerCase();
+      if (!kw) {
+        filterQuestions(currentFilter);
+        return;
+      }
+
+      currentQuestions = fullQuestionBank.filter(q => 
+        q.question.toLowerCase().includes(kw) ||
+        q.explain.toLowerCase().includes(kw) ||
+        q.options.some(opt => opt.toLowerCase().includes(kw))
+      );
+
+      renderQuiz();
+    }
+
+    // SHUFFLE
+    function shuffleCurrentQuestions() {
+      for (let i = currentQuestions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [currentQuestions[i], currentQuestions[j]] = [currentQuestions[j], currentQuestions[i]];
+      }
+      renderQuiz();
+    }
+
+    // MOCK EXAM
+    function startMockExam() {
+      if (confirm('Bắt đầu làm ĐỀ THI THỬ 40 CÂU trong 45 phút? Hệ thống sẽ bốc ngẫu nhiên 40 câu trắc nghiệm từ ngân hàng.')) {
+        isExamMode = true;
+        userAnswers = {};
+        
+        let shuffled = [...fullQuestionBank].sort(() => 0.5 - Math.random());
+        currentQuestions = shuffled.slice(0, 40);
+
+        document.getElementById('examTimerBar').style.display = 'block';
+        timeLeft = 45 * 60;
+        updateTimerDisplay();
+
+        if (examTimer) clearInterval(examTimer);
+        examTimer = setInterval(() => {
+          timeLeft--;
+          updateTimerDisplay();
+          if (timeLeft <= 0) {
+            clearInterval(examTimer);
+            alert('⏱️ HẾT GIỜ LÀM BÀI! Hãy kiểm tra điểm số bên trên nhé.');
+          }
+        }, 1000);
+
+        renderQuiz();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function updateTimerDisplay() {
+      const m = Math.floor(timeLeft / 60);
+      const s = timeLeft % 60;
+      document.getElementById('timerCountdown').textContent = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    function exitMockExam() {
+      isExamMode = false;
+      if (examTimer) clearInterval(examTimer);
+      document.getElementById('examTimerBar').style.display = 'none';
+      filterQuestions('all');
+    }
+
+    // RESET
+    function resetQuiz() {
+      if (confirm('Bạn có chắc muốn làm lại toàn bộ câu hỏi không?')) {
+        userAnswers = {};
+        renderQuiz();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // INIT
+    window.addEventListener('DOMContentLoaded', () => {
+      renderQuiz();
     });
-}
-
-document.addEventListener('DOMContentLoaded', renderHistory);
-
-function resetApp() {
-    corrects = 0;
-    wrongs = 0;
-    document.getElementById('c-count').textContent = 0;
-    document.getElementById('w-count').textContent = 0;
-    renderHistory();
-}
-</script>
+  </script>
 </body>
 </html>
