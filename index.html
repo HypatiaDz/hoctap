@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ôn Thi Lịch Sử 11 (KNTT) - Lý Thuyết & 82+ Câu Trắc Nghiệm (Bài 1 - 4)</title>
+  <title>Ôn Thi Lịch Sử 11 (KNTT) - Lý Thuyết, Flashcard & 82+ Câu Trắc Nghiệm (Bài 1 - 4)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -12,9 +12,7 @@
       --bg: #090d16;
       --bg-surface: #111827;
       --bg-card: rgba(17, 24, 39, 0.75);
-      --bg-card-hover: rgba(30, 41, 59, 0.85);
       --border: rgba(255, 255, 255, 0.08);
-      --border-focus: #6366f1;
       --primary: #6366f1;
       --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
       --accent: #06b6d4;
@@ -32,12 +30,10 @@
       --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
 
-    /* Light theme support */
     body.light-theme {
       --bg: #f8fafc;
       --bg-surface: #ffffff;
       --bg-card: rgba(255, 255, 255, 0.9);
-      --bg-card-hover: #ffffff;
       --border: rgba(0, 0, 0, 0.08);
       --text: #0f172a;
       --text-muted: #64748b;
@@ -52,7 +48,6 @@
       margin: 0;
       padding: 0;
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      -webkit-font-smoothing: antialiased;
     }
 
     body {
@@ -78,7 +73,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 24px;
+      padding: 12px 20px;
       background: var(--bg-card);
       backdrop-filter: blur(16px);
       border: 1px solid var(--border);
@@ -93,10 +88,9 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-weight: 800;
       font-size: 1.15rem;
-      letter-spacing: -0.02em;
     }
 
     .brand-badge {
@@ -106,7 +100,6 @@
       padding: 3px 8px;
       border-radius: 6px;
       font-weight: 700;
-      text-transform: uppercase;
     }
 
     .nav-tabs {
@@ -123,17 +116,17 @@
     }
 
     .nav-tab-btn {
-      padding: 8px 18px;
+      padding: 8px 16px;
       border-radius: 999px;
       border: none;
       background: transparent;
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -143,32 +136,22 @@
       box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     .theme-toggle-btn {
       background: transparent;
       border: 1px solid var(--border);
       color: var(--text);
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       transition: all 0.2s;
     }
 
-    .theme-toggle-btn:hover {
-      background: var(--border);
-    }
-
-    /* Page Switcher */
+    /* Page Views */
     .view-page {
       display: none;
       animation: fadeIn 0.3s ease;
@@ -178,11 +161,10 @@
       display: block;
     }
 
-    /* Banner */
     .hero-banner {
       background: var(--primary-gradient);
       border-radius: var(--radius-lg);
-      padding: 34px;
+      padding: 30px;
       color: white;
       box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.4);
       margin-bottom: 25px;
@@ -190,41 +172,31 @@
       overflow: hidden;
     }
 
-    .hero-banner::after {
-      content: "🏛️";
-      font-size: 9rem;
-      position: absolute;
-      right: 20px;
-      bottom: -30px;
-      opacity: 0.15;
-      pointer-events: none;
-    }
-
     .hero-banner h1 {
-      font-size: 2rem;
+      font-size: 1.85rem;
       font-weight: 800;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       letter-spacing: -0.02em;
     }
 
     .hero-banner p {
-      font-size: 1.02rem;
+      font-size: 0.98rem;
       color: rgba(255, 255, 255, 0.92);
-      max-width: 680px;
-      line-height: 1.6;
+      max-width: 720px;
+      line-height: 1.55;
     }
 
-    /* QUIZ VIEW CONTROLS */
+    /* Controls Panel */
     .controls-panel {
       background: var(--bg-card);
       backdrop-filter: blur(14px);
       border: 1px solid var(--border);
-      padding: 20px;
+      padding: 18px 20px;
       border-radius: var(--radius-lg);
       margin-bottom: 25px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
       box-shadow: var(--shadow);
     }
 
@@ -243,9 +215,9 @@
     }
 
     .lesson-btn {
-      padding: 8px 16px;
+      padding: 7px 14px;
       border-radius: 999px;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       font-weight: 600;
       border: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.04);
@@ -269,13 +241,13 @@
     .search-box {
       position: relative;
       flex: 1;
-      min-width: 250px;
-      max-width: 400px;
+      min-width: 240px;
+      max-width: 380px;
     }
 
     .search-input {
       width: 100%;
-      padding: 9px 16px 9px 38px;
+      padding: 9px 16px 9px 36px;
       border-radius: 999px;
       border: 1.5px solid var(--border);
       background: rgba(255, 255, 255, 0.04);
@@ -295,22 +267,16 @@
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .action-group {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+      font-size: 0.85rem;
     }
 
     .btn-tool {
-      padding: 8px 16px;
+      padding: 8px 15px;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.05);
       color: var(--text);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 600;
       cursor: pointer;
       display: flex;
@@ -328,10 +294,6 @@
       color: white;
       border: none;
     }
-    .btn-exam-mode:hover {
-      opacity: 0.92;
-      transform: translateY(-1px);
-    }
 
     /* Stats Grid */
     .stats-grid {
@@ -344,14 +306,14 @@
     .stat-box {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      padding: 14px 18px;
+      padding: 12px 16px;
       border-radius: var(--radius-md);
       text-align: center;
       box-shadow: var(--shadow);
     }
 
     .stat-val {
-      font-size: 1.55rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--primary);
       font-family: 'JetBrains Mono', monospace;
@@ -361,42 +323,36 @@
     .stat-val.wrong { color: var(--danger); }
 
     .stat-lbl {
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       font-weight: 700;
       color: var(--text-muted);
       letter-spacing: 0.05em;
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
-    /* Exam countdown timer bar */
+    /* Timer alert */
     #examTimerBar {
       display: none;
       background: var(--danger-bg);
       border: 1px solid rgba(244, 63, 94, 0.3);
       color: var(--danger);
-      padding: 14px 20px;
+      padding: 12px 18px;
       border-radius: var(--radius-md);
       font-weight: 700;
       text-align: center;
-      margin-bottom: 22px;
-      box-shadow: 0 4px 20px rgba(244, 63, 94, 0.15);
+      margin-bottom: 20px;
     }
 
-    /* Question Cards */
+    /* Quiz Cards */
     .quiz-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 26px;
-      margin-bottom: 20px;
+      padding: 24px;
+      margin-bottom: 18px;
       box-shadow: var(--shadow);
       transition: all 0.25s ease;
-      position: relative;
-    }
-
-    .quiz-card:hover {
-      border-color: rgba(255, 255, 255, 0.18);
     }
 
     .quiz-card.answered-correct {
@@ -413,45 +369,43 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .badge-pill {
       font-size: 0.75rem;
       font-weight: 700;
-      padding: 4px 10px;
+      padding: 3px 9px;
       border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
     }
 
-    .badge-l1 { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-    .badge-l2 { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-    .badge-l3 { background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
-    .badge-l4 { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-l1 { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+    .badge-l2 { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+    .badge-l3 { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
+    .badge-l4 { background: rgba(16, 185, 129, 0.15); color: #34d399; }
 
     .q-text {
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       font-weight: 700;
       line-height: 1.55;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .opt-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 9px;
     }
 
     .opt-item {
       display: flex;
       align-items: center;
-      padding: 13px 18px;
+      padding: 12px 16px;
       border-radius: var(--radius-md);
       border: 1.5px solid var(--border);
       background: rgba(255, 255, 255, 0.02);
       cursor: pointer;
-      font-size: 0.94rem;
+      font-size: 0.93rem;
       font-weight: 500;
       transition: all 0.2s;
     }
@@ -466,15 +420,15 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
       font-weight: 700;
-      margin-right: 14px;
+      margin-right: 12px;
       flex-shrink: 0;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
       font-family: 'JetBrains Mono', monospace;
     }
@@ -488,7 +442,6 @@
     .opt-item.correct .opt-key {
       background: var(--success);
       color: white;
-      border-color: var(--success);
     }
 
     .opt-item.wrong {
@@ -500,20 +453,17 @@
     .opt-item.wrong .opt-key {
       background: var(--danger);
       color: white;
-      border-color: var(--danger);
     }
 
     .locked { cursor: default; }
 
-    /* Explanation box */
     .explain-card {
-      margin-top: 16px;
-      padding: 16px 20px;
+      margin-top: 14px;
+      padding: 14px 18px;
       border-radius: var(--radius-md);
       background: rgba(0, 0, 0, 0.25);
       border: 1px dashed var(--border);
-      font-size: 0.92rem;
-      color: var(--text);
+      font-size: 0.9rem;
       display: none;
       animation: fadeIn 0.3s ease;
     }
@@ -525,28 +475,216 @@
     .explain-card.show { display: block; }
     .explain-card strong { color: var(--accent); }
 
-    /* ================= THEORY VIEW STYLING ================= */
+    /* ================= FLASHCARDS VIEW ================= */
+    .flashcard-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px 22px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .card-scene {
+      width: 100%;
+      max-width: 680px;
+      height: 340px;
+      perspective: 1000px;
+      margin: 0 auto 25px auto;
+    }
+
+    .flashcard {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .flashcard.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 15px 35px -5px rgba(0,0,0,0.4);
+    }
+
+    .card-face.front {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      color: white;
+    }
+
+    body.light-theme .card-face.front {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      color: #0f172a;
+    }
+
+    .card-face.back {
+      background: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    .card-category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .card-prompt {
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .card-hint {
+      margin-top: 18px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .card-answer {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .flashcard-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .btn-fc {
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-fc:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* ================= TIMELINE VIEW ================= */
+    .timeline-container {
+      position: relative;
+      margin: 40px auto;
+      padding-left: 30px;
+    }
+
+    .timeline-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 10px;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 26px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      box-shadow: var(--shadow);
+      transition: all 0.2s;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(6px);
+      border-color: var(--primary);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      top: 22px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 10px var(--primary);
+    }
+
+    .timeline-year {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .timeline-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Theory View Components */
     .theory-toc {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 22px;
+      padding: 18px;
       margin-bottom: 25px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
       justify-content: center;
     }
 
     .toc-link {
-      padding: 8px 16px;
+      padding: 7px 14px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.04);
       color: var(--text);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 700;
       transition: all 0.2s;
     }
@@ -554,14 +692,13 @@
     .toc-link:hover {
       background: var(--primary);
       color: white;
-      border-color: var(--primary);
     }
 
     .lesson-section {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 34px;
+      padding: 30px;
       margin-bottom: 30px;
       box-shadow: var(--shadow);
     }
@@ -571,60 +708,51 @@
       align-items: center;
       gap: 14px;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 18px;
-      margin-bottom: 24px;
+      padding-bottom: 16px;
+      margin-bottom: 22px;
     }
 
     .lesson-icon {
-      font-size: 2rem;
+      font-size: 1.8rem;
       background: rgba(255, 255, 255, 0.05);
-      width: 54px;
-      height: 54px;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 14px;
+      border-radius: 12px;
       border: 1px solid var(--border);
     }
 
     .lesson-title-text h2 {
-      font-size: 1.45rem;
+      font-size: 1.35rem;
       font-weight: 800;
-      letter-spacing: -0.01em;
     }
 
     .lesson-title-text span {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
       font-weight: 600;
     }
 
-    .theory-block {
-      margin-bottom: 26px;
-    }
-
+    .theory-block { margin-bottom: 24px; }
     .theory-block h3 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--accent);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .theory-block ul { padding-left: 20px; }
+    .theory-block li { margin-bottom: 8px; font-size: 0.95rem; line-height: 1.65; }
+
+    .tag-term {
+      background: rgba(99, 102, 241, 0.2);
+      color: #a5b4fc;
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.86rem;
     }
 
-    .theory-block p, .theory-block li {
-      font-size: 0.96rem;
-      line-height: 1.7;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-
-    .theory-block ul {
-      padding-left: 22px;
-      margin-bottom: 14px;
-    }
-
-    /* Highlight Card / Alert inside Theory */
     .note-box {
       background: var(--warning-bg);
       border-left: 4px solid var(--warning);
@@ -634,40 +762,10 @@
       font-size: 0.92rem;
     }
 
-    .note-box strong { color: var(--warning); }
-
-    .tag-term {
-      background: rgba(99, 102, 241, 0.2);
-      color: #a5b4fc;
-      padding: 2px 7px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.88rem;
-    }
-
-    /* Comparison Table in Theory */
-    .table-responsive {
-      overflow-x: auto;
-      margin: 18px 0;
-    }
-
-    .custom-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      text-align: left;
-    }
-
-    .custom-table th, .custom-table td {
-      padding: 12px 16px;
-      border: 1px solid var(--border);
-    }
-
-    .custom-table th {
-      background: rgba(255, 255, 255, 0.05);
-      font-weight: 700;
-      color: var(--primary);
-    }
+    .table-responsive { overflow-x: auto; margin: 16px 0; }
+    .custom-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .custom-table th, .custom-table td { padding: 10px 14px; border: 1px solid var(--border); }
+    .custom-table th { background: rgba(255, 255, 255, 0.05); color: var(--primary); }
 
     /* Sticky Bottom Score Bar */
     .floating-bar {
@@ -679,7 +777,7 @@
       max-width: 900px;
       background: var(--bg-card);
       backdrop-filter: blur(20px);
-      padding: 12px 24px;
+      padding: 10px 22px;
       border-radius: 999px;
       border: 1px solid var(--border);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
@@ -693,34 +791,26 @@
       background: var(--danger-bg);
       color: var(--danger);
       border: 1px solid rgba(244, 63, 94, 0.3);
-      padding: 7px 18px;
+      padding: 6px 16px;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-reset:hover {
-      background: var(--danger);
-      color: white;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
-      .top-nav { flex-direction: column; gap: 12px; }
-      .brand { align-self: flex-start; }
-      .nav-tabs { width: 100%; justify-content: center; }
-      .hero-banner { padding: 22px; }
-      .hero-banner h1 { font-size: 1.5rem; }
-      .search-box { max-width: 100%; width: 100%; }
-      .quiz-card { padding: 20px; }
-      .lesson-section { padding: 22px; }
-      .floating-bar { font-size: 0.82rem; padding: 10px 16px; }
+      .top-nav { flex-direction: column; gap: 10px; }
+      .nav-tabs { width: 100%; justify-content: center; flex-wrap: wrap; }
+      .hero-banner { padding: 20px; }
+      .hero-banner h1 { font-size: 1.4rem; }
+      .card-scene { height: 380px; }
+      .card-prompt { font-size: 1.15rem; }
+      .card-answer { font-size: 1.05rem; }
     }
   </style>
 </head>
@@ -737,29 +827,31 @@
 
       <div class="nav-tabs">
         <button class="nav-tab-btn active" id="tabBtnQuiz" onclick="switchView('quiz')">
-          <span>📝 Luyện Trắc Nghiệm</span>
+          <span>📝 Trắc Nghiệm</span>
+        </button>
+        <button class="nav-tab-btn" id="tabBtnFlashcard" onclick="switchView('flashcard')">
+          <span>⚡ Thẻ Flashcard</span>
+        </button>
+        <button class="nav-tab-btn" id="tabBtnTimeline" onclick="switchView('timeline')">
+          <span>⏳ Trục Thời Gian</span>
         </button>
         <button class="nav-tab-btn" id="tabBtnTheory" onclick="switchView('theory')">
-          <span>📖 Sổ Tay Lý Thuyết Full</span>
+          <span>📖 Lý Thuyết Full</span>
         </button>
       </div>
 
-      <div class="nav-actions">
-        <button class="theme-toggle-btn" onclick="toggleTheme()" title="Đổi giao diện Sáng / Tối" id="themeBtn">
-          🌙
-        </button>
+      <div>
+        <button class="theme-toggle-btn" onclick="toggleTheme()" title="Đổi giao diện Sáng / Tối" id="themeBtn">🌙</button>
       </div>
     </nav>
 
     <!-- ================= VIEW 1: TRẮC NGHIỆM ================= -->
     <div id="quizView" class="view-page active">
-      
       <div class="hero-banner">
         <h1>Ngân Hàng 82+ Câu Trắc Nghiệm</h1>
         <p>Bao quát toàn diện Bài 1 đến Bài 4 — Có lời giải chi tiết, mẹo nhận diện bẫy đề thi và chế độ thi thử tính giờ chuẩn 10 điểm.</p>
       </div>
 
-      <!-- Controls -->
       <div class="controls-panel">
         <div class="filter-row">
           <div class="lesson-tabs">
@@ -774,24 +866,22 @@
         <div class="filter-row">
           <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" class="search-input" id="searchKeyword" placeholder="Tìm kiếm câu hỏi, từ khóa, tên nhân vật..." oninput="handleSearch()">
+            <input type="text" class="search-input" id="searchKeyword" placeholder="Tìm câu hỏi, từ khóa, nhân vật..." oninput="handleSearch()">
           </div>
 
-          <div class="action-group">
-            <button class="btn-tool" onclick="switchView('theory')">📖 Mở lý thuyết ôn lại</button>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn-tool" onclick="switchView('flashcard')">⚡ Học Flashcard</button>
             <button class="btn-tool btn-exam-mode" onclick="startMockExam()">⏱️ Thi thử 40 câu</button>
-            <button class="btn-tool" onclick="shuffleCurrentQuestions()">🔀 Đảo câu hỏi</button>
+            <button class="btn-tool" onclick="shuffleCurrentQuestions()">🔀 Đảo câu</button>
           </div>
         </div>
       </div>
 
-      <!-- Exam Timer Alert -->
       <div id="examTimerBar">
-        ⏱️ CHẾ ĐỘ THI THỬ (40 CÂU) — THỜI GIAN CÒN LẠI: <span id="timerCountdown" style="font-family: 'JetBrains Mono', monospace; font-size: 1.2rem;">45:00</span>
-        <button onclick="exitMockExam()" style="margin-left: 15px; padding: 4px 12px; border-radius: 8px; border: none; background: #f43f5e; color: white; cursor: pointer; font-weight: bold;">Dừng thi</button>
+        ⏱️ THI THỬ 40 CÂU (45 PHÚT) — THỜI GIAN CÒN: <span id="timerCountdown" style="font-family: 'JetBrains Mono', monospace; font-size: 1.15rem;">45:00</span>
+        <button onclick="exitMockExam()" style="margin-left: 12px; padding: 4px 10px; border-radius: 6px; border: none; background: #f43f5e; color: white; cursor: pointer; font-weight: bold;">Hủy thi</button>
       </div>
 
-      <!-- Stats Bar -->
       <div class="stats-grid">
         <div class="stat-box">
           <div class="stat-val" id="totalQuestionsCount">0</div>
@@ -815,33 +905,173 @@
         </div>
       </div>
 
-      <!-- Container of Quiz Cards -->
       <div id="quizContainer"></div>
 
-      <!-- Sticky Floating Progress Bar -->
       <div class="floating-bar">
         <div style="font-weight: 700;">
           Tiến độ: <span id="bottomScore" style="color: var(--primary);">0 / 0 câu</span>
         </div>
-        <div>
-          <button class="btn-reset" onclick="resetQuiz()">🔄 Làm lại từ đầu</button>
-        </div>
+        <button class="btn-reset" onclick="resetQuiz()">🔄 Làm lại từ đầu</button>
       </div>
-
     </div>
 
 
-    <!-- ================= VIEW 2: LÝ THUYẾT CHI TIẾT (FULL TEXTBOOK) ================= -->
-    <div id="theoryView" class="view-page">
-      
-      <div class="hero-banner" style="background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #6366f1 100%);">
-        <h1>📖 Sổ Tay Lý Thuyết Trọng Tâm (Bài 1 – 4)</h1>
-        <p>Hệ thống toàn bộ kiến thức cốt lõi SGK Lịch sử 11 Mới (Bộ sách Kết nối tri thức với cuộc sống). Quên phần nào bấm sang đây đọc lại ngay!</p>
+    <!-- ================= VIEW 2: FLASHCARDS LẬT THẺ ================= -->
+    <div id="flashcardView" class="view-page">
+      <div class="hero-banner" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);">
+        <h1>⚡ Thẻ Ghi Nhớ Phản Xạ Nhanh</h1>
+        <p>Bấm vào thẻ để lật xem đáp án chốt! Ôn nhanh chỉ 5–10 phút trước giờ thi để khắc sâu các khái niệm then chốt.</p>
       </div>
 
-      <!-- Table of Contents -->
+      <div class="flashcard-controls">
+        <div style="font-weight: 700; color: var(--text-muted);">
+          Thẻ số: <span id="fcCurrentIndex" style="color: var(--primary); font-size: 1.2rem;">1</span> / <span id="fcTotalCount">30</span>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="lesson-btn active" onclick="filterFlashcards('all', this)">Tất cả</button>
+          <button class="lesson-btn" onclick="filterFlashcards(1, this)">Bài 1</button>
+          <button class="lesson-btn" onclick="filterFlashcards(2, this)">Bài 2</button>
+          <button class="lesson-btn" onclick="filterFlashcards(3, this)">Bài 3</button>
+          <button class="lesson-btn" onclick="filterFlashcards(4, this)">Bài 4</button>
+        </div>
+      </div>
+
+      <!-- 3D Card Scene -->
+      <div class="card-scene">
+        <div class="flashcard" id="flashcardElement" onclick="flipFlashcard()">
+          <div class="card-face front">
+            <div class="card-category" id="fcCategory">Bài 1: CM Tư Sản</div>
+            <div class="card-prompt" id="fcPrompt">Câu hỏi ở đây...</div>
+            <div class="card-hint">💡 Nhấn vào thẻ để lật xem đáp án</div>
+          </div>
+          <div class="card-face back">
+            <div class="card-category" style="color: #67e8f9;">Đáp Án Chốt</div>
+            <div class="card-answer" id="fcAnswer">Đáp án ở đây...</div>
+            <div class="card-hint" style="color: rgba(255,255,255,0.7);">💡 Nhấn lại để lật về câu hỏi</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="flashcard-nav">
+        <button class="btn-fc" onclick="prevFlashcard()">⬅️ Thẻ trước</button>
+        <button class="btn-fc" style="background: var(--primary); color: white;" onclick="nextFlashcard()">Thẻ tiếp theo ➡️</button>
+      </div>
+    </div>
+
+
+    <!-- ================= VIEW 3: TRỤC THỜI GIAN ================= -->
+    <div id="timelineView" class="view-page">
+      <div class="hero-banner" style="background: linear-gradient(135deg, #059669 0%, #10b981 50%, #06b6d4 100%);">
+        <h1>⏳ Trục Dòng Thời Gian Lịch Sử</h1>
+        <p>Chuỗi sự kiện then chốt từ thế kỉ XVI đến nay được sắp xếp theo trình tự thời gian, giúp bạn nắm trọn dòng chảy lịch sử.</p>
+      </div>
+
+      <div class="timeline-container">
+        
+        <div class="timeline-item">
+          <div class="timeline-year">Thế kỉ XVI</div>
+          <div class="timeline-title">Cách mạng Nê-đéc-lan (Hà Lan) bùng nổ</div>
+          <div class="timeline-desc">Cuộc cách mạng tư sản đầu tiên trên thế giới, lật đổ ách thống trị của phong kiến Tây Ban Nha.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1640 – 1688</div>
+          <div class="timeline-title">Cách mạng tư sản Anh</div>
+          <div class="timeline-desc">Nội chiến giữa Quốc hội và Nhà vua $\rightarrow$ Xử tử vua Sác-lơ I $\rightarrow$ Cách mạng Quang vinh (1688) thiết lập chế độ <strong>Quân chủ lập hiến</strong>.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">4/7/1776</div>
+          <div class="timeline-title">Tuyên ngôn Độc lập Hợp chúng quốc Mỹ</div>
+          <div class="timeline-desc">13 thuộc địa Anh ở Bắc Mỹ giành độc lập, Thomas Jefferson khởi thảo khẳng định quyền sống, tự do và mưu cầu hạnh phúc.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">14/7/1789</div>
+          <div class="timeline-title">Tấn công ngục Ba-xti — Bùng nổ Cách mạng tư sản Pháp</div>
+          <div class="timeline-desc">Mở đầu cuộc cách mạng tư sản triệt để nhất thời cận đại, lật đổ phong kiến, thiết lập nền cộng hòa.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1861 – 1865</div>
+          <div class="timeline-title">Cải cách nông nô ở Nga (1861) & Nội chiến Mỹ (1861 - 1865)</div>
+          <div class="timeline-desc">Nga giải phóng nông nô. Mỹ đánh bại phe chủ nô miền Nam, xóa bỏ chế độ nô lệ da đen dưới thời Abraham Lincoln.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1868</div>
+          <div class="timeline-title">Cuộc Duy tân Minh Trị ở Nhật Bản</div>
+          <div class="timeline-desc">Thiên hoàng Minh Trị cải cách đất nước toàn diện, đưa Nhật Bản thoát khỏi nguy cơ thuộc địa và tiến lên CNTB.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">Cuối thế kỉ XIX</div>
+          <div class="timeline-title">CNTB xác lập toàn cầu & chuyển sang Chủ nghĩa đế quốc</div>
+          <div class="timeline-desc">Hình thành các tổ chức độc quyền (Cartel, Syndicate, Trust), xuất hiện tư bản tài chính và xuất khẩu tư bản.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1917</div>
+          <div class="timeline-title">Cách mạng tháng Mười Nga thành công</div>
+          <div class="timeline-desc">Dưới sự lãnh đạo của V.I. Lênin, giai cấp vô sản Nga lật đổ chính phủ tư sản, lập nhà nước Xô viết đầu tiên.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">30/12/1922</div>
+          <div class="timeline-title">Thành lập Liên bang CHXHCN Xô viết (Liên Xô)</div>
+          <div class="timeline-desc">Đại hội X các Xô viết toàn Nga thông qua Hiệp ước và Tuyên bố thành lập Liên Xô với <strong>4 nước cộng hòa đầu tiên</strong> (Nga, U-crai-na, Bê-lô-rút-xi-a, Ngoại Cáp-ca-dơ).</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">Tháng 1/1924</div>
+          <div class="timeline-title">Bản Hiến pháp đầu tiên của Liên Xô được thông qua</div>
+          <div class="timeline-desc">Hoàn thiện cơ cấu tổ chức và thể chế nhà nước Liên bang Xô viết.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1945 – 1949</div>
+          <div class="timeline-title">CNXH vượt ra khỏi một nước, trở thành hệ thống thế giới</div>
+          <div class="timeline-desc">Các nước Đông Âu tiến lên xây dựng CNXH. Ngày <strong>01/10/1949</strong>, nước CHND Trung Hoa thành lập, nối liền CNXH từ Âu sang Á.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1959 – 1961</div>
+          <div class="timeline-title">Thắng lợi của Cách mạng Cuba</div>
+          <div class="timeline-desc">Fidel Castro lãnh đạo lật đổ chế độ độc tài Batista (1959), Cu-ba tuyên bố tiến lên CNXH (1961), là lá cờ đầu ở Tây bán cầu.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">Tháng 12/1978</div>
+          <div class="timeline-title">Trung Quốc tiến hành Cải cách - Mở cửa</div>
+          <div class="timeline-desc">Đặng Tiểu Bình khởi xướng tại HNTW 3 khóa XI, lấy phát triển kinh tế làm trung tâm, xây dựng CNXH đặc sắc Trung Quốc.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">Tháng 12/1986</div>
+          <div class="timeline-title">Việt Nam tiến hành công cuộc Đổi mới</div>
+          <div class="timeline-desc">Đại hội đại biểu toàn quốc lần thứ VI của Đảng khởi xướng đường lối Đổi mới toàn diện đất nước.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">25/12/1991</div>
+          <div class="timeline-title">Liên bang Xô viết hoàn toàn tan rã</div>
+          <div class="timeline-desc">M. Goóc-ba-chốp từ chức Tổng thống, lá cờ búa liềm trên nóc điện Crem-li bị hạ xuống sau 74 năm tồn tại.</div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ================= VIEW 4: LÝ THUYẾT FULL ================= -->
+    <div id="theoryView" class="view-page">
+      <div class="hero-banner" style="background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #6366f1 100%);">
+        <h1>📖 Sổ Tay Lý Thuyết Trọng Tâm (Bài 1 – 4)</h1>
+        <p>Hệ thống toàn bộ kiến thức cốt lõi SGK Lịch sử 11 Mới (Kết nối tri thức). Cần tra cứu ý nào bạn có thể bấm xem ngay!</p>
+      </div>
+
       <div class="theory-toc">
-        <span style="font-weight: 700; color: var(--text-muted); font-size: 0.88rem;">CHUYỂN NHANH ĐẾN:</span>
+        <span style="font-weight: 700; color: var(--text-muted); font-size: 0.88rem;">CHUYỂN NHANH:</span>
         <a href="#theory-b1" class="toc-link">Bài 1: CM Tư Sản</a>
         <a href="#theory-b2" class="toc-link">Bài 2: CNTB Xác Lập & Độc Quyền</a>
         <a href="#theory-b3" class="toc-link">Bài 3: Liên Bang Xô Viết</a>
@@ -861,36 +1091,24 @@
         <div class="theory-block">
           <h3>1. Bốn Tiền Đề Của Cách Mạng Tư Sản</h3>
           <ul>
-            <li><strong>Kinh tế:</strong> Phương thức sản xuất TBCN hình thành và phát triển trong lòng chế độ phong kiến (hoặc thuộc địa), nhưng bị chế độ phong kiến / thực dân kìm hãm bằng thuế má, luật lệ, rào cản độc quyền.
-              <br>👉 <em>Ví dụ nổi bật:</em> Ở Anh có phong trào <span class="tag-term">Rào đất cướp ruộng</span> biến nông dân thành người làm thuê. Ở Bắc Mỹ, thực dân Anh áp đặt các đạo luật hàng hải và sắc thuế hà khắc (thuế tem, thuế chè).
+            <li><strong>Kinh tế:</strong> Kinh tế TBCN ra đời trong lòng chế độ cũ nhưng bị phong kiến/thực dân kìm hãm bằng thuế má, luật lệ, rào cản độc quyền.
+              <br>👉 Ở Anh có phong trào <span class="tag-term">Rào đất cướp ruộng</span>. Ở Bắc Mỹ, thực dân Anh áp đặt các đạo luật hàng hải và thuế tem, thuế chè.
             </li>
-            <li><strong>Chính trị:</strong> Sự duy trì của chế độ <span class="tag-term">Quân chủ chuyên chế</span> bảo thủ (Anh, Pháp) hoặc sự cai trị độc đoán của chính quốc thực dân (Bắc Mỹ).</li>
-            <li><strong>Xã hội:</strong> Phân hóa giai cấp sâu sắc. 
-              <br>👉 Giai cấp <span class="tag-term">Tư sản</span> giàu có nhưng không có quyền chính trị. 
-              <br>👉 Tầng lớp <span class="tag-term">Quý tộc mới</span> (chỉ có ở Anh) kinh doanh theo lối tư bản. 
-              <br>👉 Tầng lớp <span class="tag-term">Chủ nô đồn điền</span> (ở Bắc Mỹ) bóc lột nô lệ da đen. 
-              <br>👉 Xã hội Pháp trước 1789 chia làm <strong>3 Đẳng cấp:</strong> Đẳng cấp 1 (Tăng lữ), Đẳng cấp 2 (Quý tộc) - được đặc quyền miễn thuế; Đẳng cấp thứ ba (Tư sản, nông dân, bình dân) gánh mọi thứ thuế.
+            <li><strong>Chính trị:</strong> Sự duy trì của chế độ <span class="tag-term">Quân chủ chuyên chế</span> bảo thủ (Anh, Pháp) hoặc sự cai trị độc đoán của thực dân (Bắc Mỹ).</li>
+            <li><strong>Xã hội:</strong> Phân hóa giai cấp sâu sắc: Giai cấp <span class="tag-term">Tư sản</span> có tiền nhưng thiếu quyền lực chính trị; tầng lớp <span class="tag-term">Quý tộc mới</span> (ở Anh); tầng lớp <span class="tag-term">Chủ nô</span> (ở Bắc Mỹ).
+              <br>👉 Xã hội Pháp trước 1789 chia làm <strong>3 Đẳng cấp:</strong> Tăng lữ (1), Quý tộc (2) có đặc quyền; Đẳng cấp thứ ba (3) chịu mọi thuế khóa.
             </li>
             <li><strong>Tư tưởng:</strong> 
-              <br>👉 <strong>Anh:</strong> Dùng ngọn cờ <span class="tag-term">Thanh giáo</span> (Calvinism cải cách) chống lại Anh giáo phong kiến.
+              <br>👉 <strong>Anh:</strong> Dùng ngọn cờ <span class="tag-term">Thanh giáo</span>.
               <br>👉 <strong>Bắc Mỹ:</strong> Tư tưởng dân chủ tư sản của Thomas Paine, Thomas Jefferson (Tuyên ngôn Độc lập 1776).
               <br>👉 <strong>Pháp:</strong> Trào lưu <span class="tag-term">Triết học Ánh sáng</span> thế kỉ XVIII:
-              <em>Montesquieu</em> (đề xướng Tam quyền phân lập: Lập pháp, Hành pháp, Tư pháp); <em>Voltaire</em> (chống Giáo hội phong kiến); <em>Rousseau</em> (Khế ước xã hội, chủ quyền thuộc về nhân dân).
+              <em>Montesquieu</em> (Tam quyền phân lập); <em>Voltaire</em> (chống Giáo hội phong kiến); <em>Rousseau</em> (Khế ước xã hội).
             </li>
           </ul>
         </div>
 
         <div class="theory-block">
-          <h3>2. Mục Tiêu & Nhiệm Vụ</h3>
-          <ul>
-            <li><strong>Mục tiêu:</strong> Lật đổ phong kiến/thực dân, xác lập nhà nước tư sản, mở đường cho CNTB phát triển.</li>
-            <li><strong>Nhiệm vụ dân tộc:</strong> Thống nhất thị trường dân tộc, giành độc lập giải phóng dân tộc (Bắc Mỹ, Hà Lan).</li>
-            <li><strong>Nhiệm vụ dân chủ:</strong> Xóa bỏ đẳng cấp phong kiến, bảo đảm quyền tự do dân chủ tư sản, giải quyết vấn đề ruộng đất cho nông dân.</li>
-          </ul>
-        </div>
-
-        <div class="theory-block">
-          <h3>3. So Sánh Các Cuộc Cách Mạng Tư Sản Lớn</h3>
+          <h3>2. So Sánh Các Cuộc Cách Mạng Tư Sản Lớn</h3>
           <div class="table-responsive">
             <table class="custom-table">
               <thead>
@@ -910,13 +1128,7 @@
                 </tr>
                 <tr>
                   <td><strong>Động lực chính</strong></td>
-                  <td colspan="3" style="text-align: center; color: var(--accent); font-weight: bold;">Quần chúng nhân dân (nông dân, thị dân, thợ thủ công, nô lệ...)</td>
-                </tr>
-                <tr>
-                  <td><strong>Hình thức</strong></td>
-                  <td>Nội chiến</td>
-                  <td>Chiến tranh giải phóng dân tộc</td>
-                  <td>Cách mạng dân chủ tư sản</td>
+                  <td colspan="3" style="text-align: center; color: var(--accent); font-weight: bold;">Quần chúng nhân dân (nông dân, thị dân, thợ thủ công...)</td>
                 </tr>
                 <tr>
                   <td><strong>Thể chế sau CM</strong></td>
@@ -925,10 +1137,10 @@
                   <td>Cộng hòa</td>
                 </tr>
                 <tr>
-                  <td><strong>Đánh giá tính chất</strong></td>
+                  <td><strong>Tính chất</strong></td>
                   <td>Không triệt để</td>
                   <td>Không triệt để (giữ chế độ nô lệ)</td>
-                  <td><strong>Triệt để nhất</strong> (xóa sạch phong kiến, chia ruộng cho dân)</td>
+                  <td><strong>Triệt để nhất</strong> (xóa sạch phong kiến, chia ruộng)</td>
                 </tr>
               </tbody>
             </table>
@@ -936,10 +1148,9 @@
         </div>
 
         <div class="note-box">
-          <strong>⚠️ BẪY TRẮC NGHIỆM BÀI 1:</strong> Động lực quyết định thắng lợi là <strong>Quần chúng nhân dân</strong>, còn Lãnh đạo là <strong>Giai cấp tư sản</strong>. Cách mạng tư sản đầu tiên là ở Hà Lan (XVI). Cách mạng Pháp triệt để nhất nhờ chính sách của phái Giacôbanh.
+          <strong>⚠️ BẪY TRẮC NGHIỆM:</strong> Động lực quyết định thắng lợi là <strong>Quần chúng nhân dân</strong>, Lãnh đạo là <strong>Giai cấp tư sản</strong>. Cách mạng tư sản đầu tiên là ở Hà Lan (XVI). Cách mạng Pháp triệt để nhất nhờ phái Giacôbanh.
         </div>
       </section>
-
 
       <!-- BÀI 2 -->
       <section class="lesson-section" id="theory-b2">
@@ -947,168 +1158,88 @@
           <div class="lesson-icon">🏭</div>
           <div class="lesson-title-text">
             <h2>BÀI 2: Sự Xác Lập Và Phát Triển Của Chủ Nghĩa Tư Bản</h2>
-            <span>Từ tự do cạnh tranh sang độc quyền đến Chủ nghĩa tư bản hiện đại</span>
+            <span>Từ tự do cạnh tranh sang độc quyền đến CNTB hiện đại</span>
           </div>
         </div>
 
         <div class="theory-block">
-          <h3>1. Sự Xác Lập Của CNTB</h3>
+          <h3>1. Xác Lập & Chuyển Sang Chủ Nghĩa Đế Quốc</h3>
           <ul>
-            <li>Diễn ra qua hàng loạt cuộc CMTS và cải cách: Anh (XVII), Pháp & Mỹ (XVIII), làn sóng 1848 - 1849, Thống nhất Đức (Bismarck - sắt và máu), Thống nhất Ý, Cải cách nông nô ở Nga (1861), Nội chiến Mỹ (1861 - 1865: bãi bỏ nô lệ), Duy tân Minh Trị ở Nhật Bản (1868).</li>
             <li><strong>Thời điểm xác lập:</strong> Đến <span class="tag-term">cuối thế kỉ XIX</span>, CNTB thắng thế hoàn toàn phong kiến trên phạm vi toàn cầu.</li>
-          </ul>
-        </div>
-
-        <div class="theory-block">
-          <h3>2. Quá Trình Sang Giai Đoạn Độc Quyền (Chủ Nghĩa Đế Quốc)</h3>
-          <ul>
-            <li><strong>Nguyên nhân:</strong> Tác động của Cách mạng công nghiệp lần thứ hai (điện lực, dầu mỏ, động cơ đốt trong) thúc đẩy tích tụ và tập trung sản xuất $\rightarrow$ hình thành các <span class="tag-term">Tổ chức độc quyền</span> (Cartel, Syndicate, Trust, Concern).</li>
-            <li><strong>5 Đặc trưng của Chủ nghĩa đế quốc (V.I. Lênin):</strong>
-              <br>1️⃣ Hình thành các tổ chức độc quyền chi phối toàn bộ đời sống kinh tế.
-              <br>2️⃣ Sự dung hợp giữa tư bản ngân hàng và công nghiệp thành <span class="tag-term">Tư bản tài chính</span> và bọn <span class="tag-term">Đầu sỏ tài chính</span>.
-              <br>3️⃣ <span class="tag-term">Xuất khẩu tư bản</span> (đưa vốn ra nước ngoài đầu tư, bóc lột lợi nhuận) thay vì chỉ xuất khẩu hàng hóa.
-              <br>4️⃣ Sự phân chia thị trường thế giới giữa các tập đoàn tư bản xuyên quốc gia.
-              <br>5️⃣ Sự phân chia xong đất đai thuộc địa giữa các đế quốc $\rightarrow$ dẫn đến mâu thuẫn tranh giành thuộc địa $\rightarrow$ Chiến tranh thế giới thứ nhất (1914 - 1918).
-            </li>
-            <li><strong>Đặc điểm các nước đế quốc:</strong>
-              <br>🇬🇧 <strong>Anh:</strong> Đế quốc <em>thực dân</em> ("Mặt trời không bao giờ lặn").
-              <br>🇫🇷 <strong>Pháp:</strong> Đế quốc <em>cho vay lãi</em> (2/3 tư bản dùng cho nước khác vay lấy lãi cao).
-              <br>🇩🇪 <strong>Đức:</strong> Đế quốc <em>quân phiệt, hiếu chiến</em> ("kẻ đói ăn khát thuộc địa").
-              <br>🇺🇸 <strong>Mỹ:</strong> Xứ sở của các <em>Tơrớt (Trust)</em> khổng lồ: Rockefeller (Vua dầu mỏ), Morgan (Vua thép).
+            <li><strong>Nguyên nhân độc quyền:</strong> Tác động của Cách mạng công nghiệp lần thứ hai thúc đẩy tích tụ và tập trung sản xuất $\rightarrow$ hình thành các <span class="tag-term">Tổ chức độc quyền</span> (Cartel, Syndicate, Trust, Concern).</li>
+            <li><strong>5 Đặc trưng của Chủ nghĩa đế quốc (Lênin):</strong> (1) Tổ chức độc quyền; (2) Tư bản tài chính & Đầu sỏ tài chính; (3) Xuất khẩu tư bản; (4) Phân chia thị trường quốc tế; (5) Phân chia đất đai thuộc địa.</li>
+            <li><strong>Đặc điểm các nước:</strong> 
+              Anh: <em>Đế quốc thực dân</em>; Pháp: <em>Đế quốc cho vay lãi</em>; Đức: <em>Quân phiệt, hiếu chiến</em>; Mỹ: <em>Xứ sở của các tập đoàn Trust</em> (Rockefeller, Morgan).
             </li>
           </ul>
         </div>
 
         <div class="theory-block">
-          <h3>3. Chủ Nghĩa Tư Bản Hiện Đại</h3>
+          <h3>2. Chủ Nghĩa Tư Bản Hiện Đại</h3>
           <ul>
-            <li><strong>Khái niệm:</strong> Là giai đoạn của CNTB từ <span class="tag-term">sau CTTG II (1945)</span> đến nay.</li>
-            <li><strong>Đặc trưng cốt lõi:</strong>
-              <br>👉 Lực lượng sản xuất phát triển vượt bậc nhờ Cách mạng Khoa học - Công nghệ.
-              <br>👉 <span class="tag-term">Độc quyền nhà nước</span>: Sự kết hợp giữa tư bản độc quyền tư nhân và nhà nước tư sản nhằm điều tiết kinh tế.
-              <br>👉 Cơ cấu lao động dịch chuyển: Lao động trí tuệ, dịch vụ và công nghệ thông tin tăng vọt.
-              <br>👉 Toàn cầu hóa sâu rộng thông qua các công ty xuyên quốc gia (TNCs).
-            </li>
-            <li><strong>Tiềm năng:</strong> Trình độ KH-CN cao, năng lực tài chính lớn, kinh nghiệm quản trị kinh tế thị trường.</li>
-            <li><strong>Thách thức:</strong> Khủng hoảng kinh tế chu kỳ, phân hóa giàu - nghèo ngày càng nghiêm trọng (phong trào <em>"Chúng tôi là 99%"</em>), xung đột xã hội, biến đổi khí hậu.</li>
+            <li>Tính từ <span class="tag-term">sau CTTG II (1945)</span> đến nay.</li>
+            <li>Đặc trưng: Kết hợp độc quyền tư nhân với nhà nước tư sản (<span class="tag-term">Độc quyền nhà nước</span>); chuyển dịch cơ cấu lao động sang tri thức và dịch vụ; toàn cầu hóa.</li>
+            <li>Thách thức: Khủng hoảng chu kỳ; phân hóa giàu nghèo sâu sắc (phong trào <em>"Chúng tôi là 99%"</em>); ô nhiễm môi trường.</li>
           </ul>
         </div>
       </section>
-
 
       <!-- BÀI 3 -->
       <section class="lesson-section" id="theory-b3">
         <div class="lesson-section-header">
           <div class="lesson-icon">⭐</div>
           <div class="lesson-title-text">
-            <h2>BÀI 3: Sự Hình Thành Liên Bang Cộng Hòa Xã Hội Chủ Nghĩa Xô Viết</h2>
+            <h2>BÀI 3: Sự Hình Thành Liên Bang Xô Viết</h2>
             <span>Chủ đề 2: Chủ nghĩa xã hội từ năm 1917 đến nay</span>
           </div>
         </div>
 
         <div class="theory-block">
-          <h3>1. Bối Cảnh Thành Lập</h3>
+          <h3>1. Quá Trình Thành Lập</h3>
           <ul>
-            <li>Thắng lợi của <span class="tag-term">Cách mạng tháng Mười Nga (1917)</span> thành lập nhà nước công nông đầu tiên do V.I. Lênin lãnh đạo.</li>
-            <li>Đánh bại cuộc can thiệp vũ trang của 14 nước đế quốc và nội chiến (1918 - 1920). Thực hiện Chính sách kinh tế mới (NEP) năm 1921.</li>
-            <li><strong>3 Nhu cầu liên minh:</strong>
-              <br>🛡️ <em>Quốc phòng:</em> Hợp lực đối phó sự bao vây, chống phá của các nước đế quốc phương Tây.
-              <br>⚙️ <em>Kinh tế:</em> Phân công lao động, chia sẻ tài nguyên để khôi phục kinh tế bị tàn phá sau chiến tranh.
-              <br>🚩 <em>Chính trị:</em> Cùng chung bản chất Nhà nước Xô viết và chịu sự lãnh đạo thống nhất của <span class="tag-term">Đảng Bôn-sê-vích (Đảng Cộng sản)</span>.
-            </li>
-          </ul>
-        </div>
-
-        <div class="theory-block">
-          <h3>2. Quá Trình Thành Lập</h3>
-          <ul>
-            <li><strong>Ngày 30/12/1922:</strong> Tại Mát-xcơ-va, <em>Đại hội lần thứ X các Xô viết toàn Nga</em> thông qua:
-              <br>1️⃣ <strong>Bản Tuyên bố thành lập Liên bang CHXHCN Xô viết (Liên Xô - USSR)</strong>.
-              <br>2️⃣ <strong>Bản Hiệp ước Liên bang</strong>.
-            </li>
-            <li><strong>4 Nước Cộng hòa đầu tiên gia nhập (1922):</strong>
-              <br>1. CHLB Xô viết Nga (RSFSR).
-              <br>2. CHXHCN Xô viết U-crai-na.
-              <br>3. CHXHCN Xô viết Bê-lô-rút-xi-a.
-              <br>4. CHLB Xô viết Ngoại Cáp-ca-dơ (gồm 3 nước: Ác-mê-ni-a, A-déc-bai-gian, Gioóc-ghi-a).
-            </li>
-            <li><strong>Tháng 1/1924:</strong> <em>Bản Hiến pháp đầu tiên của Liên Xô</em> được thông qua, hoàn tất việc tổ chức nhà nước.</li>
-            <li>Đến năm 1940, Liên bang Xô viết phát triển gồm <span class="tag-term">15 nước Cộng hòa</span>.</li>
-          </ul>
-        </div>
-
-        <div class="theory-block">
-          <h3>3. Nguyên Tắc & Ý Nghĩa</h3>
-          <ul>
+            <li><strong>Ngày 30/12/1922:</strong> Đại hội lần thứ X các Xô viết toàn Nga thông qua <em>Bản Tuyên bố</em> và <em>Hiệp ước thành lập Liên Xô</em>.</li>
+            <li><strong>4 Nước Cộng hòa đầu tiên:</strong> Nga, U-crai-na, Bê-lô-rút-xi-a, Ngoại Cáp-ca-dơ (gồm 3 nước: Ác-mê-ni-a, A-déc-bai-gian, Gioóc-ghi-a).</li>
+            <li><strong>Tháng 1/1924:</strong> Bản Hiến pháp đầu tiên của Liên Xô được thông qua. Năm 1940 có 15 nước cộng hòa.</li>
             <li><strong>Nguyên tắc:</strong> Tự nguyện, bình đẳng, tôn trọng chủ quyền và tương trợ lẫn nhau.</li>
-            <li><strong>Ý nghĩa trong nước:</strong> Tạo sức mạnh tổng hợp để thực hiện công nghiệp hóa (vươn lên số 1 châu Âu, số 2 thế giới trước CTTG II), củng cố quốc phòng và đánh thắng phát xít Đức.</li>
-            <li><strong>Ý nghĩa quốc tế:</strong> Cổ vũ phong trào giải phóng dân tộc ở các nước thuộc địa; khẳng định chủ nghĩa Mác - Lênin về giải quyết vấn đề dân tộc.</li>
           </ul>
         </div>
       </section>
-
 
       <!-- BÀI 4 -->
       <section class="lesson-section" id="theory-b4">
         <div class="lesson-section-header">
           <div class="lesson-icon">🌏</div>
           <div class="lesson-title-text">
-            <h2>BÀI 4: Sự Phát Triển Của Chủ Nghĩa Xã Hội Từ Sau CTTG II Đến Nay</h2>
-            <span>Từ mở rộng thành hệ thống thế giới, khủng hoảng đến kiên trì đổi mới</span>
+            <h2>BÀI 4: Sự Phát Triển Của CNXH Từ Sau CTTG II Đến Nay</h2>
+            <span>Mở rộng hệ thống, khủng hoảng và kiên trì đổi mới</span>
           </div>
         </div>
 
         <div class="theory-block">
-          <h3>1. Giai Đoạn Mở Rộng (1945 – Nửa Đầu Những Năm 70)</h3>
+          <h3>1. Mở Rộng & Sụp Đổ Ở Đông Âu, Liên Xô</h3>
           <ul>
-            <li><strong>Đông Âu:</strong> 1944 - 1945 thành lập các nhà nước Dân chủ nhân dân. Đến năm <span class="tag-term">1949</span> bước vào xây dựng CNXH $\rightarrow$ <strong>CNXH vượt ra khỏi một nước (Liên Xô), trở thành một hệ thống thế giới</strong>.</li>
-            <li><strong>Châu Á:</strong> 
-              <br>👉 CHDCND Triều Tiên (1948).
-              <br>👉 Nước CHND Trung Hoa thành lập (<span class="tag-term">01/10/1949</span>): Nối liền CNXH từ Âu sang Á, thay đổi cán cân quyền lực thế giới.
-              <br>👉 Việt Nam (1954 giải phóng miền Bắc, 1975 thống nhất cả nước).
-              <br>👉 Lào (12/1975).
-            </li>
-            <li><strong>Mỹ Latinh:</strong> Cách mạng <span class="tag-term">Cu-ba</span> thành công (01/01/1959), tuyên bố tiến lên CNXH năm 1961 $\rightarrow$ trở thành "Lá cờ đầu", hòn đảo tự do, tiền đồn của CNXH ở Tây bán cầu.</li>
+            <li>Năm <span class="tag-term">1949</span>: Các nước Đông Âu bước vào xây dựng CNXH $\rightarrow$ CNXH trở thành hệ thống thế giới.</li>
+            <li><span class="tag-term">01/10/1949</span>: CHND Trung Hoa ra đời, nối liền CNXH từ Âu sang Á.</li>
+            <li>Cách mạng <span class="tag-term">Cu-ba</span> (1959 - 1961): Tiền đồn của CNXH ở Tây bán cầu.</li>
+            <li><strong>Liên Xô sụp đổ (<span class="tag-term">25/12/1991</span>):</strong> Do duy trì quá lâu mô hình kinh tế tập trung quan liêu bao cấp, tệ sùng bái cá nhân, sai lầm nghiêm trọng trong cải tổ và sự chống phá "diễn biến hòa bình".</li>
           </ul>
         </div>
 
         <div class="theory-block">
-          <h3>2. Khủng Hoảng Và Sự Sụp Đổ Của CNXH Ở Liên Xô & Đông Âu</h3>
+          <h3>2. Kiên Trì Cải Cách & Đổi Mới</h3>
           <ul>
-            <li><strong>Thời gian:</strong> Khủng hoảng từ sau 1973 (khủng hoảng dầu mỏ), sụp đổ ở Đông Âu (1989 - 1990) và Liên Xô (<span class="tag-term">25/12/1991</span> - Goóc-ba-chốp từ chức).</li>
-            <li><strong>Nguyên nhân sụp đổ:</strong>
-              <br>👉 <em>Chủ quan (quyết định):</em> Duy trì quá lâu mô hình kế hoạch hóa tập trung quan liêu bao cấp; chậm áp dụng KH-CN; độc đoán, sùng bái cá nhân; sai lầm nghiêm trọng trong đường lối "cải tổ" (đa nguyên chính trị, từ bỏ vai trò lãnh đạo của Đảng).
-              <br>👉 <em>Khách quan:</em> Hoạt động chống phá quyết liệt của các thế lực đế quốc thông qua chiến lược <span class="tag-term">Diễn biến hòa bình</span>.
-            </li>
+            <li><strong>Trung Quốc:</strong> Cải cách - mở cửa từ <span class="tag-term">tháng 12/1978</span> (Đặng Tiểu Bình). Lấy kinh tế làm trung tâm. Vươn lên nền kinh tế thứ 2 thế giới từ 2010.</li>
+            <li><strong>Việt Nam:</strong> Đổi mới từ <span class="tag-term">tháng 12/1986</span> tại Đại hội VI.</li>
+            <li><strong>Lào:</strong> Đổi mới từ 1986. <strong>Cu-ba:</strong> Cập nhật mô hình kinh tế - xã hội từ 2011.</li>
           </ul>
-        </div>
-
-        <div class="theory-block">
-          <h3>3. Công Cuộc Kiên Trì Và Cải Cách, Đổi Mới (Từ 1991 Đến Nay)</h3>
-          <ul>
-            <li><strong>Bốn nước kiên định con đường XHCN:</strong> Trung Quốc, Việt Nam, Lào, Cu-ba.</li>
-            <li><strong>🇨🇳 Trung Quốc:</strong>
-              <br>👉 Khởi xướng Cải cách - mở cửa từ <span class="tag-term">tháng 12/1978</span> (HNTW 3 khóa XI do Đặng Tiểu Bình khởi xướng).
-              <br>👉 Trọng tâm: <strong>Lấy phát triển kinh tế làm trung tâm</strong>, kiên trì 4 nguyên tắc cơ bản, xây dựng CNXH mang đặc sắc Trung Quốc.
-              <br>👉 Thành tựu: Từ 2010 trở thành nền kinh tế lớn thứ hai thế giới (sau Mỹ), phóng thành công tàu Thần Châu đưa người vào vũ trụ (2003).
-            </li>
-            <li><strong>🇻🇳 Việt Nam:</strong> Đề ra đường lối Đổi mới toàn diện tại <span class="tag-term">Đại hội VI (tháng 12/1986)</span>, kinh tế tăng trưởng liên tục, chính trị - xã hội ổn định vững chắc.</li>
-            <li><strong>🇱🇦 Lào:</strong> Bắt đầu đổi mới từ năm 1986 tại Đại hội IV.</li>
-            <li><strong>🇨🇺 Cu-ba:</strong> Vượt qua bao vây cấm vận, tiến hành "Cập nhật hóa mô hình kinh tế - xã hội" từ năm 2011.</li>
-          </ul>
-        </div>
-
-        <div class="note-box">
-          <strong>💡 KẾT LUẬN QUAN TRỌNG:</strong> Sự sụp đổ của Liên Xô và Đông Âu chỉ là sự sụp đổ của <em>một mô hình CNXH cụ thể bị tha hóa, xơ cứng</em>, chứ không phải sự sụp đổ của <em>lý tưởng CNXH khoa học</em>. Sự thành công của Việt Nam và Trung Quốc chứng minh sức sống mãnh liệt của CNXH khi biết vận dụng sáng tạo vào thực tiễn!
         </div>
       </section>
-
     </div>
 
   </div>
 
   <script>
-    // Import 82 questions
+    // 82 CÂU HỎI TRẮC NGHIỆM
     const fullQuestionBank = [
       // Bài 1
       { id: 1, lesson: 1, question: "Trào lưu Triết học Ánh sáng thế kỉ XVIII là tiền đề tư tưởng trực tiếp của cuộc cách mạng tư sản nào sau đây?", options: ["Cách mạng tư sản Anh.", "Chiến tranh giành độc lập của 13 thuộc địa Anh ở Bắc Mỹ.", "Cách mạng tư sản Pháp.", "Cách mạng tư sản Hà Lan."], correct: 2, explain: "Triết học Ánh sáng (với Montesquieu, Voltaire, Rousseau) là vũ khí lý luận dọn đường cho Cách mạng tư sản Pháp năm 1789 bùng nổ." },
@@ -1201,6 +1332,43 @@
       { id: 82, lesson: 4, question: "Điểm chung nổi bật trong đường lối đổi mới, cải cách của Việt Nam và Trung Quốc là", options: ["kiên trì sự lãnh đạo của Đảng Cộng sản và lấy phát triển kinh tế làm trọng tâm.", "thực hiện đa nguyên chính trị, đa đảng đối lập ngay từ đầu.", "tập trung tư nhân hóa toàn bộ đất đai và các ngành kinh tế then chốt.", "chỉ giao thương với các nước trong khối Xã hội chủ nghĩa."], correct: 0, explain: "Cả Việt Nam và Trung Quốc đều kiên quyết giữ vững vai trò lãnh đạo tuyệt đối của Đảng Cộng sản, ổn định chính trị để tập trung toàn lực phát triển kinh tế thị trường." }
     ];
 
+    // 30 FLASHCARDS CỐT LÕI
+    const flashcardsData = [
+      { lesson: 1, prompt: "Cuộc cách mạng tư sản đầu tiên trên thế giới nổ ra ở đâu, vào thế kỉ nào?", answer: "Cách mạng Nê-đéc-lan (Hà Lan) vào thế kỉ XVI lật đổ phong kiến Tây Ban Nha." },
+      { lesson: 1, prompt: "Tầng lớp 'Quý tộc mới' xuất hiện trong cuộc cách mạng tư sản nào?", answer: "Chỉ xuất hiện trong Cách mạng tư sản Anh (thế kỉ XVII), liên minh cùng Tư sản để lãnh đạo." },
+      { lesson: 1, prompt: "Ai là 3 đại diện tiêu biểu nhất của trào lưu Triết học Ánh sáng Pháp?", answer: "S. Mông-te-xki-ơ (Montesquieu), Ph. Vôn-te (Voltaire) và J.J. Rút-xô (Rousseau)." },
+      { lesson: 1, prompt: "Thuyết 'Tam quyền phân lập' (Lập pháp - Hành pháp - Tư pháp) là của ai?", answer: "Mông-te-xki-ơ (Montesquieu) trong tác phẩm 'Tinh thần pháp luật'." },
+      { lesson: 1, prompt: "Động lực chính, quyết định thắng lợi của mọi cuộc cách mạng tư sản là ai?", answer: "Quần chúng nhân dân (nông dân, thị dân, thợ thủ công, nô lệ...)." },
+      { lesson: 1, prompt: "Cuộc cách mạng tư sản nào được đánh giá là 'triệt để nhất' thời cận đại?", answer: "Cách mạng tư sản Pháp (1789) vì đã xóa sạch phong kiến, lập nền cộng hòa và chia ruộng đất cho dân." },
+      { lesson: 1, prompt: "Sự kiện nào đánh dấu Cách mạng tư sản Pháp chính thức bùng nổ?", answer: "Nhân dân Pa-ri tấn công chiếm pháo đài - nhà tù Ba-xti ngày 14/7/1789." },
+      { lesson: 1, prompt: "Sau cách mạng thế kỉ XVII, nước Anh xác lập thể chế chính trị nào?", answer: "Thể chế Quân chủ lập hiến (Vua trị vì nhưng không nắm thực quyền, quyền lực thuộc Quốc hội)." },
+      
+      { lesson: 2, prompt: "Chủ nghĩa tư bản chính thức xác lập trên phạm vi toàn cầu vào thời gian nào?", answer: "Vào cuối thế kỉ XIX, sau khi hoàn thành các cuộc cách mạng công nghiệp." },
+      { lesson: 2, prompt: "Kể tên 5 đặc trưng của Chủ nghĩa đế quốc theo V.I. Lênin?", answer: "1. Tổ chức độc quyền<br>2. Tư bản tài chính<br>3. Xuất khẩu tư bản<br>4. Phân chia thị trường thế giới<br>5. Phân chia thuộc địa." },
+      { lesson: 2, prompt: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Anh là gì?", answer: "Chủ nghĩa đế quốc thực dân ('Mặt trời không bao giờ lặn trên đế quốc Anh')." },
+      { lesson: 2, prompt: "Vì sao Chủ nghĩa đế quốc Pháp được gọi là 'Đế quốc cho vay lãi'?", answer: "Vì Pháp xuất khẩu tư bản phần lớn dưới dạng cho các nước (nhất là Nga) vay lấy lãi cao." },
+      { lesson: 2, prompt: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Đức là gì?", answer: "Chủ nghĩa đế quốc quân phiệt, hiếu chiến (do giới quân phiệt Phổ lãnh đạo)." },
+      { lesson: 2, prompt: "Khái niệm 'Chủ nghĩa tư bản hiện đại' dùng để chỉ giai đoạn nào?", answer: "Giai đoạn từ sau Chiến tranh thế giới thứ hai (1945) đến nay." },
+      { lesson: 2, prompt: "Bản chất của Chủ nghĩa tư bản độc quyền nhà nước là gì?", answer: "Sự kết hợp giữa tư bản độc quyền tư nhân và sức mạnh của nhà nước tư sản." },
+      { lesson: 2, prompt: "Phong trào 'Chúng tôi là 99%' (Mỹ, 2011) phản ánh thách thức nào của CNTB?", answer: "Sự bất bình đẳng sâu sắc: 1% người giàu độc quyền chiếm giữ đa số tài sản của xã hội." },
+
+      { lesson: 3, prompt: "Liên bang CHXHCN Xô viết (Liên Xô) chính thức thành lập vào ngày tháng năm nào?", answer: "Ngày 30/12/1922 tại Đại hội lần thứ X các Xô viết toàn Nga." },
+      { lesson: 3, prompt: "Kể tên 4 nước Cộng hòa đầu tiên gia nhập Liên bang Xô viết năm 1922?", answer: "Nga (RSFSR), U-crai-na, Bê-lô-rút-xi-a và Ngoại Cáp-ca-dơ." },
+      { lesson: 3, prompt: "Cộng hòa Liên bang Ngoại Cáp-ca-dơ gồm 3 nước nào?", answer: "Ác-mê-ni-a, A-déc-bai-gian và Gioóc-ghi-a (Gruzia)." },
+      { lesson: 3, prompt: "Bản Hiến pháp đầu tiên của Liên bang Xô viết được thông qua vào năm nào?", answer: "Tháng 1 năm 1924, đánh dấu việc hoàn thành tổ chức nhà nước Liên bang Xô viết." },
+      { lesson: 3, prompt: "Nguyên tắc cốt lõi khi thành lập Liên bang Xô viết là gì?", answer: "Sự tự nguyện, bình đẳng, tôn trọng chủ quyền và giúp đỡ lẫn nhau giữa các dân tộc." },
+      { lesson: 3, prompt: "Đến năm 1940, Liên bang Xô viết gồm có bao nhiêu nước cộng hòa?", answer: "Có tất cả 15 nước Cộng hòa thành viên." },
+
+      { lesson: 4, prompt: "Chủ nghĩa xã hội trở thành một hệ thống thế giới vào năm nào?", answer: "Năm 1949, khi các nước Đông Âu hoàn thành cải cách dân chủ và tiến hành xây dựng CNXH." },
+      { lesson: 4, prompt: "Ý nghĩa to lớn của sự kiện nước CHND Trung Hoa ra đời (01/10/1949)?", answer: "Nối liền CNXH từ Âu sang Á, thay đổi sâu sắc so sánh lực lượng có lợi cho hòa bình và CNXH." },
+      { lesson: 4, prompt: "Quốc gia nào được mệnh danh là 'Lá cờ đầu' của CNXH ở Tây bán cầu?", answer: "Cu-ba (Cách mạng thắng lợi 1959, tuyên bố đi lên CNXH năm 1961)." },
+      { lesson: 4, prompt: "Liên bang Xô viết hoàn toàn sụp đổ vào ngày tháng năm nào?", answer: "Ngày 25/12/1991 (Goóc-ba-chốp từ chức Tổng thống, cờ Liên Xô hạ xuống)." },
+      { lesson: 4, prompt: "Nguyên nhân sâu xa và quyết định dẫn đến sự sụp đổ của CNXH ở Liên Xô?", answer: "Mô hình kinh tế tập trung quan liêu bao cấp duy trì quá lâu; chủ quan duy ý chí; sai lầm cải tổ." },
+      { lesson: 4, prompt: "Đường lối Cải cách - mở cửa của Trung Quốc bắt đầu từ thời điểm nào?", answer: "Tháng 12/1978 (Hội nghị Trung ương 3 khóa XI) do Đặng Tiểu Bình khởi xướng." },
+      { lesson: 4, prompt: "Đảng Cộng sản Việt Nam đề ra đường lối Đổi mới đất nước tại Đại hội nào?", answer: "Đại hội đại biểu toàn quốc lần thứ VI (tháng 12/1986)." },
+      { lesson: 4, prompt: "Điểm chung nổi bật trong đường lối cải cách của Việt Nam và Trung Quốc là gì?", answer: "Kiên trì sự lãnh đạo của Đảng Cộng sản và lấy phát triển kinh tế làm trọng tâm." }
+    ];
+
     let currentQuestions = [...fullQuestionBank];
     let userAnswers = {};
     let currentFilter = 'all';
@@ -1208,7 +1376,11 @@
     let examTimer = null;
     let timeLeft = 45 * 60;
 
-    // SWITCH VIEW (Quiz vs Theory)
+    // FLASHCARD STATE
+    let fcList = [...flashcardsData];
+    let fcIdx = 0;
+
+    // VIEW SWITCHER
     function switchView(viewName) {
       document.querySelectorAll('.view-page').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-tab-btn').forEach(el => el.classList.remove('active'));
@@ -1216,6 +1388,13 @@
       if (viewName === 'quiz') {
         document.getElementById('quizView').classList.add('active');
         document.getElementById('tabBtnQuiz').classList.add('active');
+      } else if (viewName === 'flashcard') {
+        document.getElementById('flashcardView').classList.add('active');
+        document.getElementById('tabBtnFlashcard').classList.add('active');
+        loadFlashcard();
+      } else if (viewName === 'timeline') {
+        document.getElementById('timelineView').classList.add('active');
+        document.getElementById('tabBtnTimeline').classList.add('active');
       } else {
         document.getElementById('theoryView').classList.add('active');
         document.getElementById('tabBtnTheory').classList.add('active');
@@ -1230,13 +1409,62 @@
       document.getElementById('themeBtn').textContent = isLight ? '☀️' : '🌙';
     }
 
-    // RENDER QUIZ
+    // FLASHCARD LOGIC
+    function loadFlashcard() {
+      if (fcList.length === 0) return;
+      const card = fcList[fcIdx];
+      const fcEl = document.getElementById('flashcardElement');
+      fcEl.classList.remove('is-flipped');
+
+      document.getElementById('fcCategory').textContent = `Bài ${card.lesson}`;
+      document.getElementById('fcPrompt').textContent = card.prompt;
+      document.getElementById('fcAnswer').innerHTML = card.answer;
+      document.getElementById('fcCurrentIndex').textContent = fcIdx + 1;
+      document.getElementById('fcTotalCount').textContent = fcList.length;
+    }
+
+    function flipFlashcard() {
+      document.getElementById('flashcardElement').classList.toggle('is-flipped');
+    }
+
+    function nextFlashcard() {
+      if (fcIdx < fcList.length - 1) {
+        fcIdx++;
+      } else {
+        fcIdx = 0; // loop back
+      }
+      loadFlashcard();
+    }
+
+    function prevFlashcard() {
+      if (fcIdx > 0) {
+        fcIdx--;
+      } else {
+        fcIdx = fcList.length - 1;
+      }
+      loadFlashcard();
+    }
+
+    function filterFlashcards(filter, btn) {
+      document.querySelectorAll('#flashcardView .lesson-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (filter === 'all') {
+        fcList = [...flashcardsData];
+      } else {
+        fcList = flashcardsData.filter(c => c.lesson === filter);
+      }
+      fcIdx = 0;
+      loadFlashcard();
+    }
+
+    // QUIZ RENDER
     function renderQuiz() {
       const container = document.getElementById('quizContainer');
       container.innerHTML = '';
 
       if (currentQuestions.length === 0) {
-        container.innerHTML = '<p style="text-align:center; padding: 50px; color: var(--text-muted); font-size: 1.1rem;">Không tìm thấy câu hỏi phù hợp. Hãy thử từ khóa khác!</p>';
+        container.innerHTML = '<p style="text-align:center; padding: 40px; color: var(--text-muted);">Không tìm thấy câu hỏi phù hợp với từ khóa này.</p>';
         updateStats();
         return;
       }
@@ -1290,9 +1518,7 @@
             </div>
           </div>
           <div class="q-text">${q.question}</div>
-          <div class="opt-list">
-            ${optionsHtml}
-          </div>
+          <div class="opt-list">${optionsHtml}</div>
           <div class="explain-card ${isAnswered ? 'show' : ''}" id="explain-${q.id}">
             <strong>💡 Giải thích chi tiết & SGK:</strong> ${q.explain}
           </div>
@@ -1304,14 +1530,12 @@
       updateStats();
     }
 
-    // SELECT OPTION
     function selectOption(qId, optIdx) {
       if (userAnswers[qId] !== undefined) return;
       userAnswers[qId] = optIdx;
       renderQuiz();
     }
 
-    // UPDATE STATS
     function updateStats() {
       const total = currentQuestions.length;
       let answered = 0;
@@ -1341,10 +1565,9 @@
       document.getElementById('bottomScore').textContent = `${correct} / ${total} câu đúng (${accuracy}% chính xác)`;
     }
 
-    // FILTER QUESTIONS
     function filterQuestions(filter) {
       if (isExamMode) {
-        if (!confirm('Bạn đang trong chế độ thi thử! Đổi bộ lọc sẽ hủy bài thi hiện tại. Bạn có muốn tiếp tục?')) return;
+        if (!confirm('Bạn đang trong chế độ thi thử! Đổi bộ lọc sẽ hủy bài thi hiện tại. Tiếp tục?')) return;
         exitMockExam();
       }
 
@@ -1369,7 +1592,6 @@
       renderQuiz();
     }
 
-    // SEARCH
     function handleSearch() {
       const kw = document.getElementById('searchKeyword').value.trim().toLowerCase();
       if (!kw) {
@@ -1386,7 +1608,6 @@
       renderQuiz();
     }
 
-    // SHUFFLE
     function shuffleCurrentQuestions() {
       for (let i = currentQuestions.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -1395,12 +1616,10 @@
       renderQuiz();
     }
 
-    // MOCK EXAM
     function startMockExam() {
-      if (confirm('Bắt đầu làm ĐỀ THI THỬ 40 CÂU trong 45 phút? Hệ thống sẽ bốc ngẫu nhiên 40 câu trắc nghiệm từ ngân hàng.')) {
+      if (confirm('Bắt đầu làm ĐỀ THI THỬ 40 CÂU trong 45 phút?')) {
         isExamMode = true;
         userAnswers = {};
-        
         let shuffled = [...fullQuestionBank].sort(() => 0.5 - Math.random());
         currentQuestions = shuffled.slice(0, 40);
 
@@ -1414,7 +1633,7 @@
           updateTimerDisplay();
           if (timeLeft <= 0) {
             clearInterval(examTimer);
-            alert('⏱️ HẾT GIỜ LÀM BÀI! Hãy kiểm tra điểm số bên trên nhé.');
+            alert('⏱️ HẾT GIỜ LÀM BÀI! Hãy kiểm tra điểm số.');
           }
         }, 1000);
 
@@ -1436,7 +1655,6 @@
       filterQuestions('all');
     }
 
-    // RESET
     function resetQuiz() {
       if (confirm('Bạn có chắc muốn làm lại toàn bộ câu hỏi không?')) {
         userAnswers = {};
@@ -1445,9 +1663,9 @@
       }
     }
 
-    // INIT
     window.addEventListener('DOMContentLoaded', () => {
       renderQuiz();
+      loadFlashcard();
     });
   </script>
 </body>
