@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bách Khoa Ôn Thi Lịch Sử 11 (KNTT) - Lý Thuyết Chi Tiết Từng Câu Chữ & 100+ Trắc Nghiệm</title>
+  <title>Lịch Sử 11 (KNTT) - Tự Động Xáo Trộn Câu & Đáp Án Chuẩn SGK Mới</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -177,6 +177,19 @@
       color: rgba(255, 255, 255, 0.92);
       max-width: 760px;
       line-height: 1.55;
+    }
+
+    .shuffle-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     /* Controls Panel */
@@ -682,6 +695,9 @@
       <div class="hero-banner">
         <h1>Ngân Hàng 100+ Câu Hỏi Trắc Nghiệm Chuyên Sâu</h1>
         <p>Quét sạch từng câu chữ, khái niệm, bảng so sánh và bẫy trắc nghiệm trong cả 4 bài SGK Kết nối tri thức. Có tính giờ thi thử và chấm điểm thang 10!</p>
+        <div class="shuffle-status-pill">
+          🎲 Hệ thống: Tự động đảo ngẫu nhiên thứ tự câu hỏi & cả đáp án A-B-C-D mỗi lần mở trang!
+        </div>
       </div>
 
       <div class="controls-panel">
@@ -704,7 +720,7 @@
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
             <button class="btn-tool" onclick="switchView('theory')">📖 Đọc lý thuyết</button>
             <button class="btn-tool btn-exam-mode" onclick="startMockExam()">⏱️ Thi thử 40 câu</button>
-            <button class="btn-tool" onclick="shuffleCurrentQuestions()">🔀 Đảo câu hỏi</button>
+            <button class="btn-tool" onclick="reshuffleAll()">🔀 Đảo toàn bộ đề & đáp án</button>
           </div>
         </div>
       </div>
@@ -1140,105 +1156,89 @@
       </div>
 
       <div class="timeline-container">
-        
         <div class="timeline-item">
           <div class="timeline-year">Thế kỉ XVI</div>
           <div class="timeline-title">Cách mạng Nê-đéc-lan (Hà Lan) bùng nổ</div>
           <div class="timeline-desc">Cuộc cách mạng tư sản đầu tiên trên thế giới, lật đổ ách thống trị của phong kiến Tây Ban Nha.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">1640 – 1688</div>
           <div class="timeline-title">Cách mạng tư sản Anh</div>
           <div class="timeline-desc">Nội chiến giữa Quốc hội và Nhà vua $\rightarrow$ Xử tử vua Sác-lơ I $\rightarrow$ Cách mạng Quang vinh (1688) thiết lập chế độ <strong>Quân chủ lập hiến</strong>.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">4/7/1776</div>
           <div class="timeline-title">Tuyên ngôn Độc lập Hợp chúng quốc Mỹ</div>
           <div class="timeline-desc">13 thuộc địa Anh ở Bắc Mỹ giành độc lập, Thomas Jefferson khởi thảo khẳng định quyền sống, tự do và mưu cầu hạnh phúc.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">14/7/1789</div>
           <div class="timeline-title">Tấn công ngục Ba-xti — Bùng nổ Cách mạng tư sản Pháp</div>
           <div class="timeline-desc">Mở đầu cuộc cách mạng tư sản triệt để nhất thời cận đại, lật đổ phong kiến, thiết lập nền cộng hòa.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">1861 – 1865</div>
           <div class="timeline-title">Cải cách nông nô ở Nga (1861) & Nội chiến Mỹ (1861 - 1865)</div>
           <div class="timeline-desc">Nga giải phóng nông nô. Mỹ đánh bại phe chủ nô miền Nam, xóa bỏ chế độ nô lệ da đen dưới thời Abraham Lincoln.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">1868</div>
           <div class="timeline-title">Cuộc Duy tân Minh Trị ở Nhật Bản</div>
           <div class="timeline-desc">Thiên hoàng Minh Trị cải cách đất nước toàn diện, đưa Nhật Bản thoát khỏi nguy cơ thuộc địa và tiến lên CNTB.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">Cuối thế kỉ XIX</div>
           <div class="timeline-title">CNTB xác lập toàn cầu & chuyển sang Chủ nghĩa đế quốc</div>
           <div class="timeline-desc">Hình thành các tổ chức độc quyền (Cartel, Syndicate, Trust), xuất hiện tư bản tài chính và xuất khẩu tư bản.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">1917</div>
           <div class="timeline-title">Cách mạng tháng Mười Nga thành công</div>
           <div class="timeline-desc">Dưới sự lãnh đạo của V.I. Lênin, giai cấp vô sản Nga lật đổ chính phủ tư sản, lập nhà nước Xô viết đầu tiên.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">30/12/1922</div>
           <div class="timeline-title">Thành lập Liên bang CHXHCN Xô viết (Liên Xô)</div>
           <div class="timeline-desc">Đại hội X các Xô viết toàn Nga thông qua Hiệp ước và Tuyên bố thành lập Liên Xô với <strong>4 nước cộng hòa đầu tiên</strong> (Nga, U-crai-na, Bê-lô-rút-xi-a, Ngoại Cáp-ca-dơ).</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">Tháng 1/1924</div>
           <div class="timeline-title">Bản Hiến pháp đầu tiên của Liên Xô được thông qua</div>
           <div class="timeline-desc">Hoàn thiện cơ cấu tổ chức và thể chế nhà nước Liên bang Xô viết.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">1945 – 1949</div>
           <div class="timeline-title">CNXH vượt ra khỏi một nước, trở thành hệ thống thế giới</div>
           <div class="timeline-desc">Các nước Đông Âu tiến lên xây dựng CNXH. Ngày <strong>01/10/1949</strong>, nước CHND Trung Hoa thành lập, nối liền CNXH từ Âu sang Á.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">1959 – 1961</div>
           <div class="timeline-title">Thắng lợi của Cách mạng Cuba</div>
           <div class="timeline-desc">Fidel Castro lãnh đạo lật đổ chế độ độc tài Batista (1959), Cu-ba tuyên bố tiến lên CNXH (1961), là lá cờ đầu ở Tây bán cầu.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">Tháng 12/1978</div>
           <div class="timeline-title">Trung Quốc tiến hành Cải cách - Mở cửa</div>
           <div class="timeline-desc">Đặng Tiểu Bình khởi xướng tại HNTW 3 khóa XI, lấy phát triển kinh tế làm trung tâm, xây dựng CNXH đặc sắc Trung Quốc.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">Tháng 12/1986</div>
           <div class="timeline-title">Việt Nam tiến hành công cuộc Đổi mới</div>
           <div class="timeline-desc">Đại hội đại biểu toàn quốc lần thứ VI của Đảng khởi xướng đường lối Đổi mới toàn diện đất nước.</div>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-year">25/12/1991</div>
           <div class="timeline-title">Liên bang Xô viết hoàn toàn tan rã</div>
           <div class="timeline-desc">M. Goóc-ba-chốp từ chức Tổng thống, lá cờ búa liềm trên nóc điện Crem-li bị hạ xuống sau 74 năm tồn tại.</div>
         </div>
-
       </div>
     </div>
 
   </div>
 
   <script>
-    // NGÂN HÀNG 100+ CÂU HỎI TRẮC NGHIỆM ĐẦY ĐỦ
-    const fullQuestionBank = [
+    // NGÂN HÀNG GỐC 100 CÂU HỎI TRẮC NGHIỆM CHUẨN SGK KNTT
+    const originalQuestionBank = [
       // Bài 1: CM Tư sản (1 - 25)
       { id: 1, lesson: 1, question: "Trào lưu Triết học Ánh sáng thế kỉ XVIII là tiền đề tư tưởng trực tiếp của cuộc cách mạng tư sản nào sau đây?", options: ["Cách mạng tư sản Anh.", "Chiến tranh giành độc lập của 13 thuộc địa Anh ở Bắc Mỹ.", "Cách mạng tư sản Pháp.", "Cách mạng tư sản Hà Lan."], correct: 2, explain: "Triết học Ánh sáng (với Montesquieu, Voltaire, Rousseau) là vũ khí lý luận dọn đường cho Cách mạng tư sản Pháp năm 1789 bùng nổ." },
       { id: 2, lesson: 1, question: "Điểm khác biệt cơ bản về giai cấp lãnh đạo của Cách mạng tư sản Anh thế kỉ XVII so với Cách mạng tư sản Pháp thế kỉ XVIII là", options: ["có sự lãnh đạo duy nhất của giai cấp công nhân.", "có sự liên minh chặt chẽ giữa tư sản và tầng lớp quý tộc mới.", "có sự liên minh giữa tư sản với tầng lớp chủ nô đồn điền.", "được lãnh đạo độc tôn bởi phái Giacôbanh."], correct: 1, explain: "Ở Anh, quá trình 'rào đất cướp ruộng' hình thành tầng lớp Quý tộc mới có quyền lợi gắn với tư sản, liên minh cùng tư sản lãnh đạo cách mạng." },
@@ -1348,52 +1348,52 @@
       { id: 100, lesson: 4, question: "Ý nghĩa then chốt của việc Việt Nam gia nhập Tổ chức Thương mại Thế giới (WTO) năm 2007 trong tiến trình đổi mới là gì?", options: ["Đánh dấu sự hội nhập sâu rộng toàn diện của Việt Nam vào nền kinh tế toàn cầu.", "Buộc Việt Nam phải thay đổi chế độ chính trị sang tư bản.", "Giúp Việt Nam được xóa bỏ hoàn toàn mọi khoản nợ quốc tế.", "Đưa Việt Nam trở thành quốc gia phát triển có nền công nghiệp số 1 châu Á."], correct: 0, explain: "Gia nhập WTO (2007) mở ra không gian thương mại quốc tế rộng lớn, chứng minh đường lối đối ngoại độc lập, tự chủ, đa phương hóa, đa dạng hóa của Việt Nam." }
     ];
 
-    // FLASHCARDS
-    const flashcardsData = [
-      { lesson: 1, prompt: "Cuộc cách mạng tư sản đầu tiên trên thế giới nổ ra ở đâu, vào thế kỉ nào?", answer: "Cách mạng Nê-đéc-lan (Hà Lan) vào thế kỉ XVI lật đổ phong kiến Tây Ban Nha." },
-      { lesson: 1, prompt: "Tầng lớp 'Quý tộc mới' xuất hiện trong cuộc cách mạng tư sản nào?", answer: "Chỉ xuất hiện trong Cách mạng tư sản Anh (thế kỉ XVII), liên minh cùng Tư sản để lãnh đạo." },
-      { lesson: 1, prompt: "Ai là 3 đại diện tiêu biểu nhất của trào lưu Triết học Ánh sáng Pháp?", answer: "S. Mông-te-xki-ơ (Montesquieu), Ph. Vôn-te (Voltaire) và J.J. Rút-xô (Rousseau)." },
-      { lesson: 1, prompt: "Thuyết 'Tam quyền phân lập' (Lập pháp - Hành pháp - Tư pháp) là của ai?", answer: "Mông-te-xki-ơ (Montesquieu) trong tác phẩm 'Tinh thần pháp luật'." },
-      { lesson: 1, prompt: "Động lực chính, quyết định thắng lợi của mọi cuộc cách mạng tư sản là ai?", answer: "Quần chúng nhân dân (nông dân, thị dân, thợ thủ công, nô lệ...)." },
-      { lesson: 1, prompt: "Cuộc cách mạng tư sản nào được đánh giá là 'triệt để nhất' thời cận đại?", answer: "Cách mạng tư sản Pháp (1789) vì đã xóa sạch phong kiến, lập nền cộng hòa và chia ruộng đất cho dân." },
-      { lesson: 1, prompt: "Sự kiện nào đánh dấu Cách mạng tư sản Pháp chính thức bùng nổ?", answer: "Nhân dân Pa-ri tấn công chiếm pháo đài - nhà tù Ba-xti ngày 14/7/1789." },
-      { lesson: 1, prompt: "Sau cách mạng thế kỉ XVII, nước Anh xác lập thể chế chính trị nào?", answer: "Thể chế Quân chủ lập hiến (Vua trị vì nhưng không nắm thực quyền, quyền lực thuộc Quốc hội)." },
-      
-      { lesson: 2, prompt: "Chủ nghĩa tư bản chính thức xác lập trên phạm vi toàn cầu vào thời gian nào?", answer: "Vào cuối thế kỉ XIX, sau khi hoàn thành các cuộc cách mạng công nghiệp." },
-      { lesson: 2, prompt: "Kể tên 5 đặc trưng của Chủ nghĩa đế quốc theo V.I. Lênin?", answer: "1. Tổ chức độc quyền<br>2. Tư bản tài chính<br>3. Xuất khẩu tư bản<br>4. Phân chia thị trường thế giới<br>5. Phân chia thuộc địa." },
-      { lesson: 2, prompt: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Anh là gì?", answer: "Chủ nghĩa đế quốc thực dân ('Mặt trời không bao giờ lặn trên đế quốc Anh')." },
-      { lesson: 2, prompt: "Vì sao Chủ nghĩa đế quốc Pháp được gọi là 'Đế quốc cho vay lãi'?", answer: "Vì Pháp xuất khẩu tư bản phần lớn dưới dạng cho các nước (nhất là Nga) vay lấy lãi cao." },
-      { lesson: 2, prompt: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Đức là gì?", answer: "Chủ nghĩa đế quốc quân phiệt, hiếu chiến (do giới quân phiệt Phổ lãnh đạo)." },
-      { lesson: 2, prompt: "Khái niệm 'Chủ nghĩa tư bản hiện đại' dùng để chỉ giai đoạn nào?", answer: "Giai đoạn từ sau Chiến tranh thế giới thứ hai (1945) đến nay." },
-      { lesson: 2, prompt: "Bản chất của Chủ nghĩa tư bản độc quyền nhà nước là gì?", answer: "Sự kết hợp giữa tư bản độc quyền tư nhân và sức mạnh của nhà nước tư sản." },
-      { lesson: 2, prompt: "Phong trào 'Chúng tôi là 99%' (Mỹ, 2011) phản ánh thách thức nào của CNTB?", answer: "Sự bất bình đẳng sâu sắc: 1% người giàu độc quyền chiếm giữ đa số tài sản của xã hội." },
+    // THUẬT TOÁN XÁO TRỘN FISHER-YATES
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
 
-      { lesson: 3, prompt: "Liên bang CHXHCN Xô viết (Liên Xô) chính thức thành lập vào ngày tháng năm nào?", answer: "Ngày 30/12/1922 tại Đại hội lần thứ X các Xô viết toàn Nga." },
-      { lesson: 3, prompt: "Kể tên 4 nước Cộng hòa đầu tiên gia nhập Liên bang Xô viết năm 1922?", answer: "Nga (RSFSR), U-crai-na, Bê-lô-rút-xi-a và Ngoại Cáp-ca-dơ." },
-      { lesson: 3, prompt: "Cộng hòa Liên bang Ngoại Cáp-ca-dơ gồm 3 nước nào?", answer: "Ác-mê-ni-a, A-déc-bai-gian và Gioóc-ghi-a (Gruzia)." },
-      { lesson: 3, prompt: "Bản Hiến pháp đầu tiên của Liên bang Xô viết được thông qua vào năm nào?", answer: "Tháng 1 năm 1924, đánh dấu việc hoàn thành tổ chức nhà nước Liên bang Xô viết." },
-      { lesson: 3, prompt: "Nguyên tắc cốt lõi khi thành lập Liên bang Xô viết là gì?", answer: "Sự tự nguyện, bình đẳng, tôn trọng chủ quyền và giúp đỡ lẫn nhau giữa các dân tộc." },
-      { lesson: 3, prompt: "Đến năm 1940, Liên bang Xô viết gồm có bao nhiêu nước cộng hòa?", answer: "Có tất cả 15 nước Cộng hòa thành viên." },
+    // CHUẨN HÓA & ĐẢO NGẪU NHIÊN CẢ CÂU LẪN ĐÁP ÁN (A, B, C, D)
+    function generateShuffledQuestions(sourceList) {
+      const cloned = sourceList.map(q => {
+        const correctText = q.options[q.correct];
+        const shuffledOpts = [...q.options];
+        shuffleArray(shuffledOpts);
+        const newCorrectIdx = shuffledOpts.indexOf(correctText);
 
-      { lesson: 4, prompt: "Chủ nghĩa xã hội trở thành một hệ thống thế giới vào năm nào?", answer: "Năm 1949, khi các nước Đông Âu hoàn thành cải cách dân chủ và tiến hành xây dựng CNXH." },
-      { lesson: 4, prompt: "Ý nghĩa to lớn của sự kiện nước CHND Trung Hoa ra đời (01/10/1949)?", answer: "Nối liền CNXH từ Âu sang Á, thay đổi sâu sắc so sánh lực lượng có lợi cho hòa bình và CNXH." },
-      { lesson: 4, prompt: "Quốc gia nào được mệnh danh là 'Lá cờ đầu' của CNXH ở Tây bán cầu?", answer: "Cu-ba (Cách mạng thắng lợi 1959, tuyên bố đi lên CNXH năm 1961)." },
-      { lesson: 4, prompt: "Liên bang Xô viết hoàn toàn sụp đổ vào ngày tháng năm nào?", answer: "Ngày 25/12/1991 (Goóc-ba-chốp từ chức Tổng thống, cờ Liên Xô hạ xuống)." },
-      { lesson: 4, prompt: "Nguyên nhân sâu xa và quyết định dẫn đến sự sụp đổ của CNXH ở Liên Xô?", answer: "Mô hình kinh tế tập trung quan liêu bao cấp duy trì quá lâu; chủ quan duy ý chí; sai lầm cải tổ." },
-      { lesson: 4, prompt: "Đường lối Cải cách - mở cửa của Trung Quốc bắt đầu từ thời điểm nào?", answer: "Tháng 12/1978 (Hội nghị Trung ương 3 khóa XI) do Đặng Tiểu Bình khởi xướng." },
-      { lesson: 4, prompt: "Đảng Cộng sản Việt Nam đề ra đường lối Đổi mới đất nước tại Đại hội nào?", answer: "Đại hội đại biểu toàn quốc lần thứ VI (tháng 12/1986)." },
-      { lesson: 4, prompt: "Điểm chung nổi bật trong đường lối cải cách của Việt Nam và Trung Quốc là gì?", answer: "Kiên trì sự lãnh đạo của Đảng Cộng sản và lấy phát triển kinh tế làm trọng tâm." }
-    ];
+        return {
+          ...q,
+          options: shuffledOpts,
+          correct: newCorrectIdx
+        };
+      });
 
-    let currentQuestions = [...fullQuestionBank];
+      shuffleArray(cloned);
+      return cloned;
+    }
+
+    // STATE
+    let currentQuestions = [];
     let userAnswers = {};
     let currentFilter = 'all';
     let isExamMode = false;
     let examTimer = null;
     let timeLeft = 45 * 60;
 
-    let fcList = [...flashcardsData];
-    let fcIdx = 0;
+    function reshuffleAll() {
+      userAnswers = {};
+      const baseList = (currentFilter === 'all') 
+        ? originalQuestionBank 
+        : originalQuestionBank.filter(q => q.lesson === parseInt(currentFilter));
+
+      currentQuestions = generateShuffledQuestions(baseList);
+      renderQuiz();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     function switchView(viewName) {
       document.querySelectorAll('.view-page').forEach(el => el.classList.remove('active'));
@@ -1420,40 +1420,6 @@
       document.body.classList.toggle('light-theme');
       const isLight = document.body.classList.contains('light-theme');
       document.getElementById('themeBtn').textContent = isLight ? '☀️' : '🌙';
-    }
-
-    function loadFlashcard() {
-      if (fcList.length === 0) return;
-      const card = fcList[fcIdx];
-      const fcEl = document.getElementById('flashcardElement');
-      fcEl.classList.remove('is-flipped');
-      document.getElementById('fcCategory').textContent = `Bài ${card.lesson}`;
-      document.getElementById('fcPrompt').textContent = card.prompt;
-      document.getElementById('fcAnswer').innerHTML = card.answer;
-      document.getElementById('fcCurrentIndex').textContent = fcIdx + 1;
-      document.getElementById('fcTotalCount').textContent = fcList.length;
-    }
-
-    function flipFlashcard() {
-      document.getElementById('flashcardElement').classList.toggle('is-flipped');
-    }
-
-    function nextFlashcard() {
-      fcIdx = (fcIdx < fcList.length - 1) ? fcIdx + 1 : 0;
-      loadFlashcard();
-    }
-
-    function prevFlashcard() {
-      fcIdx = (fcIdx > 0) ? fcIdx - 1 : fcList.length - 1;
-      loadFlashcard();
-    }
-
-    function filterFlashcards(filter, btn) {
-      document.querySelectorAll('#flashcardView .lesson-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      fcList = (filter === 'all') ? [...flashcardsData] : flashcardsData.filter(c => c.lesson === filter);
-      fcIdx = 0;
-      loadFlashcard();
     }
 
     function renderQuiz() {
@@ -1506,7 +1472,7 @@
           <div class="q-text">${q.question}</div>
           <div class="opt-list">${optionsHtml}</div>
           <div class="explain-card ${isAnswered ? 'show' : ''}">
-            <strong>💡 Giải thích SGK:</strong> ${q.explain}
+            <strong>💡 Giải thích chuẩn SGK:</strong> ${q.explain}
           </div>
         `;
         container.appendChild(card);
@@ -1555,15 +1521,18 @@
 
       currentFilter = filter;
       document.getElementById('searchKeyword').value = '';
+      userAnswers = {};
 
       document.querySelectorAll('.lesson-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
       });
 
-      currentQuestions = (filter === 'all') 
-        ? [...fullQuestionBank] 
-        : fullQuestionBank.filter(q => q.lesson === parseInt(filter));
+      const baseList = (filter === 'all') 
+        ? originalQuestionBank 
+        : originalQuestionBank.filter(q => q.lesson === parseInt(filter));
 
+      // TỰ ĐỘNG ĐẢO NGẪU NHIÊN CẢ CÂU VÀ ĐÁP ÁN KHI LỌC
+      currentQuestions = generateShuffledQuestions(baseList);
       renderQuiz();
     }
 
@@ -1574,7 +1543,7 @@
         return;
       }
 
-      currentQuestions = fullQuestionBank.filter(q => 
+      currentQuestions = originalQuestionBank.filter(q => 
         q.question.toLowerCase().includes(kw) ||
         q.explain.toLowerCase().includes(kw) ||
         q.options.some(opt => opt.toLowerCase().includes(kw))
@@ -1583,20 +1552,14 @@
       renderQuiz();
     }
 
-    function shuffleCurrentQuestions() {
-      for (let i = currentQuestions.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [currentQuestions[i], currentQuestions[j]] = [currentQuestions[j], currentQuestions[i]];
-      }
-      renderQuiz();
-    }
-
     function startMockExam() {
-      if (confirm('Bắt đầu làm ĐỀ THI THỬ 40 CÂU trong 45 phút?')) {
+      if (confirm('Bắt đầu làm ĐỀ THI THỬ 40 CÂU (45 phút)? Đề sẽ tự động chọn ngẫu nhiên và xáo trộn toàn bộ 4 bài!')) {
         isExamMode = true;
         userAnswers = {};
-        let shuffled = [...fullQuestionBank].sort(() => 0.5 - Math.random());
-        currentQuestions = shuffled.slice(0, 40);
+        
+        // Random 40 câu và xáo trộn đáp án
+        let shuffledAll = generateShuffledQuestions(originalQuestionBank);
+        currentQuestions = shuffledAll.slice(0, 40);
 
         document.getElementById('examTimerBar').style.display = 'block';
         timeLeft = 45 * 60;
@@ -1608,7 +1571,7 @@
           updateTimerDisplay();
           if (timeLeft <= 0) {
             clearInterval(examTimer);
-            alert('⏱️ HẾT GIỜ LÀM BÀI! Hãy kiểm tra điểm số.');
+            alert('⏱️ HẾT GIỜ LÀM BÀI! Hãy kiểm tra điểm số bên trên.');
           }
         }, 1000);
 
@@ -1631,14 +1594,85 @@
     }
 
     function resetQuiz() {
-      if (confirm('Làm lại toàn bộ câu hỏi?')) {
-        userAnswers = {};
-        renderQuiz();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (confirm('Làm lại từ đầu? Web sẽ tự động xáo trộn lại toàn bộ câu hỏi và vị trí đáp án!')) {
+        reshuffleAll();
       }
     }
 
+    // FLASHCARD
+    const flashcardsData = [
+      { lesson: 1, prompt: "Cuộc cách mạng tư sản đầu tiên trên thế giới nổ ra ở đâu, vào thế kỉ nào?", answer: "Cách mạng Nê-đéc-lan (Hà Lan) vào thế kỉ XVI lật đổ phong kiến Tây Ban Nha." },
+      { lesson: 1, prompt: "Tầng lớp 'Quý tộc mới' xuất hiện trong cuộc cách mạng tư sản nào?", answer: "Chỉ xuất hiện trong Cách mạng tư sản Anh (thế kỉ XVII), liên minh cùng Tư sản để lãnh đạo." },
+      { lesson: 1, prompt: "Ai là 3 đại diện tiêu biểu nhất của trào lưu Triết học Ánh sáng Pháp?", answer: "S. Mông-te-xki-ơ (Montesquieu), Ph. Vôn-te (Voltaire) và J.J. Rút-xô (Rousseau)." },
+      { lesson: 1, prompt: "Thuyết 'Tam quyền phân lập' (Lập pháp - Hành pháp - Tư pháp) là của ai?", answer: "Mông-te-xki-ơ (Montesquieu) trong tác phẩm 'Tinh thần pháp luật'." },
+      { lesson: 1, prompt: "Động lực chính, quyết định thắng lợi của mọi cuộc cách mạng tư sản là ai?", answer: "Quần chúng nhân dân (nông dân, thị dân, thợ thủ công, nô lệ...)." },
+      { lesson: 1, prompt: "Cuộc cách mạng tư sản nào được đánh giá là 'triệt để nhất' thời cận đại?", answer: "Cách mạng tư sản Pháp (1789) vì đã xóa sạch phong kiến, lập nền cộng hòa và chia ruộng đất cho dân." },
+      { lesson: 1, prompt: "Sự kiện nào đánh dấu Cách mạng tư sản Pháp chính thức bùng nổ?", answer: "Nhân dân Pa-ri tấn công chiếm pháo đài - nhà tù Ba-xti ngày 14/7/1789." },
+      { lesson: 1, prompt: "Sau cách mạng thế kỉ XVII, nước Anh xác lập thể chế chính trị nào?", answer: "Thể chế Quân chủ lập hiến (Vua trị vì nhưng không nắm thực quyền, quyền lực thuộc Quốc hội)." },
+      { lesson: 2, prompt: "Chủ nghĩa tư bản chính thức xác lập trên phạm vi toàn cầu vào thời gian nào?", answer: "Vào cuối thế kỉ XIX, sau khi hoàn thành các cuộc cách mạng công nghiệp." },
+      { lesson: 2, prompt: "Kể tên 5 đặc trưng của Chủ nghĩa đế quốc theo V.I. Lênin?", answer: "1. Tổ chức độc quyền<br>2. Tư bản tài chính<br>3. Xuất khẩu tư bản<br>4. Phân chia thị trường thế giới<br>5. Phân chia thuộc địa." },
+      { lesson: 2, prompt: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Anh là gì?", answer: "Chủ nghĩa đế quốc thực dân ('Mặt trời không bao giờ lặn trên đế quốc Anh')." },
+      { lesson: 2, prompt: "Vì sao Chủ nghĩa đế quốc Pháp được gọi là 'Đế quốc cho vay lãi'?", answer: "Vì Pháp xuất khẩu tư bản phần lớn dưới dạng cho các nước (nhất là Nga) vay lấy lãi cao." },
+      { lesson: 2, prompt: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Đức là gì?", answer: "Chủ nghĩa đế quốc quân phiệt, hiếu chiến (do giới quân phiệt Phổ lãnh đạo)." },
+      { lesson: 2, prompt: "Khái niệm 'Chủ nghĩa tư bản hiện đại' dùng để chỉ giai đoạn nào?", answer: "Giai đoạn từ sau Chiến tranh thế giới thứ hai (1945) đến nay." },
+      { lesson: 2, prompt: "Bản chất của Chủ nghĩa tư bản độc quyền nhà nước là gì?", answer: "Sự kết hợp giữa tư bản độc quyền tư nhân và sức mạnh của nhà nước tư sản." },
+      { lesson: 2, prompt: "Phong trào 'Chúng tôi là 99%' (Mỹ, 2011) phản ánh thách thức nào của CNTB?", answer: "Sự bất bình đẳng sâu sắc: 1% người giàu độc quyền chiếm giữ đa số tài sản của xã hội." },
+      { lesson: 3, prompt: "Liên bang CHXHCN Xô viết (Liên Xô) chính thức thành lập vào ngày tháng năm nào?", answer: "Ngày 30/12/1922 tại Đại hội lần thứ X các Xô viết toàn Nga." },
+      { lesson: 3, prompt: "Kể tên 4 nước Cộng hòa đầu tiên gia nhập Liên bang Xô viết năm 1922?", answer: "Nga (RSFSR), U-crai-na, Bê-lô-rút-xi-a và Ngoại Cáp-ca-dơ." },
+      { lesson: 3, prompt: "Cộng hòa Liên bang Ngoại Cáp-ca-dơ gồm 3 nước nào?", answer: "Ác-mê-ni-a, A-déc-bai-gian và Gioóc-ghi-a (Gruzia)." },
+      { lesson: 3, prompt: "Bản Hiến pháp đầu tiên của Liên bang Xô viết được thông qua vào năm nào?", answer: "Tháng 1 năm 1924, đánh dấu việc hoàn thành tổ chức nhà nước Liên bang Xô viết." },
+      { lesson: 3, prompt: "Nguyên tắc cốt lõi khi thành lập Liên bang Xô viết là gì?", answer: "Sự tự nguyện, bình đẳng, tôn trọng chủ quyền và giúp đỡ lẫn nhau giữa các dân tộc." },
+      { lesson: 3, prompt: "Đến năm 1940, Liên bang Xô viết gồm có bao nhiêu nước cộng hòa?", answer: "Có tất cả 15 nước Cộng hòa thành viên." },
+      { lesson: 4, prompt: "Chủ nghĩa xã hội trở thành một hệ thống thế giới vào năm nào?", answer: "Năm 1949, khi các nước Đông Âu hoàn thành cải cách dân chủ và tiến hành xây dựng CNXH." },
+      { lesson: 4, prompt: "Ý nghĩa to lớn của sự kiện nước CHND Trung Hoa ra đời (01/10/1949)?", answer: "Nối liền CNXH từ Âu sang Á, thay đổi sâu sắc so sánh lực lượng có lợi cho hòa bình và CNXH." },
+      { lesson: 4, prompt: "Quốc gia nào được mệnh danh là 'Lá cờ đầu' của CNXH ở Tây bán cầu?", answer: "Cu-ba (Cách mạng thắng lợi 1959, tuyên bố đi lên CNXH năm 1961)." },
+      { lesson: 4, prompt: "Liên bang Xô viết hoàn toàn sụp đổ vào ngày tháng năm nào?", answer: "Ngày 25/12/1991 (Goóc-ba-chốp từ chức Tổng thống, cờ Liên Xô hạ xuống)." },
+      { lesson: 4, prompt: "Nguyên nhân sâu xa và quyết định dẫn đến sự sụp đổ của CNXH ở Liên Xô?", answer: "Mô hình kinh tế tập trung quan liêu bao cấp duy trì quá lâu; chủ quan duy ý chí; sai lầm cải tổ." },
+      { lesson: 4, prompt: "Đường lối Cải cách - mở cửa của Trung Quốc bắt đầu từ thời điểm nào?", answer: "Tháng 12/1978 (Hội nghị Trung ương 3 khóa XI) do Đặng Tiểu Bình khởi xướng." },
+      { lesson: 4, prompt: "Đảng Cộng sản Việt Nam đề ra đường lối Đổi mới đất nước tại Đại hội nào?", answer: "Đại hội đại biểu toàn quốc lần thứ VI (tháng 12/1986)." },
+      { lesson: 4, prompt: "Điểm chung nổi bật trong đường lối cải cách của Việt Nam và Trung Quốc là gì?", answer: "Kiên trì sự lãnh đạo của Đảng Cộng sản và lấy phát triển kinh tế làm trọng tâm." }
+    ];
+
+    let fcList = [...flashcardsData];
+    let fcIdx = 0;
+
+    function loadFlashcard() {
+      if (fcList.length === 0) return;
+      const card = fcList[fcIdx];
+      const fcEl = document.getElementById('flashcardElement');
+      fcEl.classList.remove('is-flipped');
+      document.getElementById('fcCategory').textContent = `Bài ${card.lesson}`;
+      document.getElementById('fcPrompt').textContent = card.prompt;
+      document.getElementById('fcAnswer').innerHTML = card.answer;
+      document.getElementById('fcCurrentIndex').textContent = fcIdx + 1;
+      document.getElementById('fcTotalCount').textContent = fcList.length;
+    }
+
+    function flipFlashcard() {
+      document.getElementById('flashcardElement').classList.toggle('is-flipped');
+    }
+
+    function nextFlashcard() {
+      fcIdx = (fcIdx < fcList.length - 1) ? fcIdx + 1 : 0;
+      loadFlashcard();
+    }
+
+    function prevFlashcard() {
+      fcIdx = (fcIdx > 0) ? fcIdx - 1 : fcList.length - 1;
+      loadFlashcard();
+    }
+
+    function filterFlashcards(filter, btn) {
+      document.querySelectorAll('#flashcardView .lesson-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      fcList = (filter === 'all') ? [...flashcardsData] : flashcardsData.filter(c => c.lesson === filter);
+      fcIdx = 0;
+      loadFlashcard();
+    }
+
+    // TỰ ĐỘNG ĐẢO NGẪU NHIÊN CẢ CÂU VÀ ĐÁP ÁN KHI VÀO TRANG HOẶC F5
     window.addEventListener('DOMContentLoaded', () => {
+      currentQuestions = generateShuffledQuestions(originalQuestionBank);
       renderQuiz();
       loadFlashcard();
     });
