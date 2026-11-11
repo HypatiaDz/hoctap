@@ -3,46 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lịch Sử 11 (KNTT) - Tự Động Xáo Trộn Câu & Đáp Án Chuẩn SGK Mới</title>
+  <title>Sinh Học 11 - Đề Cương Ôn Tập Giữa Kì I (Trắc Nghiệm & Lý Thuyết Full)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #090d16;
-      --bg-surface: #111827;
-      --bg-card: rgba(17, 24, 39, 0.85);
-      --border: rgba(255, 255, 255, 0.08);
-      --primary: #6366f1;
-      --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
-      --accent: #06b6d4;
-      --text: #f8fafc;
+      --bg: #091312;
+      --bg-surface: #10221f;
+      --bg-card: rgba(16, 34, 31, 0.85);
+      --border: rgba(255, 255, 255, 0.09);
+      --primary: #10b981;
+      --primary-gradient: linear-gradient(135deg, #059669 0%, #10b981 50%, #14b8a6 100%);
+      --accent: #38bdf8;
+      --text: #f0fdf4;
       --text-muted: #94a3b8;
-      --success: #10b981;
-      --success-bg: rgba(16, 185, 129, 0.12);
+      --success: #22c55e;
+      --success-bg: rgba(34, 197, 94, 0.14);
       --danger: #f43f5e;
-      --danger-bg: rgba(244, 63, 94, 0.12);
+      --danger-bg: rgba(244, 63, 94, 0.14);
       --warning: #f59e0b;
-      --warning-bg: rgba(245, 158, 11, 0.12);
-      --info-bg: rgba(6, 182, 212, 0.1);
+      --warning-bg: rgba(245, 158, 11, 0.14);
+      --info-bg: rgba(56, 189, 248, 0.12);
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
-      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
     }
 
     body.light-theme {
-      --bg: #f8fafc;
+      --bg: #f6fbf8;
       --bg-surface: #ffffff;
       --bg-card: rgba(255, 255, 255, 0.95);
-      --border: rgba(0, 0, 0, 0.09);
-      --text: #0f172a;
-      --text-muted: #64748b;
+      --border: rgba(0, 0, 0, 0.08);
+      --text: #0f291e;
+      --text-muted: #475569;
       --success-bg: #ecfdf5;
       --danger-bg: #fff1f2;
       --warning-bg: #fffbeb;
-      --info-bg: #ecfeff;
-      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+      --info-bg: #f0f9ff;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07);
     }
 
     * {
@@ -57,15 +57,15 @@
       color: var(--text);
       min-height: 100vh;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.12) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.16) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.12) 0px, transparent 50%);
       background-attachment: fixed;
       transition: background-color 0.3s ease, color 0.3s ease;
-      padding-bottom: 80px;
+      padding-bottom: 90px;
     }
 
     .container {
-      max-width: 1080px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -92,21 +92,22 @@
       align-items: center;
       gap: 10px;
       font-weight: 800;
-      font-size: 1.15rem;
+      font-size: 1.18rem;
     }
 
     .brand-badge {
       background: var(--primary-gradient);
       color: white;
       font-size: 0.72rem;
-      padding: 3px 8px;
+      padding: 3px 9px;
       border-radius: 6px;
       font-weight: 700;
+      letter-spacing: 0.03em;
     }
 
     .nav-tabs {
       display: flex;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.25);
       border-radius: 999px;
       padding: 4px;
       border: 1px solid var(--border);
@@ -114,10 +115,10 @@
       flex-wrap: wrap;
     }
 
-    body.light-theme .nav-tabs { background: #f1f5f9; }
+    body.light-theme .nav-tabs { background: #e2e8f0; }
 
     .nav-tab-btn {
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 999px;
       border: none;
       background: transparent;
@@ -134,21 +135,21 @@
     .nav-tab-btn.active {
       background: var(--primary-gradient);
       color: white;
-      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
     }
 
     .theme-toggle-btn {
       background: transparent;
       border: 1px solid var(--border);
       color: var(--text);
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
     }
 
     .view-page { display: none; animation: fadeIn 0.3s ease; }
@@ -159,7 +160,7 @@
       border-radius: var(--radius-lg);
       padding: 30px;
       color: white;
-      box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.4);
+      box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.4);
       margin-bottom: 25px;
       position: relative;
       overflow: hidden;
@@ -174,22 +175,22 @@
 
     .hero-banner p {
       font-size: 0.98rem;
-      color: rgba(255, 255, 255, 0.92);
-      max-width: 760px;
-      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 820px;
+      line-height: 1.6;
     }
 
     .shuffle-status-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.22);
+      padding: 5px 14px;
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      margin-top: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      margin-top: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
     }
 
     /* Controls Panel */
@@ -217,9 +218,9 @@
     .lesson-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
 
     .lesson-btn {
-      padding: 7px 14px;
+      padding: 8px 15px;
       border-radius: 999px;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 600;
       border: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.04);
@@ -233,13 +234,13 @@
       background: var(--primary);
       color: white;
       border-color: var(--primary);
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
     }
 
-    .search-box { position: relative; flex: 1; min-width: 240px; max-width: 380px; }
+    .search-box { position: relative; flex: 1; min-width: 250px; max-width: 400px; }
     .search-input {
       width: 100%;
-      padding: 9px 16px 9px 36px;
+      padding: 9px 16px 9px 38px;
       border-radius: 999px;
       border: 1.5px solid var(--border);
       background: rgba(255, 255, 255, 0.04);
@@ -251,7 +252,7 @@
     .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.85rem; }
 
     .btn-tool {
-      padding: 8px 15px;
+      padding: 8px 16px;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.05);
@@ -320,11 +321,11 @@
     }
 
     .q-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-    .badge-pill { font-size: 0.75rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
-    .badge-l1 { background: rgba(239, 68, 68, 0.15); color: #f87171; }
-    .badge-l2 { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-    .badge-l3 { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
-    .badge-l4 { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+    .badge-pill { font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+    .badge-t1 { background: rgba(16, 185, 129, 0.18); color: #34d399; }
+    .badge-t2 { background: rgba(56, 189, 248, 0.18); color: #38bdf8; }
+    .badge-t3 { background: rgba(245, 158, 11, 0.18); color: #fbbf24; }
+    .badge-t4 { background: rgba(244, 63, 94, 0.18); color: #fb7185; }
 
     .q-text { font-size: 1.05rem; font-weight: 700; line-height: 1.55; margin-bottom: 16px; }
     .opt-list { display: flex; flex-direction: column; gap: 9px; }
@@ -342,7 +343,7 @@
     }
     .opt-item:hover:not(.locked) {
       border-color: var(--primary);
-      background: rgba(99, 102, 241, 0.08);
+      background: rgba(16, 185, 129, 0.08);
       transform: translateX(4px);
     }
     .opt-key {
@@ -386,6 +387,7 @@
       font-size: 0.9rem;
       display: none;
       animation: fadeIn 0.3s ease;
+      line-height: 1.6;
     }
     body.light-theme .explain-card { background: #f1f5f9; }
     .explain-card.show { display: block; }
@@ -406,8 +408,8 @@
     }
     .card-scene {
       width: 100%;
-      max-width: 720px;
-      height: 360px;
+      max-width: 740px;
+      height: 380px;
       perspective: 1000px;
       margin: 0 auto 25px auto;
     }
@@ -433,10 +435,10 @@
       align-items: center;
       padding: 35px;
       text-align: center;
-      box-shadow: 0 15px 35px -5px rgba(0,0,0,0.4);
+      box-shadow: 0 15px 35px -5px rgba(0,0,0,0.5);
     }
     .card-face.front {
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      background: linear-gradient(135deg, rgba(16, 44, 38, 0.9) 0%, rgba(9, 28, 23, 0.95) 100%);
       color: white;
     }
     body.light-theme .card-face.front {
@@ -444,17 +446,17 @@
       color: #0f172a;
     }
     .card-face.back {
-      background: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
+      background: linear-gradient(135deg, #065f46 0%, #047857 100%);
       color: white;
       transform: rotateY(180deg);
     }
-    .card-category { font-size: 0.8rem; text-transform: uppercase; font-weight: 800; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; }
-    .card-prompt { font-size: 1.3rem; font-weight: 700; line-height: 1.5; }
+    .card-category { font-size: 0.82rem; text-transform: uppercase; font-weight: 800; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; }
+    .card-prompt { font-size: 1.35rem; font-weight: 700; line-height: 1.5; }
     .card-hint { margin-top: 18px; font-size: 0.82rem; color: var(--text-muted); }
     .card-answer { font-size: 1.2rem; font-weight: 600; line-height: 1.6; }
     .flashcard-nav { display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 30px; }
     .btn-fc {
-      padding: 10px 22px;
+      padding: 10px 24px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--bg-card);
@@ -466,39 +468,7 @@
     }
     .btn-fc:hover { background: var(--primary); color: white; border-color: var(--primary); }
 
-    /* Timeline */
-    .timeline-container { position: relative; margin: 40px auto; padding-left: 30px; }
-    .timeline-container::before {
-      content: "";
-      position: absolute;
-      top: 0; bottom: 0; left: 10px; width: 3px;
-      background: linear-gradient(to bottom, var(--primary), var(--accent));
-      border-radius: 2px;
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 26px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 18px 22px;
-      box-shadow: var(--shadow);
-      transition: all 0.2s;
-    }
-    .timeline-item:hover { transform: translateX(6px); border-color: var(--primary); }
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -26px; top: 22px; width: 14px; height: 14px;
-      border-radius: 50%; background: var(--primary);
-      border: 3px solid var(--bg);
-      box-shadow: 0 0 10px var(--primary);
-    }
-    .timeline-year { font-size: 1.15rem; font-weight: 800; color: var(--accent); font-family: 'JetBrains Mono', monospace; margin-bottom: 4px; }
-    .timeline-title { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .timeline-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; }
-
-    /* Exhaustive Theory Styling */
+    /* Theory Styling */
     .theory-toc {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -512,7 +482,7 @@
       justify-content: center;
     }
     .toc-link {
-      padding: 7px 14px;
+      padding: 8px 16px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.04);
@@ -535,57 +505,71 @@
     .lesson-section-header {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       border-bottom: 1px solid var(--border);
       padding-bottom: 18px;
       margin-bottom: 24px;
     }
     .lesson-icon {
       font-size: 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      width: 54px;
-      height: 54px;
+      background: rgba(16, 185, 129, 0.15);
+      width: 56px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 14px;
       border: 1px solid var(--border);
     }
-    .lesson-title-text h2 { font-size: 1.45rem; font-weight: 800; }
-    .lesson-title-text span { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+    .lesson-title-text h2 { font-size: 1.45rem; font-weight: 800; color: var(--text); }
+    .lesson-title-text span { font-size: 0.88rem; color: var(--text-muted); font-weight: 600; }
 
     .theory-block { margin-bottom: 28px; }
     .theory-block h3 {
-      font-size: 1.2rem;
-      color: var(--accent);
+      font-size: 1.25rem;
+      color: var(--primary);
       margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 8px;
-      border-left: 4px solid var(--accent);
+      border-left: 4px solid var(--primary);
       padding-left: 10px;
     }
     .theory-block h4 {
       font-size: 1.05rem;
-      color: #a5b4fc;
-      margin: 14px 0 8px 0;
+      color: #6ee7b7;
+      margin: 16px 0 8px 0;
       font-weight: 700;
     }
-    body.light-theme .theory-block h4 { color: #4338ca; }
+    body.light-theme .theory-block h4 { color: #047857; }
 
     .theory-block ul { padding-left: 22px; margin-bottom: 14px; }
     .theory-block li { margin-bottom: 10px; font-size: 0.95rem; line-height: 1.7; color: var(--text); }
     .theory-block p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 10px; }
 
     .tag-term {
-      background: rgba(99, 102, 241, 0.2);
-      color: #a5b4fc;
-      padding: 2px 7px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
+      padding: 2px 8px;
       border-radius: 6px;
       font-weight: 700;
-      font-size: 0.86rem;
+      font-size: 0.88rem;
     }
-    body.light-theme .tag-term { background: #e0e7ff; color: #3730a3; }
+    body.light-theme .tag-term { background: #d1fae5; color: #065f46; }
+
+    .formula-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      color: #38bdf8;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin: 6px 0;
+    }
+    body.light-theme .formula-badge { background: #e0f2fe; color: #0284c7; }
 
     .note-box {
       background: var(--warning-bg);
@@ -610,10 +594,83 @@
     .info-box strong { color: var(--accent); }
 
     .table-responsive { overflow-x: auto; margin: 18px 0; }
-    .custom-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .custom-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
     .custom-table th, .custom-table td { padding: 12px 16px; border: 1px solid var(--border); }
-    .custom-table th { background: rgba(255, 255, 255, 0.05); color: var(--primary); font-weight: 700; }
-    body.light-theme .custom-table th { background: #f8fafc; }
+    .custom-table th { background: rgba(16, 185, 129, 0.12); color: var(--primary); font-weight: 700; text-align: left; }
+    body.light-theme .custom-table th { background: #ecfdf5; color: #047857; }
+
+    /* Interactive Diagrams & Sơ đồ */
+    .diagram-card {
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin: 20px 0;
+    }
+    body.light-theme .diagram-card { background: #f8fafc; }
+    .diagram-title { font-weight: 800; font-size: 1rem; color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+
+    .step-chain {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .step-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      position: relative;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      background: var(--primary-gradient);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .step-content { flex: 1; font-size: 0.92rem; line-height: 1.5; }
+    .step-heat {
+      font-size: 0.78rem;
+      background: rgba(244, 63, 94, 0.18);
+      color: #fb7185;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Comparison Dual Box */
+    .dual-box-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .dual-box {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+    body.light-theme .dual-box { background: #f8fafc; }
+    .dual-box-header {
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
     /* Sticky Bottom Bar */
     .floating-bar {
@@ -628,7 +685,7 @@
       padding: 10px 22px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -652,8 +709,8 @@
       .nav-tabs { width: 100%; justify-content: center; }
       .hero-banner { padding: 20px; }
       .hero-banner h1 { font-size: 1.4rem; }
-      .card-scene { height: 420px; }
-      .card-prompt { font-size: 1.1rem; }
+      .card-scene { height: 440px; }
+      .card-prompt { font-size: 1.15rem; }
       .card-answer { font-size: 1rem; }
       .lesson-section { padding: 20px; }
     }
@@ -666,22 +723,25 @@
     <!-- Top Nav Header -->
     <nav class="top-nav">
       <div class="brand">
-        <span>⚡ Lịch Sử 11</span>
-        <span class="brand-badge">Bách Khoa KNTT</span>
+        <span>🌱 Sinh Học 11</span>
+        <span class="brand-badge">Giữa Kì I Chuẩn SGK Mới</span>
       </div>
 
       <div class="nav-tabs">
         <button class="nav-tab-btn active" id="tabBtnQuiz" onclick="switchView('quiz')">
-          <span>📝 Trắc Nghiệm (100+ câu)</span>
+          <span>📝 Trắc Nghiệm Chuyên Sâu</span>
         </button>
         <button class="nav-tab-btn" id="tabBtnTheory" onclick="switchView('theory')">
-          <span>📖 Lý Thuyết Chi Tiết Full</span>
+          <span>📖 Lý Thuyết 7 Câu Đề Cương</span>
         </button>
         <button class="nav-tab-btn" id="tabBtnFlashcard" onclick="switchView('flashcard')">
-          <span>⚡ Thẻ Flashcard</span>
+          <span>⚡ Thẻ Flashcard Ghi Nhớ</span>
         </button>
-        <button class="nav-tab-btn" id="tabBtnTimeline" onclick="switchView('timeline')">
-          <span>⏳ Trục Thời Gian</span>
+        <button class="nav-tab-btn" id="tabBtnDiagram" onclick="switchView('diagram')">
+          <span>🧬 Sơ Đồ & Chu Trình</span>
+        </button>
+        <button class="nav-tab-btn" id="tabBtnEssay" onclick="switchView('essay')">
+          <span>✍️ Vận Dụng Tự Luận (4 Câu)</span>
         </button>
       </div>
 
@@ -693,40 +753,40 @@
     <!-- ================= VIEW 1: TRẮC NGHIỆM ================= -->
     <div id="quizView" class="view-page active">
       <div class="hero-banner">
-        <h1>Ngân Hàng 100+ Câu Hỏi Trắc Nghiệm Chuyên Sâu</h1>
-        <p>Quét sạch từng câu chữ, khái niệm, bảng so sánh và bẫy trắc nghiệm trong cả 4 bài SGK Kết nối tri thức. Có tính giờ thi thử và chấm điểm thang 10!</p>
+        <h1>Ngân Hàng Trắc Nghiệm Sinh Học 11 - Giữa Kì I</h1>
+        <p>Bao quát toàn bộ 7 câu trọng tâm trong đề cương: Trao đổi chất & Chuyển hoá năng lượng, Nước & Khoáng ở rễ, Dòng mạch gỗ vs mạch rây, Quang hợp (C3, C4, CAM, chu trình Calvin, điểm bù/bão hòa CO2, phân bón) và Hô hấp thực vật (hiếu khí vs lên men)!</p>
         <div class="shuffle-status-pill">
-          🎲 Hệ thống: Tự động đảo ngẫu nhiên thứ tự câu hỏi & cả đáp án A-B-C-D mỗi lần mở trang!
+          🎲 Hệ thống: Tự động đảo ngẫu nhiên thứ tự câu hỏi & cả đáp án A-B-C-D mỗi lần mở trang hoặc bấm nút!
         </div>
       </div>
 
       <div class="controls-panel">
         <div class="filter-row">
           <div class="lesson-tabs">
-            <button class="lesson-btn active" data-filter="all" onclick="filterQuestions('all')">Tất cả bài</button>
-            <button class="lesson-btn" data-filter="1" onclick="filterQuestions('1')">Bài 1: CM Tư Sản</button>
-            <button class="lesson-btn" data-filter="2" onclick="filterQuestions('2')">Bài 2: CNTB</button>
-            <button class="lesson-btn" data-filter="3" onclick="filterQuestions('3')">Bài 3: Liên Xô</button>
-            <button class="lesson-btn" data-filter="4" onclick="filterQuestions('4')">Bài 4: CNXH</button>
+            <button class="lesson-btn active" data-filter="all" onclick="filterQuestions('all')">Tất cả chủ đề</button>
+            <button class="lesson-btn" data-filter="1" onclick="filterQuestions('1')">Chủ đề 1: TĐC & Năng Lượng (Câu 1, 2, 3)</button>
+            <button class="lesson-btn" data-filter="2" onclick="filterQuestions('2')">Chủ đề 2: Nước & Khoáng (Câu 4, 5, 6)</button>
+            <button class="lesson-btn" data-filter="3" onclick="filterQuestions('3')">Chủ đề 3: Quang Hợp & C3/C4/CAM (Câu 7-I)</button>
+            <button class="lesson-btn" data-filter="4" onclick="filterQuestions('4')">Chủ đề 4: Hô Hấp Thực Vật (Câu 7-II)</button>
           </div>
         </div>
 
         <div class="filter-row">
           <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" class="search-input" id="searchKeyword" placeholder="Tìm câu hỏi, từ khóa, nhân vật..." oninput="handleSearch()">
+            <input type="text" class="search-input" id="searchKeyword" placeholder="Tìm câu hỏi, từ khóa (RuBP, PEP, ATP, mạch rây, Calvin...)" oninput="handleSearch()">
           </div>
 
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
             <button class="btn-tool" onclick="switchView('theory')">📖 Đọc lý thuyết</button>
-            <button class="btn-tool btn-exam-mode" onclick="startMockExam()">⏱️ Thi thử 40 câu</button>
+            <button class="btn-tool btn-exam-mode" onclick="startMockExam()">⏱️ Thi thử 30 câu (45p)</button>
             <button class="btn-tool" onclick="reshuffleAll()">🔀 Đảo toàn bộ đề & đáp án</button>
           </div>
         </div>
       </div>
 
       <div id="examTimerBar">
-        ⏱️ CHẾ ĐỘ THI THỬ 40 CÂU (45 PHÚT) — THỜI GIAN CÒN: <span id="timerCountdown" style="font-family: 'JetBrains Mono', monospace; font-size: 1.15rem;">45:00</span>
+        ⏱️ CHẾ ĐỘ THI THỬ 30 CÂU (45 PHÚT) — THỜI GIAN CÒN: <span id="timerCountdown" style="font-family: 'JetBrains Mono', monospace; font-size: 1.15rem;">45:00</span>
         <button onclick="exitMockExam()" style="margin-left: 12px; padding: 4px 10px; border-radius: 6px; border: none; background: #f43f5e; color: white; cursor: pointer; font-weight: bold;">Hủy bài thi</button>
       </div>
 
@@ -736,7 +796,7 @@
           <div class="stat-lbl">Tổng số câu</div>
         </div>
         <div class="stat-box">
-          <div class="stat-val" id="answeredCount" style="color: #6366f1;">0</div>
+          <div class="stat-val" id="answeredCount" style="color: #10b981;">0</div>
           <div class="stat-lbl">Đã làm</div>
         </div>
         <div class="stat-box">
@@ -766,340 +826,416 @@
 
     <!-- ================= VIEW 2: LÝ THUYẾT CHI TIẾT ĐẦY ĐỦ ================= -->
     <div id="theoryView" class="view-page">
-      <div class="hero-banner" style="background: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #4f46e5 100%);">
-        <h1>📖 Bách Khoa Toàn Thư Lý Thuyết SGK (Bài 1 – 4)</h1>
-        <p>Bản chi tiết đầy đủ 100% nội dung từng mục, từng khái niệm, số liệu và câu trích SGK Lịch sử 11 Mới (Kết nối tri thức). Không sót một chữ nào!</p>
+      <div class="hero-banner" style="background: linear-gradient(135deg, #047857 0%, #059669 50%, #0d9488 100%);">
+        <h1>📖 Đề Cương Chi Tiết Sinh Học 11 - Giữa Kì I</h1>
+        <p>Hệ thống hoá trọn vẹn 100% nội dung 7 câu hỏi ôn tập, các sơ đồ chuyển hoá năng lượng, chu trình Calvin, phân biệt C3 - C4 - CAM và hô hấp hiếu khí/lên men chuẩn SGK!</p>
       </div>
 
       <div class="theory-toc">
-        <span style="font-weight: 700; color: var(--text-muted); font-size: 0.88rem;">MỤC LỤC NHANH:</span>
-        <a href="#t-b1" class="toc-link">Bài 1: Cách Mạng Tư Sản</a>
-        <a href="#t-b2" class="toc-link">Bài 2: Sự Phát Triển CNTB</a>
-        <a href="#t-b3" class="toc-link">Bài 3: Liên Bang Xô Viết</a>
-        <a href="#t-b4" class="toc-link">Bài 4: CNXH từ 1945 đến nay</a>
+        <span style="font-weight: 700; color: var(--text-muted); font-size: 0.88rem;">MỤC LỤC ÔN TẬP:</span>
+        <a href="#t-c1" class="toc-link">Câu 1: Dấu hiệu TĐC & NL</a>
+        <a href="#t-c2" class="toc-link">Câu 2: 3 Giai đoạn chuyển hóa NL</a>
+        <a href="#t-c3" class="toc-link">Câu 3: Tự dưỡng & Dị dưỡng</a>
+        <a href="#t-c4" class="toc-link">Câu 4: Vai trò của nước</a>
+        <a href="#t-c5" class="toc-link">Câu 5: Hấp thụ nước & khoáng ở rễ</a>
+        <a href="#t-c6" class="toc-link">Câu 6: Dòng mạch gỗ & mạch rây</a>
+        <a href="#t-c7" class="toc-link">Câu 7: Quang hợp & Hô hấp thực vật</a>
       </div>
 
-      <!-- BÀI 1 -->
-      <section class="lesson-section" id="t-b1">
+      <!-- CÂU 1 -->
+      <section class="lesson-section" id="t-c1">
         <div class="lesson-section-header">
-          <div class="lesson-icon">⚔️</div>
+          <div class="lesson-icon">⚡</div>
           <div class="lesson-title-text">
-            <h2>BÀI 1: MỘT SỐ VẤN ĐỀ CHUNG VỀ CÁCH MẠNG TƯ SẢN</h2>
-            <span>Chủ đề 1: Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản</span>
+            <h2>CÂU 1: DẤU HIỆU ĐẶC TRƯNG CỦA TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG</h2>
+            <span>Chủ đề 1: Khái quát về trao đổi chất và chuyển hóa năng lượng ở sinh vật</span>
           </div>
         </div>
 
         <div class="theory-block">
-          <h3>1. Tiền Đề Của Cách Mạng Tư Sản</h3>
-          
-          <h4>a) Tiền đề về Kinh tế:</h4>
+          <h3>Bốn Dấu Hiệu Đặc Trưng Cơ Bản</h3>
           <ul>
-            <li><strong>Sự ra đời của kinh tế TBCN:</strong> Từ thế kỉ XVI – XVIII, trong lòng chế độ phong kiến Tây Âu và Bắc Mỹ, phương thức sản xuất TBCN phát triển mạnh mẽ trên cả nông nghiệp và công thương nghiệp:
-              <br>• <em>Trong nông nghiệp:</em> Phương thức bóc lột tư bản thâm nhập sâu. Ở Anh, diễn ra phong trào <span class="tag-term">Rào đất cướp ruộng</span> (quý tộc đuổi nông dân ra khỏi ruộng để nuôi cừu lấy lông, nhà văn Thomas More gọi là <em>"cừu ăn thịt người"</em>). Ở miền Nam Bắc Mỹ phát triển nền kinh tế đồn điền trồng trọt bông, mía quy mô lớn.
-              <br>• <em>Trong công thương nghiệp:</em> Xuất hiện các công trường thủ công phân công lao động chi tiết (dệt len dạ, luyện kim, đóng tàu...), các thương cảng buôn bán quốc tế sầm uất (Luân Đôn, Bô-xtơn, Mác-xây...).
+            <li><strong>1. Tiếp nhận các chất từ môi trường và vận chuyển các chất:</strong>
+              <br>• Sinh vật lấy các chất cần thiết từ môi trường ngoài (nước, chất khoáng, CO2, O2, chất dinh dưỡng hữu cơ).
+              <br>• Các chất được vận chuyển đến các tế bào và cơ quan trong cơ thể để sử dụng cho hoạt động sống.
             </li>
-            <li><strong>Rào cản phong kiến / thực dân kìm hãm:</strong>
-              <br>• Ở Anh, Pháp: Chế độ phong kiến duy trì quy chế phường hội khắt khe (hạn chế số lượng thợ, quy định định mức sản phẩm, cấm dùng máy móc), hàng rào thuế quan nội địa phức tạp, độc quyền khai khoáng của Hoàng gia.
-              <br>• Ở Bắc Mỹ: Thực dân Anh ban hành hàng loạt đạo luật kìm kẹp kinh tế thuộc địa: cấm công nghiệp thuộc địa cạnh tranh với chính quốc (Đạo luật cấm đúc tiền, cấm xuất khẩu len dạ, sắt thép); các đạo luật thuế vô lý: <em>Đạo luật Đóng tem (1765)</em>, <em>Đạo luật Thuế chè (1773)</em>, <em>Đạo luật Hàng hải</em> (buộc thuộc địa chỉ được chở hàng bằng tàu của Anh). Khẩu hiệu nổi tiếng của thuộc địa: <em>"Không đóng thuế nếu không có đại biểu trong Quốc hội" (No taxation without representation)</em>.
+            <li><strong>2. Biến đổi các chất và chuyển hoá năng lượng ở tế bào:</strong>
+              <br>• <span class="tag-term">Đồng hoá (Anabolism):</span> Quá trình tổng hợp các chất hữu cơ phức tạp từ các chất đơn giản, đồng thời <strong>tích luỹ năng lượng</strong> vào trong các liên kết hoá học.
+              <br>• <span class="tag-term">Dị hoá (Catabolism):</span> Quá trình phân giải các chất hữu cơ phức tạp thành các chất đơn giản, đồng thời <strong>giải phóng năng lượng</strong> (ATP và nhiệt).
             </li>
-          </ul>
-
-          <h4>b) Tiền đề về Chính trị:</h4>
-          <ul>
-            <li><strong>Chế độ quân chủ chuyên chế độc đoán:</strong> Ở Anh (triều đại Stuart, vua Charles I), ở Pháp (triều đại Bourbon, vua Louis XVI). Nhà vua nắm quyền lực tối cao vô hạn (vương quyền thần thánh), đứng trên pháp luật, thẳng tay đàn áp người bất đồng chính kiến, tự tiện tăng thuế không qua nghị viện.</li>
-            <li><strong>Ách thống trị thực dân:</strong> Ở 13 thuộc địa Bắc Mỹ, chính phủ thực dân Anh áp đặt bộ máy cai trị hà khắc của Toàn quyền, tước đoạt các quyền tự do chính trị của nhân dân bản xứ.</li>
-          </ul>
-
-          <h4>c) Tiền đề về Xã hội (Phân hóa giai cấp sâu sắc):</h4>
-          <ul>
-            <li><strong>Giai cấp Tư sản:</strong> Gồm tư sản công thương nghiệp, tài chính, ngân hàng. Có thực lực kinh tế khổng lồ nhưng không có vị trí chính trị tương xứng trong bộ máy nhà nước phong kiến.</li>
-            <li><strong>Tầng lớp Quý tộc mới (Gentry - chỉ có ở Anh):</strong> Xuất thân từ quý tộc phong kiến nhưng chuyển sang kinh doanh theo lối tư bản (rào đất nuôi cừu, mở xưởng, góp vốn thương mại). Lợi ích của họ gắn liền với giai cấp tư sản.</li>
-            <li><strong>Tầng lớp Chủ nô (ở Bắc Mỹ):</strong> Nắm giữ các đồn điền ở miền Nam, làm giàu nhờ bóc lột tàn nhẫn sức lao động của người da đen châu Phi. Họ cùng tư sản miền Bắc lãnh đạo cách mạng.</li>
-            <li><strong>Quần chúng nhân dân lao động:</strong> Gồm nông dân, thợ thủ công, bình dân thành thị, nô lệ da đen... là lực lượng đông đảo nhất, chịu cảnh bần cùng hóa và sưu cao thuế nặng.</li>
-            <li><strong>Cơ cấu 3 Đẳng cấp ở Pháp trước 1789:</strong>
-              <br>• <em>Đẳng cấp 1 (Tăng lữ):</em> Chiếm ~1% dân số, nắm 10% ruộng đất, được miễn mọi thứ thuế.
-              <br>• <em>Đẳng cấp 2 (Quý tộc):</em> Chiếm <2% dân số, nắm giữ mọi chức vụ cao trong quân đội và triều đình, không phải nộp thuế.
-              <br>• <em>Đẳng cấp thứ ba:</em> Chiếm trên 97% dân số (gồm Tư sản, Nông dân, Bình dân). Phải nộp mọi loại thuế (thuế đất, thuế thân, thuế muối, thuế nộp cho nhà thờ 1/10 hoa lợi), không có bất kì quyền chính trị nào. Nông dân Pháp bị ví như <em>"con lừa cõng trên lưng Tăng lữ và Quý tộc"</em>.
+            <li><strong>3. Thải các chất vào môi trường:</strong>
+              <br>• Các chất cặn bã, chất độc hại và sản phẩm dư thừa sinh ra từ quá trình chuyển hóa (như CO2, urea, uric acid, H2O,...) được đào thải ra môi trường bên ngoài để đảm bảo tính ổn định nội môi.
             </li>
-          </ul>
-
-          <h4>d) Tiền đề về Tư tưởng:</h4>
-          <ul>
-            <li><strong>Ở Anh:</strong> Giai cấp tư sản và quý tộc mới mượn ngọn cờ <span class="tag-term">Thanh giáo (Puritanism)</span> — trào lưu cải cách đạo Tin lành, phản đối sự xa hoa của Giáo hội Anh giáo, ca ngợi sự chăm chỉ, tiết kiệm, tích lũy tiền bạc.</li>
-            <li><strong>Ở Bắc Mỹ:</strong> Tiếp thu các trào lưu dân chủ tư sản tiến bộ từ châu Âu qua các tác phẩm nổi tiếng như <em>"Lẽ thường" (Common Sense)</em> của Thomas Paine; tư tưởng nhân quyền của Thomas Jefferson, Benjamin Franklin.</li>
-            <li><strong>Ở Pháp (Trào lưu Triết học Ánh sáng thế kỉ XVIII):</strong>
-              <br>• <strong>Charles Montesquieu (1689 – 1755):</strong> Tác phẩm <em>"Tinh thần pháp luật"</em> (1748), chủ trương phân chia quyền lực nhà nước thành 3 cơ quan độc lập: <strong>Lập pháp, Hành pháp và Tư pháp</strong> (Tam quyền phân lập) để kiểm soát quyền lực, chống độc tài.
-              <br>• <strong>François Voltaire (1694 – 1778):</strong> Viết <em>"Những lá thư triết học"</em>, lên án gay gắt Giáo hội Công giáo phong kiến, đòi tự do tín ngưỡng, tự do ngôn luận (câu khẩu hiệu đanh thép: <em>"Hãy đè bẹp kẻ đê tiện!"</em>).
-              <br>• <strong>Jean-Jacques Rousseau (1712 – 1778):</strong> Tác phẩm <em>"Khế ước xã hội" (Du contrat social)</em> (1762), khẳng định chủ quyền tối cao thuộc về nhân dân; vạch trần chế độ tư hữu là nguồn gốc của mọi bất bình đẳng xã hội; chủ trương xây dựng nền cộng hòa dân chủ.
+            <li><strong>4. Điều hoà:</strong>
+              <br>• Toàn bộ quá trình trao đổi chất và chuyển hóa năng lượng luôn được điều hòa chặt chẽ thông qua hệ thống thần kinh, thể dịch (hormone) hoặc cơ chế điều hòa ngược (feedback) ở cấp độ tế bào và cơ thể.
             </li>
           </ul>
         </div>
+      </section>
 
-        <div class="theory-block">
-          <h3>2. Mục Tiêu, Nhiệm Vụ, Giai Cấp Lãnh Đạo Và Động Lực</h3>
-          <ul>
-            <li><strong>Mục tiêu:</strong> Lật đổ chế độ phong kiến chuyên chế, xóa bỏ ách thống trị thực dân, thiết lập nhà nước của giai cấp tư sản, mở đường cho CNTB phát triển tự do.</li>
-            <li><strong>Nhiệm vụ:</strong>
-              <br>• <em>Nhiệm vụ dân tộc:</em> Thống nhất thị trường dân tộc, giải phóng dân tộc (nếu là thuộc địa), xóa bỏ sự chia cắt cát cứ phong kiến.
-              <br>• <em>Nhiệm vụ dân chủ:</em> Xóa bỏ chế độ đẳng cấp phong kiến, ban bố các quyền tự do dân chủ (tự do cá nhân, quyền tư hữu bất khả xâm phạm), giải quyết vấn đề ruộng đất cho nông dân.
-            </li>
-            <li><strong>Lãnh đạo cách mạng:</strong> Luôn là giai cấp <strong>Tư sản</strong> (Ở Anh: liên minh Tư sản – Quý tộc mới; Ở Bắc Mỹ: liên minh Tư sản – Chủ nô).</li>
-            <li><strong>Động lực chính của cách mạng:</strong> Là <strong>Quần chúng nhân dân</strong> (nông dân, thợ thủ công, bình dân, nô lệ...). Đây là lực lượng đông đảo trực tiếp cầm vũ khí chiến đấu quyết định thắng lợi của cách mạng.</li>
-          </ul>
+      <!-- CÂU 2 -->
+      <section class="lesson-section" id="t-c2">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">🔄</div>
+          <div class="lesson-title-text">
+            <h2>CÂU 2: BA GIAI ĐOẠN CHUYỂN HOÁ NĂNG LƯỢNG TRONG SINH GIỚI</h2>
+            <span>Dựa vào sơ đồ Hình 1.1 SGK: Tổng hợp ➔ Phân giải ➔ Huy động năng lượng</span>
+          </div>
         </div>
 
         <div class="theory-block">
-          <h3>3. So Sánh Bốn Cuộc Cách Mạng Tư Sản Tiêu Biểu</h3>
+          <div class="diagram-card">
+            <div class="diagram-title">☀️ SƠ ĐỒ CHUYỂN HÓA NĂNG LƯỢNG TRONG SINH GIỚI (HÌNH 1.1 SGK)</div>
+            <div class="step-chain">
+              <div class="step-box">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                  <strong>Năng lượng ánh sáng (Quang năng mặt trời)</strong>
+                  <br>⬇️ <em>Giai đoạn tổng hợp (Quang hợp ở thực vật/sinh vật quang dưỡng)</em>
+                  <br>Biến đổi quang năng thành <strong>Năng lượng hoá học tích luỹ trong các chất hữu cơ</strong>.
+                </div>
+                <div class="step-heat">Tỏa nhiệt (Nhiệt năng) 🔥</div>
+              </div>
+
+              <div class="step-box">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                  <strong>Năng lượng hoá học trong chất hữu cơ</strong>
+                  <br>⬇️ <em>Giai đoạn phân giải (Hô hấp tế bào)</em>
+                  <br>Phân giải chất hữu cơ giải phóng năng lượng để biến đổi thành <strong>Năng lượng tích luỹ trong ATP</strong>.
+                </div>
+                <div class="step-heat">Tỏa nhiệt (Nhiệt năng) 🔥</div>
+              </div>
+
+              <div class="step-box">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                  <strong>Năng lượng tích luỹ trong ATP</strong>
+                  <br>⬇️ <em>Giai đoạn huy động năng lượng</em>
+                  <br>Thủy phân ATP giải phóng năng lượng cung cấp trực tiếp cho <strong>Các hoạt động sống</strong> (tổng hợp chất, co cơ, dẫn truyền xung thần kinh, vận chuyển chủ động...).
+                </div>
+                <div class="step-heat">Tỏa nhiệt (Nhiệt năng) 🔥</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>📌 Kết luận then chốt:</strong> Trong suốt ba giai đoạn, ở mỗi bước chuyển đổi năng lượng đều có một phần năng lượng bị hao phí dưới dạng <strong>nhiệt năng</strong> phát tán ra môi trường. ATP đóng vai trò là <em>"đồng tiền năng lượng"</em> của tế bào.
+          </div>
+        </div>
+      </section>
+
+      <!-- CÂU 3 -->
+      <section class="lesson-section" id="t-c3">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">🌱</div>
+          <div class="lesson-title-text">
+            <h2>CÂU 3: KHÁI NIỆM TỰ DƯỠNG VÀ DỊ DƯỠNG</h2>
+            <span>Phương thức dinh dưỡng và vai trò của sinh vật tự dưỡng trong sinh giới</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <div class="dual-box-grid">
+            <div class="dual-box">
+              <div class="dual-box-header" style="color: #34d399;">
+                <span>🌿 1. SINH VẬT TỰ DƯỠNG</span>
+              </div>
+              <p>Là sinh vật có khả năng tự tổng hợp chất hữu cơ từ các chất vô cơ đơn giản.</p>
+              <ul>
+                <li><strong>Quang tự dưỡng:</strong> Sử dụng chất vô cơ, nước, CO₂ và nguồn năng lượng <strong>ánh sáng</strong> để tổng hợp chất hữu cơ.
+                  <br>• <em>Đại diện:</em> Thực vật, tảo, vi khuẩn lam.
+                </li>
+                <li><strong>Hoá tự dưỡng:</strong> Sử dụng nguồn carbon chủ yếu là CO₂, nguồn năng lượng từ quá trình <strong>oxi hoá các chất vô cơ</strong> (NH₃, H₂S, Fe²⁺...) để tổng hợp chất hữu cơ.
+                  <br>• <em>Đại diện:</em> Một số vi khuẩn (vi khuẩn nitrat hóa, vi khuẩn oxi hóa lưu huỳnh, vi khuẩn sắt).
+                </li>
+              </ul>
+            </div>
+
+            <div class="dual-box">
+              <div class="dual-box-header" style="color: #38bdf8;">
+                <span>🦁 2. SINH VẬT DỊ DƯỠNG</span>
+              </div>
+              <p>Là sinh vật không có khả năng tự tổng hợp chất hữu cơ từ chất vô cơ, phải lấy chất hữu cơ trực tiếp từ sinh vật tự dưỡng hoặc từ động vật khác để sinh trưởng và phát triển.</p>
+              <ul>
+                <li><strong>Đại diện:</strong> Động vật (sư tử, cáo, mèo, người...), nấm, và phần lớn các loài vi khuẩn.</li>
+                <li><strong>Cơ chế:</strong> Phân giải thức ăn hữu cơ lấy từ môi trường thành các chất dinh dưỡng đơn giản để tế bào hấp thụ và sử dụng.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <strong>🌟 VAI TRÒ CỦA SINH VẬT TỰ DƯỠNG TRONG SINH GIỚI:</strong>
+            <br>1. <strong>Cung cấp O₂:</strong> Đảm bảo dưỡng khí cho hoạt động hô hấp của hầu hết các sinh vật trên Trái Đất.
+            <br>2. <strong>Cung cấp thức ăn, nơi ở và sinh sản:</strong> Là sinh vật sản xuất sơ cấp mở đầu cho chuỗi và lưới thức ăn, tạo sinh cảnh cho động vật.
+            <br>3. <strong>Điều hoà khí hậu:</strong> Hấp thụ CO₂ làm giảm hiệu ứng nhà kính, thoát hơi nước tạo độ ẩm và hạ nhiệt độ môi trường, duy trì sự cân bằng sinh quyển.
+          </div>
+        </div>
+      </section>
+
+      <!-- CÂU 4 -->
+      <section class="lesson-section" id="t-c4">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">💧</div>
+          <div class="lesson-title-text">
+            <h2>CÂU 4: VAI TRÒ CỦA NƯỚC ĐỐI VỚI THỰC VẬT</h2>
+            <span>Chủ đề 2: Trao đổi nước và khoáng ở thực vật</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <ul>
+            <li><strong>1. Là thành phần chính cấu tạo tế bào:</strong> Nước chiếm 70% – 90% khối lượng sinh khối tươi của cây, duy trì độ trương của tế bào, giữ cho cây có hình dạng nhất định.</li>
+            <li><strong>2. Là dung môi hoà tan các chất:</strong> Nước hòa tan muối khoáng và các hợp chất hữu cơ, là phương tiện vận chuyển các chất trong dòng mạch gỗ và mạch rây từ rễ lên lá và ngược lại.</li>
+            <li><strong>3. Là nguyên liệu và môi trường cho các phản ứng sinh hoá:</strong> Nước là nguyên liệu trực tiếp của quá trình quang hợp (quang phân li nước cung cấp e⁻, H⁺ để tạo NADPH và giải phóng O₂); tham gia các phản ứng thủy phân trong tế bào.</li>
+            <li><strong>4. Điều hoà nhiệt độ của cơ thể thực vật:</strong> Nước có nhiệt dung cao; quá trình thoát hơi nước qua khí khổng ở lá giúp giải tỏa nhiệt lượng, bảo vệ lá khỏi bị đốt cháy dưới ánh nắng mặt trời gay gắt.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CÂU 5 -->
+      <section class="lesson-section" id="t-c5">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">🌾</div>
+          <div class="lesson-title-text">
+            <h2>CÂU 5: CƠ CHẾ HẤP THỤ NƯỚC VÀ KHOÁNG Ở TẾ BÀO LÔNG HÚT CỦA RỄ</h2>
+            <span>Hấp thụ nước theo cơ chế thẩm thấu; hấp thụ khoáng theo cơ chế thụ động và chủ động</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <div class="dual-box-grid">
+            <div class="dual-box">
+              <div class="dual-box-header" style="color: #38bdf8;">
+                <span>💧 CƠ CHẾ HẤP THỤ NƯỚC</span>
+              </div>
+              <p>Nước được hấp thụ vào rễ theo <strong>cơ chế thẩm thấu (thụ động)</strong>:</p>
+              <ul>
+                <li>Nước di chuyển từ môi trường đất (nơi có <em>thế nước cao, nồng độ chất tan thấp - môi trường nhược trương</em>) vào tế bào lông hút của rễ (nơi có <em>thế nước thấp, nồng độ chất tan cao - môi trường ưu trương</em>).</li>
+                <li><strong>Nguyên nhân dịch bào rễ luôn ưu trương:</strong> Do rễ tích cực tích lũy các ion khoáng và do quá trình thoát hơi nước ở lá liên tục hút nước kéo lên.</li>
+              </ul>
+            </div>
+
+            <div class="dual-box">
+              <div class="dual-box-header" style="color: #fbbf24;">
+                <span>🧪 CƠ CHẾ HẤP THỤ KHOÁNG (2 CƠ CHẾ)</span>
+              </div>
+              <ul>
+                <li><strong>1. Cơ chế thụ động (Khuếch tán):</strong>
+                  <br>• Các ion khoáng hòa tan trong đất khuếch tán từ nơi có nồng độ khoáng cao (trong đất) vào nơi có nồng độ khoáng thấp (trong rễ) xuôi theo gradient nồng độ.
+                  <br>• Không tiêu tốn năng lượng ATP.
+                </li>
+                <li><strong>2. Cơ chế chủ động:</strong>
+                  <br>• Phần lớn các ion khoáng mà cây cần được vận chuyển vào rễ <strong>ngược chiều gradient nồng độ</strong> (từ đất nơi nồng độ thấp vào rễ nơi nồng độ cao).
+                  <br>• Cần có các chất mang (protein màng) chuyên biệt và <strong>tiêu tốn năng lượng sinh học (ATP)</strong> do hô hấp rễ cung cấp.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÂU 6 -->
+      <section class="lesson-section" id="t-c6">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">🪵</div>
+          <div class="lesson-title-text">
+            <h2>CÂU 6: SO SÁNH HAI DÒNG VẬN CHUYỂN TRONG CÂY (DÒNG MẠCH GỖ & MẠCH RÂY)</h2>
+            <span>Phân biệt chiều di chuyển, cấu tạo tế bào, thành phần dịch và động lực vận chuyển</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
           <div class="table-responsive">
             <table class="custom-table">
               <thead>
                 <tr>
-                  <th>Nội dung</th>
-                  <th>Cách mạng Nê-đéc-lan (XVI)</th>
-                  <th>Cách mạng Anh (XVII)</th>
-                  <th>Chiến tranh Bắc Mỹ (XVIII)</th>
-                  <th>Cách mạng Pháp (1789)</th>
+                  <th style="width: 20%;">Tiêu chí so sánh</th>
+                  <th style="width: 40%; color: #38bdf8;">Dòng mạch gỗ (Dòng đi lên - Xylem)</th>
+                  <th style="width: 40%; color: #34d399;">Dòng mạch rây (Dòng đi xuống/chuyển vị - Phloem)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Hình thức</strong></td>
-                  <td>Chiến tranh giải phóng dân tộc</td>
-                  <td>Nội chiến giữa Quốc hội & Vua</td>
-                  <td>Chiến tranh giải phóng dân tộc</td>
-                  <td>Nội chiến & Chống ngoại xâm</td>
+                  <td><strong>Chiều vận chuyển</strong></td>
+                  <td>Vận chuyển <strong>từ rễ lên lá</strong> và các cơ quan phía trên; các lỗ bên có thể vận chuyển theo chiều ngang.</td>
+                  <td>Vận chuyển <strong>từ lá xuống rễ</strong> hoặc ngược lại tùy thuộc vào vị trí của cơ quan nguồn so với cơ quan đích (có thể chuyển nước sang mạch gỗ).</td>
                 </tr>
                 <tr>
-                  <td><strong>Lãnh đạo</strong></td>
-                  <td>Tư sản + Quý tộc tiến bộ</td>
-                  <td>Tư sản + Quý tộc mới</td>
-                  <td>Tư sản + Chủ nô đồn điền</td>
-                  <td>Giai cấp Tư sản</td>
+                  <td><strong>Cấu tạo tế bào</strong></td>
+                  <td>Gồm <strong>quản bào</strong> và <strong>mạch ống</strong>.
+                    <br>• Là các <strong>tế bào chết</strong>, thành hóa gỗ (lignin) dày, không còn màng và bào quan.</td>
+                  <td>Gồm <strong>tế bào ống rây</strong> và <strong>tế bào kèm</strong>.
+                    <br>• Là các <strong>tế bào sống</strong> (ống rây mất nhân, tế bào kèm giàu ti thể hỗ trợ).</td>
                 </tr>
                 <tr>
-                  <td><strong>Động lực</strong></td>
-                  <td colspan="4" style="text-align: center; color: var(--accent); font-weight: bold;">Quần chúng nhân dân (Nông dân, công nhân, thợ thủ công, thị dân)</td>
+                  <td><strong>Thành phần dịch dẫn</strong></td>
+                  <td>Chủ yếu là <strong>nước, chất khoáng hoà tan</strong> và một số chất hữu cơ tổng hợp từ rễ (như amino acid, amide, hormone...).</td>
+                  <td>Chủ yếu là <strong>đường sucrose</strong> (chiếm 95%), các amino acid, hormone thực vật, một số ion khoáng (như K⁺)...</td>
                 </tr>
                 <tr>
-                  <td><strong>Chính thể sau CM</strong></td>
-                  <td>Cộng hòa (Các tỉnh Liên hiệp)</td>
-                  <td>Quân chủ lập hiến (1688)</td>
-                  <td>Cộng hòa liên bang (1787)</td>
-                  <td>Cộng hòa dân chủ</td>
-                </tr>
-                <tr>
-                  <td><strong>Văn kiện tiêu biểu</strong></td>
-                  <td>Tuyên bố độc lập 1581</td>
-                  <td>Đạo luật Nhân quyền 1689</td>
-                  <td>Tuyên ngôn Độc lập 1776</td>
-                  <td>Tuyên ngôn Nhân quyền & Dân quyền 1789</td>
-                </tr>
-                <tr>
-                  <td><strong>Đánh giá tính chất</strong></td>
-                  <td>Chưa triệt để</td>
-                  <td>Chưa triệt để (giữ ngôi Vua)</td>
-                  <td>Chưa triệt để (giữ nô lệ da đen)</td>
-                  <td><strong>Triệt để nhất thời cận đại</strong></td>
+                  <td><strong>Động lực vận chuyển</strong></td>
+                  <td>Kết hợp bởi <strong>3 lực</strong>:
+                    <br>1️⃣ Lực đẩy của áp suất rễ (gây hiện tượng ứ giọt, rỉ nhựa).
+                    <br>2️⃣ Lực liên kết giữa các phân tử nước với nhau và lực bám vào thành mạch gỗ.
+                    <br>3️⃣ <strong>Lực kéo do thoát hơi nước ở lá</strong> (đóng vai trò chủ yếu / quan trọng nhất).</td>
+                  <td>Do sự <strong>chênh lệch áp suất thẩm thấu</strong> giữa <strong>cơ quan nguồn</strong> (nơi tổng hợp đường có nồng độ chất tan cao) và <strong>cơ quan đích</strong> (nơi dự trữ/sử dụng có nồng độ thấp).</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-
-        <div class="note-box">
-          <strong>⚠️ TẠI SAO CÁCH MẠNG PHÁP TRIỆT ĐỂ NHẤT?</strong>
-          <br>1. Đã lật đổ hoàn toàn và xóa sạch mọi tàn dư phong kiến chuyên chế, chém đầu vua Louis XVI.
-          <br>2. Dưới thời phái Giacôbanh (Robespierre), đã ban hành sắc lệnh chia nhỏ ruộng đất bán cho nông dân trả góp trong 10 năm, giải quyết căn bản vấn đề ruộng đất.
-          <br>3. Ban bố bản <em>Tuyên ngôn Nhân quyền và Dân quyền</em> nổi tiếng với khẩu hiệu: <em>"Tự do – Bình đẳng – Bác ái"</em>.
-        </div>
       </section>
 
-      <!-- BÀI 2 -->
-      <section class="lesson-section" id="t-b2">
+      <!-- CÂU 7 -->
+      <section class="lesson-section" id="t-c7">
         <div class="lesson-section-header">
-          <div class="lesson-icon">🏭</div>
+          <div class="lesson-icon">🌞</div>
           <div class="lesson-title-text">
-            <h2>BÀI 2: SỰ XÁC LẬP VÀ PHÁT TRIỂN CỦA CHỦ NGHĨA TƯ BẢN</h2>
-            <span>Chủ nghĩa tư bản từ tự do cạnh tranh, chuyển sang độc quyền đến hiện đại</span>
+            <h2>CÂU 7: QUANG HỢP VÀ HÔ HẤP Ở THỰC VẬT</h2>
+            <span>Bao gồm chu trình Calvin, bảng phân biệt C3-C4-CAM, các yếu tố ảnh hưởng và con đường hô hấp</span>
           </div>
         </div>
 
         <div class="theory-block">
-          <h3>1. Sự Xác Lập Của CNTB Ở Châu Âu Và Bắc Mỹ (Cuối XVII Đến Cuối XIX)</h3>
+          <h3>I. QUANG HỢP Ở THỰC VẬT</h3>
           <ul>
-            <li><strong>Làn sóng các cuộc cách mạng tư sản:</strong>
-              <br>• <em>Làn sóng 1848 – 1849:</em> Nổ ra đồng loạt ở Pháp, Đức, Áo, Hung-ga-ri, Ý... giáng đòn quyết định làm rung chuyển trật tự phong kiến châu Âu.
-              <br>• <em>Thống nhất nước Đức (1864 – 1871):</em> Dưới sự lãnh đạo của Thủ tướng Phổ Ôt-tô von Bix-mác (Bismarck) với chính sách <strong>"Sắt và máu"</strong> qua 3 cuộc chiến tranh quân sự (chống Đan Mạch 1864, chống Áo 1866, chống Pháp 1870-1871), thành lập Đế chế Đức năm 1871.
-              <br>• <em>Thống nhất I-ta-li-a (1859 – 1870):</em> Do Bá tước Cavour (Thủ tướng Phedemonte) và vị tướng anh hùng Giuseppe Garibaldi lãnh đạo.
-              <br>• <em>Cải cách nông nô ở Nga (1861):</em> Sa hoàng Alexander II ký sắc lệnh giải phóng nông nô, biến hàng triệu nông nô thành người lao động tự do làm thuê cho các công xưởng.
-              <br>• <em>Nội chiến Mỹ (1861 – 1865):</em> Cuộc chiến đẫm máu giữa tư sản công nghiệp miền Bắc và chủ nô đồn điền miền Nam. Tổng thống Abraham Lincoln ký <em>Tuyên ngôn Giải phóng nô lệ (1863)</em>. Miền Bắc chiến thắng, thống nhất thị trường dân tộc.
-              <br>• <em>Duy tân Minh Trị ở Nhật Bản (1868):</em> Thiên hoàng Meiji tiến hành cải cách toàn diện chính trị, kinh tế, giáo dục theo mô hình phương Tây.
+            <li><strong>1. Khái niệm:</strong> Quang hợp là quá trình thực vật tổng hợp carbohydrate và giải phóng O₂ từ các chất vô cơ đơn giản (CO₂, H₂O) dưới tác dụng của năng lượng ánh sáng và sự tham gia của hệ sắc tố quang hợp (chủ yếu là diệp lục).</li>
+            <li><strong>2. Phương trình tổng quát:</strong>
+              <br><span class="formula-badge">6CO₂ + 12H₂O ──(Ánh sáng / Diệp lục)──► C₆H₁₂O₆ + 6O₂ + 6H₂O</span>
+              <br><em>(Hoặc dạng viết gọn: 6CO₂ + 6H₂O ──► C₆H₁₂O₆ + 6O₂)</em>
             </li>
-            <li><strong>Mốc hoàn thành:</strong> Đến <strong>cuối thế kỉ XIX</strong>, CNTB đã thắng thế hoàn toàn phong kiến ở châu Âu, Bắc Mỹ và xác lập trên quy mô toàn cầu.</li>
-          </ul>
-        </div>
-
-        <div class="theory-block">
-          <h3>2. Quá Trình Chuyển Sang Độc Quyền (Chủ Nghĩa Đế Quốc)</h3>
-          <ul>
-            <li><strong>Cơ sở:</strong> Thành tựu Cách mạng công nghiệp lần 2 (điện năng, động cơ đốt trong, hóa chất, luyện thép, dầu mỏ) đòi hỏi vốn khổng lồ $\rightarrow$ tích tụ và tập trung sản xuất cao độ $\rightarrow$ hình thành các <span class="tag-term">Tổ chức độc quyền</span>.
-              <br>• Các hình thức độc quyền: <em>Cácten (Cartel)</em>, <em>Xanhđica (Syndicate)</em>, <em>Tơrớt (Trust)</em>, <em>Concarn (Concern)</em>, <em>Conglomerate</em>.
-            </li>
-            <li><strong>5 Đặc trưng của Chủ nghĩa đế quốc theo V.I. Lênin:</strong>
-              <br>1️⃣ Tập trung sản xuất và tư bản dẫn đến việc hình thành các tổ chức độc quyền lũng đoạn kinh tế.
-              <br>2️⃣ Sự kết hợp giữa tư bản ngân hàng và tư bản công nghiệp tạo thành <span class="tag-term">Tư bản tài chính</span> và tầng lớp <span class="tag-term">Đầu sỏ tài chính</span>.
-              <br>3️⃣ <span class="tag-term">Xuất khẩu tư bản</span> (đưa vốn ra nước ngoài đầu tư nhà xưởng, đường sắt hoặc cho vay lấy lãi) trở nên đặc biệt quan trọng (khác với xuất khẩu hàng hóa).
-              <br>4️⃣ Sự hình thành các khối liên minh độc quyền quốc tế phân chia thị trường thế giới.
-              <br>5️⃣ Sự hoàn thành việc phân chia đất đai thuộc địa giữa các cường quốc đế quốc.
-            </li>
-            <li><strong>Đặc điểm biệt danh các nước đế quốc:</strong>
-              <br>🇬🇧 <strong>Đế quốc Anh:</strong> <em>"Chủ nghĩa đế quốc thực dân"</em> (sở hữu 33 triệu km2 và 400 triệu dân thuộc địa, "Mặt trời không bao giờ lặn").
-              <br>🇫🇷 <strong>Đế quốc Pháp:</strong> <em>"Chủ nghĩa đế quốc cho vay lãi"</em> (2/3 lượng tư bản xuất khẩu dùng để cho các chính phủ nước ngoài vay với lãi suất cắt cổ, đặc biệt là Nga).
-              <br>🇩🇪 <strong>Đế quốc Đức:</strong> <em>"Chủ nghĩa đế quốc quân phiệt, hiếu chiến"</em> (kinh tế phát triển vượt Anh - Pháp nhưng ít thuộc địa, giới quân phiệt Phổ chủ trương dùng vũ lực chia lại thế giới).
-              <br>🇺🇸 <strong>Đế quốc Mỹ:</strong> Xứ sở của các <em>Tơrớt (Trust)</em> khổng lồ: Trust dầu mỏ của Vua dầu mỏ John D. Rockefeller (Standard Oil kiểm soát 90% lọc dầu Mỹ), Trust thép của J.P. Morgan...
+            <li><strong>3. Vai trò của quang hợp:</strong>
+              <br>• Tạo ra chất hữu cơ cung cấp thức ăn cho cây và toàn bộ sinh vật dị dưỡng trên Trái Đất.
+              <br>• Cung cấp nguyên liệu cho các ngành công nghiệp, dược liệu và xây dựng.
+              <br>• Tích lũy nguồn năng lượng khổng lồ duy trì hoạt động sống của sinh giới.
+              <br>• Cung cấp khí O₂ và hấp thụ CO₂, giúp điều hòa khí hậu toàn cầu.
             </li>
           </ul>
-        </div>
 
-        <div class="theory-block">
-          <h3>3. Chủ Nghĩa Tư Bản Hiện Đại (Từ Sau Năm 1945 Đến Nay)</h3>
+          <h4>Chu trình Calvin (Chu trình C₃) - Hình 4.3 SGK:</h4>
+          <p>Xảy ra ở <strong>stroma (chất nền lục lạp)</strong> của tất cả các nhóm thực vật, gồm 3 giai đoạn chính:</p>
           <ul>
-            <li><strong>Khái niệm:</strong> Là thuật ngữ chỉ giai đoạn phát triển của CNTB từ sau Chiến tranh thế giới thứ hai (1945) đến nay.</li>
-            <li><strong>4 Đặc trưng cơ bản:</strong>
-              <br>1. Lực lượng sản xuất phát triển nhảy vọt dựa trên cuộc Cách mạng khoa học – công nghệ (kinh tế tri thức, tự động hóa, tin học, internet, AI).
-              <br>2. <span class="tag-term">Chủ nghĩa tư bản độc quyền nhà nước</span>: Sự liên minh hữu cơ giữa các tập đoàn độc quyền tư nhân và bộ máy nhà nước tư sản (nhà nước can thiệp điều tiết vĩ mô kinh tế).
-              <br>3. Thay đổi lớn trong cơ cấu lao động: Lao động chân tay giản đơn giảm mạnh; lao động trí tuệ, dịch vụ kỹ thuật và công nghệ cao tăng vọt.
-              <br>4. Mở rộng quốc tế hóa và toàn cầu hóa sâu sắc thông qua hoạt động của các công ty xuyên quốc gia (TNCs).
-            </li>
-            <li><strong>Tiềm năng:</strong> Cơ sở vật chất kỹ thuật hiện đại; nguồn vốn dồi dào; khả năng R&D (nghiên cứu & phát triển) dẫn đầu thế giới; kinh nghiệm quản trị kinh tế thị trường lâu đời.</li>
-            <li><strong>Thách thức gay gắt:</strong>
-              <br>• Khủng hoảng kinh tế chu kỳ (khủng hoảng tài chính toàn cầu 2008).
-              <br>• Bất bình đẳng phân hóa giàu nghèo sâu sắc: Phong trào <em>"Chiếm lấy phố Wall" (2011)</em> với khẩu hiệu chấn động <strong>"Chúng tôi là 99%"</strong> tố cáo 1% siêu giàu thâu tóm phần lớn tài sản đất nước.
-              <br>• Xung đột sắc tộc, ô nhiễm môi trường, biến đổi khí hậu toàn cầu.
-            </li>
+            <li><strong>Giai đoạn 1: Cố định CO₂:</strong> Phân tử CO₂ kết hợp với chất nhận <strong>RuBP</strong> (Ribulose-1,5-bisphosphate, hợp chất 5C) nhờ enzyme Rubisco, tạo thành hợp chất 6C không bền, ngay lập tức bị bẻ đôi thành 2 phân tử <strong>3-PGA</strong> (3-phosphoglyceric acid, hợp chất 3C).</li>
+            <li><strong>Giai đoạn 2: Giai đoạn khử:</strong> Phân tử 3-PGA được khử thành <strong>G3P</strong> (Glyceraldehyde-3-phosphate) với sự tham gia của năng lượng <strong>ATP</strong> và lực khử <strong>NADPH</strong> từ pha sáng.</li>
+            <li><strong>Giai đoạn 3: Tái sinh chất nhận RuBP:</strong> Phần lớn G3P qua hàng loạt phản ứng biến đổi tái tạo lại RuBP (tiêu tốn ATP). Một phần G3P tách ra khỏi chu trình để tổng hợp nên <strong>Glucose</strong> và các hợp chất hữu cơ khác.</li>
           </ul>
-        </div>
-      </section>
 
-      <!-- BÀI 3 -->
-      <section class="lesson-section" id="t-b3">
-        <div class="lesson-section-header">
-          <div class="lesson-icon">⭐</div>
-          <div class="lesson-title-text">
-            <h2>BÀI 3: SỰ HÌNH THÀNH LIÊN BANG CỘNG HÒA XÃ HỘI CHỦ NGHĨA XÔ VIẾT</h2>
-            <span>Chủ đề 2: Chủ nghĩa xã hội từ năm 1917 đến nay</span>
+          <h4>Bảng Phân Biệt Quang Hợp Ở Các Nhóm Thực Vật C3, C4, CAM:</h4>
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Tiêu chí so sánh</th>
+                  <th>Thực vật C3</th>
+                  <th>Thực vật C4</th>
+                  <th>Thực vật CAM</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Chất nhận CO₂ đầu tiên</strong></td>
+                  <td><strong>RuBP</strong> (5C)</td>
+                  <td><strong>PEP</strong> (3C)</td>
+                  <td><strong>PEP</strong> (3C)</td>
+                </tr>
+                <tr>
+                  <td><strong>Sản phẩm cố định CO₂ đầu tiên</strong></td>
+                  <td><strong>PGA</strong> (3C)</td>
+                  <td><strong>OAA</strong> (4C) (Oxaloacetic acid)</td>
+                  <td><strong>OAA</strong> (4C) (Oxaloacetic acid)</td>
+                </tr>
+                <tr>
+                  <td><strong>Không gian thực hiện</strong></td>
+                  <td>Lục lạp tế bào mô giậu</td>
+                  <td>Lục lạp tế bào mô giậu (cố định CO₂) và tế bào bao bó mạch (chu trình Calvin)</td>
+                  <td>Lục lạp tế bào mô giậu</td>
+                </tr>
+                <tr>
+                  <td><strong>Chu trình quang hợp</strong></td>
+                  <td>Chỉ có Chu trình Calvin (C₃)</td>
+                  <td>Chu trình C₄ và chu trình Calvin (C₃)</td>
+                  <td>Chu trình C₄ và chu trình Calvin (C₃)</td>
+                </tr>
+                <tr>
+                  <td><strong>Thời gian thực hiện</strong></td>
+                  <td>Ban ngày</td>
+                  <td>Ban ngày (cả 2 chu trình đều diễn ra ban ngày)</td>
+                  <td>• Cố định CO₂: <strong>Ban đêm</strong> (khí khổng mở)
+                    <br>• Tái cố định (Calvin): <strong>Ban ngày</strong> (khí khổng đóng)</td>
+                </tr>
+                <tr>
+                  <td><strong>Năng suất sinh học</strong></td>
+                  <td>Trung bình</td>
+                  <td><strong>Cao</strong> (gấp đôi C₃, không có hô hấp sáng)</td>
+                  <td>Thấp (thích nghi điều kiện khô hạn)</td>
+                </tr>
+                <tr>
+                  <td><strong>Nhóm thực vật đặc trưng</strong></td>
+                  <td>Sống ở vùng ôn đới, cận nhiệt (lúa, khoai, sắn, đậu, cam, bưởi...)</td>
+                  <td>Sống ở vùng nhiệt đới nóng ẩm kéo dài (ngô, mía, cỏ lồng vực, kê, rau dền...)</td>
+                  <td>Sống ở vùng khô hạn kéo dài, sa mạc (dứa, xương rồng, thanh long, cây mọng nước...)</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
 
-        <div class="theory-block">
-          <h3>1. Bối Cảnh Lịch Sử Thành Lập</h3>
+          <h4>Mối Quan Hệ Giữa Nồng Độ CO₂ Và Cường Độ Quang Hợp (Hình 4.8 SGK):</h4>
           <ul>
-            <li>Thắng lợi của <strong>Cách mạng tháng Mười Nga (1917)</strong> lập nên Nhà nước Xô viết đầu tiên trên thế giới dưới sự lãnh đạo của V.I. Lênin. Ban hành 2 sắc lệnh đầu tiên: <em>Sắc lệnh Hòa bình</em> và <em>Sắc lệnh Ruộng đất</em>.</li>
-            <li>Đánh bại cuộc can thiệp vũ trang của 14 nước đế quốc và nội chiến Bạch vệ (1918 – 1920). Tháng 3/1921, Lênin đề xướng <span class="tag-term">Chính sách Kinh tế mới (NEP)</span> thay thế chế độ trưng thu lương thực bằng thuế lương thực.</li>
-            <li><strong>Ba yêu cầu cấp bách đòi hỏi phải thành lập Liên bang:</strong>
-              <br>1. <em>Yêu cầu quốc phòng:</em> Các nước cộng hòa Xô viết non trẻ đều bị đế quốc tư bản bao vây, cô lập và đe dọa quân sự. Cần hợp sức để tự vệ bảo vệ thành quả cách mạng.
-              <br>2. <em>Yêu cầu kinh tế:</em> Sau chiến tranh, kinh tế kiệt quệ. Các vùng có sự phân công tự nhiên và bổ trợ tài nguyên cho nhau (than đá Donbass, dầu mỏ Baku, ngũ cốc Ukraine...), cần liên kết để cùng công nghiệp hóa.
-              <br>3. <em>Sự tương đồng chính trị:</em> Đều có chung bản chất Nhà nước Xô viết (nhà nước của công nhân và nông dân lao động), chung mục tiêu xây dựng CNXH và cùng đặt dưới sự lãnh đạo thống nhất của <span class="tag-term">Đảng Bôn-sê-vích (Đảng Cộng sản)</span>.
-            </li>
+            <li><strong>Điểm bù CO₂ (Điểm A):</strong> Nồng độ CO₂ mà tại đó cường độ quang hợp cân bằng với cường độ hô hấp (V(quang hợp) = V(hô hấp)).</li>
+            <li><strong>Điểm bão hoà CO₂ (Điểm B):</strong> Nồng độ CO₂ mà tại đó cường độ quang hợp đạt cực đại. Vượt quá nồng độ bão hòa, nếu tiếp tục tăng nồng độ CO₂ thì cường độ quang hợp cũng không tăng thêm mà thậm chí có thể bị ức chế do ngộ độc khí.</li>
+          </ul>
+
+          <h4>Mối Quan Hệ Giữa Phân Bón Và Năng Suất Cây Trồng (Hình 2.13 SGK):</h4>
+          <ul>
+            <li><strong>Lượng thiếu:</strong> Cây thiếu dinh dưỡng khoáng, sinh trưởng còi cọc, năng suất cây trồng thấp.</li>
+            <li><strong>Lượng tối ưu:</strong> Cung cấp vừa đủ các nguyên tố khoáng thiết yếu, cây sinh trưởng phát triển khỏe mạnh nhất, đạt <strong>năng suất tối ưu (cực đại)</strong>.</li>
+            <li><strong>Lượng dư thừa:</strong> Gây lãng phí kinh tế, gây ô nhiễm nguồn đất và nguồn nước xung quanh.</li>
+            <li><strong>Lượng cao quá mức:</strong> Làm tăng nồng độ chất tan trong dung dịch đất khiến rễ cây không hút được nước (mất nước), gây độc cho cây và làm cây chết cháy.</li>
           </ul>
         </div>
 
-        <div class="theory-block">
-          <h3>2. Quá Trình Thành Lập Liên Bang Xô Viết</h3>
+        <div class="theory-block" style="border-top: 1px dashed var(--border); padding-top: 24px;">
+          <h3>II. HÔ HẤP Ở THỰC VẬT</h3>
           <ul>
-            <li><strong>Ngày 30/12/1922:</strong> Tại Mát-xcơ-va, <em>Đại hội lần thứ X các Xô viết toàn Nga</em> đã long trọng thông qua 2 văn kiện lịch sử nền tảng:
-              <br>1️⃣ <strong>Bản Tuyên bố thành lập Liên bang Cộng hòa xã hội chủ nghĩa Xô viết (Liên Xô - USSR)</strong>.
-              <br>2️⃣ <strong>Bản Hiệp ước Liên bang</strong>.
+            <li><strong>1. Khái niệm:</strong> Hô hấp ở thực vật là quá trình phân giải các hợp chất hữu cơ phức tạp (phổ biến nhất là Glucose/Carbohydrate) thành các chất đơn giản (CO₂, H₂O), đồng thời giải phóng năng lượng dưới dạng <strong>ATP</strong> và <strong>nhiệt năng</strong>.</li>
+            <li><strong>2. Phương trình tổng quát của hô hấp hiếu khí (xảy ra ở ti thể):</strong>
+              <br><span class="formula-badge">C₆H₁₂O₆ + 6O₂ ──► 6CO₂ + 6H₂O + Năng lượng (~30 - 32 ATP + Nhiệt)</span>
             </li>
-            <li><strong>Bốn nước Cộng hòa đầu tiên gia nhập (1922):</strong>
-              <br>1. Cộng hòa Xã hội chủ nghĩa Xô viết Liên bang Nga (RSFSR).
-              <br>2. Cộng hòa Xã hội chủ nghĩa Xô viết U-crai-na.
-              <br>3. Cộng hòa Xã hội chủ nghĩa Xô viết Bê-lô-rút-xi-a.
-              <br>4. Cộng hòa Xã hội chủ nghĩa Xô viết Liên bang Ngoại Cáp-ca-dơ (gồm 3 nước: Ác-mê-ni-a, A-déc-bai-gian và Gioóc-ghi-a/Gruzia).
-            </li>
-            <li><strong>Tháng 1/1924:</strong> Đại hội Xô viết toàn Liên bang lần thứ hai đã chính thức thông qua <strong>Bản Hiến pháp đầu tiên của Liên Xô</strong>, hoàn tất quá trình tổ chức cơ cấu quyền lực nhà nước.</li>
-            <li><strong>Đến năm 1940:</strong> Liên bang Xô viết phát triển lớn mạnh gồm tổng cộng <strong>15 nước Cộng hòa</strong>.</li>
-            <li><strong>Nguyên tắc thành lập:</strong> Xây dựng trên nguyên tắc <em>Tự nguyện, bình đẳng, tôn trọng chủ quyền quốc gia và giúp đỡ lẫn nhau cùng tiến bộ</em> giữa các dân tộc anh em.</li>
           </ul>
-        </div>
 
-        <div class="theory-block">
-          <h3>3. Ý Nghĩa Lịch Sử</h3>
-          <ul>
-            <li><strong>Đối với Liên Xô:</strong> Tập hợp sức mạnh tổng hợp của tất cả các dân tộc; hoàn thành vẻ vang công cuộc công nghiệp hóa XHCN (đến 1937 vươn lên thành cường quốc công nghiệp số 1 châu Âu, số 2 thế giới sau Mỹ); chuẩn bị đầy đủ tiềm lực quốc phòng để đánh thắng chủ nghĩa phát xít Đức trong Chiến tranh Vệ quốc vĩ đại (1941 – 1945).</li>
-            <li><strong>Đối với thế giới:</strong> Cổ vũ mạnh mẽ phong trào đấu tranh giải phóng dân tộc của các nước thuộc địa ở Á, Phi, Mỹ Latinh; khẳng định tính đúng đắn của chủ nghĩa Mác – Lênin về vấn đề dân tộc; để lại bài học vô giá về mô hình nhà nước liên bang bình đẳng, nhân ái.</li>
-          </ul>
-        </div>
-      </section>
+          <div class="diagram-card">
+            <div class="diagram-title">🫁 SƠ ĐỒ CÁC CON ĐƯỜNG HÔ HẤP Ở THỰC VẬT</div>
+            <p style="font-size: 0.92rem; margin-bottom: 12px;">Từ 1 phân tử Glucose ban đầu đi vào giai đoạn <strong>Đường phân</strong> tại tế bào chất ➔ tạo <strong>2 Pyruvate + 2 ATP + 2 NADH</strong>:</p>
+            
+            <div class="dual-box-grid">
+              <div class="dual-box">
+                <div class="dual-box-header" style="color: #fb7185;">
+                  <span>🚫 Khi KHÔNG CÓ O₂ (Hô hấp kị khí / Lên men)</span>
+                </div>
+                <ul>
+                  <li><strong>Nơi diễn ra:</strong> Tế bào chất.</li>
+                  <li><strong>Diễn biến:</strong> Pyruvate lên men tạo ra <strong>Ethanol (rượu)</strong> hoặc <strong>Lactate (axit lactic)</strong>.</li>
+                  <li><strong>Hiệu quả năng lượng:</strong> <strong>Không tạo thêm phân tử ATP nào</strong> ngoài 2 ATP từ đường phân. Rất lãng phí năng lượng nhưng giúp tái sinh NAD⁺ duy trì đường phân.</li>
+                </ul>
+              </div>
 
-      <!-- BÀI 4 -->
-      <section class="lesson-section" id="t-b4">
-        <div class="lesson-section-header">
-          <div class="lesson-icon">🌏</div>
-          <div class="lesson-title-text">
-            <h2>BÀI 4: SỰ PHÁT TRIỂN CỦA CHỦ NGHĨA XÃ HỘI TỪ SAU CTTG II ĐẾN NAY</h2>
-            <span>Từ mở rộng thành hệ thống thế giới, khủng hoảng đến kiên trì đổi mới</span>
+              <div class="dual-box">
+                <div class="dual-box-header" style="color: #34d399;">
+                  <span>🌬️ Khi CÓ ĐỦ O₂ (Hô hấp hiếu khí)</span>
+                </div>
+                <ul>
+                  <li><strong>Nơi diễn ra:</strong> Bào quan <strong>Ti thể</strong>.</li>
+                  <li><strong>Gồm 3 bước liên tiếp:</strong>
+                    <br>1. <em>Oxi hoá Pyruvate</em> thành 2 Acetyl-CoA (tạo 2 CO₂ + 2 NADH).
+                    <br>2. <em>Chu trình Krebs</em> (trong chất nền ti thể): tạo 4 CO₂ + 2 ATP + 6 NADH + 2 FADH₂.
+                    <br>3. <em>Chuỗi truyền electron hô hấp</em> (tại màng trong ti thể): Nhận electron từ NADH và FADH₂, truyền đến chất nhận cuối cùng là O₂ để tạo H₂O và tổng hợp <strong>26 - 28 ATP</strong>.
+                  </li>
+                  <li><strong>Tổng năng lượng:</strong> Tạo ra khoảng <strong>30 - 32 ATP</strong> cho mỗi phân tử Glucose.</li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="theory-block">
-          <h3>1. Giai Đoạn Mở Rộng Hệ Thống (1945 – Nửa Đầu Những Năm 70)</h3>
-          <ul>
-            <li><strong>Ở Đông Âu:</strong>
-              <br>• 1944 – 1945: Dưới sự hỗ trợ của Hồng quân Liên Xô, nhân dân Đông Âu lật đổ phát xít lập nên các nhà nước Dân chủ nhân dân (Ba Lan, Tiệp Khắc, CHDC Đức, Hung-ga-ri, Ru-ma-ni, Bun-ga-ri, Nam Tư, An-ba-ni).
-              <br>• Đến năm <span class="tag-term">1949</span>: Các nước Đông Âu bước vào giai đoạn xây dựng CNXH $\rightarrow$ <strong>CNXH vượt ra khỏi phạm vi một nước (Liên Xô), chính thức trở thành một hệ thống thế giới</strong>.
-              <br>• Khối liên minh: Thành lập <em>Hội đồng Tương trợ Kinh tế (SEV - 1949)</em> và liên minh phòng thủ quân sự <em>Hiệp ước Vác-sa-va (1955)</em> đối trọng với NATO.
-            </li>
-            <li><strong>Ở Châu Á:</strong>
-              <br>• <em>CHDCND Triều Tiên:</em> Thành lập năm 1948.
-              <br>• <em>Cộng hòa Nhân dân Trung Hoa:</em> Thành lập ngày <span class="tag-term">01/10/1949</span> dưới sự lãnh đạo của Mao Trạch Đông. Sự kiện này có ý nghĩa bước ngoặt: Nối liền CNXH từ Âu sang Á, đập tan ách thống trị đế quốc phong kiến, làm thay đổi sâu sắc cán cân quyền lực thế giới.
-              <br>• <em>Việt Nam:</em> Đánh thắng thực dân Pháp (1954 - miền Bắc tiến lên CNXH); đánh thắng đế quốc Mỹ (1975 - thống nhất non sông đi lên CNXH).
-              <br>• <em>Lào:</em> Nước CHDCND Lào thành lập tháng 12/1975.
-            </li>
-            <li><strong>Ở Mỹ Latinh:</strong>
-              <br>• Thắng lợi của Cách mạng Cu-ba (01/01/1959) do Fidel Castro lãnh đạo lật đổ chế độ độc tài Batista.
-              <br>• Năm 1961: Fidel Castro tuyên bố Cu-ba đi lên CNXH sau khi đập tan cuộc xâm lược tại bãi biển Giron. Cu-ba trở thành <strong>"Lá cờ đầu", hòn đảo tự do, tiền đồn của CNXH ở Tây bán cầu</strong>.
-            </li>
-          </ul>
-        </div>
-
-        <div class="theory-block">
-          <h3>2. Khủng Hoảng Và Sự Sụp Đổ Của CNXH Ở Đông Âu Và Liên Xô</h3>
-          <ul>
-            <li><strong>Bối cảnh:</strong> Bắt đầu từ sau cuộc khủng hoảng dầu mỏ thế giới năm 1973.</li>
-            <li><strong>Diễn biến sụp đổ:</strong>
-              <br>• 1989 – 1990: Chế độ XHCN sụp đổ lần lượt tại tất cả các nước Đông Âu. Bức tường Béc-lin sụp đổ (1989).
-              <br>• Ngày <span class="tag-term">25/12/1991</span>: M. Goóc-ba-chốp tuyên bố từ chức Tổng thống Liên Xô, lá cờ búa liềm trên nóc điện Crem-li bị hạ xuống $\rightarrow$ <strong>Liên bang Xô viết chính thức tan rã sau 74 năm tồn tại</strong>.
-            </li>
-            <li><strong>Nguyên nhân sụp đổ:</strong>
-              <br>• <em>Nguyên nhân chủ quan (sâu xa & quyết định):</em> Duy trì quá lâu mô hình kinh tế kế hoạch hóa tập trung quan liêu bao cấp kìm hãm sản xuất; chậm áp dụng thành tựu Cách mạng KH-CN; tệ quan liêu tham nhũng, sùng bái cá nhân, xa rời nhân dân; đặc biệt là <strong>sai lầm nghiêm trọng trong đường lối cải tổ của Gorbachev</strong> (thực hiện đa nguyên chính trị, từ bỏ vai trò lãnh đạo của Đảng Cộng sản làm nội bộ tan rã).
-              <br>• <em>Nguyên nhân khách quan:</em> Sự chống phá điên cuồng của các thế lực thù địch phương Tây thông qua chiến lược <span class="tag-term">Diễn biến hòa bình</span>, kích động mâu thuẫn sắc tộc.
-            </li>
-          </ul>
-        </div>
-
-        <div class="theory-block">
-          <h3>3. Công Cuộc Kiên Trì Và Cải Cách, Đổi Mới (Từ 1991 Đến Nay)</h3>
-          <ul>
-            <li><strong>Bốn quốc gia kiên định con đường XHCN:</strong> Trung Quốc, Việt Nam, Lào, Cu-ba.</li>
-            <li><strong>🇨🇳 TRUNG QUỐC (Cải cách – Mở cửa từ tháng 12/1978):</strong>
-              <br>• Khởi xướng tại Hội nghị Trung ương 3 khóa XI do Đặng Tiểu Bình khởi xướng.
-              <br>• Đường lối cốt lõi: <strong>Lấy phát triển kinh tế làm trung tâm</strong>, kiên trì Bốn nguyên tắc cơ bản (con đường XHCN, chuyên chính dân chủ nhân dân, sự lãnh đạo của ĐCS, chủ nghĩa Mác - Lênin & tư tưởng Mao Trạch Đông), xây dựng CNXH mang đặc sắc Trung Quốc.
-              <br>• Thành tựu rực rỡ: Tăng trưởng kinh tế cao liên tục; từ năm 2010 trở thành nền kinh tế lớn thứ hai thế giới (sau Mỹ); phóng thành công tàu Thần Châu 5 đưa nhà du hành Dương Lợi Vĩ vào không gian (2003).
-            </li>
-            <li><strong>🇻🇳 VIỆT NAM (Công cuộc Đổi mới từ tháng 12/1986):</strong>
-              <br>• Đề ra tại Đại hội đại biểu toàn quốc lần thứ VI của Đảng.
-              <br>• Đường lối: Đổi mới toàn diện, lấy đổi mới kinh tế làm trọng tâm; phát triển nền kinh tế thị trường định hướng XHCN; giữ vững ổn định chính trị và sự lãnh đạo của Đảng; mở rộng ngoại giao đa phương hóa, đa dạng hóa.
-              <br>• Thành tựu: Thoát khỏi khủng hoảng kinh tế - xã hội, đời sống nhân dân cải thiện vượt bậc, vị thế và uy tín quốc tế ngày càng cao.
-            </li>
-            <li><strong>🇱🇦 LÀO:</strong> Bắt đầu đổi mới toàn diện từ năm 1986 (Đại hội IV Đảng Nhân dân Cách mạng Lào).</li>
-            <li><strong>🇨🇺 CU-BA:</strong> Vượt qua bao vây cấm vận ngặt nghèo của Mỹ, Đại hội VI (2011) thông qua đường lối <em>"Cập nhật hóa mô hình kinh tế - xã hội"</em>.</li>
-          </ul>
-        </div>
-
-        <div class="info-box">
-          <strong>💎 BÀI HỌC LỊCH SỬ KẾT LUẬN:</strong>
-          Sự sụp đổ ở Liên Xô và Đông Âu chỉ là sự sụp đổ của <strong>một mô hình Xô viết tập trung bao cấp xơ cứng cụ thể</strong>, chứ không phải sự sụp đổ của bản chất lý tưởng CNXH khoa học. Thành tựu của Việt Nam và Trung Quốc chứng minh CNXH có sức sống mãnh liệt khi được vận dụng sáng tạo, phù hợp với quy luật thực tiễn của từng dân tộc!
         </div>
       </section>
 
@@ -1108,35 +1244,35 @@
 
     <!-- ================= VIEW 3: FLASHCARDS LẬT THẺ ================= -->
     <div id="flashcardView" class="view-page">
-      <div class="hero-banner" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);">
-        <h1>⚡ Thẻ Ghi Nhớ Phản Xạ Nhanh</h1>
-        <p>Bấm vào thẻ để lật xem đáp án chốt! Ôn nhanh chỉ 5–10 phút trước giờ thi để khắc sâu các khái niệm then chốt.</p>
+      <div class="hero-banner" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%);">
+        <h1>⚡ Thẻ Ghi Nhớ Phản Xạ Nhanh Sinh Học 11</h1>
+        <p>Bấm vào thẻ để lật xem đáp án chốt! Ôn nhanh chỉ 5–10 phút trước giờ kiểm tra để khắc sâu các khái niệm then chốt trong đề cương.</p>
       </div>
 
       <div class="flashcard-controls">
         <div style="font-weight: 700; color: var(--text-muted);">
-          Thẻ số: <span id="fcCurrentIndex" style="color: var(--primary); font-size: 1.2rem;">1</span> / <span id="fcTotalCount">30</span>
+          Thẻ số: <span id="fcCurrentIndex" style="color: var(--primary); font-size: 1.2rem;">1</span> / <span id="fcTotalCount">25</span>
         </div>
         <div style="display: flex; gap: 8px;">
           <button class="lesson-btn active" onclick="filterFlashcards('all', this)">Tất cả</button>
-          <button class="lesson-btn" onclick="filterFlashcards(1, this)">Bài 1</button>
-          <button class="lesson-btn" onclick="filterFlashcards(2, this)">Bài 2</button>
-          <button class="lesson-btn" onclick="filterFlashcards(3, this)">Bài 3</button>
-          <button class="lesson-btn" onclick="filterFlashcards(4, this)">Bài 4</button>
+          <button class="lesson-btn" onclick="filterFlashcards(1, this)">Chủ đề 1</button>
+          <button class="lesson-btn" onclick="filterFlashcards(2, this)">Chủ đề 2</button>
+          <button class="lesson-btn" onclick="filterFlashcards(3, this)">Chủ đề 3</button>
+          <button class="lesson-btn" onclick="filterFlashcards(4, this)">Chủ đề 4</button>
         </div>
       </div>
 
       <div class="card-scene">
         <div class="flashcard" id="flashcardElement" onclick="flipFlashcard()">
           <div class="card-face front">
-            <div class="card-category" id="fcCategory">Bài 1: CM Tư Sản</div>
+            <div class="card-category" id="fcCategory">Chủ đề 1: TĐC & Năng Lượng</div>
             <div class="card-prompt" id="fcPrompt">Câu hỏi ở đây...</div>
-            <div class="card-hint">💡 Nhấn vào thẻ để lật xem đáp án</div>
+            <div class="card-hint">💡 Nhấn vào thẻ để lật xem đáp án chuẩn SGK</div>
           </div>
           <div class="card-face back">
             <div class="card-category" style="color: #67e8f9;">Đáp Án Chốt</div>
             <div class="card-answer" id="fcAnswer">Đáp án ở đây...</div>
-            <div class="card-hint" style="color: rgba(255,255,255,0.7);">💡 Nhấn lại để lật về câu hỏi</div>
+            <div class="card-hint" style="color: rgba(255,255,255,0.75);">💡 Nhấn lại để lật về câu hỏi</div>
           </div>
         </div>
       </div>
@@ -1148,207 +1284,410 @@
     </div>
 
 
-    <!-- ================= VIEW 4: TRỤC THỜI GIAN ================= -->
-    <div id="timelineView" class="view-page">
-      <div class="hero-banner" style="background: linear-gradient(135deg, #059669 0%, #10b981 50%, #06b6d4 100%);">
-        <h1>⏳ Trục Dòng Thời Gian Lịch Sử (Toàn Cảnh)</h1>
-        <p>Chuỗi sự kiện then chốt từ thế kỉ XVI đến nay được sắp xếp theo trình tự thời gian, giúp bạn nắm trọn dòng chảy lịch sử.</p>
+    <!-- ================= VIEW 4: SƠ ĐỒ & CHU TRÌNH ================= -->
+    <div id="diagramView" class="view-page">
+      <div class="hero-banner" style="background: linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #115e59 100%);">
+        <h1>🧬 Trực Quan Hóa Sơ Đồ & Chu Trình Sinh Học</h1>
+        <p>Hệ thống đồ thị, con đường hô hấp, chu trình cố định carbon và phân loại thực vật theo phương thức sinh học.</p>
       </div>
 
-      <div class="timeline-container">
-        <div class="timeline-item">
-          <div class="timeline-year">Thế kỉ XVI</div>
-          <div class="timeline-title">Cách mạng Nê-đéc-lan (Hà Lan) bùng nổ</div>
-          <div class="timeline-desc">Cuộc cách mạng tư sản đầu tiên trên thế giới, lật đổ ách thống trị của phong kiến Tây Ban Nha.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">1640 – 1688</div>
-          <div class="timeline-title">Cách mạng tư sản Anh</div>
-          <div class="timeline-desc">Nội chiến giữa Quốc hội và Nhà vua $\rightarrow$ Xử tử vua Sác-lơ I $\rightarrow$ Cách mạng Quang vinh (1688) thiết lập chế độ <strong>Quân chủ lập hiến</strong>.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">4/7/1776</div>
-          <div class="timeline-title">Tuyên ngôn Độc lập Hợp chúng quốc Mỹ</div>
-          <div class="timeline-desc">13 thuộc địa Anh ở Bắc Mỹ giành độc lập, Thomas Jefferson khởi thảo khẳng định quyền sống, tự do và mưu cầu hạnh phúc.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">14/7/1789</div>
-          <div class="timeline-title">Tấn công ngục Ba-xti — Bùng nổ Cách mạng tư sản Pháp</div>
-          <div class="timeline-desc">Mở đầu cuộc cách mạng tư sản triệt để nhất thời cận đại, lật đổ phong kiến, thiết lập nền cộng hòa.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">1861 – 1865</div>
-          <div class="timeline-title">Cải cách nông nô ở Nga (1861) & Nội chiến Mỹ (1861 - 1865)</div>
-          <div class="timeline-desc">Nga giải phóng nông nô. Mỹ đánh bại phe chủ nô miền Nam, xóa bỏ chế độ nô lệ da đen dưới thời Abraham Lincoln.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">1868</div>
-          <div class="timeline-title">Cuộc Duy tân Minh Trị ở Nhật Bản</div>
-          <div class="timeline-desc">Thiên hoàng Minh Trị cải cách đất nước toàn diện, đưa Nhật Bản thoát khỏi nguy cơ thuộc địa và tiến lên CNTB.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">Cuối thế kỉ XIX</div>
-          <div class="timeline-title">CNTB xác lập toàn cầu & chuyển sang Chủ nghĩa đế quốc</div>
-          <div class="timeline-desc">Hình thành các tổ chức độc quyền (Cartel, Syndicate, Trust), xuất hiện tư bản tài chính và xuất khẩu tư bản.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">1917</div>
-          <div class="timeline-title">Cách mạng tháng Mười Nga thành công</div>
-          <div class="timeline-desc">Dưới sự lãnh đạo của V.I. Lênin, giai cấp vô sản Nga lật đổ chính phủ tư sản, lập nhà nước Xô viết đầu tiên.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">30/12/1922</div>
-          <div class="timeline-title">Thành lập Liên bang CHXHCN Xô viết (Liên Xô)</div>
-          <div class="timeline-desc">Đại hội X các Xô viết toàn Nga thông qua Hiệp ước và Tuyên bố thành lập Liên Xô với <strong>4 nước cộng hòa đầu tiên</strong> (Nga, U-crai-na, Bê-lô-rút-xi-a, Ngoại Cáp-ca-dơ).</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">Tháng 1/1924</div>
-          <div class="timeline-title">Bản Hiến pháp đầu tiên của Liên Xô được thông qua</div>
-          <div class="timeline-desc">Hoàn thiện cơ cấu tổ chức và thể chế nhà nước Liên bang Xô viết.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">1945 – 1949</div>
-          <div class="timeline-title">CNXH vượt ra khỏi một nước, trở thành hệ thống thế giới</div>
-          <div class="timeline-desc">Các nước Đông Âu tiến lên xây dựng CNXH. Ngày <strong>01/10/1949</strong>, nước CHND Trung Hoa thành lập, nối liền CNXH từ Âu sang Á.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">1959 – 1961</div>
-          <div class="timeline-title">Thắng lợi của Cách mạng Cuba</div>
-          <div class="timeline-desc">Fidel Castro lãnh đạo lật đổ chế độ độc tài Batista (1959), Cu-ba tuyên bố tiến lên CNXH (1961), là lá cờ đầu ở Tây bán cầu.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">Tháng 12/1978</div>
-          <div class="timeline-title">Trung Quốc tiến hành Cải cách - Mở cửa</div>
-          <div class="timeline-desc">Đặng Tiểu Bình khởi xướng tại HNTW 3 khóa XI, lấy phát triển kinh tế làm trung tâm, xây dựng CNXH đặc sắc Trung Quốc.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">Tháng 12/1986</div>
-          <div class="timeline-title">Việt Nam tiến hành công cuộc Đổi mới</div>
-          <div class="timeline-desc">Đại hội đại biểu toàn quốc lần thứ VI của Đảng khởi xướng đường lối Đổi mới toàn diện đất nước.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">25/12/1991</div>
-          <div class="timeline-title">Liên bang Xô viết hoàn toàn tan rã</div>
-          <div class="timeline-desc">M. Goóc-ba-chốp từ chức Tổng thống, lá cờ búa liềm trên nóc điện Crem-li bị hạ xuống sau 74 năm tồn tại.</div>
+      <div class="lesson-section">
+        <div class="diagram-title">📊 1. MỐI QUAN HỆ GIỮA PHÂN BÓN VÀ NĂNG SUẤT CÂY TRỒNG (HÌNH 2.13 SGK)</div>
+        <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 14px;">Đường cong biểu diễn năng suất cây trồng theo liều lượng phân bón:</p>
+        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid var(--border); text-align: center;">
+          <div style="display: flex; justify-content: space-around; align-items: flex-end; height: 180px; padding: 0 20px; border-bottom: 2px solid var(--text-muted); position: relative;">
+            <div style="flex: 1; text-align: center;">
+              <div style="height: 60px; background: #38bdf8; border-radius: 6px 6px 0 0; margin: 0 auto; width: 60%;"></div>
+              <p style="font-size: 0.8rem; margin-top: 8px; font-weight: bold; color: #38bdf8;">Liều lượng thiếu</p>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Cây còi cọc, năng suất thấp</span>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <div style="height: 140px; background: #22c55e; border-radius: 6px 6px 0 0; margin: 0 auto; width: 70%;"></div>
+              <p style="font-size: 0.8rem; margin-top: 8px; font-weight: bold; color: #22c55e;">Liều lượng tối ưu</p>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Năng suất cao nhất, hiệu quả</span>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <div style="height: 120px; background: #f59e0b; border-radius: 6px 6px 0 0; margin: 0 auto; width: 60%;"></div>
+              <p style="font-size: 0.8rem; margin-top: 8px; font-weight: bold; color: #f59e0b;">Lượng dư thừa</p>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Gây lãng phí & ô nhiễm</span>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <div style="height: 40px; background: #f43f5e; border-radius: 6px 6px 0 0; margin: 0 auto; width: 50%;"></div>
+              <p style="font-size: 0.8rem; margin-top: 8px; font-weight: bold; color: #f43f5e;">Lượng quá mức</p>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Gây độc, cháy rễ, cây chết</span>
+            </div>
+          </div>
+          <div style="text-align: right; font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">Trục hoành: Liều lượng phân bón ➔</div>
         </div>
       </div>
+
+      <div class="lesson-section">
+        <div class="diagram-title">🔄 2. CHU TRÌNH CALVIN (CHU TRÌNH C3) - HÌNH 4.3 SGK</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 14px;">
+          <div style="background: rgba(16, 185, 129, 0.12); padding: 18px; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.3);">
+            <h4 style="color: #34d399; margin-bottom: 8px;">Giai đoạn 1: Cố định CO₂</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">
+              <strong>RuBP (5C) + CO₂</strong> ──(Rubisco)──► <strong>2 phân tử 3-PGA (3C)</strong>.
+              <br>• RuBP là chất nhận CO₂ đầu tiên.
+              <br>• 3-PGA là sản phẩm cố định đầu tiên.
+            </p>
+          </div>
+
+          <div style="background: rgba(56, 189, 248, 0.12); padding: 18px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3);">
+            <h4 style="color: #38bdf8; margin-bottom: 8px;">Giai đoạn 2: Khử</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">
+              <strong>3-PGA + ATP + NADPH</strong> ──► <strong>G3P (3C)</strong>.
+              <br>• Tiêu tốn ATP và lực khử NADPH tạo ra từ pha sáng.
+              <br>• 1 phân tử G3P tách ra để tạo <strong>Glucose</strong>.
+            </p>
+          </div>
+
+          <div style="background: rgba(245, 158, 11, 0.12); padding: 18px; border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.3);">
+            <h4 style="color: #fbbf24; margin-bottom: 8px;">Giai đoạn 3: Tái sinh RuBP</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">
+              <strong>5 phân tử G3P + ATP</strong> ──► <strong>3 phân tử RuBP (5C)</strong>.
+              <br>• Tái tạo lại chất nhận CO₂ ban đầu để chu trình tiếp tục quay vòng liên tục.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-section">
+        <div class="diagram-title">🌱 3. TÓM TẮT ĐẶC TRƯNG SO SÁNH C3 - C4 - CAM</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 14px;">
+          <div class="dual-box">
+            <h4 style="color: #38bdf8; margin-bottom: 6px;">🌿 Thực vật C3</h4>
+            <p style="font-size: 0.88rem; line-height: 1.6;">
+              • Chất nhận: <strong>RuBP (5C)</strong>.
+              <br>• Sản phẩm đầu: <strong>PGA (3C)</strong>.
+              <br>• Không gian: Chỉ ở tế bào mô giậu.
+              <br>• Thời gian: Ban ngày.
+              <br>• Đại diện: Lúa, khoai, sắn, đậu...
+            </p>
+          </div>
+
+          <div class="dual-box">
+            <h4 style="color: #22c55e; margin-bottom: 6px;">🌽 Thực vật C4</h4>
+            <p style="font-size: 0.88rem; line-height: 1.6;">
+              • Chất nhận: <strong>PEP (3C)</strong>.
+              <br>• Sản phẩm đầu: <strong>OAA (4C)</strong>.
+              <br>• Không gian: <strong>2 loại tế bào</strong> (mô giậu & bao bó mạch).
+              <br>• Thời gian: Cả 2 pha đều ban ngày.
+              <br>• Năng suất cao nhất. Đại diện: Ngô, mía...
+            </p>
+          </div>
+
+          <div class="dual-box">
+            <h4 style="color: #f59e0b; margin-bottom: 6px;">🌵 Thực vật CAM</h4>
+            <p style="font-size: 0.88rem; line-height: 1.6;">
+              • Chất nhận: <strong>PEP (3C)</strong>.
+              <br>• Sản phẩm đầu: <strong>OAA (4C)</strong>.
+              <br>• Không gian: Chỉ ở tế bào mô giậu.
+              <br>• Thời gian: Cố định CO₂ <strong>ban đêm</strong>, Calvin <strong>ban ngày</strong>.
+              <br>• Đại diện: Xương rồng, dứa, thanh long...
+            </p>
+          </div>
+        </div>
+      </div>
+
+    <!-- ================= VIEW 5: VẬN DỤNG TỰ LUẬN THỰC TIỄN ================= -->
+    <div id="essayView" class="view-page">
+      <div class="hero-banner" style="background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);">
+        <h1>✍️ Chuyên Đề Tự Luận & Câu Hỏi Vận Dụng Thực Tiễn</h1>
+        <p>Giải đáp chi tiết 4 dạng câu hỏi tự luận hay ra nhất trong đề kiểm tra Sinh học 11 Giữa kì I: Bảo quản nông sản bằng hô hấp, Thí nghiệm thoát hơi nước bằng giấy CoCl₂, Mật độ gieo trồng cây và Vai trò kinh tế của quang hợp.</p>
+      </div>
+
+      <!-- CÂU TỰ LUẬN 1 -->
+      <section class="lesson-section">
+        <div class="lesson-section-header">
+          <div class="lesson-icon" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">🌾</div>
+          <div class="lesson-title-text">
+            <h2>CÂU 1: VẬN DỤNG HÔ HẤP TRONG BẢO QUẢN NÔNG SẢN (HẠT, CỦ, QUẢ)</h2>
+            <span>Tại sao cần phơi khô hạt, bảo quản lạnh hoặc giảm nồng độ O₂?</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <h3>1. Mục tiêu cốt lõi của bảo quản nông sản</h3>
+          <p>Hô hấp là quá trình phân giải chất hữu cơ (carbohydrate), đồng thời tỏa nhiệt và giải phóng hơi nước. Nếu nông sản hô hấp mạnh trong kho chứa:</p>
+          <ul>
+            <li><strong>Làm hao hụt khối lượng và chất lượng:</strong> Lượng đường và chất dự trữ trong hạt/củ bị tiêu hao nhanh chóng.</li>
+            <li><strong>Gây nóng và ẩm mốc:</strong> Nhiệt và hơi nước thoát ra làm đống nông sản bị nóng lên, độ ẩm tăng cao, tạo môi trường lý tưởng cho <strong>nấm mốc và vi khuẩn gây thối rữa phát triển bùng phát</strong>.</li>
+            <li><strong>Làm giảm tỉ lệ nảy mầm:</strong> Hạt giống bị kích thích nảy mầm sớm khi chưa đến vụ gieo trồng hoặc chết phôi.</li>
+          </ul>
+          <p style="font-weight: 700; color: var(--accent);">➔ Mục tiêu bảo quản: Cần khống chế cường độ hô hấp của nông sản ở mức tối thiểu mà không làm chết tế bào.</p>
+
+          <h3 style="margin-top: 20px;">2. Các biện pháp thực tiễn & giải thích cơ chế</h3>
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">Biện pháp bảo quản</th>
+                  <th style="width: 35%;">Đối tượng áp dụng</th>
+                  <th style="width: 40%;">Cơ chế tác động sinh học</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. Phơi khô / Sấy khô (Giảm độ ẩm)</strong></td>
+                  <td>Các loại hạt (lúa, ngô, đậu, cà phê, hạt giống...)</td>
+                  <td>Nước là dung môi và môi trường của phản ứng hô hấp. Khi độ ẩm của hạt giảm xuống dưới 12% – 14%, cường độ hô hấp giảm về mức cực tiểu, đưa hạt vào <strong>trạng thái ngủ nghỉ</strong>, có thể bảo quản được vài năm.</td>
+                </tr>
+                <tr>
+                  <td><strong>2. Bảo quản lạnh (Hạ nhiệt độ)</strong></td>
+                  <td>Rau tươi, củ, quả chín, hoa cắt cành...</td>
+                  <td>Nhiệt độ thấp <strong>ức chế hoạt tính của các enzyme hô hấp</strong>, làm chậm quá trình chín và hư hỏng của rau quả.</td>
+                </tr>
+                <tr>
+                  <td><strong>3. Hút chân không / Hạ nồng độ O₂ (< 5%)</strong></td>
+                  <td>Thực phẩm đóng gói, hạt sấy, ngũ cốc cao cấp...</td>
+                  <td>O₂ là nguyên liệu thiết yếu của hô hấp hiếu khí. Thiếu O₂ làm kìm hãm hô hấp hiếu khí, kéo dài thời gian bảo quản.</td>
+                </tr>
+                <tr>
+                  <td><strong>4. Tăng nồng độ CO₂ (Bảo quản trong khí quyển biến đổi)</strong></td>
+                  <td>Kho bảo quản kín, phòng chuyên dụng hoa quả xuất khẩu</td>
+                  <td>CO₂ là sản phẩm của hô hấp. Tăng nồng độ CO₂ trong kho sẽ <strong>gây ức chế ngược lại các enzyme hô hấp</strong>, làm giảm hô hấp đáng kể.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÂU TỰ LUẬN 2 -->
+      <section class="lesson-section">
+        <div class="lesson-section-header">
+          <div class="lesson-icon" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">🍃</div>
+          <div class="lesson-title-text">
+            <h2>CÂU 2: THÍ NGHIỆM ĐO THOÁT HƠI NƯỚC BẰNG GIẤY TẨM CoCl₂</h2>
+            <span>Tại sao miếng giấy tẩm CoCl₂ ở mặt dưới của lá lại đổi màu nhanh hơn mặt trên?</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <h3>1. Nguyên lý của chất chỉ thị Cobalt chloride (CoCl₂)</h3>
+          <ul>
+            <li>Giấy tẩm dung dịch CoCl₂ sau khi sấy khô có <strong>màu xanh da trời</strong> đặc trưng.</li>
+            <li>Khi gặp hơi nước do lá thoát ra, CoCl₂ ngậm nước biến thành CoCl₂·6H₂O và chuyển ngay sang <strong>màu hồng phấn</strong>.</li>
+          </ul>
+
+          <div class="dual-box-grid">
+            <div class="dual-box">
+              <div class="dual-box-header" style="color: #38bdf8;">
+                <span>🔬 Hiện tượng quan sát được</span>
+              </div>
+              <p>Dán 2 mảnh giấy tẩm CoCl₂ vào 2 mặt lá (mặt trên và mặt dưới), dùng kẹp lam kính ép chặt:</p>
+              <ul>
+                <li>Miếng giấy ở <strong>mặt dưới của lá</strong> chuyển sang màu hồng <strong>rất nhanh và đậm rõ rệt</strong>.</li>
+                <li>Miếng giấy ở <strong>mặt trên của lá</strong> đổi màu hồng <strong>chậm hơn rất nhiều</strong> hoặc chỉ phớt hồng nhẹ.</li>
+              </ul>
+            </div>
+
+            <div class="dual-box">
+              <div class="dual-box-header" style="color: #34d399;">
+                <span>💡 Giải thích nguyên nhân chuẩn xác</span>
+              </div>
+              <ul>
+                <li>Ở đa số thực vật trên cạn (thực vật 2 lá mầm), <strong>khí khổng phân bố tập trung chủ yếu ở biểu bì mặt dưới của lá</strong>.</li>
+                <li>Biểu bì mặt trên thường có <strong>lớp cutin dày</strong> bao bọc và rất ít (hoặc không có) khí khổng để tránh bị ánh nắng mặt trời trực tiếp đốt cháy và gây mất nước quá mức.</li>
+                <li>Vì thoát hơi nước qua khí khổng là con đường thoát nước chủ yếu và mạnh nhất, nên <strong>mặt dưới lá thoát nhiều hơi nước hơn mặt trên rất nhiều</strong> ➔ làm giấy CoCl₂ mặt dưới đổi màu hồng nhanh hơn.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÂU TỰ LUẬN 3 -->
+      <section class="lesson-section">
+        <div class="lesson-section-header">
+          <div class="lesson-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">🌱</div>
+          <div class="lesson-title-text">
+            <h2>CÂU 3: MẬT ĐỘ GIEO TRỒNG VÀ NĂNG SUẤT CÂY TRỒNG</h2>
+            <span>Tại sao không nên trồng cây quá dày? Hiện tượng cạnh tranh chất khoáng và ánh sáng</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <h3>Hậu quả của việc gieo trồng mật độ quá dày (trồng quá sát nhau):</h3>
+          <ul>
+            <li><strong>1. Cạnh tranh gay gắt về dinh dưỡng khoáng và nước (Dưới mặt đất):</strong>
+              <br>Hệ rễ của các cây đan xen chằng chịt trong cùng một thể tích đất hạn chế, dẫn đến việc <strong>tranh giành nước và các ion khoáng thiết yếu (N, P, K, Ca, Mg...)</strong>. Kết quả là cây nào cũng bị thiếu chất, còi cọc và chậm phát triển.
+            </li>
+            <li><strong>2. Cạnh tranh ánh sáng mặt trời (Trên mặt đất):</strong>
+              <br>Tán lá của các cây che khuất lẫn nhau. Các tầng lá phía dưới bị che bóng, không đón đủ ánh sáng để quang hợp:
+              <br>• Lượng đường tạo ra từ quang hợp ở lá dưới rất ít, trong khi quá trình hô hấp vẫn liên tục tiêu hao năng lượng.
+              <br>• Khi quang hợp < hô hấp (nằm dưới điểm bù ánh sáng), lá sẽ bị vàng úa và rụng đi ➔ Đây là hiện tượng <strong>tỉa cành tự nhiên</strong>, làm giảm nghiêm trọng diện tích quang hợp hữu ích của cây.
+            </li>
+            <li><strong>3. Độ thông gió kém và bùng phát sâu bệnh:</strong>
+              <br>Vườn cây quá rậm rạp làm không khí khó lưu thông, độ ẩm bên trong tán lá tăng cao, tạo môi trường thuận lợi tuyệt vời cho <strong>nấm mốc, rệp và vi khuẩn gây bệnh phát sinh và lây lan với tốc độ rất nhanh</strong> giữa các cây kề nhau.
+            </li>
+          </ul>
+
+          <div class="note-box">
+            <strong>🎯 BÀI HỌC VẬN DỤNG TRONG TRỒNG TRỌT:</strong>
+            <br>• Cần xác định mật độ gieo trồng tối ưu (khoảng cách hàng và khoảng cách giữa các cây) phù hợp với từng giống cây trồng, điều kiện mùa vụ và độ phì nhiêu của đất.
+            <br>• Tỉa bớt cành tăm, lá già úa để tán cây thông thoáng, giúp toàn bộ bề mặt lá đều nhận đủ ánh sáng và đạt năng suất kinh tế cao nhất.
+          </div>
+        </div>
+      </section>
+
+      <!-- CÂU TỰ LUẬN 4 -->
+      <section class="lesson-section">
+        <div class="lesson-section-header">
+          <div class="lesson-icon" style="background: rgba(236, 72, 153, 0.2); color: #f472b6;">🪵</div>
+          <div class="lesson-title-text">
+            <h2>CÂU 4: VAI TRÒ CỦA QUANG HỢP ĐỐI VỚI ĐỜI SỐNG CON NGƯỜI VÀ NỀN KINH TẾ</h2>
+            <span>Cung cấp thức ăn, nguyên liệu công nghiệp gỗ - giấy, nhiên liệu và bảo vệ môi trường</span>
+          </div>
+        </div>
+
+        <div class="theory-block">
+          <div class="dual-box-grid">
+            <div class="dual-box">
+              <div class="dual-box-header" style="color: #38bdf8;">
+                <span>🍎 1. Cung cấp lương thực & thực phẩm</span>
+              </div>
+              <ul>
+                <li>Quang hợp tổng hợp chất hữu cơ (Carbohydrate, Protein, Lipid) nuôi sống toàn bộ cơ thể thực vật.</li>
+                <li>Cung cấp <strong>100% lương thực và thực phẩm</strong> cho con người (lúa gạo, ngô, ngũ cốc, rau củ, quả) và thức ăn cho gia súc, gia cầm nuôi lấy thịt, trứng, sữa.</li>
+              </ul>
+            </div>
+
+            <div class="dual-box">
+              <div class="dual-box-header" style="color: #fbbf24;">
+                <span>🏭 2. Cung cấp nguyên liệu cho công nghiệp</span>
+              </div>
+              <ul>
+                <li><strong>Chế biến gỗ & xây dựng:</strong> Thân cây lấy gỗ phục vụ đóng đồ nội thất, xây dựng nhà cửa, đóng tàu thuyền.</li>
+                <li><strong>Sản xuất giấy:</strong> Bột gỗ từ rừng trồng là nguyên liệu sản xuất giấy vở.</li>
+                <li><strong>Công nghiệp dệt & dược liệu:</strong> Cung cấp sợi bông (cotton), sợi đay, lanh và chiết xuất các hợp chất làm thuốc chữa bệnh, tinh dầu.</li>
+              </ul>
+            </div>
+
+            <div class="dual-box">
+              <div class="dual-box-header" style="color: #fb7185;">
+                <span>🔥 3. Cung cấp nguồn nhiên liệu dồi dào</span>
+              </div>
+              <ul>
+                <li>Cung cấp chất đốt trực tiếp: Củi, than gỗ rơm rạ cho sinh hoạt nông thôn.</li>
+                <li>Là nguồn gốc hình thành nên các nguồn <strong>nhiên liệu hóa thạch</strong> khổng lồ (than đá, dầu mỏ, khí đốt) từ xác thực vật cổ sinh qua hàng trăm triệu năm.</li>
+                <li>Sản xuất <strong>nhiên liệu sinh học (Biofuel)</strong>: Lên men tinh bột sắn, ngô, mía thành cồn sinh học Bio-ethanol (xăng E5, E10).</li>
+              </ul>
+            </div>
+
+            <div class="dual-box">
+              <div class="dual-box-header" style="color: #34d399;">
+                <span>🌍 4. Bảo vệ khí quyển & cân bằng sinh thái</span>
+              </div>
+              <ul>
+                <li>Quang hợp hấp thụ lượng lớn khí nhà kính CO₂ từ hoạt động công nghiệp, giải phóng dưỡng khí O₂ cho sinh giới hô hấp.</li>
+                <li>Điều hòa khí hậu, làm dịu mát môi trường, ngăn chặn xói mòn đất và chống lũ lụt.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
 
   </div>
 
   <script>
-    // NGÂN HÀNG GỐC 100 CÂU HỎI TRẮC NGHIỆM CHUẨN SGK KNTT
+    // NGÂN HÀNG CÂU HỎI TRẮC NGHIỆM SINH HỌC 11 CHUẨN ĐỀ CƯƠNG
     const originalQuestionBank = [
-      // Bài 1: CM Tư sản (1 - 25)
-      { id: 1, lesson: 1, question: "Trào lưu Triết học Ánh sáng thế kỉ XVIII là tiền đề tư tưởng trực tiếp của cuộc cách mạng tư sản nào sau đây?", options: ["Cách mạng tư sản Anh.", "Chiến tranh giành độc lập của 13 thuộc địa Anh ở Bắc Mỹ.", "Cách mạng tư sản Pháp.", "Cách mạng tư sản Hà Lan."], correct: 2, explain: "Triết học Ánh sáng (với Montesquieu, Voltaire, Rousseau) là vũ khí lý luận dọn đường cho Cách mạng tư sản Pháp năm 1789 bùng nổ." },
-      { id: 2, lesson: 1, question: "Điểm khác biệt cơ bản về giai cấp lãnh đạo của Cách mạng tư sản Anh thế kỉ XVII so với Cách mạng tư sản Pháp thế kỉ XVIII là", options: ["có sự lãnh đạo duy nhất của giai cấp công nhân.", "có sự liên minh chặt chẽ giữa tư sản và tầng lớp quý tộc mới.", "có sự liên minh giữa tư sản với tầng lớp chủ nô đồn điền.", "được lãnh đạo độc tôn bởi phái Giacôbanh."], correct: 1, explain: "Ở Anh, quá trình 'rào đất cướp ruộng' hình thành tầng lớp Quý tộc mới có quyền lợi gắn với tư sản, liên minh cùng tư sản lãnh đạo cách mạng." },
-      { id: 3, lesson: 1, question: "Lực lượng nào sau đây đóng vai trò là động lực chính, quyết định thắng lợi của các cuộc cách mạng tư sản thời cận đại?", options: ["Giai cấp tư sản.", "Tầng lớp quý tộc mới.", "Quần chúng nhân dân (nông dân, thị dân, thợ thủ công).", "Tầng lớp chủ nô đồn điền."], correct: 2, explain: "Tư sản là lực lượng lãnh đạo, nhưng quần chúng nhân dân là động lực chính đông đảo và quyết định tiến trình thắng lợi của cách mạng." },
-      { id: 4, lesson: 1, question: "Vấn đề nào sau đây thuộc về nhiệm vụ dân tộc của một cuộc cách mạng tư sản?", options: ["Xóa bỏ chế độ đẳng cấp phong kiến.", "Thống nhất thị trường dân tộc và giải phóng dân tộc.", "Đòi các quyền tự do ngôn luận, tự do hội họp.", "Chia ruộng đất cho giai cấp nông dân cày cấy."], correct: 1, explain: "Nhiệm vụ dân tộc gồm xóa bỏ tình trạng cát cứ phong kiến, thống nhất thị trường dân tộc hoặc đánh đuổi thực dân giành độc lập." },
-      { id: 5, lesson: 1, question: "Trước khi bùng nổ Cách mạng năm 1789, xã hội nước Pháp bị phân chia thành ba đẳng cấp là", options: ["Tư sản, Nông dân và Bình dân thành thị.", "Tăng lữ, Quý tộc và Đẳng cấp thứ ba.", "Quý tộc mới, Tư sản và Vô sản.", "Địa chủ, Nông dân và Thợ thủ công."], correct: 1, explain: "3 đẳng cấp: Tăng lữ (Đẳng cấp 1), Quý tộc (Đẳng cấp 2) hưởng mọi đặc quyền; Đẳng cấp thứ ba (Tư sản, nông dân, bình dân) chịu mọi thứ thuế nhưng không có quyền chính trị." },
-      { id: 6, lesson: 1, question: "Vì sao Cách mạng tư sản Pháp cuối thế kỉ XVIII được đánh giá là cuộc cách mạng tư sản triệt để nhất thời cận đại?", options: ["Đã thiết lập được chế độ quân chủ lập hiến đầu tiên trên thế giới.", "Lật đổ hoàn toàn phong kiến, thiết lập nền cộng hòa, giải quyết ruộng đất cho nông dân.", "Không để xảy ra bất kì sự đổ máu nào trong suốt tiến trình cách mạng.", "Đã xóa bỏ hoàn toàn chế độ tư hữu tư bản chủ nghĩa."], correct: 1, explain: "Cách mạng Pháp lật đổ hoàn toàn chế độ phong kiến, giải quyết ruộng đất cho nông dân, thiết lập nền cộng hòa dân chủ (đặc biệt dưới thời phái Giacôbanh)." },
-      { id: 7, lesson: 1, question: "Hệ tư tưởng tôn giáo nào được giai cấp tư sản Anh sử dụng làm vũ khí tư tưởng chống lại chế độ phong kiến thế kỉ XVII?", options: ["Thanh giáo (Calvinism cải cách).", "Ki-tô giáo chính thống.", "Đạo Hồi Sunni.", "Phật giáo Đại thừa."], correct: 0, explain: "Tư sản và quý tộc mới ở Anh dùng Thanh giáo (tôn giáo trong sạch, cải cách từ đạo Tin Lành) để chống lại Anh giáo phong kiến." },
-      { id: 8, lesson: 1, question: "Văn kiện nào của cuộc Chiến tranh giành độc lập 13 thuộc địa Anh ở Bắc Mỹ đã khẳng định quyền bình đẳng và quyền sống của con người?", options: ["Tuyên ngôn Nhân quyền và Dân quyền (1789).", "Tuyên ngôn Độc lập (1776).", "Hiến pháp Hợp chúng quốc Mỹ năm 1787.", "Sắc lệnh Ruộng đất (1917)."], correct: 1, explain: "Tuyên ngôn Độc lập nước Mỹ do Thomas Jefferson khởi thảo (công bố 4/7/1776) khẳng định quyền tự do, bình đẳng và mưu cầu hạnh phúc." },
-      { id: 9, lesson: 1, question: "Ai là tác giả của thuyết 'Tam quyền phân lập' (Lập pháp, Hành pháp, Tư pháp) trong trào lưu Triết học Ánh sáng Pháp?", options: ["Vôn-te (Voltaire).", "Mông-te-xki-ơ (Montesquieu).", "Rút-xô (Rousseau).", "Đi-đơ-rô (Diderot)."], correct: 1, explain: "Mông-te-xki-ơ (Montesquieu) trong tác phẩm 'Tinh thần pháp luật' đã đề xướng học thuyết phân chia 3 quyền lập pháp, hành pháp và tư pháp để chống chuyên chế độc đoán." },
-      { id: 10, lesson: 1, question: "Sự kiện nào sau đây được coi là ngòi nổ trực tiếp làm bùng nổ Chiến tranh giành độc lập của 13 thuộc địa Anh ở Bắc Mỹ?", options: ["Đại hội lục địa lần thứ nhất được triệu tập.", "Sự kiện chè Bô-xtơn (Boston Tea Party) năm 1773.", "Sự kiện tấn công pháo đài - nhà tù Ba-xti.", "Vua Sác-lơ I triệu tập Quốc hội Anh đòi tăng thuế."], correct: 1, explain: "Tháng 12/1773, nhân dân Bô-xtơn cải trang thành thổ dân da đỏ tấn công 3 tàu chở chè của Anh, đổ 342 thùng chè xuống biển, làm bùng lên ngòi nổ chiến tranh." },
-      { id: 11, lesson: 1, question: "Cuộc cách mạng tư sản nào sau đây diễn ra dưới hình thức một cuộc nội chiến giữa Quốc hội và phe Nhà vua?", options: ["Cách mạng tư sản Pháp.", "Cách mạng tư sản Anh.", "Cách mạng tư sản Hà Lan.", "Chiến tranh giành độc lập ở Bắc Mỹ."], correct: 1, explain: "Cách mạng tư sản Anh diễn ra dưới hình thức nội chiến giữa quân đội Quốc hội (do Cromwell lãnh đạo) và phe bảo hoàng của Vua Sác-lơ I." },
-      { id: 12, lesson: 1, question: "Điểm chung về mục tiêu của các cuộc cách mạng tư sản cận đại là", options: ["xóa bỏ chế độ tư hữu, chia đều ruộng đất cho người nghèo.", "lật đổ chế độ phong kiến hoặc ách thống trị thực dân, mở đường cho CNTB phát triển.", "giải phóng hoàn toàn giai cấp vô sản khỏi ách bóc lột của tư bản.", "thiết lập nhà nước chuyên chính vô sản do công nhân lãnh đạo."], correct: 1, explain: "Mọi cuộc cách mạng tư sản đều nhằm thủ tiêu rào cản phong kiến/thực dân để xác lập quyền lực tư sản và mở đường cho kinh tế TBCN." },
-      { id: 13, lesson: 1, question: "Sau thắng lợi của cuộc Cách mạng tư sản thế kỉ XVII, nước Anh đã xác lập thể chế chính trị nào sau đây?", options: ["Cộng hòa liên bang.", "Quân chủ chuyên chế.", "Quân chủ lập hiến.", "Độc tài quân sự phát xít."], correct: 2, explain: "Sau cuộc 'Cách mạng Quang vinh' 1688, nước Anh xác lập thể chế Quân chủ lập hiến (Vua trị vì nhưng không cai trị, quyền lực thực tế thuộc về Quốc hội)." },
-      { id: 14, lesson: 1, question: "Cuộc cách mạng tư sản đầu tiên trên thế giới nổ ra vào thế kỉ XVI là", options: ["Cách mạng tư sản Anh.", "Cách mạng Nê-đéc-lan (Hà Lan).", "Cách mạng tư sản Pháp.", "Chiến tranh giành độc lập 13 thuộc địa Bắc Mỹ."], correct: 1, explain: "Cuộc đấu tranh giải phóng dân tộc lật đổ ách thống trị của phong kiến Tây Ban Nha ở Nê-đéc-lan (thế kỉ XVI) được coi là cuộc cách mạng tư sản đầu tiên." },
-      { id: 15, lesson: 1, question: "Hiện tượng 'Cừu ăn thịt người' mà nhà văn Thomas More mô tả ở nước Anh thời cận đại gắn liền với sự kiện kinh tế nào?", options: ["Phong trào rào đất cướp ruộng của quý tộc mới.", "Dịch bệnh làm cừu nổi loạn cắn phá mùa màng.", "Sự phá sản của các công xưởng dệt len dạ.", "Chính sách cấm chăn nuôi của Hoàng gia Anh."], correct: 0, explain: "Phong trào 'rào đất cướp ruộng' lấy đất nuôi cừu lấy lông bán cho các xưởng dệt khiến nông dân Anh mất hết ruộng đất, biến thành thợ làm thuê." },
-      { id: 16, lesson: 1, question: "Trong cuộc Chiến tranh giành độc lập ở Bắc Mỹ, lực lượng nào sau đây đã liên minh với giai cấp tư sản để lãnh đạo cuộc chiến?", options: ["Tầng lớp Quý tộc mới.", "Tầng lớp Chủ nô ở miền Nam.", "Giai cấp vô sản công nghiệp.", "Giai cấp nông dân tự do."], correct: 1, explain: "Ở Bắc Mỹ, tư sản công thương nghiệp miền Bắc liên minh chặt chẽ với tầng lớp chủ nô đồn điền ở miền Nam để lãnh đạo cách mạng (George Washington là một chủ nô)." },
-      { id: 17, lesson: 1, question: "Sự kiện nào đánh dấu đỉnh cao của Cách mạng tư sản Pháp thế kỉ XVIII?", options: ["Phá ngục Ba-xti ngày 14/7/1789.", "Xử tử vua Lu-i XVI năm 1793.", "Chính quyền Giacôbanh do Rô-be-spie đứng đầu được thành lập (1793 - 1794).", "Cuộc đảo chính của Na-pô-lê-ông năm 1799."], correct: 2, explain: "Nền chuyên chính Giacôbanh (1793-1794) do Rô-be-spie đứng đầu là giai đoạn đỉnh cao với các biện pháp dân chủ triệt để, chia ruộng đất cho nông dân và dẹp thù trong giặc ngoài." },
-      { id: 18, lesson: 1, question: "Một trong những hạn chế lớn nhất của bản Tuyên ngôn Độc lập Mỹ (1776) và Hiến pháp Mỹ (1787) là", options: ["không thừa nhận quyền tư hữu tài sản cá nhân.", "không xóa bỏ chế độ nô lệ da đen và không cho phụ nữ quyền bầu cử.", "tiếp tục thần phục vương quyền của Quốc vương Anh.", "không thành lập được chính quyền liên bang thống nhất."], correct: 1, explain: "Hiến pháp Mỹ 1787 duy trì chế độ bóc lột nô lệ tàn bạo đối với người da đen ở miền Nam và tước đoạt quyền chính trị của phụ nữ, thổ dân da đỏ." },
-      { id: 19, lesson: 1, question: "Cơ quan quyền lực nào ở nước Anh thời cận đại đại diện cho quyền lợi của giai cấp tư sản và quý tộc mới?", options: ["Hội đồng Cơ mật Hoàng gia.", "Quốc hội (Nghị viện).", "Giáo hội Anh giáo.", "Tòa án Tối cao quân đội."], correct: 1, explain: "Quốc hội Anh gồm Viện Thứ dân đại diện cho tư sản, quý tộc mới; đối lập với quyền chuyên chế độc đoán của nhà vua." },
-      { id: 20, lesson: 1, question: "Tư tưởng nào của Jean-Jacques Rousseau đã ảnh hưởng sâu sắc đến tư tưởng dân chủ của Cách mạng Pháp?", options: ["Thuyết 'Bàn tay vô hình'.", "Thuyết 'Khế ước xã hội'.", "Thuyết 'Vô chính phủ'.", "Thuyết 'Định mệnh tôn giáo'."], correct: 1, explain: "Rousseau nổi tiếng với tác phẩm 'Khế ước xã hội' (Du contrat social), khẳng định chủ quyền tối cao thuộc về nhân dân, nếu chính quyền vi phạm thì nhân dân có quyền lật đổ." },
-      { id: 21, lesson: 1, question: "Nhiệm vụ dân tộc và nhiệm vụ dân chủ trong các cuộc cách mạng tư sản có mối quan hệ như thế nào?", options: ["Hoàn toàn độc lập và tách rời, không ảnh hưởng đến nhau.", "Gắn bó mật thiết, tác động qua lại nhằm mở đường cho CNTB phát triển.", "Nhiệm vụ dân chủ luôn phải hoàn thành trước nhiệm vụ dân tộc hàng thế kỷ.", "Cách mạng tư sản chỉ thực hiện nhiệm vụ dân tộc, không có nhiệm vụ dân chủ."], correct: 1, explain: "Nhiệm vụ dân tộc (thống nhất, độc lập) và dân chủ (xóa bỏ đẳng cấp, ruộng đất, tự do) đan xen và bổ trợ nhau để giải phóng sức sản xuất của CNTB." },
-      { id: 22, lesson: 1, question: "Ngày 14/7/1789, nhân dân Pa-ri tấn công pháo đài - nhà tù Ba-xti mang ý nghĩa lịch sử gì?", options: ["Đánh dấu cách mạng tư sản Pháp bắt đầu bùng nổ.", "Đánh dấu sự kết thúc của cách mạng Pháp.", "Thiết lập nền độc tài quân sự của Na-pô-lê-ông.", "Hoàn thành việc chia ruộng đất cho người nghèo."], correct: 0, explain: "Nhà tù Ba-xti là biểu tượng kiên cố của chế độ quân chủ chuyên chế Pháp. Đập tan pháo đài này mở đầu cho sự bùng nổ của Cách mạng Pháp (ngày Quốc khánh Pháp)." },
-      { id: 23, lesson: 1, question: "Khẩu hiệu nổi tiếng nào được nhân dân 13 thuộc địa Anh ở Bắc Mỹ giương cao để phản đối các đạo luật thuế hà khắc của chính quốc?", options: ["'Tự do, Bình đẳng, Bác ái'.", "'Không đóng thuế nếu không có đại biểu trong Quốc hội'.", "'Vô sản tất cả các nước, đoàn kết lại'.", "'Độc lập hay là chết'."], correct: 1, explain: "Khẩu hiệu 'No taxation without representation' phản ánh việc thuộc địa phải nộp thuế nhưng không hề có đại biểu đại diện trong Quốc hội Anh." },
-      { id: 24, lesson: 1, question: "Đạo luật đóng tem (Stamp Act) năm 1765 của thực dân Anh tại 13 thuộc địa Bắc Mỹ quy định điều gì?", options: ["Bắt buộc dán tem thuế lên mọi văn bản pháp lý, khế ước, báo chí và ấn phẩm.", "Bắt buộc mọi người dân phải dán tem lên trán khi ra đường.", "Độc quyền phát hành thư từ qua đường bưu điện Hoàng gia.", "Cấm người dân thuộc địa gửi thư cho nhau."], correct: 0, explain: "Đạo luật Đóng tem 1765 đánh thuế vào tất cả các loại giấy tờ pháp lý, hợp đồng, bằng cấp và báo chí, gây làn sóng phẫn nộ dữ dội." },
-      { id: 25, lesson: 1, question: "Văn kiện nào của Cách mạng Pháp năm 1789 đã nêu cao khẩu hiệu bất hủ 'Tự do - Bình đẳng - Bác ái'?", options: ["Tuyên ngôn Nhân quyền và Dân quyền.", "Hiến pháp năm 1791.", "Sắc lệnh Ruộng đất.", "Bộ luật Dân sự Na-pô-lê-ông."], correct: 0, explain: "Bản Tuyên ngôn Nhân quyền và Dân quyền (tháng 8/1789) khẳng định quyền tự do, bình đẳng tự nhiên của con người, mở đường cho khẩu hiệu Tự do - Bình đẳng - Bác ái." },
+      // Chủ đề 1: Khái quát TĐC & NL (Câu 1, 2, 3)
+      { id: 1, lesson: 1, question: "Dấu hiệu nào sau đây KHÔNG PHẢI là dấu hiệu đặc trưng của quá trình trao đổi chất và chuyển hóa năng lượng ở sinh vật?", options: ["Tiếp nhận các chất từ môi trường và vận chuyển các chất.", "Biến đổi các chất và chuyển hoá năng lượng ở tế bào.", "Thải các chất cặn bã, độc hại vào môi trường.", "Đột biến gen làm thay đổi kiểu hình của cơ thể."], correct: 3, explain: "Bốn dấu hiệu đặc trưng của TĐC và chuyển hoá năng lượng gồm: (1) Tiếp nhận và vận chuyển các chất; (2) Biến đổi các chất và chuyển hoá năng lượng; (3) Thải các chất vào môi trường; (4) Điều hoà." },
+      { id: 2, lesson: 1, question: "Đồng hóa trong tế bào là quá trình", options: ["phân giải chất hữu cơ và giải phóng năng lượng.", "tổng hợp các chất hữu cơ và tích luỹ năng lượng.", "phân giải ATP để cung cấp cho hoạt động co cơ.", "thải chất cặn bã qua màng sinh chất ra môi trường."], correct: 1, explain: "Đồng hoá là quá trình tổng hợp chất hữu cơ phức tạp từ chất đơn giản và tích lũy năng lượng vào các liên kết hóa học." },
+      { id: 3, lesson: 1, question: "Dị hóa trong tế bào có vai trò gì sau đây?", options: ["Tổng hợp chất hữu cơ đặc trưng cho tế bào.", "Tích lũy năng lượng mặt trời vào liên kết hóa học.", "Phân giải các chất hữu cơ phức tạp và giải phóng năng lượng.", "Ngăn cản sự đào thải các chất ra môi trường."], correct: 2, explain: "Dị hoá là quá trình phân giải chất hữu cơ, giải phóng năng lượng (nhiệt và ATP) cung cấp cho các hoạt động sống." },
+      { id: 4, lesson: 1, question: "Theo sơ đồ chuyển hoá năng lượng trong sinh giới (Hình 1.1 SGK), ba giai đoạn chuyển hoá năng lượng diễn ra theo trình tự nào?", options: ["Giai đoạn phân giải ➔ Giai đoạn tổng hợp ➔ Giai đoạn huy động năng lượng.", "Giai đoạn tổng hợp ➔ Giai đoạn phân giải ➔ Giai đoạn huy động năng lượng.", "Giai đoạn huy động năng lượng ➔ Giai đoạn phân giải ➔ Giai đoạn tổng hợp.", "Giai đoạn tổng hợp ➔ Giai đoạn huy động năng lượng ➔ Giai đoạn phân giải."], correct: 1, explain: "Trình tự ba giai đoạn chuyển hóa năng lượng trong sinh giới: Giai đoạn tổng hợp ➔ Giai đoạn phân giải ➔ Giai đoạn huy động năng lượng." },
+      { id: 5, lesson: 1, question: "Trong giai đoạn tổng hợp của chuyển hóa năng lượng, năng lượng ánh sáng mặt trời được chuyển hóa thành dạng năng lượng nào?", options: ["Nhiệt năng tích luỹ trong tế bào chất.", "Điện năng chạy dọc theo sợi trục nơron.", "Năng lượng hoá học tích luỹ trong các chất hữu cơ.", "Động năng phục vụ cho sự chuyển động của bào quan."], correct: 2, explain: "Ở giai đoạn tổng hợp (quang hợp), năng lượng ánh sáng được chuyển hóa thành năng lượng hóa học tích lũy trong các hợp chất hữu cơ." },
+      { id: 6, lesson: 1, question: "Giai đoạn phân giải trong chuyển hoá năng lượng sinh giới biến đổi năng lượng hoá học trong chất hữu cơ thành", options: ["năng lượng tích luỹ trong phân tử ATP (và nhiệt).", "năng lượng ánh sáng phát quang sinh học.", "quang năng tích lũy trong chất nền lục lạp.", "thế năng hấp dẫn của tế bào."], correct: 0, explain: "Giai đoạn phân giải (hô hấp) phân giải các chất hữu cơ giải phóng năng lượng tích lũy vào phân tử ATP và tỏa một phần nhiệt." },
+      { id: 7, lesson: 1, question: "Trong các giai đoạn chuyển hoá năng lượng trong sinh giới, ở mỗi giai đoạn đều có hiện tượng gì sau đây?", options: ["Toàn bộ năng lượng được bảo tồn 100% không hao phí.", "Một phần năng lượng bị phân tán dưới dạng nhiệt.", "Phải có sự tham gia trực tiếp của ánh sáng mặt trời.", "Đều xảy ra trong chất nền của lục lạp."], correct: 1, explain: "Theo nguyên lý nhiệt động lực học, ở mỗi bước chuyển đổi năng lượng trong sinh giới đều có một phần năng lượng bị hao phí dưới dạng nhiệt tỏa ra môi trường." },
+      { id: 8, lesson: 1, question: "Sinh vật quang tự dưỡng sử dụng nguồn năng lượng và nguồn carbon nào để tổng hợp chất hữu cơ?", options: ["Năng lượng từ chất hữu cơ và nguồn carbon từ Glucose.", "Năng lượng từ phản ứng oxi hóa khử và carbon từ chất hữu cơ.", "Năng lượng ánh sáng và nguồn carbon từ CO₂.", "Năng lượng hóa học từ ATP và carbon từ protein."], correct: 2, explain: "Sinh vật quang tự dưỡng sử dụng năng lượng ánh sáng mặt trời, nước và nguồn carbon là CO2 vô cơ để tổng hợp chất hữu cơ." },
+      { id: 9, lesson: 1, question: "Nhóm sinh vật nào sau đây thuộc nhóm sinh vật quang tự dưỡng?", options: ["Thực vật, tảo và vi khuẩn lam.", "Nấm men, vi khuẩn E. coli và giun đất.", "Sư tử, hổ, báo và chim bồ câu.", "Vi khuẩn nitrat hóa và vi khuẩn oxi hóa lưu huỳnh."], correct: 0, explain: "Thực vật, tảo lục và vi khuẩn lam có chứa sắc tố quang hợp, có khả năng quang tự dưỡng." },
+      { id: 10, lesson: 1, question: "Sinh vật hoá tự dưỡng sử dụng nguồn năng lượng chủ yếu từ đâu để tổng hợp chất hữu cơ?", options: ["Năng lượng từ ánh sáng mặt trời.", "Năng lượng sinh ra từ quá trình oxi hoá các chất vô cơ.", "Năng lượng từ việc phân giải xác động vật chết.", "Nhiệt năng từ môi trường nước nóng sa mạc."], correct: 1, explain: "Sinh vật hóa tự dưỡng sử dụng nguồn năng lượng giải phóng từ các phản ứng oxi hóa các hợp chất vô cơ (như NH3, H2S, Fe2+...) và nguồn carbon CO2." },
+      { id: 11, lesson: 1, question: "Sinh vật dị dưỡng là nhóm sinh vật", options: ["tự tổng hợp chất hữu cơ từ CO₂ và nước nhờ ánh sáng.", "tự tổng hợp chất hữu cơ nhờ năng lượng oxi hoá chất vô cơ.", "lấy chất hữu cơ trực tiếp từ sinh vật tự dưỡng hoặc từ động vật khác.", "không cần năng lượng ATP để duy trì sự sống."], correct: 2, explain: "Sinh vật dị dưỡng không thể tự tổng hợp chất hữu cơ từ chất vô cơ, mà phải lấy chất hữu cơ có sẵn từ sinh vật tự dưỡng hoặc động vật khác." },
+      { id: 12, lesson: 1, question: "Nhóm sinh vật nào sau đây đều thuộc nhóm sinh vật dị dưỡng?", options: ["Cây lúa, cây ngô, vi khuẩn lam.", "Sư tử, mèo, nấm rơm, con người.", "Tảo xoắn, cây xương rồng, vi khuẩn sắt.", "Vi khuẩn nitrat hóa, cây dứa, hoa sen."], correct: 1, explain: "Động vật (sư tử, mèo, người...) và nấm (nấm rơm) đều là sinh vật dị dưỡng." },
+      { id: 13, lesson: 1, question: "Nội dung nào sau đây KHÔNG PHẢI là vai trò của sinh vật tự dưỡng trong sinh giới?", options: ["Cung cấp O₂ cho hoạt động hô hấp của hầu hết sinh vật.", "Cung cấp nguồn thức ăn, nơi ở và nơi sinh sản cho động vật.", "Điều hoà khí hậu, tạo nhiệt độ và độ ẩm thuận lợi cho sự sống.", "Phân giải hoàn toàn xác chết thành khoáng vô cơ cho đất."], correct: 3, explain: "Phân giải xác hữu cơ thành chất vô cơ là vai trò chủ yếu của sinh vật phân giải (nấm hoại sinh, vi khuẩn hoại sinh). Vai trò tự dưỡng: cung cấp O2, thức ăn/nơi ở, điều hòa khí hậu." },
+      { id: 14, lesson: 1, question: "Năng lượng tích lũy trong ATP được tế bào huy động sử dụng trực tiếp cho hoạt động nào sau đây?", options: ["Tổng hợp các chất, vận chuyển chủ động, co cơ, dẫn truyền xung thần kinh.", "Tạo ra ánh sáng mặt trời cung cấp cho pha sáng quang hợp.", "Làm giảm nồng độ O₂ trong khí quyển Trái Đất.", "Hòa tan các kim loại nặng trong đất."], correct: 0, explain: "ATP cung cấp năng lượng cho mọi hoạt động sống: tổng hợp hóa sinh, vận chuyển tích cực qua màng, co cơ, sinh công cơ học và dẫn truyền xung điện thần kinh." },
 
-      // Bài 2: Phát triển CNTB (26 - 50)
-      { id: 26, lesson: 2, question: "Chủ nghĩa tư bản chính thức được xác lập trên phạm vi toàn cầu vào khoảng thời gian nào?", options: ["Cuối thế kỉ XVII.", "Cuối thế kỉ XVIII.", "Cuối thế kỉ XIX.", "Sau Chiến tranh thế giới thứ hai (1945)."], correct: 2, explain: "Đến cuối thế kỉ XIX, sau khi cách mạng công nghiệp hoàn thành ở các nước phát triển, CNTB đã thắng thế hoàn toàn phong kiến trên phạm vi toàn cầu." },
-      { id: 27, lesson: 2, question: "Yếu tố trực tiếp thúc đẩy sự chuyển biến của chủ nghĩa tư bản từ giai đoạn tự do cạnh tranh sang giai đoạn độc quyền là", options: ["cuộc khủng hoảng kinh tế 1929 - 1933.", "tác động của Cách mạng công nghiệp lần thứ hai làm xuất hiện các tổ chức độc quyền.", "sự bùng nổ của phong trào công nhân quốc tế.", "sự sụp đổ của hệ thống thuộc địa phong kiến."], correct: 1, explain: "Các phát minh KH-KT trong CMCN lần thứ hai đòi hỏi nguồn vốn khổng lồ, thúc đẩy quá trình tích tụ và tập trung sản xuất, hình thành các tổ chức độc quyền." },
-      { id: 28, lesson: 2, question: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Anh vào cuối thế kỉ XIX - đầu thế kỉ XX là", options: ["Chủ nghĩa đế quốc cho vay lãi.", "Chủ nghĩa đế quốc quân phiệt, hiếu chiến.", "Chủ nghĩa đế quốc thực dân với hệ thống thuộc địa rộng lớn nhất.", "Chủ nghĩa đế quốc gắn liền với chế độ nô lệ đồn điền."], correct: 2, explain: "Đế quốc Anh sở hữu hệ thống thuộc địa trải khắp toàn cầu, chiếm 1/4 diện tích và 1/4 dân số thế giới ('Mặt trời không bao giờ lặn')." },
-      { id: 29, lesson: 2, question: "Vì sao Chủ nghĩa đế quốc Pháp cuối thế kỉ XIX - đầu thế kỉ XX được gọi là 'Chủ nghĩa đế quốc cho vay lãi'?", options: ["Vì Pháp chỉ mở ngân hàng trong nước, không đầu tư công nghiệp.", "Pháp xuất khẩu tư bản phần lớn dưới hình thức cho vay lấy lãi cao, đặc biệt cho Nga vay.", "Pháp hoàn toàn không có thuộc địa ở châu Á và châu Phi.", "Pháp là trung tâm tài chính duy nhất in tiền đô la cho thế giới."], correct: 1, explain: "2/3 số tư bản xuất khẩu của Pháp dùng để cho chính phủ và các công ty nước ngoài (chủ yếu là Nga, Thổ Nhĩ Kỳ, Mỹ Latinh) vay lấy lãi suất kếch xù." },
-      { id: 30, lesson: 2, question: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Đức vào cuối thế kỉ XIX - đầu thế kỉ XX là gì?", options: ["Chủ nghĩa đế quốc cho vay lãi.", "Chủ nghĩa đế quốc thực dân.", "Chủ nghĩa đế quốc quân phiệt, hiếu chiến.", "Chủ nghĩa đế quốc dung hòa, yêu chuộng hòa bình."], correct: 2, explain: "Đức là chủ nghĩa đế quốc 'quân phiệt, hiếu chiến' vì giai cấp quý tộc quân phiệt Phổ lãnh đạo, kinh tế phát triển nhanh nhưng ít thuộc địa nên hung hăng đòi chia lại thế giới." },
-      { id: 31, lesson: 2, question: "Ở Mỹ cuối thế kỉ XIX - đầu thế kỉ XX, các tổ chức độc quyền khổng lồ thường được gọi là gì?", options: ["Cácten (Cartel).", "Xanhđica (Syndicate).", "Tơrớt (Trust).", "Cộng đồng kinh tế."], correct: 2, explain: "Ở Mỹ hình thành các Tơrớt (Trust) khổng lồ thống trị các ngành kinh tế trọng yếu như Vua dầu mỏ (Rockefeller), Vua thép (Morgan)." },
-      { id: 32, lesson: 2, question: "Một trong 5 đặc trưng cơ bản của chủ nghĩa đế quốc do V.I. Lênin khái quát là", options: ["chỉ xuất khẩu hàng hóa, nghiêm cấm xuất khẩu tư bản.", "sự hình thành tư bản tài chính và tầng lớp đầu sỏ tài chính.", "kinh tế vận hành hoàn toàn theo kế hoạch hóa nhà nước.", "xóa bỏ mọi hình thức cạnh tranh trên thị trường."], correct: 1, explain: "Sự thâm nhập lẫn nhau giữa tư bản ngân hàng và tư bản công nghiệp hình thành nên 'tư bản tài chính' và bọn 'đầu sỏ tài chính' thâu tóm kinh tế lẫn chính trị." },
-      { id: 33, lesson: 2, question: "Điểm khác biệt cơ bản giữa 'Xuất khẩu hàng hóa' và 'Xuất khẩu tư bản' là", options: ["xuất khẩu tư bản là đưa vốn ra nước ngoài để bóc lột nhân công và thu lợi nhuận cao.", "xuất khẩu hàng hóa mang lại lợi nhuận cao hơn xuất khẩu tư bản gấp nhiều lần.", "xuất khẩu tư bản chỉ xuất hiện trong thời kỳ tự do cạnh tranh thời cận đại.", "xuất khẩu tư bản không cần thông qua các ngân hàng tài chính."], correct: 0, explain: "Xuất khẩu tư bản là mang vốn đầu tư trực tiếp (mở nhà máy, đồn điền) hoặc gián tiếp (cho vay lãi) ở nước ngoài nhằm thu siêu lợi nhuận từ lao động rẻ mạt." },
-      { id: 34, lesson: 2, question: "Khái niệm 'Chủ nghĩa tư bản hiện đại' dùng để chỉ giai đoạn phát triển nào của chủ nghĩa tư bản?", options: ["Từ giữa thế kỉ XVI đến giữa thế kỉ XVIII.", "Từ cuối thế kỉ XIX đến trước năm 1914.", "Từ sau Chiến tranh thế giới thứ hai (1945) đến nay.", "Từ sau khi trật tự hai cực I-an-ta tan rã (1991) đến nay."], correct: 2, explain: "CNTB hiện đại là khái niệm chỉ chủ nghĩa tư bản từ sau Chiến tranh thế giới thứ hai (1945) đến nay với sự phát triển vượt bậc của KH-CN và vai trò điều tiết của nhà nước." },
-      { id: 35, lesson: 2, question: "Bản chất của Chủ nghĩa tư bản độc quyền nhà nước trong CNTB hiện đại là gì?", options: ["Nhà nước xóa bỏ quyền lực của các tập đoàn tư bản tư nhân.", "Sự kết hợp giữa tư bản độc quyền tư nhân và nhà nước tư sản để phục vụ lợi ích tư bản.", "Nhà nước tư sản giao toàn bộ quyền điều hành đất nước cho công đoàn lao động.", "Kinh tế thị trường tự do hoàn toàn không có bất kì sự kiểm soát nào."], correct: 1, explain: "Độc quyền nhà nước là sự dung hợp sức mạnh của các tổ chức độc quyền tư nhân với bộ máy nhà nước tư sản nhằm duy trì địa vị thống trị và cứu vãn khủng hoảng." },
-      { id: 36, lesson: 2, question: "Một trong những thay đổi lớn về cơ cấu lao động trong thời kì Chủ nghĩa tư bản hiện đại là", options: ["tỉ lệ lao động chân tay giản đơn ngày càng tăng cao.", "tỉ lệ lao động trí thức, lao động trong ngành dịch vụ và công nghệ tăng nhanh.", "lao động nông nghiệp chiếm trên 80% lực lượng lao động xã hội.", "hoàn toàn không còn phụ nữ tham gia lực lượng lao động."], correct: 1, explain: "Dưới tác động của Cách mạng KH-CN, cơ cấu lao động chuyển dịch mạnh từ sản xuất vật chất sang dịch vụ và các ngành nghề tri thức công nghệ cao." },
-      { id: 37, lesson: 2, question: "Tiềm năng nổi bật nhất giúp Chủ nghĩa tư bản hiện đại tiếp tục phát triển là", options: ["khả năng độc quyền tuyệt đối toàn bộ tài nguyên thiên nhiên thế giới.", "trình độ khoa học – công nghệ cao, nguồn vốn lớn và kinh nghiệm quản trị kinh tế.", "đã xóa bỏ được mâu thuẫn đối kháng giữa người giàu và người nghèo.", "sự biến mất hoàn toàn của các cuộc khủng hoảng kinh tế chu kỳ."], correct: 1, explain: "Tiềm năng của CNTB hiện đại nằm ở cơ sở vật chất - kĩ thuật tiên tiến, khả năng dẫn dắt đổi mới sáng tạo KH-CN và kinh nghiệm điều hành kinh tế thị trường." },
-      { id: 38, lesson: 2, question: "Mâu thuẫn cơ bản, sâu sắc nhất trong lòng xã hội của Chủ nghĩa tư bản hiện đại là", options: ["mâu thuẫn giữa các quốc gia phong kiến với các nước công nghiệp phát triển.", "mâu thuẫn giữa tính chất xã hội hóa cao của lực lượng sản xuất với chế độ chiếm hữu tư nhân TBCN.", "mâu thuẫn về tôn giáo giữa Công giáo và Tin lành.", "mâu thuẫn tranh giành tài nguyên Mặt Trăng giữa các siêu cường."], correct: 1, explain: "Đây là mâu thuẫn kinh tế cơ bản của CNTB: Lực lượng sản xuất mang tính xã hội hóa toàn cầu nhưng tư liệu sản xuất lại thuộc về một nhóm thiểu số tư bản độc quyền." },
-      { id: 39, lesson: 2, question: "Sự kiện nào ở nước Mỹ (1861 - 1865) đã mở đường cho CNTB ở Mỹ phát triển mạnh mẽ?", options: ["Chiến tranh giành độc lập của 13 bang thuộc địa.", "Cuộc Nội chiến giữa miền Bắc (tư bản) và miền Nam (chủ nô).", "Cuộc khủng hoảng kinh tế thừa 1929 - 1933.", "Việc ban hành Đạo luật cấm độc quyền Sherman."], correct: 1, explain: "Nội chiến Mỹ (1861-1865) kết thúc với thắng lợi của miền Bắc dưới sự lãnh đạo của Abraham Lincoln, xóa bỏ chế độ nô lệ, thống nhất thị trường dân tộc." },
-      { id: 40, lesson: 2, question: "Cuộc Duy tân Minh Trị ở Nhật Bản (1868) mang tính chất của một cuộc", options: ["cách mạng vô sản.", "cách mạng tư sản không triệt để.", "cuộc khởi nghĩa nông dân chống phong kiến.", "cuộc chiến tranh tôn giáo giải phóng dân tộc."], correct: 1, explain: "Minh Trị duy tân do Thiên hoàng Minh Trị tiến hành đã xóa bỏ chế độ Mạc phủ, cải cách theo lối phương Tây, mở đường cho CNTB phát triển (mang tính CMTS không triệt để)." },
-      { id: 41, lesson: 2, question: "Quá trình thống nhất nước Đức vào những năm 70 của thế kỉ XIX được thực hiện bằng con đường", options: ["tổng tuyển cử dân chủ hòa bình dưới sự giám sát của quốc tế.", "khởi nghĩa của giai cấp công nhân và nông dân Đức.", "'Sắt và máu' (chiến tranh quân sự) do quý tộc quân phiệt Phổ lãnh đạo.", "thương lượng ngoại giao với Đế quốc Nga."], correct: 2, explain: "Thủ tướng Phổ Ôt-tô von Bix-mác (Bismarck) chủ trương thống nhất nước Đức bằng chính sách 'sắt và máu' thông qua 3 cuộc chiến tranh với Đan Mạch, Áo và Pháp." },
-      { id: 42, lesson: 2, question: "Hậu quả nghiêm trọng nhất từ sự phân chia thuộc địa không đều giữa các nước đế quốc cuối thế kỉ XIX là", options: ["sự bùng nổ của các cuộc chiến tranh đế quốc nhằm chia lại thị trường (tiêu biểu là CTTG I).", "các nước đế quốc tự nguyện trao trả độc lập cho thuộc địa.", "sự hình thành các tổ chức từ thiện bảo vệ quyền con người.", "kinh tế toàn cầu đình trệ hoàn toàn không phát triển được."], correct: 0, explain: "Mâu thuẫn giữa các nước đế quốc già (nhiều thuộc địa như Anh, Pháp) và đế quốc trẻ (ít thuộc địa nhưng kinh tế phát triển nhanh như Đức, Mỹ) đã dẫn tới CTTG I (1914-1918)." },
-      { id: 43, lesson: 2, question: "Trong giai đoạn CNTB hiện đại, sự xuất hiện của các công ty xuyên quốc gia (TNCs) chứng minh cho xu thế nào?", options: ["Xu thế đóng cửa tự cung tự cấp của các quốc gia tư bản.", "Xu thế quốc tế hóa và toàn cầu hóa kinh tế sâu sắc.", "Sự sụp đổ của hệ thống ngân hàng thương mại quốc tế.", "Sự từ bỏ thị trường nước ngoài của các cường quốc tư bản."], correct: 1, explain: "Các công ty xuyên quốc gia điều hành sản xuất, kinh doanh trên phạm vi đa quốc gia, là biểu hiện sống động của xu thế toàn cầu hóa kinh tế." },
-      { id: 44, lesson: 2, question: "Cải cách nông nô ở Nga năm 1861 do Sa hoàng A-lếch-xan-đơ II ban hành có ý nghĩa gì đối với sự phát triển của CNTB?", options: ["Giải phóng nông nô, cung cấp nguồn nhân công tự do dồi dào cho sản xuất TBCN.", "Thiết lập nhà nước Xô viết công nông đầu tiên ở châu Âu.", "Xóa bỏ hoàn toàn quyền sở hữu ruộng đất của địa chủ quý tộc phong kiến.", "Đưa nước Nga trở thành nước tư bản công nghiệp số 1 thế giới."], correct: 0, explain: "Cải cách 1861 tuyên bố nông nô được tự do thân thể, tạo nguồn nhân lực làm thuê khổng lồ chảy vào các nhà máy, mở đường cho CNTB Nga phát triển." },
-      { id: 45, lesson: 2, question: "Phong trào 'Chiếm lấy phố Wall' (Occupy Wall Street) ở Mỹ năm 2011 với khẩu hiệu 'Chúng tôi là 99%' phản ánh thách thức nào của CNTB hiện đại?", options: ["Thiếu hụt nguồn lao động có tay nghề cao trong ngành công nghệ.", "Sự phân hóa giàu nghèo sâu sắc và bất bình đẳng kinh tế nghiêm trọng.", "Sự sụp đổ của hệ thống an ninh mạng quốc gia.", "Chính sách cấm đoán đầu tư nước ngoài của chính phủ Mỹ."], correct: 1, explain: "Khẩu hiệu 'Chúng tôi là 99%' phản ánh sự bất bình của 99% người dân trước việc 1% giới tài phiệt độc quyền kiểm soát phần lớn tài sản của quốc gia." },
-      { id: 46, lesson: 2, question: "Hình thức tổ chức độc quyền nào là sự thỏa thuận giữa các nhà tư bản về giá cả và phân chia thị trường tiêu thụ nhưng các xí nghiệp vẫn độc lập về sản xuất?", options: ["Cácten (Cartel).", "Xanhđica (Syndicate).", "Tơrớt (Trust).", "Conson (Concern)."], correct: 0, explain: "Cácten là hình thức liên minh độc quyền sơ khai nhất, các thành viên giữ độc lập về sản xuất và thương nghiệp, chỉ thỏa thuận về giá cả và khu vực tiêu thụ." },
-      { id: 47, lesson: 2, question: "Hình thức tổ chức độc quyền nào mà việc lưu thông hàng hóa (mua nguyên liệu và bán sản phẩm) do một ban quản trị chung đảm nhiệm?", options: ["Cácten.", "Xanhđica (Syndicate).", "Tơrớt.", "Hợp tác xã."], correct: 1, explain: "Xanhđica là hình thức độc quyền cao hơn cácten: mất độc lập về thương nghiệp (mua và bán chung), nhưng giữ độc lập về khâu sản xuất." },
-      { id: 48, lesson: 2, question: "Hình thức tổ chức độc quyền mà các xí nghiệp sáp nhập hoàn toàn cả khâu sản xuất lẫn khâu lưu thông dưới sự quản trị của một hội đồng quản trị duy nhất là", options: ["Tơrớt (Trust).", "Cácten.", "Xanhđica.", "Phường hội."], correct: 0, explain: "Tơrớt (Trust) sáp nhập hoàn toàn cả sản xuất lẫn tiêu thụ, các nhà tư bản trở thành cổ đông thu cổ tức." },
-      { id: 49, lesson: 2, question: "Ai là nhân vật được mệnh danh là 'Vua dầu mỏ' lừng danh của nước Mỹ cuối thế kỉ XIX - đầu thế kỉ XX?", options: ["J. Pierpont Morgan.", "John D. Rockefeller.", "Andrew Carnegie.", "Henry Ford."], correct: 1, explain: "John D. Rockefeller sáng lập công ty Standard Oil, kiểm soát đến hơn 90% sản lượng lọc dầu của nước Mỹ." },
-      { id: 50, lesson: 2, question: "Ai là vị tướng anh hùng dân tộc có công lớn lãnh đạo đoàn quân 'Áo đỏ' giải phóng miền Nam trong phong trào thống nhất I-ta-li-a?", options: ["Cavour.", "Garibaldi.", "Mazzini.", "Victor Emmanuel II."], correct: 1, explain: "Giuseppe Garibaldi lãnh đạo đội quân Áo đỏ đánh đổ vương triều phong kiến miền Nam Ý, dâng vùng đất giải phóng thống nhất về Vương quốc Ý." },
+      // Chủ đề 2: Nước & Khoáng (Câu 4, 5, 6)
+      { id: 15, lesson: 2, question: "Vai trò nào sau đây của nước giúp thực vật không bị hun nóng và cháy lá dưới bức xạ mặt trời gay gắt?", options: ["Là thành phần cấu tạo nên tế bào thực vật.", "Là dung môi hòa tan các muối khoáng.", "Điều hòa nhiệt độ cơ thể nhờ quá trình thoát hơi nước.", "Là môi trường xảy ra các phản ứng sinh hóa."], correct: 2, explain: "Nước có nhiệt dung cao, quá trình thoát hơi nước qua khí khổng giúp hạ nhiệt độ bề mặt lá, điều hòa nhiệt độ cơ thể thực vật." },
+      { id: 16, lesson: 2, question: "Nước được hấp thụ từ đất vào tế bào lông hút của rễ theo cơ chế nào sau đây?", options: ["Cơ chế thẩm thấu (thụ động) từ nơi thế nước cao sang nơi thế nước thấp.", "Cơ chế vận chuyển chủ động tiêu tốn nhiều phân tử ATP.", "Cơ chế ẩm bào và thực bào qua màng sinh chất.", "Khuếch tán qua kênh bơm proton ngược chiều gradient nồng độ."], correct: 0, explain: "Nước luôn được hấp thụ thụ động theo cơ chế thẩm thấu từ dung dịch đất (nhược trương, thế nước cao) vào tế bào lông hút (ưu trương, thế nước thấp)." },
+      { id: 17, lesson: 2, question: "Dịch tế bào lông hút của rễ cây luôn có nồng độ chất tan cao hơn dịch đất (ưu trương) là nhờ nguyên nhân nào sau đây?", options: ["Quá trình thoát hơi nước ở lá liên tục hút nước lên và rễ tích cực tích lũy chất khoáng.", "Rễ cây chỉ hấp thụ nước mà không bao giờ hấp thụ chất khoáng.", "Tế bào lông hút không bào không chứa nước.", "Đất luôn có nồng độ chất tan cao hơn trong tế bào rễ."], correct: 0, explain: "Dịch tế bào rễ ưu trương do: (1) Rễ tích cực hút và giữ các ion khoáng; (2) Thoát hơi nước ở lá liên tục kéo nước lên làm giảm lượng nước tương đối ở rễ." },
+      { id: 18, lesson: 2, question: "Chất khoáng được hấp thụ vào tế bào lông hút của rễ theo hai cơ chế nào?", options: ["Cơ chế trực tiếp và cơ chế gián tiếp.", "Cơ chế thụ động và cơ chế chủ động.", "Cơ chế thẩm thấu và cơ chế thẩm tích.", "Cơ chế nội thực bào và ngoại xuất bào."], correct: 1, explain: "Khoáng được hấp thụ theo 2 cơ chế: Cơ chế thụ động (xuôi chiều gradient nồng độ) và Cơ chế chủ động (ngược chiều gradient nồng độ, cần ATP và protein mang)." },
+      { id: 19, lesson: 2, question: "Điểm khác biệt cơ bản của cơ chế hấp thụ khoáng chủ động so với thụ động ở rễ cây là gì?", options: ["Chất khoáng đi từ nơi có nồng độ cao vào nơi có nồng độ thấp.", "Vận chuyển ngược gradient nồng độ và tiêu tốn năng lượng ATP.", "Không cần sự tham gia của các chất mang trên màng sinh chất.", "Chỉ diễn ra vào ban đêm khi khí khổng đóng hoàn toàn."], correct: 1, explain: "Hấp thụ khoáng chủ động diễn ra ngược chiều gradient nồng độ (từ đất nồng độ thấp vào rễ nồng độ cao), cần chất mang và tiêu tốn ATP." },
+      { id: 20, lesson: 2, question: "Tế bào cấu tạo nên mạch gỗ (xylem) của thực vật gồm những loại tế bào nào?", options: ["Tế bào ống rây và tế bào kèm.", "Quản bào và mạch ống.", "Tế bào mô giậu và tế bào xốp.", "Tế bào biểu bì và tế bào khí khổng."], correct: 1, explain: "Mạch gỗ gồm 2 loại tế bào chết là quản bào và mạch ống đã hóa gỗ (lignin)." },
+      { id: 21, lesson: 2, question: "Đặc điểm cấu tạo quan trọng của các tế bào mạch gỗ giúp chúng chịu được áp lực nước lớn là gì?", options: ["Là các tế bào sống có màng sinh chất dày và đàn hồi.", "Là các tế bào chết, thành tế bào được hóa gỗ (lignin) dày và bền chắc.", "Chứa nhiều ti thể để sản xuất năng lượng bơm nước.", "Các vách ngăn ngang hoàn toàn nguyên vẹn không có lỗ thủng."], correct: 1, explain: "Tế bào mạch gỗ là tế bào chết, không có chất nguyên sinh, thành tế bào được hóa gỗ (lignin) dày giúp dẫn nước và chịu áp lực dòng nước đi lên." },
+      { id: 22, lesson: 2, question: "Thành phần chủ yếu trong dịch mạch gỗ gồm những chất nào?", options: ["Đường sucrose chiếm 95% và các hormone thực vật.", "Chủ yếu là nước, ion khoáng hòa tan và một số chất hữu cơ tổng hợp từ rễ.", "Nước cất tinh khiết hoàn toàn không có ion khoáng.", "Chất béo và tinh bột dự trữ."], correct: 1, explain: "Dịch mạch gỗ chứa chủ yếu là nước, các ion khoáng hòa tan và một số hợp chất hữu cơ được tổng hợp ở rễ (amino acid, amide...)." },
+      { id: 23, lesson: 2, question: "Động lực nào sau đây đóng vai trò là động lực chính (chủ yếu nhất) của dòng mạch gỗ?", options: ["Lực đẩy của áp suất rễ.", "Lực liên kết giữa các phân tử nước với nhau.", "Lực kéo do quá trình thoát hơi nước ở lá.", "Lực bám giữa phân tử nước với thành mạch gỗ."], correct: 2, explain: "Lực kéo do thoát hơi nước ở lá là động lực đầu trên mạnh nhất, quyết định sự vận chuyển liên tục của cột nước từ rễ lên tận đỉnh ngọn cây cao hàng chục mét." },
+      { id: 24, lesson: 2, question: "Hiện tượng rỉ nhựa và ứ giọt ở các cây bụi nhỏ vào buổi sáng sớm là bằng chứng chứng minh sự tồn tại của", options: ["lực kéo do thoát hơi nước ở lá.", "lực đẩy của áp suất rễ.", "lực liên kết giữa các phân tử nước.", "quá trình quang phân li nước."], correct: 1, explain: "Hiện tượng ứ giọt và rỉ nhựa do áp suất rễ (lực đẩy đầu dưới) đẩy nước và dịch khoáng lên khi độ ẩm không khí bão hòa thoát hơi nước ngừng lại." },
+      { id: 25, lesson: 2, question: "Tế bào cấu tạo nên dòng mạch rây (phloem) gồm có", options: ["quản bào và mạch ống.", "tế bào ống rây và tế bào kèm.", "tế bào biểu bì và lông hút.", "tế bào mô dày và sợi gỗ."], correct: 1, explain: "Mạch rây gồm các tế bào sống: tế bào ống rây (mất nhân khi trưởng thành) và tế bào kèm (giàu ti thể cung cấp năng lượng)." },
+      { id: 26, lesson: 2, question: "Thành phần chiếm tỷ lệ cao nhất trong dịch mạch rây là hợp chất nào?", options: ["Đường glucose.", "Đường sucrose.", "Ion canxi (Ca²⁺).", "Tinh bột dự trữ."], correct: 1, explain: "Đường sucrose là thành phần chủ yếu nhất của dịch mạch rây (chiếm tới 90 - 95% chất khô trong dịch)." },
+      { id: 27, lesson: 2, question: "Chiều vận chuyển của các chất trong dòng mạch rây diễn ra như thế nào?", options: ["Luôn luôn chỉ đi theo một chiều duy nhất từ rễ lên lá cây.", "Từ cơ quan nguồn (nơi tổng hợp) đến cơ quan đích (nơi dự trữ hoặc sử dụng).", "Chỉ đi ngang từ vỏ cây vào lõi gỗ trung tâm.", "Chỉ đi từ hoa sang quả chín."], correct: 1, explain: "Dòng mạch rây vận chuyển chất hữu cơ từ cơ quan nguồn (như lá quang hợp) đến cơ quan chứa/đích (rễ, củ, quả, chồi non...) theo cả hai chiều lên hoặc xuống." },
+      { id: 28, lesson: 2, question: "Động lực vận chuyển các chất trong dòng mạch rây là gì?", options: ["Lực kéo do thoát hơi nước ở lá.", "Chênh lệch áp suất thẩm thấu giữa cơ quan nguồn và cơ quan đích.", "Lực liên kết giữa các phân tử nước.", "Áp suất trương nước của tế bào lông hút."], correct: 1, explain: "Dòng mạch rây di chuyển do chênh lệch áp suất thẩm thấu: Cơ quan nguồn có nồng độ đường cao (áp suất thẩm thấu cao) đẩy dịch dồn về cơ quan đích có nồng độ thấp." },
 
-      // Bài 3: Liên bang Xô viết (51 - 75)
-      { id: 51, lesson: 3, question: "Liên bang Cộng hoà xã hội chủ nghĩa Xô viết (Liên Xô) được thành lập trên cơ sở sự kiện nào?", options: ["Cách mạng tháng Hai năm 1917 thắng lợi.", "Cách mạng tháng Mười Nga năm 1917 thắng lợi.", "Đại hội lần thứ X các Xô viết toàn Nga (30/12/1922).", "Bản Hiến pháp đầu tiên của Liên Xô được thông qua năm 1924."], correct: 2, explain: "Ngày 30/12/1922, Đại hội X các Xô viết toàn Nga đã thông qua Bản Tuyên bố thành lập Liên bang CHXHCN Xô viết và Hiệp ước Liên bang." },
-      { id: 52, lesson: 3, question: "Bốn nước Cộng hoà Xô viết đầu tiên tự nguyện gia nhập Liên bang Xô viết vào năm 1922 gồm có:", options: ["Nga, U-crai-na, Bê-lô-rút-xi-a và Ngoại Cáp-ca-dơ.", "Nga, Ba Lan, U-crai-na và Mông Cổ.", "Nga, Tiệp Khắc, Bun-ga-ri và Bê-lô-rút-xi-a.", "Nga, Ca-dắc-xtan, U-dơ-bê-ki-xtan và Ngoại Cáp-ca-dơ."], correct: 0, explain: "4 nước ban đầu: CHLB Xô viết Nga, U-crai-na, Bê-lô-rút-xi-a và CHLB Ngoại Cáp-ca-dơ (gồm Armenia, Azerbaijan, Gruzia)." },
-      { id: 53, lesson: 3, question: "Cộng hòa Liên bang Xô viết Ngoại Cáp-ca-dơ (gia nhập Liên Xô năm 1922) gồm ba nước nào?", options: ["Ác-mê-ni-a, A-déc-bai-gian và Gioóc-ghi-a (Gru-di-a).", "Lát-vi-a, Lít-va và E-xtô-ni-a.", "Ca-dắc-xtan, Kư-rơ-gư-xtan và Tát-gi-ki-xtan.", "Ba Lan, Hung-ga-ri và Ru-ma-ni."], correct: 0, explain: "CHLB Xô viết Ngoại Cáp-ca-dơ hình thành từ sự liên kết của 3 nước thuộc vùng núi Cáp-ca-dơ: Ác-mê-ni-a, A-déc-bai-gian và Gioóc-ghi-a." },
-      { id: 54, lesson: 3, question: "Quá trình thành lập Nhà nước Liên bang Xô viết chính thức hoàn thành khi nào?", options: ["Cách mạng tháng Mười Nga vừa nổ ra thành công năm 1917.", "Khi đánh bại hoàn toàn cuộc can thiệp vũ trang của 14 nước đế quốc năm 1920.", "Bản Hiến pháp đầu tiên của Liên Xô được thông qua vào tháng 1/1924.", "Khi V.I. Lênin qua đời vào đầu năm 1924."], correct: 2, explain: "Tháng 1/1924, Đại hội Xô viết toàn Liên bang lần thứ hai đã thông qua bản Hiến pháp đầu tiên, hoàn thiện cơ cấu tổ chức nhà nước Liên bang Xô viết." },
-      { id: 55, lesson: 3, question: "Nguyên tắc cơ bản hàng đầu trong việc thành lập Liên bang Cộng hòa xã hội chủ nghĩa Xô viết là gì?", options: ["Bắt buộc dùng vũ lực sáp nhập toàn bộ lãnh thổ cũ của Sa hoàng.", "Sự tự nguyện, bình đẳng và tương trợ lẫn nhau giữa các dân tộc.", "Trao quyền cai trị tuyệt đối cho người dân tộc Nga trên toàn lãnh thổ.", "Chỉ liên minh phòng thủ quân sự, không hỗ trợ về mặt kinh tế."], correct: 1, explain: "V.I. Lênin nhấn mạnh Liên bang phải được xây dựng dựa trên sự tự nguyện, bình đẳng, không dân tộc nào có đặc quyền, cùng đoàn kết xây dựng CNXH." },
-      { id: 56, lesson: 3, question: "Đối với công cuộc xây dựng đất nước của Liên Xô, sự hình thành Liên bang có ý nghĩa to lớn nào sau đây?", options: ["Tạo ra sức mạnh tổng hợp to lớn để phục hồi kinh tế, thực hiện công nghiệp hóa và bảo vệ đất nước.", "Lập tức giúp Liên Xô vượt qua Mỹ để trở thành cường quốc kinh tế số 1 thế giới.", "Cho phép Liên Xô xóa bỏ quân đội thường trực.", "Giúp Liên Xô gia nhập các tổ chức kinh tế của các nước phương Tây."], correct: 0, explain: "Việc liên kết các nước cộng hòa đã tập hợp nguồn lực tài nguyên, nhân lực để Liên Xô hoàn thành công nghiệp hóa xã hội chủ nghĩa và chiến thắng phát xít." },
-      { id: 57, lesson: 3, question: "Tính đến năm 1940, Liên bang Cộng hoà xã hội chủ nghĩa Xô viết gồm có bao nhiêu nước cộng hoà thành viên?", options: ["4 nước.", "11 nước.", "15 nước.", "20 nước."], correct: 2, explain: "Từ 4 nước ban đầu năm 1922, qua quá trình phát triển, đến năm 1940 Liên bang Xô viết gồm có 15 nước Cộng hòa thành viên." },
-      { id: 58, lesson: 3, question: "Chính sách kinh tế nào được Lênin đề xướng vào tháng 3/1921 nhằm giúp nước Nga phục hồi kinh tế sau nội chiến?", options: ["Chính sách Cộng sản thời chiến.", "Chính sách Kinh tế mới (NEP).", "Kế hoạch 5 năm phát triển kinh tế quốc dân.", "Chính sách 'Cải tổ' (Perestroika)."], correct: 1, explain: "Tháng 3/1921, Đại hội X Đảng Bôn-sê-vích thông qua NEP, bãi bỏ chế độ trưng thu lương thực thừa, thay bằng thuế lương thực, mở rộng buôn bán tự do." },
-      { id: 59, lesson: 3, question: "Lãnh tụ thiên tài có công lao to lớn nhất trong việc sáng lập ra Nhà nước Xô viết và Liên bang Xô viết là ai?", options: ["I.V. Xta-lin (Stalin).", "V.I. Lê-nin (Lenin).", "M. Goóc-ba-chốp (Gorbachev).", "N. Khơ-rút-xốp (Khrushchev)."], correct: 1, explain: "V.I. Lê-nin là người lãnh đạo CM Tháng Mười 1917, sáng lập Nhà nước Xô viết đầu tiên và trực tiếp chỉ đạo soạn thảo cương lĩnh thành lập Liên bang Xô viết." },
-      { id: 60, lesson: 3, question: "Tên gọi chính thức bằng tiếng Nga của Liên bang Xô viết viết tắt là gì?", options: ["USA.", "USSR (hoặc CCCP).", "NATO.", "EU."], correct: 1, explain: "Viết tắt tiếng Nga là CCCP (Союз Советских Социалистических Республик), tiếng Anh là USSR (Union of Soviet Socialist Republics)." },
-      { id: 61, lesson: 3, question: "Đối với phong trào giải phóng dân tộc ở các nước thuộc địa, sự ra đời của Liên Xô có ý nghĩa nào sau đây?", options: ["Chứng minh tính đúng đắn của chủ nghĩa Mác - Lênin và là nguồn cổ vũ, ủng hộ to lớn.", "Buộc các nước thực dân châu Âu phải lập tức giải tán hệ thống thuộc địa.", "Cung cấp quyền bảo hộ hạt nhân tuyệt đối cho mọi phong trào giải phóng dân tộc.", "Đưa tất cả các nước thuộc địa trở thành thành viên của Liên bang Xô viết."], correct: 0, explain: "Sự ra đời của Liên bang Xô viết chứng minh con đường tự giải phóng theo CN Mác - Lênin là hiện thực, trở thành chỗ dựa tinh thần và vật chất cho các dân tộc bị áp bức." },
-      { id: 62, lesson: 3, question: "Bài học quý báu nhất về mặt xây dựng khối đại đoàn kết dân tộc từ sự ra đời của Liên bang Xô viết là gì?", options: ["Phải dùng sức mạnh quân sự áp đảo để đồng hóa các dân tộc thiểu số.", "Phải tôn trọng quyền tự quyết, bình đẳng và tương trợ lẫn nhau giữa các dân tộc.", "Chỉ nên hợp tác về mặt quân sự, không nên trao đổi kinh tế văn hóa.", "Ưu tiên xóa bỏ hoàn toàn bản sắc văn hóa của các dân tộc ít người."], correct: 1, explain: "Bài học lịch sử của Liên Xô là sự tôn trọng bình đẳng, bác bỏ tư tưởng dân tộc lớn (sô-vanh nước lớn), tôn trọng quyền bình đẳng và văn hóa dân tộc." },
-      { id: 63, lesson: 3, question: "Bối cảnh quốc tế nào đòi hỏi các nước cộng hòa Xô viết phải nhanh chóng liên kết chặt chẽ thành một khối thống nhất năm 1922?", options: ["Sự bao vây, cấm vận và đe dọa vũ trang từ các nước đế quốc tư bản phương Tây.", "Sự bùng nổ của cuộc Chiến tranh thế giới thứ hai.", "Mối đe dọa xâm lược từ phe Trục phát xít Đức - Ý - Nhật.", "Yêu cầu thành lập một đồng tiền chung châu Âu."], correct: 0, explain: "Sau nội chiến, các nước đế quốc tư bản vẫn bao vây cấm vận và rắp tâm tiêu diệt nhà nước công nông non trẻ, buộc các nước Xô viết phải liên minh phòng thủ." },
-      { id: 64, lesson: 3, question: "Địa phương nào được chọn làm nơi diễn ra Đại hội lần thứ X các Xô viết toàn Nga thông qua quyết định thành lập Liên bang?", options: ["Thành phố Pê-tơ-rô-grát.", "Thủ đô Mát-xcơ-va (Moskva).", "Thành phố Ki-ép (Kyiv).", "Thành phố Min-xcơ (Minsk)."], correct: 1, explain: "Đại hội lần thứ X các Xô viết toàn Nga diễn ra tại Thủ đô Mát-xcơ-va (Moskva) vào ngày 30/12/1922." },
-      { id: 65, lesson: 3, question: "Đảng nào giữ vai trò lãnh đạo duy nhất và tuyệt đối trong suốt tiến trình thành lập và phát triển của Liên bang Xô viết?", options: ["Đảng Dân chủ Lập hiến (Cadet).", "Đảng Xã hội Cách mạng (Es-ser).", "Đảng Men-sê-vích.", "Đảng Bôn-sê-vích Nga (sau này là Đảng Cộng sản Liên Xô)."], correct: 3, explain: "Đảng Bôn-sê-vích (Đảng Cộng sản) do Lênin đứng đầu là lực lượng chính trị duy nhất lãnh đạo quần chúng làm nên CM Tháng Mười và sáng lập Liên Xô." },
-      { id: 66, lesson: 3, question: "Sau thắng lợi của Cách mạng tháng Mười (1917), tại Nga đã ra đời hai sắc lệnh lịch sử đầu tiên là", options: ["Sắc lệnh Hòa bình và Sắc lệnh Ruộng đất.", "Sắc lệnh Đổi mới và Sắc lệnh Tự do.", "Sắc lệnh Kháng chiến và Sắc lệnh Kiến quốc.", "Sắc lệnh Tổng động viên và Sắc lệnh Thuế lương thực."], correct: 0, explain: "Đại hội Xô viết toàn Nga khóa II họp đêm 25/10/1917 đã thông qua Sắc lệnh Hòa bình (chấm dứt chiến tranh đế quốc) và Sắc lệnh Ruộng đất (chia ruộng cho dân cày)." },
-      { id: 67, lesson: 3, question: "Mô hình nhà nước của Liên bang Xô viết được xây dựng theo thể chế nào sau đây?", options: ["Cộng hòa đại nghị tư sản.", "Cộng hòa Xô viết - nhà nước của giai cấp công nhân và nhân dân lao động.", "Quân chủ lập hiến có Sa hoàng đứng đầu.", "Độc tài quân phiệt tập trung."], correct: 1, explain: "Nhà nước Xô viết là nhà nước kiểu mới, cơ quan quyền lực cao nhất là các Xô viết đại biểu của công nhân, nông dân và binh lính." },
-      { id: 68, lesson: 3, question: "Trong quá trình xây dựng CNXH trước năm 1941, Liên Xô đã đạt được thành tựu công nghiệp nổi bật nào?", options: ["Trở thành cường quốc công nghiệp đứng đầu châu Âu và đứng thứ hai thế giới (sau Mỹ).", "Hoàn toàn chấm dứt sản xuất vũ khí để phục vụ sản xuất tiêu dùng.", "Vượt qua Mỹ về tổng sản lượng công nghiệp xe hơi.", "Trở thành nước xuất khẩu dầu mỏ lớn nhất sang các nước Tây Âu."], correct: 0, explain: "Qua hai kế hoạch 5 năm (1928-1937), Liên Xô đã cơ bản hoàn thành công nghiệp hóa xã hội chủ nghĩa, vươn lên đứng đầu châu Âu và đứng thứ hai thế giới." },
-      { id: 69, lesson: 3, question: "Vấn đề nào sau đây KHÔNG PHẢI là cơ sở dẫn đến sự thành lập Liên bang Xô viết năm 1922?", options: ["Có chung mục tiêu xây dựng CNXH dưới sự lãnh đạo của Đảng Cộng sản.", "Nhu cầu hợp tác kinh tế để khắc phục hậu quả chiến tranh tàn phá nặng nề.", "Nhu cầu liên minh quân sự chống lại sự đe dọa của các thế lực thù địch phương Tây.", "Sự thống trị và áp đặt quyền lực độc đoán của một vị hoàng đế phong kiến."], correct: 3, explain: "Liên Xô thành lập trên tinh thần tự nguyện bình đẳng của các nước cộng hòa công nông, hoàn toàn không có sự thống trị của hoàng đế phong kiến." },
-      { id: 70, lesson: 3, question: "Thắng lợi của Liên Xô trước chủ nghĩa phát xít trong Chiến tranh thế giới thứ hai (1939 - 1945) đã chứng minh", options: ["chủ nghĩa xã hội không cần xây dựng nền quốc phòng vững mạnh.", "tính ưu việt và sức mạnh to lớn của khối đại đoàn kết các dân tộc trong Liên bang Xô viết.", "các nước tư bản phương Tây luôn ủng hộ Liên Xô hết lòng.", "vũ khí hạt nhân là yếu tố duy nhất quyết định mọi thắng lợi chiến tranh."], correct: 1, explain: "Chiến thắng vĩ đại trước phát xít Đức khẳng định sức mạnh chính trị - tinh thần và sự đoàn kết vững chắc của các dân tộc anh em trong mái nhà chung Xô viết." },
-      { id: 71, lesson: 3, question: "Ba nước Cộng hòa Xô viết vùng Ban-tích gia nhập Liên bang Xô viết vào năm 1940 là", options: ["Lát-vi-a, Lít-va và E-xtô-ni-a.", "Phần Lan, Thụy Điển và Na Uy.", "Ba Lan, Tiệp Khắc và Hung-ga-ri.", "Môn-đô-va, Ruma-ni và Bungari."], correct: 0, explain: "Năm 1940, ba nước vùng Baltic gồm Lát-vi-a, Lít-va và E-xtô-ni-a được kết nạp vào Liên bang Xô viết." },
-      { id: 72, lesson: 3, question: "Nội dung cốt lõi của Sắc lệnh Ruộng đất được thông qua đêm 25/10/1917 ở Nga là gì?", options: ["Tịch thu toàn bộ ruộng đất của địa chủ phong kiến, trao lại cho nông dân cày cấy.", "Bán đấu giá ruộng đất cho các tập đoàn tư bản nước ngoài.", "Bắt buộc nông dân phải nộp 80% sản lượng lúa thu hoạch.", "Xóa bỏ hoàn toàn ngành nông nghiệp để tập trung công nghiệp."], correct: 0, explain: "Sắc lệnh Ruộng đất thủ tiêu không bồi thường quyền sở hữu ruộng đất của địa chủ, quốc hữu hóa đất đai và giao cho nông dân sử dụng." },
-      { id: 73, lesson: 3, question: "Về mặt địa lý tự nhiên, việc liên minh giữa các nước Xô viết tạo thuận lợi gì lớn nhất cho công cuộc phục hồi kinh tế?", options: ["Sự phân công lao động và hỗ trợ tài nguyên phong phú giữa các vùng lãnh thổ.", "Hoàn toàn miễn thuế xuất nhập khẩu sang các nước châu Mỹ.", "Độc quyền nắm giữ các mỏ vàng của toàn thế giới.", "Xây dựng các cảng biển nước ấm tại châu Phi."], correct: 0, explain: "Lãnh thổ rộng lớn với nguồn tài nguyên đa dạng (than đá Ukraine, dầu mỏ Baku, bông Trung Á, rừng và khoáng sản Nga) bổ trợ hoàn hảo cho nền kinh tế thống nhất." },
-      { id: 74, lesson: 3, question: "Trước khi Liên Xô thành lập, chính quyền cách mạng do Lênin lập nên sau Cách mạng tháng Mười năm 1917 được gọi là gì?", options: ["Hội đồng Dân ủy (Sovnarkom).", "Quốc hội Dân chủ.", "Nghị viện Hoàng gia.", "Tòa án Quân sự Tối cao."], correct: 0, explain: "Chính phủ Xô viết đầu tiên do Lênin đứng đầu mang tên Hội đồng Dân ủy (Sovnarkom)." },
-      { id: 75, lesson: 3, question: "Tư tưởng chủ đạo xuyên suốt của V.I. Lênin trong quá trình chỉ đạo thành lập Liên bang Xô viết là gì?", options: ["Bình đẳng tuyệt đối giữa các dân tộc, kiên quyết chống chủ nghĩa sô-vanh (dân tộc lớn).", "Ưu tiên đặc quyền kinh tế và văn hóa số 1 cho người Nga.", "Bắt buộc mọi dân tộc phải từ bỏ chữ viết và tiếng mẹ đẻ.", "Thiết lập chế độ quân chủ chuyên chính trung ương tập quyền."], correct: 0, explain: "Lênin luôn kiên quyết đấu tranh chống tư tưởng sô-vanh nước lớn (đại dân tộc Nga), chủ trương các dân tộc phải bình đẳng, tự nguyện kết hợp." },
+      // Chủ đề 3: Quang hợp & C3/C4/CAM (Câu 7 - Phần I)
+      { id: 29, lesson: 3, question: "Phương trình tổng quát chuẩn của quá trình quang hợp ở thực vật là", options: ["6CO₂ + 12H₂O ──(Ánh sáng / Diệp lục)──► C₆H₁₂O₆ + 6O₂ + 6H₂O", "C₆H₁₂O₆ + 6O₂ ──► 6CO₂ + 6H₂O + ATP", "6CO₂ + 6O₂ ──(Ánh sáng)──► C₆H₁₂O₆ + 6H₂O", "C₆H₁₂O₆ ──► 2 C₂H₅OH + 2 CO₂ + 2 ATP"], correct: 0, explain: "Phương trình tổng quát: 6CO2 + 12H2O ──(Ánh sáng / Diệp lục)──► C6H12O6 + 6O2 + 6H2O." },
+      { id: 30, lesson: 3, question: "Bào quan thực hiện chức năng quang hợp ở tế bào thực vật là", options: ["ti thể.", "lục lạp.", "bộ máy Golgi.", "lưới nội chất trơn."], correct: 1, explain: "Lục lạp chứa hệ sắc tố quang hợp và các enzyme cần thiết là bào quan thực hiện quá trình quang hợp." },
+      { id: 31, lesson: 3, question: "Chu trình Calvin (chu trình C₃) xảy ra ở vị trí nào trong lục lạp?", options: ["Màng thylakoid.", "Chất nền (stroma) của lục lạp.", "Khoang giữa hai lớp màng lục lạp.", "Bên trong xoang thylakoid."], correct: 1, explain: "Pha sáng diễn ra trên màng thylakoid; pha tối (chu trình Calvin) diễn ra tại chất nền (stroma) của lục lạp." },
+      { id: 32, lesson: 3, question: "Chất nhận CO₂ đầu tiên trong chu trình Calvin ở thực vật C₃ là", options: ["PEP (Phosphoenolpyruvate).", "RuBP (Ribulose-1,5-bisphosphate).", "OAA (Oxaloacetic acid).", "G3P (Glyceraldehyde-3-phosphate)."], correct: 1, explain: "Chất nhận CO2 đầu tiên ở thực vật C3 là RuBP (hợp chất 5 carbon)." },
+      { id: 33, lesson: 3, question: "Sản phẩm cố định CO₂ đầu tiên được tạo ra trong chu trình Calvin ở thực vật C₃ là", options: ["OAA (4C).", "3-PGA (3C).", "Glucose (6C).", "PEP (3C)."], correct: 1, explain: "RuBP (5C) kết hợp với CO2 tạo hợp chất 6C không bền, lập tức phân giải thành 2 phân tử 3-PGA (Phosphoglyceric acid, 3 carbon)." },
+      { id: 34, lesson: 3, question: "Trong chu trình Calvin, giai đoạn khử chuyển hóa 3-PGA thành G3P cần cung cấp sản phẩm nào từ pha sáng?", options: ["Khí O₂ và ion H⁺.", "Năng lượng ATP và lực khử NADPH.", "Enzyme Rubisco và nước.", "Đường sucrose và lipid."], correct: 1, explain: "Giai đoạn khử 3-PGA thành G3P sử dụng ATP (cung cấp năng lượng) và NADPH (cung cấp điện tử/lực khử) sinh ra từ pha sáng." },
+      { id: 35, lesson: 3, question: "Chất nhận CO₂ đầu tiên và sản phẩm cố định CO₂ đầu tiên ở thực vật C₄ lần lượt là", options: ["RuBP và PGA.", "PEP và OAA.", "OAA và PEP.", "PEP và RuBP."], correct: 1, explain: "Ở thực vật C4 (và CAM), chất nhận CO2 đầu tiên là PEP (3C) và sản phẩm cố định CO2 đầu tiên là OAA (4C - Oxaloacetic acid)." },
+      { id: 36, lesson: 3, question: "Quá trình quang hợp ở thực vật C₄ diễn ra ở hai loại tế bào nào sau đây?", options: ["Tế bào biểu bì và tế bào lông hút.", "Tế bào mô giậu và tế bào bao bó mạch.", "Tế bào khí khổng và tế bào mạch gỗ.", "Tế bào mô xốp và tế bào biểu bì dưới."], correct: 1, explain: "Thực vật C4 có cấu trúc giải phẫu Kranz đặc biệt, quang hợp diễn ra ở 2 loại tế bào: tế bào mô giậu (cố định CO2 thành OAA/Malate) và tế bào bao bó mạch (chu trình Calvin)." },
+      { id: 37, lesson: 3, question: "Điểm khác biệt độc đáo nhất về thời gian cố định CO₂ của thực vật CAM so với C₃ và C₄ là gì?", options: ["Cố định CO₂ vào ban ngày khi ánh sáng mạnh nhất.", "Cố định CO₂ vào ban đêm khi khí khổng mở.", "Cố định CO₂ vào buổi trưa khi khí khổng đóng.", "Hoàn toàn không cần cố định CO₂."], correct: 1, explain: "Thực vật CAM sống ở sa mạc khô hạn, ban ngày đóng khí khổng để chống mất nước; ban đêm mở khí khổng để lấy CO2 cố định vào ban đêm." },
+      { id: 38, lesson: 3, question: "Nhóm thực vật nào sau đây gồm toàn các loài thực vật C₄?", options: ["Lúa nước, đậu tương, khoai lang, cam.", "Ngô, mía, kê, cỏ lồng vực.", "Xương rồng, dứa, thanh long, cây mọng nước.", "Tảo lục, rêu, thông, dương xỉ."], correct: 1, explain: "Ngô, mía, cỏ lồng vực, cỏ gấu, kê... là các thực vật C4 nhiệt đới điển hình." },
+      { id: 39, lesson: 3, question: "Nhóm thực vật nào sau đây thuộc nhóm thực vật CAM thích nghi với môi trường khô hạn?", options: ["Ngô, mía, rau dền.", "Lúa mì, đậu Hà Lan, khoai tây.", "Dứa, xương rồng, thanh long, thuốc bỏng.", "Rau muống, bèo tây, hoa sen."], correct: 2, explain: "Dứa, xương rồng, thanh long, cây lá bỏng, phong lan mọng nước thuộc nhóm thực vật CAM thích nghi khô hạn." },
+      { id: 40, lesson: 3, question: "So sánh về năng suất sinh học giữa 3 nhóm thực vật C₃, C₄, CAM:", options: ["Thực vật C₃ có năng suất cao nhất.", "Thực vật C₄ có năng suất cao nhất (gấp đôi C₃), CAM thấp nhất.", "Thực vật CAM có năng suất cao nhất.", "Cả 3 nhóm đều có năng suất sinh học ngang bằng nhau."], correct: 1, explain: "Thực vật C4 không có hô hấp sáng, tận dụng CO2 tối đa nên có năng suất sinh học cao nhất; C3 trung bình; CAM có năng suất thấp nhất." },
+      { id: 41, lesson: 3, question: "Điểm bù CO₂ là gì?", options: ["Nồng độ CO₂ mà tại đó cường độ quang hợp đạt cực đại.", "Nồng độ CO₂ mà tại đó cường độ quang hợp cân bằng với cường độ hô hấp.", "Nồng độ CO₂ tối thiểu làm cây ngừng hô hấp hoàn toàn.", "Nồng độ CO₂ làm cây bị nhiễm độc khí chết."], correct: 1, explain: "Điểm bù CO2 là nồng độ CO2 mà tại đó tốc độ quang hợp bằng tốc độ hô hấp (lượng CO2 hấp thụ bằng lượng CO2 thải ra)." },
+      { id: 42, lesson: 3, question: "Khi nồng độ CO₂ vượt quá điểm bão hoà CO₂, nếu tiếp tục tăng nồng độ CO₂ thì cường độ quang hợp sẽ", options: ["tiếp tục tăng lên vô hạn.", "không tăng thêm hoặc thậm chí giảm do bị ức chế/ngộ độc.", "giảm ngay về mức bằng 0.", "làm cho cây chuyển sang hô hấp kị khí."], correct: 1, explain: "Tại điểm bão hòa, quang hợp đạt cực đại. Nếu tiếp tục tăng nồng độ CO2 vượt quá ngưỡng bão hòa thì cường độ quang hợp không tăng nữa, nếu quá cao sẽ gây ngộ độc làm giảm quang hợp." },
+      { id: 43, lesson: 3, question: "Dựa vào đồ thị mối quan hệ giữa phân bón và năng suất cây trồng (Hình 2.13 SGK), bón phân với liều lượng quá mức sẽ dẫn đến hậu quả gì?", options: ["Cây đạt năng suất cao kỷ lục.", "Làm nồng độ dịch đất ưu trương, rễ không hút được nước, cây ngộ độc và chết.", "Giúp cây tăng khả năng chống chịu sâu bệnh gấp đôi.", "Làm tăng quá trình thoát hơi nước không giới hạn."], correct: 1, explain: "Bón phân quá mức làm tăng áp suất thẩm thấu dịch đất cao hơn rễ, nước bị hút ngược từ rễ ra đất khiến cây bị héo, cháy lá, nhiễm độc khoáng và chết." },
 
-      // Bài 4: CNXH từ sau CTTG II đến nay (76 - 100)
-      { id: 76, lesson: 4, question: "Sự kiện nào sau đây đánh dấu chủ nghĩa xã hội đã vượt ra khỏi phạm vi một nước (Liên Xô) để trở thành một hệ thống thế giới?", options: ["Nước Việt Nam Dân chủ Cộng hòa ra đời năm 1945.", "Sự ra đời của các nước Dân chủ nhân dân Đông Âu và bước vào xây dựng CNXH (1949).", "Thắng lợi của Cách mạng Cuba năm 1959.", "Nước Cộng hòa Dân chủ Nhân dân Triều Tiên thành lập năm 1948."], correct: 1, explain: "Từ năm 1949, khi các nước dân chủ nhân dân Đông Âu hoàn thành cải cách dân chủ và tiến hành xây dựng CNXH, CNXH đã trở thành hệ thống thế giới." },
-      { id: 77, lesson: 4, question: "Sự kiện ngày 01/10/1949 tại Trung Quốc có ý nghĩa quan trọng nào sau đây đối với hệ thống XHCN thế giới?", options: ["Làm cho chủ nghĩa xã hội mở rộng và nối liền một dải từ lục địa Âu sang Á.", "Đánh dấu sự sụp đổ hoàn toàn của chủ nghĩa thực dân mới trên toàn thế giới.", "Đưa Trung Quốc trở thành nền kinh tế lớn thứ hai thế giới ngay trong năm 1949.", "Mở đầu công cuộc cải cách - mở cửa hiện đại hóa Trung Quốc."], correct: 0, explain: "Nước CHND Trung Hoa ra đời (1/10/1949) nối liền CNXH từ Trung - Đông Âu sang tận bờ Thái Bình Dương, làm thay đổi sâu sắc tương quan lực lượng toàn cầu." },
-      { id: 78, lesson: 4, question: "Quốc gia nào sau đây được mệnh danh là 'Lá cờ đầu', tiền đồn của chủ nghĩa xã hội ở khu vực Tây bán cầu?", options: ["Chi-lê.", "Cu-ba.", "Vê-nê-du-ê-la.", "Ngoại Mông Cổ."], correct: 1, explain: "Cách mạng Cuba thành công (1959) và tuyên bố tiến lên CNXH năm 1961 ngay sát nách đế quốc Mỹ, trở thành 'ngọn hải đăng', tiền đồn CNXH ở Tây bán cầu." },
-      { id: 79, lesson: 4, question: "Sự kiện nào sau đây đánh dấu sự sụp đổ hoàn toàn của chế độ xã hội chủ nghĩa ở Liên Xô sau 74 năm tồn tại?", options: ["Bức tường Béc-lin sụp đổ năm 1989.", "M. Goóc-ba-chốp lên nắm quyền Tổng Bí thư Đảng năm 1985.", "Goóc-ba-chốp từ chức Tổng thống và cờ búa liềm trên nóc điện Crem-li bị hạ xuống (25/12/1991).", "Hiệp ước Vác-sa-va chính thức giải thể vào tháng 7/1991."], correct: 2, explain: "Tối 25/12/1991, M. Goóc-ba-chốp tuyên bố từ chức Tổng thống Liên Xô, lá cờ búa liềm Liên bang Xô viết bị hạ xuống, đánh dấu Liên Xô chấm dứt tồn tại." },
-      { id: 80, lesson: 4, question: "Nguyên nhân sâu xa và mang tính quyết định dẫn đến sự khủng hoảng và sụp đổ của CNXH ở Liên Xô và Đông Âu là", options: ["sự cạn kiệt toàn diện về các nguồn tài nguyên khoáng sản trong nước.", "duy trì quá lâu mô hình kinh tế kế hoạch hóa tập trung quan liêu bao cấp, đường lối lãnh đạo chủ quan duy ý chí.", "sự cạnh tranh kinh tế thương mại từ các nền kinh tế mới nổi ở châu Á.", "Liên Xô hoàn toàn thất bại trong việc chế tạo vũ khí công nghệ cao."], correct: 1, explain: "Nguyên nhân chủ quan (duy trì mô hình tập trung quan liêu bao cấp kìm hãm sản xuất, tệ sùng bái cá nhân, sai lầm nghiêm trọng trong cải tổ) là nhân tố quyết định dẫn đến sụp đổ." },
-      { id: 81, lesson: 4, question: "Chiến lược nào của các thế lực thù địch phương Tây đã góp phần thúc đẩy sự sụp đổ của chế độ XHCN ở Liên Xô và Đông Âu?", options: ["Chiến lược 'Chiến tranh tổng lực'.", "Chiến lược 'Diễn biến hòa bình'.", "Chiến lược 'Phản ứng linh hoạt'.", "Chiến lược 'Vành đai thép'."], correct: 1, explain: "Các thế lực chống phá phương Tây đẩy mạnh chiến lược 'Diễn biến hòa bình', kích động mâu thuẫn sắc tộc, thâm nhập tư tưởng, mua chuộc các phần tử cơ hội thoái hóa." },
-      { id: 82, lesson: 4, question: "Đường lối Cải cách - mở cửa của Trung Quốc được khởi xướng tại Hội nghị Trung ương 3 khóa XI vào thời điểm nào?", options: ["Tháng 10 năm 1949.", "Tháng 12 năm 1978.", "Tháng 12 năm 1986.", "Tháng 12 năm 1991."], correct: 1, explain: "Hội nghị Ban Chấp hành Trung ương Đảng Cộng sản Trung Quốc khóa XI (tháng 12/1978) do Đặng Tiểu Bình khởi xướng đã quyết định mở ra thời kỳ Cải cách - mở cửa." },
-      { id: 83, lesson: 4, question: "Mục tiêu trọng tâm cốt lõi trong đường lối Cải cách - mở cửa của Trung Quốc từ năm 1978 là", options: ["lấy cải cách hệ thống chính trị đa đảng làm trọng tâm.", "lấy phát triển kinh tế làm trung tâm, kiên trì bốn nguyên tắc cơ bản.", "tập trung phát triển công nghiệp nặng và kinh tế tập trung.", "xóa bỏ toàn bộ các thành phần kinh tế tư nhân và đầu tư nước ngoài."], correct: 1, explain: "Trung Quốc kiên trì: Lấy phát triển kinh tế làm trung tâm, tiến hành cải cách mở cửa, xây dựng CNXH mang đặc sắc Trung Quốc." },
-      { id: 84, lesson: 4, question: "Đảng Cộng sản Việt Nam đã chính thức đề ra đường lối Đổi mới đất nước toàn diện tại kỳ Đại hội nào?", options: ["Đại hội IV (năm 1976).", "Đại hội V (năm 1982).", "Đại hội VI (tháng 12/1986).", "Đại hội VII (năm 1991)."], correct: 2, explain: "Đại hội đại biểu toàn quốc lần thứ VI của Đảng (12/1986) nhìn thẳng vào sự thật, đánh giá đúng sự thật và khởi xướng công cuộc Đổi mới toàn diện đất nước." },
-      { id: 85, lesson: 4, question: "Từ năm 2010 đến nay, nền kinh tế Trung Quốc đã vươn lên vị trí thứ mấy trên thế giới?", options: ["Thứ nhất (vượt qua Mỹ).", "Thứ hai (sau Mỹ).", "Thứ ba (sau Nhật Bản).", "Thứ tư (sau Đức)."], correct: 1, explain: "Nhờ thành tựu của công cuộc Cải cách - mở cửa, từ năm 2010, Trung Quốc đã vượt qua Nhật Bản để trở thành nền kinh tế lớn thứ hai thế giới (sau Mỹ)." },
-      { id: 86, lesson: 4, question: "Bốn quốc gia hiện nay vẫn kiên định con đường đi lên chủ nghĩa xã hội gồm có:", options: ["Trung Quốc, Việt Nam, Lào, Cu-ba.", "Nga, Trung Quốc, Triều Tiên, Việt Nam.", "Việt Nam, Lào, Cam-pu-chia, Mi-an-ma.", "Cu-ba, Vê-nê-du-ê-la, Bô-li-vi-a, Ni-ca-ra-goa."], correct: 0, explain: "4 nước kiên định xây dựng CNXH dựa trên nền tảng chủ nghĩa Mác - Lênin là: Trung Quốc, Việt Nam, Lào và Cu-ba." },
-      { id: 87, lesson: 4, question: "Công cuộc đổi mới của Đảng Nhân dân Cách mạng Lào được tiến hành từ năm nào?", options: ["Năm 1975.", "Năm 1986.", "Năm 1991.", "Năm 2000."], correct: 1, explain: "Cùng thời điểm với Việt Nam, Đảng Nhân dân Cách mạng Lào đã đề ra đường lối đổi mới toàn diện tại Đại hội đại biểu toàn quốc lần thứ IV (năm 1986)." },
-      { id: 88, lesson: 4, question: "Từ công cuộc cải cách, đổi mới ở các nước như Trung Quốc, Việt Nam, chúng ta có thể rút ra bài học lịch sử quan trọng nào?", options: ["Muốn phát triển thì phải lập tức từ bỏ mục tiêu độc lập dân tộc và CNXH.", "Kiên định mục tiêu CNXH nhưng phải vận dụng sáng tạo, phù hợp với hoàn cảnh thực tiễn của đất nước.", "Phải sao chép nguyên mẫu mô hình kinh tế của các cường quốc phương Tây.", "Chỉ nên tập trung cải cách chính trị trước, kinh tế để sau."], correct: 1, explain: "Đổi mới không phải là thay đổi mục tiêu XHCN mà là làm cho mục tiêu đó được thực hiện hiệu quả hơn bằng con đường, bước đi và phương pháp phù hợp với thực tiễn." },
-      { id: 89, lesson: 4, question: "Tổ chức Hiệp ước Vác-sa-va (thành lập năm 1955) là liên minh mang tính chất gì giữa Liên Xô và các nước XHCN Đông Âu?", options: ["Liên minh kinh tế và thương mại thuần túy.", "Liên minh phòng thủ quân sự - chính trị mang tính chất tự vệ.", "Tổ chức văn hóa và bảo tồn di sản thế giới.", "Tổ chức phát hành đồng tiền chung châu Âu."], correct: 1, explain: "Hiệp ước Vác-sa-va là liên minh phòng thủ quân sự - chính trị của các nước XHCN Đông Âu và Liên Xô nhằm đối phó với khối quân sự NATO của phương Tây." },
-      { id: 90, lesson: 4, question: "Hội đồng Tương trợ Kinh tế (SEV) thành lập năm 1949 nhằm mục đích gì?", options: ["Thúc đẩy sự hợp tác, tương trợ kinh tế giữa Liên Xô và các nước XHCN Đông Âu.", "Cạnh tranh độc quyền khai thác dầu mỏ ở Trung Đông.", "Cho các nước thuộc địa vay tiền với lãi suất cao để kiếm lời.", "Thành lập ngân hàng dự trữ vàng cho khối NATO."], correct: 0, explain: "SEV được thành lập nhằm tăng cường sự hợp tác, phân công lao động và giúp đỡ lẫn nhau cùng phát triển kinh tế giữa các nước trong hệ thống XHCN." },
-      { id: 91, lesson: 4, question: "Sự sụp đổ của CNXH ở Liên Xô và Đông Âu năm 1989 - 1991 là sự sụp đổ của", options: ["toàn bộ lý tưởng cao đẹp của chủ nghĩa xã hội khoa học.", "một mô hình chủ nghĩa xã hội cụ thể chứa đựng nhiều khuyết tật và sai lầm.", "con đường đấu tranh giải phóng dân tộc của nhân loại.", "học thuyết triết học Mác - Lênin về quy luật phát triển xã hội."], correct: 1, explain: "Đó là sự sụp đổ của một mô hình CNXH cụ thể (mô hình Xô viết tập trung bao cấp xơ cứng), chứ không phải là sự sụp đổ của bản chất lý tưởng CNXH khoa học." },
-      { id: 92, lesson: 4, question: "Chuyến bay đưa nhà du hành vũ trụ Dương Lợi Vĩ bay vào không gian năm 2003 trên con tàu nào đã khẳng định vị thế khoa học của Trung Quốc?", options: ["Tàu Phương Đông 1.", "Tàu Apollo 11.", "Tàu Thần Châu 5 (Shenzhou 5).", "Tàu Con thoi Discovery."], correct: 2, explain: "Tháng 10/2003, Trung Quốc phóng thành công tàu Thần Châu 5 đưa phi hành gia Dương Lợi Vĩ vào quỹ đạo Trái Đất, trở thành quốc gia thứ 3 trên thế giới tự đưa người vào vũ trụ." },
-      { id: 93, lesson: 4, question: "Từ năm 2011, Đảng Cộng sản Cuba đã thông qua chủ trương quan trọng nào để đưa đất nước vượt qua khó khăn kinh tế?", options: ["Chủ trương gia nhập khối quân sự NATO.", "Chủ trương Cập nhật hóa mô hình kinh tế - xã hội.", "Từ bỏ hoàn toàn chế độ sở hữu toàn dân về tư liệu sản xuất.", "Tiến hành chiến tranh tái chiếm căn cứ Guantanamo."], correct: 1, explain: "Đại hội VI Đảng Cộng sản Cuba (2011) đã thông qua đường lối 'Cập nhật hóa mô hình kinh tế - xã hội', mở rộng kinh tế tư nhân nhỏ và tự doanh nhưng giữ vững định hướng XHCN." },
-      { id: 94, lesson: 4, question: "Thành tựu vĩ đại nhất của công cuộc Đổi mới ở Việt Nam sau gần 40 năm (từ 1986 đến nay) là gì?", options: ["Đưa Việt Nam trở thành quốc gia có thu nhập bình quân đầu người cao nhất thế giới.", "Kinh tế tăng trưởng liên tục, đời sống nhân dân cải thiện vượt bậc, giữ vững ổn định chính trị và nâng cao vị thế quốc tế.", "Xóa bỏ hoàn toàn khoảng cách chênh lệch giàu nghèo trong toàn xã hội.", "Trở thành cường quốc quân sự sở hữu kho vũ khí hạt nhân hàng đầu châu Á."], correct: 1, explain: "Đổi mới đã đưa Việt Nam từ một nước nghèo thiếu đói trở thành nước đang phát triển có thu nhập trung bình, kinh tế năng động và uy tín quốc tế ngày càng cao." },
-      { id: 95, lesson: 4, question: "Điểm chung nổi bật trong đường lối đổi mới, cải cách của Việt Nam và Trung Quốc là", options: ["kiên trì sự lãnh đạo của Đảng Cộng sản và lấy phát triển kinh tế làm trọng tâm.", "thực hiện đa nguyên chính trị, đa đảng đối lập ngay từ đầu.", "tập trung tư nhân hóa toàn bộ đất đai và các ngành kinh tế then chốt.", "chỉ giao thương với các nước trong khối Xã hội chủ nghĩa."], correct: 0, explain: "Cả Việt Nam và Trung Quốc đều kiên quyết giữ vững vai trò lãnh đạo tuyệt đối của Đảng Cộng sản, ổn định chính trị để tập trung toàn lực phát triển kinh tế thị trường." },
-      { id: 96, lesson: 4, question: "Trong cải tổ ở Liên Xô (1985 - 1991), sai lầm nghiêm trọng nhất của Goóc-ba-chốp về mặt chính trị là gì?", options: ["Thực hiện 'công khai' và 'đa nguyên chính trị', từ bỏ vai trò lãnh đạo độc quyền của Đảng Cộng sản.", "Giải tán hoàn toàn quân đội Liên Xô ngay trong năm 1985.", "Ký hiệp ước sáp nhập Liên Xô vào Hợp chúng quốc Hoa Kỳ.", "Tuyên bố phục hồi chế độ phong kiến Sa hoàng."], correct: 0, explain: "Việc thả nổi chính trị, thực hiện đa nguyên đa đảng và xóa bỏ điều 6 Hiến pháp (về vai trò lãnh đạo của Đảng) đã làm bộ máy nhà nước tan rã nhanh chóng." },
-      { id: 97, lesson: 4, question: "Năm 1961, chiến thắng vang dội nào của quân và dân Cuba đã đập tan âm mưu đổ bộ xâm lược của lính đánh thuê do Mỹ hậu thuẫn?", options: ["Chiến thắng Hòn Hại (Playa Girón).", "Chiến thắng Moncada.", "Chiến thắng Sierra Maestra.", "Chiến thắng Havana."], correct: 0, explain: "Tháng 4/1961, quân dân Cuba đập tan cuộc đổ bộ của 1500 lính đánh thuê tại bãi biển Giron (Playa Giron) chỉ sau 72 giờ, bảo vệ vững chắc hòn đảo tự do." },
-      { id: 98, lesson: 4, question: "Bốn nguyên tắc cơ bản mà Đảng Cộng sản Trung Quốc luôn kiên trì trong suốt công cuộc Cải cách - mở cửa là gì?", options: ["Con đường XHCN, Chuyên chính dân chủ nhân dân, Sự lãnh đạo của ĐCS, Chủ nghĩa Mác - Lênin và Tư tưởng Mao Trạch Đông.", "Kinh tế thị trường tự do, Đa nguyên chính trị, Tam quyền phân lập, Thần phục phương Tây.", "Kinh tế bao cấp, Đóng cửa biên giới, Quân sự hóa toàn dân, Chống đối quốc tế.", "Bãi bỏ nông nghiệp, Tập trung dịch vụ, Xóa bỏ quân đội, Tư nhân hóa đất đai."], correct: 0, explain: "Bốn nguyên tắc kiên trì gồm: Kiên trì con đường XHCN, chuyên chính dân chủ nhân dân, sự lãnh đạo của ĐCS, chủ nghĩa Mác - Lênin và tư tưởng Mao Trạch Đông." },
-      { id: 99, lesson: 4, question: "Trước khi tiến hành Đổi mới năm 1986, nền kinh tế Việt Nam rơi vào tình trạng gì?", options: ["Khủng hoảng kinh tế - xã hội trầm trọng, lạm phát phi mã lên tới hàng trăm phần trăm.", "Tăng trưởng kinh tế cao nhất khu vực Đông Nam Á.", "Thừa mứa hàng hóa tiêu dùng và xuất khẩu lương thực số 1 thế giới.", "Thu nhập bình quân đầu người vượt qua các nước Tây Âu."], correct: 0, explain: "Thời kỳ trước 1986, đất nước khủng hoảng trầm trọng do cơ chế quan liêu bao cấp và bao vây cấm vận, lạm phát năm 1986 lên tới 774%." },
-      { id: 100, lesson: 4, question: "Ý nghĩa then chốt của việc Việt Nam gia nhập Tổ chức Thương mại Thế giới (WTO) năm 2007 trong tiến trình đổi mới là gì?", options: ["Đánh dấu sự hội nhập sâu rộng toàn diện của Việt Nam vào nền kinh tế toàn cầu.", "Buộc Việt Nam phải thay đổi chế độ chính trị sang tư bản.", "Giúp Việt Nam được xóa bỏ hoàn toàn mọi khoản nợ quốc tế.", "Đưa Việt Nam trở thành quốc gia phát triển có nền công nghiệp số 1 châu Á."], correct: 0, explain: "Gia nhập WTO (2007) mở ra không gian thương mại quốc tế rộng lớn, chứng minh đường lối đối ngoại độc lập, tự chủ, đa phương hóa, đa dạng hóa của Việt Nam." }
+      // Chủ đề 4: Hô hấp ở thực vật (Câu 7 - Phần II)
+      { id: 44, lesson: 4, question: "Bào quan thực hiện chức năng chính của hô hấp hiếu khí ở thực vật là", options: ["lục lạp.", "ti thể.", "ribosome.", "lysosome."], correct: 1, explain: "Ti thể được mệnh danh là 'nhà máy năng lượng' của tế bào, là nơi diễn ra chu trình Krebs và chuỗi truyền electron trong hô hấp hiếu khí." },
+      { id: 45, lesson: 4, question: "Phương trình tổng quát của quá trình hô hấp hiếu khí ở thực vật là", options: ["C₆H₁₂O₆ + 6O₂ ──► 6CO₂ + 6H₂O + Năng lượng (ATP + Nhiệt)", "6CO₂ + 12H₂O ──► C₆H₁₂O₆ + 6O₂ + 6H₂O", "C₆H₁₂O₆ ──► 2 C₂H₅OH + 2 CO₂", "C₆H₁₂O₆ ──► 2 Axit Lactic + ATP"], correct: 0, explain: "Hô hấp hiếu khí phân giải hoàn toàn Glucose thành CO2, H2O và giải phóng năng lượng (~30 - 32 ATP + nhiệt)." },
+      { id: 46, lesson: 4, question: "Giai đoạn đường phân trong hô hấp tế bào diễn ra tại vị trí nào?", options: ["Chất nền của ti thể.", "Màng trong ti thể.", "Tế bào chất (bào tương).", "Chất nền của lục lạp."], correct: 2, explain: "Đường phân diễn ra tại tế bào chất (bào tương), không đòi hỏi sự có mặt của O2." },
+      { id: 47, lesson: 4, question: "Kết quả của giai đoạn đường phân từ 1 phân tử Glucose tạo ra sản phẩm nào sau đây?", options: ["2 phân tử Pyruvate, 2 ATP và 2 NADH.", "6 phân tử CO₂, 6 H₂O và 32 ATP.", "2 phân tử Rượu ethanol và 2 CO₂.", "1 phân tử Acetyl-CoA và 4 ATP."], correct: 0, explain: "Đường phân phân giải 1 Glucose (6C) thành 2 phân tử Pyruvate (3C), sinh ra 2 phân tử ATP và 2 phân tử NADH." },
+      { id: 48, lesson: 4, question: "Khi rễ cây bị ngập úng lâu ngày trong đất thiếu O₂, tế bào rễ sẽ thực hiện con đường hô hấp nào?", options: ["Hô hấp hiếu khí hoàn toàn trong ti thể.", "Hô hấp kị khí (lên men) tạo ethanol hoặc lactate.", "Quang hợp thải khí O₂ bổ sung cho rễ.", "Ngừng hoàn toàn mọi phản ứng hóa sinh."], correct: 1, explain: "Đất ngập úng thiếu O2 buộc rễ cây chuyển sang hô hấp kị khí (lên men). Quá trình này tích tụ chất độc ethanol/axit lactic làm thối rễ, lông hút chết khiến cây bị héo." },
+      { id: 49, lesson: 4, question: "Chu trình Krebs trong hô hấp hiếu khí diễn ra tại vị trí nào của ti thể?", options: ["Màng ngoài ti thể.", "Màng trong ti thể.", "Chất nền (matrix) của ti thể.", "Xoang giữa hai lớp màng ti thể."], correct: 2, explain: "Chu trình Krebs diễn ra trong chất nền (matrix) của ti thể." },
+      { id: 50, lesson: 4, question: "Giai đoạn nào trong hô hấp hiếu khí giải phóng nhiều phân tử ATP nhất?", options: ["Giai đoạn đường phân.", "Giai đoạn oxi hoá Pyruvate thành Acetyl-CoA.", "Chu trình Krebs.", "Chuỗi truyền electron hô hấp ở màng trong ti thể."], correct: 3, explain: "Chuỗi truyền electron hô hấp tại màng trong ti thể tổng hợp khoảng 26 - 28 ATP nhờ dòng proton quay phức hệ ATP synthase." },
+      { id: 51, lesson: 4, question: "Hiệu quả năng lượng của con đường lên men (hô hấp kị khí) so với hô hấp hiếu khí như thế nào?", options: ["Lên men tạo ra nhiều ATP hơn gấp 10 lần.", "Lên men chỉ tạo được 2 ATP từ đường phân (rất thấp so với 30-32 ATP của hiếu khí).", "Lên men tạo ra 38 ATP.", "Hiệu quả năng lượng của 2 con đường là ngang nhau."], correct: 1, explain: "Lên men chỉ thu được 2 ATP sinh ra từ đường phân, chất hữu cơ chưa được phân giải hoàn toàn nên hiệu quả năng lượng rất thấp." },
+      { id: 52, lesson: 4, question: "Khí oxy (O₂) tham gia trực tiếp vào giai đoạn nào của quá trình hô hấp hiếu khí?", options: ["Giai đoạn đường phân ở tế bào chất.", "Chất nhận electron cuối cùng trong chuỗi truyền electron ở màng trong ti thể.", "Cố định trong chu trình Krebs.", "Biến đổi Glucose thành G3P."], correct: 1, explain: "Khí O2 đóng vai trò là chất nhận electron và H+ cuối cùng của chuỗi truyền electron ở màng trong ti thể, tạo thành phân tử nước (H2O)." },
+      { id: 53, lesson: 4, question: "Mối quan hệ giữa quang hợp và hô hấp ở thực vật là mối quan hệ", options: ["đối lập và loại trừ lẫn nhau hoàn toàn.", "hai quá trình gắn bó mật thiết, sản phẩm của quang hợp là nguyên liệu của hô hấp và ngược lại.", "hô hấp chỉ diễn ra khi quang hợp đã ngừng hẳn.", "không có liên quan gì về mặt vật chất và năng lượng."], correct: 1, explain: "Quang hợp tạo chất hữu cơ (C6H12O6) và O2 là nguyên liệu cho hô hấp; ngược lại hô hấp phân giải tạo CO2, H2O và năng lượng ATP cho các hoạt động sống." },
+      { id: 54, lesson: 4, question: "Tại sao khi bảo quản nông sản (hạt giống, củ, quả), người ta thường tìm cách ức chế hoặc hạ thấp cường độ hô hấp?", options: ["Vì hô hấp tiêu hao chất hữu cơ dự trữ, tỏa nhiệt làm tăng ẩm mốc gây hư hỏng nông sản.", "Vì hô hấp tạo ra quá nhiều đường làm ngọt nông sản quá mức.", "Vì hô hấp hút hết nước làm hạt giống không bao giờ nảy mầm được.", "Vì hô hấp biến hạt thành cây con ngay trong bao bì."], correct: 0, explain: "Hô hấp phân giải chất hữu cơ làm giảm khối lượng và chất lượng nông sản, tỏa nhiệt và ẩm kích thích vi sinh vật gây hại phát triển, do đó cần làm giảm hô hấp khi bảo quản." }
     ];
 
-    // THUẬT TOÁN XÁO TRỘN FISHER-YATES
+    // FLASHCARDS DATA
+    const flashcardsData = [
+      { lesson: 1, prompt: "Kể tên 4 dấu hiệu đặc trưng của trao đổi chất và chuyển hóa năng lượng?", answer: "1. Tiếp nhận và vận chuyển các chất.<br>2. Biến đổi các chất & chuyển hoá năng lượng.<br>3. Thải các chất vào môi trường.<br>4. Điều hoà." },
+      { lesson: 1, prompt: "Đồng hoá khác Dị hoá ở điểm cốt lõi nào?", answer: "• <strong>Đồng hoá:</strong> Tổng hợp chất hữu cơ, <em>tích luỹ năng lượng</em>.<br>• <strong>Dị hoá:</strong> Phân giải chất hữu cơ, <em>giải phóng năng lượng</em> (ATP & nhiệt)." },
+      { lesson: 1, prompt: "Kể tên 3 giai đoạn chuyển hóa năng lượng trong sinh giới theo sơ đồ Hình 1.1 SGK?", answer: "1. Giai đoạn tổng hợp (Quang năng ➔ Hoá năng trong chất hữu cơ).<br>2. Giai đoạn phân giải (Hoá năng ➔ ATP).<br>3. Giai đoạn huy động năng lượng (ATP ➔ Các hoạt động sống)." },
+      { lesson: 1, prompt: "Phân biệt sinh vật Quang tự dưỡng và Hoá tự dưỡng?", answer: "• <strong>Quang tự dưỡng:</strong> Năng lượng từ <em>ánh sáng</em> (thực vật, tảo, vi khuẩn lam).<br>• <strong>Hoá tự dưỡng:</strong> Năng lượng từ <em>oxi hoá chất vô cơ</em> (vi khuẩn nitrat hoá, vi khuẩn lưu huỳnh)." },
+      { lesson: 1, prompt: "Nêu 3 vai trò quan trọng nhất của sinh vật tự dưỡng trong sinh giới?", answer: "1. Cung cấp O₂ cho sinh giới hô hấp.<br>2. Cung cấp thức ăn, nơi ở, nơi sinh sản cho động vật.<br>3. Điều hoà khí hậu, cân bằng sinh thái." },
+      { lesson: 2, prompt: "Nêu 4 vai trò của nước đối với cơ thể thực vật?", answer: "1. Thành phần chính cấu tạo tế bào.<br>2. Dung môi hoà tan và vận chuyển các chất.<br>3. Nguyên liệu và môi trường phản ứng sinh hoá.<br>4. Điều hoà nhiệt độ nhờ thoát hơi nước." },
+      { lesson: 2, prompt: "Nước được hấp thụ từ đất vào tế bào lông hút của rễ theo cơ chế nào?", answer: "Theo cơ chế <strong>thẩm thấu (thụ động)</strong> từ nơi thế nước cao (đất nhược trương) vào nơi thế nước thấp (rễ ưu trương)." },
+      { lesson: 2, prompt: "Hấp thụ khoáng ở rễ theo cơ chế chủ động có đặc điểm gì?", answer: "Vận chuyển <strong>ngược chiều gradient nồng độ</strong> (từ nồng độ thấp vào cao), cần <strong>chất mang</strong> và <strong>tiêu tốn ATP</strong>." },
+      { lesson: 2, prompt: "Tế bào cấu tạo nên dòng mạch gỗ gồm những tế bào nào? Sống hay chết?", answer: "Gồm <strong>quản bào</strong> và <strong>mạch ống</strong>. Đây là các <strong>tế bào chết</strong>, thành hóa gỗ dày bền chắc." },
+      { lesson: 2, prompt: "Kể tên 3 động lực của dòng mạch gỗ? Động lực nào đóng vai trò chủ yếu?", answer: "1. Áp suất rễ (lực đẩy).<br>2. Lực liên kết giữa các phân tử nước & bám thành mạch.<br>3. <strong>Lực kéo do thoát hơi nước ở lá</strong> (chủ yếu nhất)." },
+      { lesson: 2, prompt: "Tế bào cấu tạo nên dòng mạch rây gồm những tế bào nào? Sống hay chết?", answer: "Gồm <strong>tế bào ống rây</strong> và <strong>tế bào kèm</strong>. Đây là các <strong>tế bào sống</strong>." },
+      { lesson: 2, prompt: "Thành phần chủ yếu nhất trong dịch mạch rây là gì?", answer: "Chủ yếu là <strong>đường sucrose</strong> (chiếm 90 - 95% chất khô), cùng amino acid, hormone thực vật." },
+      { lesson: 3, prompt: "Viết phương trình tổng quát của quang hợp ở thực vật?", answer: "<strong>6CO₂ + 12H₂O ──(Ánh sáng / Diệp lục)──► C₆H₁₂O₆ + 6O₂ + 6H₂O</strong>" },
+      { lesson: 3, prompt: "Chất nhận CO₂ đầu tiên và sản phẩm cố định đầu tiên ở thực vật C₃?", answer: "• Chất nhận CO₂ đầu tiên: <strong>RuBP (5C)</strong>.<br>• Sản phẩm cố định đầu tiên: <strong>3-PGA (3C)</strong>." },
+      { lesson: 3, prompt: "Chất nhận CO₂ đầu tiên và sản phẩm cố định đầu tiên ở thực vật C₄ và CAM?", answer: "• Chất nhận CO₂ đầu tiên: <strong>PEP (3C)</strong>.<br>• Sản phẩm cố định đầu tiên: <strong>OAA (4C)</strong> (Oxaloacetic acid)." },
+      { lesson: 3, prompt: "Quang hợp ở thực vật C₄ diễn ra ở 2 loại tế bào nào?", answer: "Tế bào <strong>mô giậu</strong> (cố định CO₂ thành axit 4C) và tế bào <strong>bao bó mạch</strong> (chu trình Calvin tổng hợp đường)." },
+      { lesson: 3, prompt: "Thực vật CAM cố định CO₂ vào thời gian nào trong ngày? Vì sao?", answer: "Vào <strong>ban đêm</strong>. Vì ban ngày nắng nóng phải đóng khí khổng chống mất nước, ban đêm mát mẻ mở khí khổng để hấp thụ CO₂." },
+      { lesson: 3, prompt: "Kể tên các đại diện điển hình của thực vật C₃, C₄ và CAM?", answer: "• <strong>C₃:</strong> Lúa, khoai, sắn, đậu, cam...<br>• <strong>C₄:</strong> Ngô, mía, cỏ lồng vực, kê...<br>• <strong>CAM:</strong> Xương rồng, dứa, thanh long..." },
+      { lesson: 3, prompt: "Khái niệm Điểm bù CO₂ và Điểm bão hoà CO₂?", answer: "• <strong>Điểm bù CO₂:</strong> Cường độ quang hợp = cường độ hô hấp.<br>• <strong>Điểm bão hoà CO₂:</strong> Cường độ quang hợp đạt cực đại." },
+      { lesson: 3, prompt: "Hậu quả khi bón phân cho cây trồng với liều lượng quá mức?", answer: "Dung dịch đất ưu trương, rễ không hút được nước gây cháy lá, nhiễm độc khoáng và làm cây chết héo." },
+      { lesson: 4, prompt: "Bào quan thực hiện chức năng chính của hô hấp hiếu khí là gì?", answer: "Bào quan <strong>Ti thể</strong> (diễn ra chu trình Krebs và chuỗi truyền electron hô hấp)." },
+      { lesson: 4, prompt: "Giai đoạn đường phân diễn ra ở đâu? Từ 1 Glucose tạo ra sản phẩm gì?", answer: "Tại <strong>tế bào chất</strong>. Tạo ra <strong>2 Pyruvate (3C) + 2 ATP + 2 NADH</strong>." },
+      { lesson: 4, prompt: "Khi rễ cây bị ngập úng thiếu O₂, cây chuyển sang con đường nào? Hậu quả?", answer: "Chuyển sang <strong>lên men (kị khí)</strong> tạo ethanol/axit lactic gây thối rễ, chết lông hút và làm cây héo rũ." },
+      { lesson: 4, prompt: "Giai đoạn nào của hô hấp hiếu khí tạo ra nhiều ATP nhất?", answer: "<strong>Chuỗi truyền electron hô hấp</strong> ở màng trong ti thể (tạo khoảng 26 - 28 ATP)." },
+      { lesson: 4, prompt: "Tổng số phân tử ATP tạo ra từ 1 phân tử Glucose qua hô hấp hiếu khí là bao nhiêu?", answer: "Khoảng <strong>30 đến 32 ATP</strong> (trong khi lên men kị khí chỉ thu được 2 ATP)." }
+    ];
+
+    // THUẬT TOÁN ĐẢO FISHER-YATES
     function shuffleArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -1357,7 +1696,7 @@
       return arr;
     }
 
-    // CHUẨN HÓA & ĐẢO NGẪU NHIÊN CẢ CÂU LẪN ĐÁP ÁN (A, B, C, D)
+    // CHUẨN HOÁ VÀ TỰ ĐỘNG ĐẢO NGẪU NHIÊN CẢ THỨ TỰ CÂU LẪN ĐÁP ÁN A-B-C-D
     function generateShuffledQuestions(sourceList) {
       const cloned = sourceList.map(q => {
         const correctText = q.options[q.correct];
@@ -1409,9 +1748,12 @@
         document.getElementById('flashcardView').classList.add('active');
         document.getElementById('tabBtnFlashcard').classList.add('active');
         loadFlashcard();
-      } else if (viewName === 'timeline') {
-        document.getElementById('timelineView').classList.add('active');
-        document.getElementById('tabBtnTimeline').classList.add('active');
+      } else if (viewName === 'diagram') {
+        document.getElementById('diagramView').classList.add('active');
+        document.getElementById('tabBtnDiagram').classList.add('active');
+      } else if (viewName === 'essay') {
+        document.getElementById('essayView').classList.add('active');
+        document.getElementById('tabBtnEssay').classList.add('active');
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1462,17 +1804,24 @@
           `;
         });
 
+        const topicLabels = {
+          1: "Chủ đề 1: TĐC & Năng lượng",
+          2: "Chủ đề 2: Nước & Khoáng",
+          3: "Chủ đề 3: Quang hợp C3/C4/CAM",
+          4: "Chủ đề 4: Hô hấp tế bào"
+        };
+
         card.innerHTML = `
           <div class="q-meta">
             <div style="display:flex; gap:8px;">
-              <span class="badge-pill badge-l${q.lesson}">Bài ${q.lesson}</span>
+              <span class="badge-pill badge-t${q.lesson}">${topicLabels[q.lesson]}</span>
               <span class="badge-pill" style="background:rgba(255,255,255,0.06); color:var(--text-muted);">Câu ${idx + 1}</span>
             </div>
           </div>
           <div class="q-text">${q.question}</div>
           <div class="opt-list">${optionsHtml}</div>
           <div class="explain-card ${isAnswered ? 'show' : ''}">
-            <strong>💡 Giải thích chuẩn SGK:</strong> ${q.explain}
+            <strong>💡 Giải thích chuẩn SGK Sinh 11:</strong> ${q.explain}
           </div>
         `;
         container.appendChild(card);
@@ -1531,7 +1880,6 @@
         ? originalQuestionBank 
         : originalQuestionBank.filter(q => q.lesson === parseInt(filter));
 
-      // TỰ ĐỘNG ĐẢO NGẪU NHIÊN CẢ CÂU VÀ ĐÁP ÁN KHI LỌC
       currentQuestions = generateShuffledQuestions(baseList);
       renderQuiz();
     }
@@ -1553,13 +1901,12 @@
     }
 
     function startMockExam() {
-      if (confirm('Bắt đầu làm ĐỀ THI THỬ 40 CÂU (45 phút)? Đề sẽ tự động chọn ngẫu nhiên và xáo trộn toàn bộ 4 bài!')) {
+      if (confirm('Bắt đầu làm ĐỀ THI THỬ 30 CÂU (45 phút)? Đề sẽ tự động chọn ngẫu nhiên và xáo trộn từ ngân hàng Sinh học 11!')) {
         isExamMode = true;
         userAnswers = {};
         
-        // Random 40 câu và xáo trộn đáp án
         let shuffledAll = generateShuffledQuestions(originalQuestionBank);
-        currentQuestions = shuffledAll.slice(0, 40);
+        currentQuestions = shuffledAll.slice(0, 30);
 
         document.getElementById('examTimerBar').style.display = 'block';
         timeLeft = 45 * 60;
@@ -1571,7 +1918,7 @@
           updateTimerDisplay();
           if (timeLeft <= 0) {
             clearInterval(examTimer);
-            alert('⏱️ HẾT GIỜ LÀM BÀI! Hãy kiểm tra điểm số bên trên.');
+            alert('⏱️ HẾT GIỜ LÀM BÀI! Hãy kiểm tra điểm số và các câu trả lời bên trên.');
           }
         }, 1000);
 
@@ -1594,45 +1941,12 @@
     }
 
     function resetQuiz() {
-      if (confirm('Làm lại từ đầu? Web sẽ tự động xáo trộn lại toàn bộ câu hỏi và vị trí đáp án!')) {
+      if (confirm('Làm lại từ đầu? Trang sẽ tự động xáo trộn lại toàn bộ câu hỏi và vị trí đáp án A-B-C-D!')) {
         reshuffleAll();
       }
     }
 
-    // FLASHCARD
-    const flashcardsData = [
-      { lesson: 1, prompt: "Cuộc cách mạng tư sản đầu tiên trên thế giới nổ ra ở đâu, vào thế kỉ nào?", answer: "Cách mạng Nê-đéc-lan (Hà Lan) vào thế kỉ XVI lật đổ phong kiến Tây Ban Nha." },
-      { lesson: 1, prompt: "Tầng lớp 'Quý tộc mới' xuất hiện trong cuộc cách mạng tư sản nào?", answer: "Chỉ xuất hiện trong Cách mạng tư sản Anh (thế kỉ XVII), liên minh cùng Tư sản để lãnh đạo." },
-      { lesson: 1, prompt: "Ai là 3 đại diện tiêu biểu nhất của trào lưu Triết học Ánh sáng Pháp?", answer: "S. Mông-te-xki-ơ (Montesquieu), Ph. Vôn-te (Voltaire) và J.J. Rút-xô (Rousseau)." },
-      { lesson: 1, prompt: "Thuyết 'Tam quyền phân lập' (Lập pháp - Hành pháp - Tư pháp) là của ai?", answer: "Mông-te-xki-ơ (Montesquieu) trong tác phẩm 'Tinh thần pháp luật'." },
-      { lesson: 1, prompt: "Động lực chính, quyết định thắng lợi của mọi cuộc cách mạng tư sản là ai?", answer: "Quần chúng nhân dân (nông dân, thị dân, thợ thủ công, nô lệ...)." },
-      { lesson: 1, prompt: "Cuộc cách mạng tư sản nào được đánh giá là 'triệt để nhất' thời cận đại?", answer: "Cách mạng tư sản Pháp (1789) vì đã xóa sạch phong kiến, lập nền cộng hòa và chia ruộng đất cho dân." },
-      { lesson: 1, prompt: "Sự kiện nào đánh dấu Cách mạng tư sản Pháp chính thức bùng nổ?", answer: "Nhân dân Pa-ri tấn công chiếm pháo đài - nhà tù Ba-xti ngày 14/7/1789." },
-      { lesson: 1, prompt: "Sau cách mạng thế kỉ XVII, nước Anh xác lập thể chế chính trị nào?", answer: "Thể chế Quân chủ lập hiến (Vua trị vì nhưng không nắm thực quyền, quyền lực thuộc Quốc hội)." },
-      { lesson: 2, prompt: "Chủ nghĩa tư bản chính thức xác lập trên phạm vi toàn cầu vào thời gian nào?", answer: "Vào cuối thế kỉ XIX, sau khi hoàn thành các cuộc cách mạng công nghiệp." },
-      { lesson: 2, prompt: "Kể tên 5 đặc trưng của Chủ nghĩa đế quốc theo V.I. Lênin?", answer: "1. Tổ chức độc quyền<br>2. Tư bản tài chính<br>3. Xuất khẩu tư bản<br>4. Phân chia thị trường thế giới<br>5. Phân chia thuộc địa." },
-      { lesson: 2, prompt: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Anh là gì?", answer: "Chủ nghĩa đế quốc thực dân ('Mặt trời không bao giờ lặn trên đế quốc Anh')." },
-      { lesson: 2, prompt: "Vì sao Chủ nghĩa đế quốc Pháp được gọi là 'Đế quốc cho vay lãi'?", answer: "Vì Pháp xuất khẩu tư bản phần lớn dưới dạng cho các nước (nhất là Nga) vay lấy lãi cao." },
-      { lesson: 2, prompt: "Đặc điểm nổi bật của Chủ nghĩa đế quốc Đức là gì?", answer: "Chủ nghĩa đế quốc quân phiệt, hiếu chiến (do giới quân phiệt Phổ lãnh đạo)." },
-      { lesson: 2, prompt: "Khái niệm 'Chủ nghĩa tư bản hiện đại' dùng để chỉ giai đoạn nào?", answer: "Giai đoạn từ sau Chiến tranh thế giới thứ hai (1945) đến nay." },
-      { lesson: 2, prompt: "Bản chất của Chủ nghĩa tư bản độc quyền nhà nước là gì?", answer: "Sự kết hợp giữa tư bản độc quyền tư nhân và sức mạnh của nhà nước tư sản." },
-      { lesson: 2, prompt: "Phong trào 'Chúng tôi là 99%' (Mỹ, 2011) phản ánh thách thức nào của CNTB?", answer: "Sự bất bình đẳng sâu sắc: 1% người giàu độc quyền chiếm giữ đa số tài sản của xã hội." },
-      { lesson: 3, prompt: "Liên bang CHXHCN Xô viết (Liên Xô) chính thức thành lập vào ngày tháng năm nào?", answer: "Ngày 30/12/1922 tại Đại hội lần thứ X các Xô viết toàn Nga." },
-      { lesson: 3, prompt: "Kể tên 4 nước Cộng hòa đầu tiên gia nhập Liên bang Xô viết năm 1922?", answer: "Nga (RSFSR), U-crai-na, Bê-lô-rút-xi-a và Ngoại Cáp-ca-dơ." },
-      { lesson: 3, prompt: "Cộng hòa Liên bang Ngoại Cáp-ca-dơ gồm 3 nước nào?", answer: "Ác-mê-ni-a, A-déc-bai-gian và Gioóc-ghi-a (Gruzia)." },
-      { lesson: 3, prompt: "Bản Hiến pháp đầu tiên của Liên bang Xô viết được thông qua vào năm nào?", answer: "Tháng 1 năm 1924, đánh dấu việc hoàn thành tổ chức nhà nước Liên bang Xô viết." },
-      { lesson: 3, prompt: "Nguyên tắc cốt lõi khi thành lập Liên bang Xô viết là gì?", answer: "Sự tự nguyện, bình đẳng, tôn trọng chủ quyền và giúp đỡ lẫn nhau giữa các dân tộc." },
-      { lesson: 3, prompt: "Đến năm 1940, Liên bang Xô viết gồm có bao nhiêu nước cộng hòa?", answer: "Có tất cả 15 nước Cộng hòa thành viên." },
-      { lesson: 4, prompt: "Chủ nghĩa xã hội trở thành một hệ thống thế giới vào năm nào?", answer: "Năm 1949, khi các nước Đông Âu hoàn thành cải cách dân chủ và tiến hành xây dựng CNXH." },
-      { lesson: 4, prompt: "Ý nghĩa to lớn của sự kiện nước CHND Trung Hoa ra đời (01/10/1949)?", answer: "Nối liền CNXH từ Âu sang Á, thay đổi sâu sắc so sánh lực lượng có lợi cho hòa bình và CNXH." },
-      { lesson: 4, prompt: "Quốc gia nào được mệnh danh là 'Lá cờ đầu' của CNXH ở Tây bán cầu?", answer: "Cu-ba (Cách mạng thắng lợi 1959, tuyên bố đi lên CNXH năm 1961)." },
-      { lesson: 4, prompt: "Liên bang Xô viết hoàn toàn sụp đổ vào ngày tháng năm nào?", answer: "Ngày 25/12/1991 (Goóc-ba-chốp từ chức Tổng thống, cờ Liên Xô hạ xuống)." },
-      { lesson: 4, prompt: "Nguyên nhân sâu xa và quyết định dẫn đến sự sụp đổ của CNXH ở Liên Xô?", answer: "Mô hình kinh tế tập trung quan liêu bao cấp duy trì quá lâu; chủ quan duy ý chí; sai lầm cải tổ." },
-      { lesson: 4, prompt: "Đường lối Cải cách - mở cửa của Trung Quốc bắt đầu từ thời điểm nào?", answer: "Tháng 12/1978 (Hội nghị Trung ương 3 khóa XI) do Đặng Tiểu Bình khởi xướng." },
-      { lesson: 4, prompt: "Đảng Cộng sản Việt Nam đề ra đường lối Đổi mới đất nước tại Đại hội nào?", answer: "Đại hội đại biểu toàn quốc lần thứ VI (tháng 12/1986)." },
-      { lesson: 4, prompt: "Điểm chung nổi bật trong đường lối cải cách của Việt Nam và Trung Quốc là gì?", answer: "Kiên trì sự lãnh đạo của Đảng Cộng sản và lấy phát triển kinh tế làm trọng tâm." }
-    ];
-
+    // FLASHCARD STATE
     let fcList = [...flashcardsData];
     let fcIdx = 0;
 
@@ -1641,7 +1955,15 @@
       const card = fcList[fcIdx];
       const fcEl = document.getElementById('flashcardElement');
       fcEl.classList.remove('is-flipped');
-      document.getElementById('fcCategory').textContent = `Bài ${card.lesson}`;
+      
+      const topicLabels = {
+        1: "Chủ đề 1: TĐC & Năng Lượng",
+        2: "Chủ đề 2: Nước & Khoáng Ở Rễ",
+        3: "Chủ đề 3: Quang Hợp (C3/C4/CAM)",
+        4: "Chủ đề 4: Hô Hấp Thực Vật"
+      };
+
+      document.getElementById('fcCategory').textContent = topicLabels[card.lesson] || 'Sinh Học 11';
       document.getElementById('fcPrompt').textContent = card.prompt;
       document.getElementById('fcAnswer').innerHTML = card.answer;
       document.getElementById('fcCurrentIndex').textContent = fcIdx + 1;
