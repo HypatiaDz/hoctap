@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sinh Học 11 - Đề Cương Ôn Tập Giữa Kì I (Trắc Nghiệm & Lý Thuyết Full)</title>
+  <title>Tin Học 11 - Ôn Tập Giữa Kì I (74 Câu Trắc Nghiệm & 8 Câu Đúng Sai Chuẩn Đề)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #091312;
-      --bg-surface: #10221f;
-      --bg-card: rgba(16, 34, 31, 0.85);
+      --bg: #090e1a;
+      --bg-surface: #101a2e;
+      --bg-card: rgba(16, 26, 46, 0.88);
       --border: rgba(255, 255, 255, 0.09);
-      --primary: #10b981;
-      --primary-gradient: linear-gradient(135deg, #059669 0%, #10b981 50%, #14b8a6 100%);
-      --accent: #38bdf8;
-      --text: #f0fdf4;
+      --primary: #06b6d4;
+      --primary-gradient: linear-gradient(135deg, #0284c7 0%, #06b6d4 50%, #3b82f6 100%);
+      --accent: #8b5cf6;
+      --text: #f1f5f9;
       --text-muted: #94a3b8;
-      --success: #22c55e;
-      --success-bg: rgba(34, 197, 94, 0.14);
+      --success: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.14);
       --danger: #f43f5e;
       --danger-bg: rgba(244, 63, 94, 0.14);
       --warning: #f59e0b;
       --warning-bg: rgba(245, 158, 11, 0.14);
-      --info-bg: rgba(56, 189, 248, 0.12);
+      --info-bg: rgba(6, 182, 212, 0.12);
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
@@ -32,17 +32,17 @@
     }
 
     body.light-theme {
-      --bg: #f6fbf8;
+      --bg: #f8fafc;
       --bg-surface: #ffffff;
-      --bg-card: rgba(255, 255, 255, 0.95);
+      --bg-card: rgba(255, 255, 255, 0.96);
       --border: rgba(0, 0, 0, 0.08);
-      --text: #0f291e;
-      --text-muted: #475569;
+      --text: #0f172a;
+      --text-muted: #64748b;
       --success-bg: #ecfdf5;
       --danger-bg: #fff1f2;
       --warning-bg: #fffbeb;
       --info-bg: #f0f9ff;
-      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07);
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
     }
 
     * {
@@ -57,8 +57,8 @@
       color: var(--text);
       min-height: 100vh;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.16) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.12) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.16) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.14) 0px, transparent 50%);
       background-attachment: fixed;
       transition: background-color 0.3s ease, color 0.3s ease;
       padding-bottom: 90px;
@@ -118,12 +118,12 @@
     body.light-theme .nav-tabs { background: #e2e8f0; }
 
     .nav-tab-btn {
-      padding: 8px 18px;
+      padding: 8px 16px;
       border-radius: 999px;
       border: none;
       background: transparent;
       color: var(--text-muted);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 700;
       cursor: pointer;
       display: flex;
@@ -135,7 +135,7 @@
     .nav-tab-btn.active {
       background: var(--primary-gradient);
       color: white;
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);
     }
 
     .theme-toggle-btn {
@@ -158,9 +158,9 @@
     .hero-banner {
       background: var(--primary-gradient);
       border-radius: var(--radius-lg);
-      padding: 30px;
+      padding: 28px 32px;
       color: white;
-      box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.4);
+      box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.4);
       margin-bottom: 25px;
       position: relative;
       overflow: hidden;
@@ -184,7 +184,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.2);
       padding: 5px 14px;
       border-radius: 999px;
       font-size: 0.82rem;
@@ -218,9 +218,9 @@
     .lesson-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
 
     .lesson-btn {
-      padding: 8px 15px;
+      padding: 8px 14px;
       border-radius: 999px;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 600;
       border: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.04);
@@ -234,7 +234,7 @@
       background: var(--primary);
       color: white;
       border-color: var(--primary);
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
     }
 
     .search-box { position: relative; flex: 1; min-width: 250px; max-width: 400px; }
@@ -322,10 +322,12 @@
 
     .q-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
     .badge-pill { font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
-    .badge-t1 { background: rgba(16, 185, 129, 0.18); color: #34d399; }
-    .badge-t2 { background: rgba(56, 189, 248, 0.18); color: #38bdf8; }
-    .badge-t3 { background: rgba(245, 158, 11, 0.18); color: #fbbf24; }
-    .badge-t4 { background: rgba(244, 63, 94, 0.18); color: #fb7185; }
+    .badge-b1 { background: rgba(6, 182, 212, 0.18); color: #38bdf8; }
+    .badge-b3 { background: rgba(139, 92, 246, 0.18); color: #a78bfa; }
+    .badge-b4 { background: rgba(16, 185, 129, 0.18); color: #34d399; }
+    .badge-b5 { background: rgba(245, 158, 11, 0.18); color: #fbbf24; }
+    .badge-b6 { background: rgba(236, 72, 153, 0.18); color: #f472b6; }
+    .badge-b9 { background: rgba(239, 68, 68, 0.18); color: #f87171; }
 
     .q-text { font-size: 1.05rem; font-weight: 700; line-height: 1.55; margin-bottom: 16px; }
     .opt-list { display: flex; flex-direction: column; gap: 9px; }
@@ -343,7 +345,7 @@
     }
     .opt-item:hover:not(.locked) {
       border-color: var(--primary);
-      background: rgba(16, 185, 129, 0.08);
+      background: rgba(6, 182, 212, 0.08);
       transform: translateX(4px);
     }
     .opt-key {
@@ -391,7 +393,120 @@
     }
     body.light-theme .explain-card { background: #f1f5f9; }
     .explain-card.show { display: block; }
-    .explain-card strong { color: var(--accent); }
+    .explain-card strong { color: var(--primary); }
+
+    /* True / False Section */
+    .tf-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+    .tf-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .tf-context {
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      color: var(--text);
+      background: rgba(6, 182, 212, 0.08);
+      border-left: 4px solid var(--primary);
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+    }
+    .tf-statement {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+    .tf-text { font-size: 0.93rem; font-weight: 500; flex: 1; line-height: 1.55; }
+    .tf-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .btn-tf {
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-tf:hover { background: var(--border); }
+    .btn-tf.selected-true { background: #0284c7; color: white; border-color: #0284c7; }
+    .btn-tf.selected-false { background: #e11d48; color: white; border-color: #e11d48; }
+    .btn-tf.locked { cursor: default; }
+
+    .tf-item-result {
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-left: 8px;
+      display: none;
+    }
+    .tf-item-result.correct { background: var(--success-bg); color: var(--success); display: inline-block; }
+    .tf-item-result.wrong { background: var(--danger-bg); color: var(--danger); display: inline-block; }
+
+    /* Theory Section */
+    .lesson-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+    }
+    .lesson-section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+    .lesson-icon {
+      font-size: 2rem;
+      background: rgba(6, 182, 212, 0.15);
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+    .lesson-title-text h2 { font-size: 1.4rem; font-weight: 800; color: var(--text); }
+    .lesson-title-text span { font-size: 0.88rem; color: var(--text-muted); font-weight: 600; }
+
+    .theory-block { margin-bottom: 24px; }
+    .theory-block h3 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-left: 4px solid var(--primary);
+      padding-left: 10px;
+    }
+    .theory-block ul { padding-left: 22px; margin-bottom: 14px; }
+    .theory-block li { margin-bottom: 10px; font-size: 0.95rem; line-height: 1.7; color: var(--text); }
+    .theory-block p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 10px; }
 
     /* Flashcard Style */
     .flashcard-controls {
@@ -408,8 +523,8 @@
     }
     .card-scene {
       width: 100%;
-      max-width: 740px;
-      height: 380px;
+      max-width: 720px;
+      height: 360px;
       perspective: 1000px;
       margin: 0 auto 25px auto;
     }
@@ -438,7 +553,7 @@
       box-shadow: 0 15px 35px -5px rgba(0,0,0,0.5);
     }
     .card-face.front {
-      background: linear-gradient(135deg, rgba(16, 44, 38, 0.9) 0%, rgba(9, 28, 23, 0.95) 100%);
+      background: linear-gradient(135deg, rgba(16, 26, 46, 0.95) 0%, rgba(9, 14, 26, 0.98) 100%);
       color: white;
     }
     body.light-theme .card-face.front {
@@ -446,11 +561,11 @@
       color: #0f172a;
     }
     .card-face.back {
-      background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
       color: white;
       transform: rotateY(180deg);
     }
-    .card-category { font-size: 0.82rem; text-transform: uppercase; font-weight: 800; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; }
+    .card-category { font-size: 0.82rem; text-transform: uppercase; font-weight: 800; letter-spacing: 0.08em; color: var(--primary); margin-bottom: 12px; }
     .card-prompt { font-size: 1.35rem; font-weight: 700; line-height: 1.5; }
     .card-hint { margin-top: 18px; font-size: 0.82rem; color: var(--text-muted); }
     .card-answer { font-size: 1.2rem; font-weight: 600; line-height: 1.6; }
@@ -467,210 +582,6 @@
       transition: all 0.2s;
     }
     .btn-fc:hover { background: var(--primary); color: white; border-color: var(--primary); }
-
-    /* Theory Styling */
-    .theory-toc {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 18px 22px;
-      margin-bottom: 25px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
-    }
-    .toc-link {
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 700;
-      transition: all 0.2s;
-    }
-    .toc-link:hover { background: var(--primary); color: white; }
-
-    .lesson-section {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 34px;
-      margin-bottom: 30px;
-      box-shadow: var(--shadow);
-    }
-    .lesson-section-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 18px;
-      margin-bottom: 24px;
-    }
-    .lesson-icon {
-      font-size: 2rem;
-      background: rgba(16, 185, 129, 0.15);
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-    }
-    .lesson-title-text h2 { font-size: 1.45rem; font-weight: 800; color: var(--text); }
-    .lesson-title-text span { font-size: 0.88rem; color: var(--text-muted); font-weight: 600; }
-
-    .theory-block { margin-bottom: 28px; }
-    .theory-block h3 {
-      font-size: 1.25rem;
-      color: var(--primary);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-left: 4px solid var(--primary);
-      padding-left: 10px;
-    }
-    .theory-block h4 {
-      font-size: 1.05rem;
-      color: #6ee7b7;
-      margin: 16px 0 8px 0;
-      font-weight: 700;
-    }
-    body.light-theme .theory-block h4 { color: #047857; }
-
-    .theory-block ul { padding-left: 22px; margin-bottom: 14px; }
-    .theory-block li { margin-bottom: 10px; font-size: 0.95rem; line-height: 1.7; color: var(--text); }
-    .theory-block p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 10px; }
-
-    .tag-term {
-      background: rgba(16, 185, 129, 0.2);
-      color: #6ee7b7;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.88rem;
-    }
-    body.light-theme .tag-term { background: #d1fae5; color: #065f46; }
-
-    .formula-badge {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid var(--border);
-      padding: 6px 14px;
-      border-radius: 8px;
-      color: #38bdf8;
-      font-size: 0.92rem;
-      font-weight: 700;
-      margin: 6px 0;
-    }
-    body.light-theme .formula-badge { background: #e0f2fe; color: #0284c7; }
-
-    .note-box {
-      background: var(--warning-bg);
-      border-left: 4px solid var(--warning);
-      padding: 16px 20px;
-      border-radius: var(--radius-sm);
-      margin: 18px 0;
-      font-size: 0.93rem;
-      line-height: 1.6;
-    }
-    .note-box strong { color: var(--warning); }
-
-    .info-box {
-      background: var(--info-bg);
-      border-left: 4px solid var(--accent);
-      padding: 16px 20px;
-      border-radius: var(--radius-sm);
-      margin: 18px 0;
-      font-size: 0.93rem;
-      line-height: 1.6;
-    }
-    .info-box strong { color: var(--accent); }
-
-    .table-responsive { overflow-x: auto; margin: 18px 0; }
-    .custom-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-    .custom-table th, .custom-table td { padding: 12px 16px; border: 1px solid var(--border); }
-    .custom-table th { background: rgba(16, 185, 129, 0.12); color: var(--primary); font-weight: 700; text-align: left; }
-    body.light-theme .custom-table th { background: #ecfdf5; color: #047857; }
-
-    /* Interactive Diagrams & Sơ đồ */
-    .diagram-card {
-      background: rgba(0, 0, 0, 0.28);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      margin: 20px 0;
-    }
-    body.light-theme .diagram-card { background: #f8fafc; }
-    .diagram-title { font-weight: 800; font-size: 1rem; color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-
-    .step-chain {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin: 14px 0;
-    }
-    .step-box {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
-      position: relative;
-    }
-    .step-num {
-      width: 32px;
-      height: 32px;
-      background: var(--primary-gradient);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-    .step-content { flex: 1; font-size: 0.92rem; line-height: 1.5; }
-    .step-heat {
-      font-size: 0.78rem;
-      background: rgba(244, 63, 94, 0.18);
-      color: #fb7185;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    /* Comparison Dual Box */
-    .dual-box-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 16px;
-      margin: 16px 0;
-    }
-    .dual-box {
-      background: rgba(0,0,0,0.2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 18px;
-    }
-    body.light-theme .dual-box { background: #f8fafc; }
-    .dual-box-header {
-      font-weight: 800;
-      font-size: 1.05rem;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
 
     /* Sticky Bottom Bar */
     .floating-bar {
@@ -703,18 +614,46 @@
     }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-
-    @media (max-width: 768px) {
-      .top-nav { flex-direction: column; gap: 10px; }
-      .nav-tabs { width: 100%; justify-content: center; }
-      .hero-banner { padding: 20px; }
-      .hero-banner h1 { font-size: 1.4rem; }
-      .card-scene { height: 440px; }
-      .card-prompt { font-size: 1.15rem; }
-      .card-answer { font-size: 1rem; }
-      .lesson-section { padding: 20px; }
+  
+    /* Level badges */
+    .badge-level {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-left: 6px;
+      vertical-align: middle;
     }
-  </style>
+    .badge-nhan-biet { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+    .badge-thong-hieu { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+    .badge-van-dung { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+
+    /* Level filter buttons */
+    .level-filter-bar {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .level-filter-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .level-filter-btn:hover { background: var(--border); }
+    .level-filter-btn.active { background: var(--primary-gradient); color: white; border-color: transparent; }
+
+    
+    .btn-tf.selected-correct { background: #10b981 !important; color: white !important; border-color: #10b981 !important; }
+    .btn-tf.selected-wrong { background: #ef4444 !important; color: white !important; border-color: #ef4444 !important; }
+
+    </style>
 </head>
 <body>
 
@@ -723,25 +662,22 @@
     <!-- Top Nav Header -->
     <nav class="top-nav">
       <div class="brand">
-        <span>🌱 Sinh Học 11</span>
-        <span class="brand-badge">Giữa Kì I Chuẩn SGK Mới</span>
+        <span>💻 Tin Học 11</span>
+        <span class="brand-badge">Giữa Kì I (Chuẩn 100% Đề Cương)</span>
       </div>
 
       <div class="nav-tabs">
         <button class="nav-tab-btn active" id="tabBtnQuiz" onclick="switchView('quiz')">
-          <span>📝 Trắc Nghiệm Chuyên Sâu</span>
+          <span>📝 Trắc Nghiệm (74 Câu)</span>
+        </button>
+        <button class="nav-tab-btn" id="tabBtnTrueFalse" onclick="switchView('truefalse')">
+          <span>⚖️ Đúng - Sai (8 Câu File 5)</span>
         </button>
         <button class="nav-tab-btn" id="tabBtnTheory" onclick="switchView('theory')">
-          <span>📖 Lý Thuyết 7 Câu Đề Cương</span>
+          <span>📖 Lý Thuyết Trọng Tâm</span>
         </button>
         <button class="nav-tab-btn" id="tabBtnFlashcard" onclick="switchView('flashcard')">
-          <span>⚡ Thẻ Flashcard Ghi Nhớ</span>
-        </button>
-        <button class="nav-tab-btn" id="tabBtnDiagram" onclick="switchView('diagram')">
-          <span>🧬 Sơ Đồ & Chu Trình</span>
-        </button>
-        <button class="nav-tab-btn" id="tabBtnEssay" onclick="switchView('essay')">
-          <span>✍️ Vận Dụng Tự Luận (4 Câu)</span>
+          <span>⚡ Thẻ Flashcard Nhanh</span>
         </button>
       </div>
 
@@ -753,32 +689,34 @@
     <!-- ================= VIEW 1: TRẮC NGHIỆM ================= -->
     <div id="quizView" class="view-page active">
       <div class="hero-banner">
-        <h1>Ngân Hàng Trắc Nghiệm Sinh Học 11 - Giữa Kì I</h1>
-        <p>Bao quát toàn bộ 7 câu trọng tâm trong đề cương: Trao đổi chất & Chuyển hoá năng lượng, Nước & Khoáng ở rễ, Dòng mạch gỗ vs mạch rây, Quang hợp (C3, C4, CAM, chu trình Calvin, điểm bù/bão hòa CO2, phân bón) và Hô hấp thực vật (hiếu khí vs lên men)!</p>
+        <h1>Ngân Hàng 74 Câu Hỏi Trắc Nghiệm Tin Học 11</h1>
+        <p>Bao gồm trọn vẹn 100% các câu hỏi từ đề cương chính thức: <strong>Bài 1 (Hệ điều hành)</strong>, <strong>Bài 3 (PM nguồn mở & Internet)</strong>, <strong>Bài 4 (Bên trong máy tính)</strong>, <strong>Bài 5 (Kết nối thiết bị số)</strong>, <strong>Bài 6 (Lưu trữ đám mây)</strong>, và <strong>Bài 9 (Giao tiếp an toàn trên Internet)</strong>!</p>
         <div class="shuffle-status-pill">
-          🎲 Hệ thống: Tự động đảo ngẫu nhiên thứ tự câu hỏi & cả đáp án A-B-C-D mỗi lần mở trang hoặc bấm nút!
+          🎲 Hệ thống: Tự động đảo ngẫu nhiên thứ tự câu hỏi & cả đáp án A-B-C-D mỗi lần mở trang!
         </div>
       </div>
 
       <div class="controls-panel">
         <div class="filter-row">
           <div class="lesson-tabs">
-            <button class="lesson-btn active" data-filter="all" onclick="filterQuestions('all')">Tất cả chủ đề</button>
-            <button class="lesson-btn" data-filter="1" onclick="filterQuestions('1')">Chủ đề 1: TĐC & Năng Lượng (Câu 1, 2, 3)</button>
-            <button class="lesson-btn" data-filter="2" onclick="filterQuestions('2')">Chủ đề 2: Nước & Khoáng (Câu 4, 5, 6)</button>
-            <button class="lesson-btn" data-filter="3" onclick="filterQuestions('3')">Chủ đề 3: Quang Hợp & C3/C4/CAM (Câu 7-I)</button>
-            <button class="lesson-btn" data-filter="4" onclick="filterQuestions('4')">Chủ đề 4: Hô Hấp Thực Vật (Câu 7-II)</button>
+            <button class="lesson-btn active" data-filter="all" onclick="filterQuestions('all', this)">Tất cả (74 câu)</button>
+            <button class="lesson-btn" data-filter="1" onclick="filterQuestions('1', this)">Bài 1: HĐH (12 câu)</button>
+            <button class="lesson-btn" data-filter="3" onclick="filterQuestions('3', this)">Bài 3: Nguồn mở (14 câu)</button>
+            <button class="lesson-btn" data-filter="4" onclick="filterQuestions('4', this)">Bài 4: Trong máy tính (12 câu)</button>
+            <button class="lesson-btn" data-filter="5" onclick="filterQuestions('5', this)">Bài 5: Thiết bị số (12 câu)</button>
+            <button class="lesson-btn" data-filter="6" onclick="filterQuestions('6', this)">Bài 6: Lưu trữ online (12 câu)</button>
+            <button class="lesson-btn" data-filter="9" onclick="filterQuestions('9', this)">Bài 9: An toàn mạng (12 câu)</button>
           </div>
         </div>
 
         <div class="filter-row">
           <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" class="search-input" id="searchKeyword" placeholder="Tìm câu hỏi, từ khóa (RuBP, PEP, ATP, mạch rây, Calvin...)" oninput="handleSearch()">
+            <input type="text" class="search-input" id="searchKeyword" placeholder="Tìm câu hỏi, từ khóa (CPU, RAM, ROM, HDMI, Drive, Lừa đảo...)" oninput="handleSearch()">
           </div>
 
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <button class="btn-tool" onclick="switchView('theory')">📖 Đọc lý thuyết</button>
+            <button class="btn-tool" onclick="switchView('truefalse')">⚖️ Ôn 8 câu Đúng - Sai</button>
             <button class="btn-tool btn-exam-mode" onclick="startMockExam()">⏱️ Thi thử 30 câu (45p)</button>
             <button class="btn-tool" onclick="reshuffleAll()">🔀 Đảo toàn bộ đề & đáp án</button>
           </div>
@@ -796,7 +734,7 @@
           <div class="stat-lbl">Tổng số câu</div>
         </div>
         <div class="stat-box">
-          <div class="stat-val" id="answeredCount" style="color: #10b981;">0</div>
+          <div class="stat-val" id="answeredCount" style="color: #06b6d4;">0</div>
           <div class="stat-lbl">Đã làm</div>
         </div>
         <div class="stat-box">
@@ -810,7 +748,15 @@
         <div class="stat-box">
           <div class="stat-val" id="accuracyRate" style="color: #f59e0b;">0 / 10</div>
           <div class="stat-lbl">Điểm ước tính</div>
-        </div>
+        
+          <div class="level-filter-bar" id="levelFilterBar">
+            <button class="level-filter-btn active" onclick="filterByLevel('all', this)">📋 Tất cả (74)</button>
+            <button class="level-filter-btn" onclick="filterByLevel('Nhận biết', this)">🔵 Nhận biết (60)</button>
+            <button class="level-filter-btn" onclick="filterByLevel('Thông hiểu', this)">🟡 Thông hiểu (6)</button>
+            <button class="level-filter-btn" onclick="filterByLevel('Vận dụng', this)">🔴 Vận dụng (8)</button>
+          </div>
+
+      </div>
       </div>
 
       <div id="quizContainer"></div>
@@ -824,450 +770,192 @@
     </div>
 
 
-    <!-- ================= VIEW 2: LÝ THUYẾT CHI TIẾT ĐẦY ĐỦ ================= -->
+    <!-- ================= VIEW 2: TRẮC NGHIỆM ĐÚNG - SAI (8 CÂU FILE 5) ================= -->
+    <div id="trueFalseView" class="view-page">
+      <div class="hero-banner" style="background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #6366f1 100%);">
+        <h1>⚖️ Phần II: Trắc Nghiệm Đúng - Sai (Trọn Vẹn 8 Câu File 5)</h1>
+        <p>Bao gồm 8 câu hỏi tình huống thực tế chuẩn theo <strong>đề cương File 5</strong>. Mỗi câu gồm 4 ý <strong>a), b), c), d)</strong> được chấm theo barem chuẩn của Bộ GD&ĐT (Đúng 1 ý: 0.1đ; 2 ý: 0.25đ; 3 ý: 0.5đ; 4 ý: 1.0đ - Tối đa 8.0 điểm)!</p>
+      </div>
+
+      <div class="controls-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <span style="font-weight: 700; color: var(--text);">Điểm Đúng - Sai: </span>
+            <span id="tfScoreDisplay" style="color: #a78bfa; font-weight: 800; font-size: 1.25rem;">0.0 / 8.0 điểm</span>
+            <span id="tfItemsCountDisplay" style="color: var(--text-muted); font-size: 0.85rem; margin-left: 10px;">(0/32 ý đúng)</span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn-tool" onclick="checkAllTrueFalse()">✅ Chấm điểm & Xem giải thích</button>
+            <button class="btn-tool" onclick="resetTrueFalse()">🔄 Làm lại Đúng - Sai</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="tfContainer"></div>
+    </div>
+
+
+    <!-- ================= VIEW 3: LÝ THUYẾT TRỌNG TÂM ================= -->
     <div id="theoryView" class="view-page">
-      <div class="hero-banner" style="background: linear-gradient(135deg, #047857 0%, #059669 50%, #0d9488 100%);">
-        <h1>📖 Đề Cương Chi Tiết Sinh Học 11 - Giữa Kì I</h1>
-        <p>Hệ thống hoá trọn vẹn 100% nội dung 7 câu hỏi ôn tập, các sơ đồ chuyển hoá năng lượng, chu trình Calvin, phân biệt C3 - C4 - CAM và hô hấp hiếu khí/lên men chuẩn SGK!</p>
+      <div class="hero-banner" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%);">
+        <h1>📖 Tóm Tắt Lý Thuyết Cốt Lõi (Bài 1, 3, 4, 5, 6, 9)</h1>
+        <p>Hệ thống hóa toàn bộ kiến thức trọng tâm cần nhớ từ đề cương để đạt điểm 10 trong kì thi.</p>
       </div>
 
-      <div class="theory-toc">
-        <span style="font-weight: 700; color: var(--text-muted); font-size: 0.88rem;">MỤC LỤC ÔN TẬP:</span>
-        <a href="#t-c1" class="toc-link">Câu 1: Dấu hiệu TĐC & NL</a>
-        <a href="#t-c2" class="toc-link">Câu 2: 3 Giai đoạn chuyển hóa NL</a>
-        <a href="#t-c3" class="toc-link">Câu 3: Tự dưỡng & Dị dưỡng</a>
-        <a href="#t-c4" class="toc-link">Câu 4: Vai trò của nước</a>
-        <a href="#t-c5" class="toc-link">Câu 5: Hấp thụ nước & khoáng ở rễ</a>
-        <a href="#t-c6" class="toc-link">Câu 6: Dòng mạch gỗ & mạch rây</a>
-        <a href="#t-c7" class="toc-link">Câu 7: Quang hợp & Hô hấp thực vật</a>
-      </div>
-
-      <!-- CÂU 1 -->
-      <section class="lesson-section" id="t-c1">
+      <!-- BÀI 1 -->
+      <section class="lesson-section">
         <div class="lesson-section-header">
-          <div class="lesson-icon">⚡</div>
+          <div class="lesson-icon">🖥️</div>
           <div class="lesson-title-text">
-            <h2>CÂU 1: DẤU HIỆU ĐẶC TRƯNG CỦA TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG</h2>
-            <span>Chủ đề 1: Khái quát về trao đổi chất và chuyển hóa năng lượng ở sinh vật</span>
+            <h2>BÀI 1: HỆ ĐIỀU HÀNH (OPERATING SYSTEM)</h2>
+            <span>Khái niệm, vai trò, chức năng và các hệ điều hành tiêu biểu</span>
           </div>
         </div>
-
         <div class="theory-block">
-          <h3>Bốn Dấu Hiệu Đặc Trưng Cơ Bản</h3>
           <ul>
-            <li><strong>1. Tiếp nhận các chất từ môi trường và vận chuyển các chất:</strong>
-              <br>• Sinh vật lấy các chất cần thiết từ môi trường ngoài (nước, chất khoáng, CO2, O2, chất dinh dưỡng hữu cơ).
-              <br>• Các chất được vận chuyển đến các tế bào và cơ quan trong cơ thể để sử dụng cho hoạt động sống.
-            </li>
-            <li><strong>2. Biến đổi các chất và chuyển hoá năng lượng ở tế bào:</strong>
-              <br>• <span class="tag-term">Đồng hoá (Anabolism):</span> Quá trình tổng hợp các chất hữu cơ phức tạp từ các chất đơn giản, đồng thời <strong>tích luỹ năng lượng</strong> vào trong các liên kết hoá học.
-              <br>• <span class="tag-term">Dị hoá (Catabolism):</span> Quá trình phân giải các chất hữu cơ phức tạp thành các chất đơn giản, đồng thời <strong>giải phóng năng lượng</strong> (ATP và nhiệt).
-            </li>
-            <li><strong>3. Thải các chất vào môi trường:</strong>
-              <br>• Các chất cặn bã, chất độc hại và sản phẩm dư thừa sinh ra từ quá trình chuyển hóa (như CO2, urea, uric acid, H2O,...) được đào thải ra môi trường bên ngoài để đảm bảo tính ổn định nội môi.
-            </li>
-            <li><strong>4. Điều hoà:</strong>
-              <br>• Toàn bộ quá trình trao đổi chất và chuyển hóa năng lượng luôn được điều hòa chặt chẽ thông qua hệ thống thần kinh, thể dịch (hormone) hoặc cơ chế điều hòa ngược (feedback) ở cấp độ tế bào và cơ thể.
+            <li><strong>Khái niệm:</strong> HĐH là phần mềm hệ thống giúp <strong>phần mềm ứng dụng khai thác hiệu quả phần cứng</strong>.</li>
+            <li><strong>Cơ chế Plug & Play:</strong> Tự động nhận biết thiết bị ngoại vi và tự nạp trình điều khiển (Driver).</li>
+            <li><strong>Mốc lịch sử:</strong> Windows 1 ra đời năm <strong>1985</strong>; Windows 7 ra đời năm <strong>2009</strong>; Unix khởi nguồn năm <strong>1969</strong>.</li>
+            <li><strong>Mac OS:</strong> Hệ điều hành của Apple, phổ biến nhất trong giới thiết kế đồ họa và truyền thông.</li>
+            <li><strong>Hệ điều hành di động phổ biến:</strong> Android (Google) và iOS (Apple).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- BÀI 3 -->
+      <section class="lesson-section">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">🌐</div>
+          <div class="lesson-title-text">
+            <h2>BÀI 3: PHẦN MỀM NGUỒN MỞ VÀ INTERNET</h2>
+            <span>Phân loại phần mềm, giấy phép mã nguồn và ứng dụng web</span>
+          </div>
+        </div>
+        <div class="theory-block">
+          <ul>
+            <li><strong>Phân loại theo chuyển giao:</strong> Phần mềm thương mại (sản xuất để bán), phần mềm tự do, phần mềm nguồn mở.</li>
+            <li><strong>Phần mềm thương mại:</strong> Gồm 2 loại: đóng gói (bán đại trà) và may đo / đặt hàng (Grab Driver, phần mềm ngân hàng...).</li>
+            <li><strong>Phần mềm nguồn mở:</strong> Cung cấp cả mã nguồn công khai; giấy phép phổ biến nhất là <strong>GNU GPL</strong>.</li>
+            <li><strong>Phần mềm chạy trên Internet:</strong> Sử dụng trực tiếp qua trình duyệt web không cần cài đặt (Google Docs, Canva...).</li>
+            <li><strong>5 thành phần của hệ thống thông tin:</strong> Con người, quy trình, phần mềm, phần cứng và dữ liệu.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- BÀI 4 -->
+      <section class="lesson-section">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">⚙️</div>
+          <div class="lesson-title-text">
+            <h2>BÀI 4: BÊN TRONG MÁY TÍNH</h2>
+            <span>CPU, RAM, ROM, Bộ nhớ ngoài và Logic nhị phân</span>
+          </div>
+        </div>
+        <div class="theory-block">
+          <ul>
+            <li><strong>CPU (Bộ xử lý trung tâm):</strong> Gồm 2 bộ phận cốt lõi là <strong>ALU (bộ số học & logic)</strong> và <strong>CU (bộ điều khiển)</strong>.</li>
+            <li><strong>RAM:</strong> Bộ nhớ đọc-ghi tạm thời, <strong>mất dữ liệu khi tắt máy</strong> (bộ nhớ khả biến).</li>
+            <li><strong>ROM:</strong> Bộ nhớ chỉ đọc, <strong>không mất dữ liệu khi tắt máy</strong>, lưu dữ liệu hệ thống cố định (BIOS/UEFI).</li>
+            <li><strong>Bộ nhớ ngoài:</strong> HDD, SSD, USB, thẻ nhớ... Lưu trữ lâu dài, dung lượng lớn (GB, TB). Ổ cứng <strong>SSD nhanh hơn nhiều so với HDD</strong>.</li>
+            <li><strong>Phép toán logic XOR:</strong> Cho kết quả bằng 1 khi 2 đầu vào <strong>khác nhau</strong> (1 XOR 0 = 1, 0 XOR 1 = 1).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- BÀI 5 -->
+      <section class="lesson-section">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">🔌</div>
+          <div class="lesson-title-text">
+            <h2>BÀI 5: KẾT NỐI MÁY TÍNH VỚI CÁC THIẾT BỊ SỐ</h2>
+            <span>Thiết bị vào, thiết bị ra, cổng kết nối thông dụng</span>
+          </div>
+        </div>
+        <div class="theory-block">
+          <ul>
+            <li><strong>Thiết bị vào (Input):</strong> Bàn phím (thông dụng nhất), chuột (độ phân giải dpi), micro, webcam.</li>
+            <li><strong>Thiết bị ra (Output):</strong> Màn hình (phổ biến nhất, đo bằng inch, độ phân giải, tần số quét Hz), máy in, máy chiếu, loa.</li>
+            <li><strong>Cổng HDMI:</strong> Cổng 19 chân truyền đồng thời cả <strong>hình ảnh độ nét cao và âm thanh số</strong>.</li>
+            <li><strong>Đầu nối RJ-45:</strong> Chuẩn cáp mạng 8 chân tiếp xúc bằng đồng để kết nối mạng LAN / Ethernet.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- BÀI 6 -->
+      <section class="lesson-section">
+        <div class="lesson-section-header">
+          <div class="lesson-icon">☁️</div>
+          <div class="lesson-title-text">
+            <h2>BÀI 6: LƯU TRỮ VÀ CHIA SẺ TRÊN INTERNET</h2>
+            <span>Ổ đĩa đám mây và cơ chế phân quyền bảo mật</span>
+          </div>
+        </div>
+        <div class="theory-block">
+          <ul>
+            <li><strong>Lợi ích lưu trữ đám mây:</strong> Bộ nhớ lớn, linh hoạt, tránh rủi ro hỏng máy, truy cập mọi nơi có mạng.</li>
+            <li><strong>Các dịch vụ phổ biến:</strong> Google Drive, Microsoft OneDrive, Apple iCloud, Dropbox, Google One.</li>
+            <li><strong>3 chế độ chia sẻ tệp tin:</strong>
+              <br>1. <strong>Người xem (Viewer):</strong> Chỉ được xem nội dung.
+              <br>2. <strong>Người nhận xét (Commenter):</strong> Được xem và thêm bình luận đóng góp.
+              <br>3. <strong>Người chỉnh sửa (Editor):</strong> Quyền cao nhất, được sửa nội dung, thêm và xóa tệp.
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- CÂU 2 -->
-      <section class="lesson-section" id="t-c2">
+      <!-- BÀI 9 -->
+      <section class="lesson-section">
         <div class="lesson-section-header">
-          <div class="lesson-icon">🔄</div>
+          <div class="lesson-icon">🛡️</div>
           <div class="lesson-title-text">
-            <h2>CÂU 2: BA GIAI ĐOẠN CHUYỂN HOÁ NĂNG LƯỢNG TRONG SINH GIỚI</h2>
-            <span>Dựa vào sơ đồ Hình 1.1 SGK: Tổng hợp ➔ Phân giải ➔ Huy động năng lượng</span>
+            <h2>BÀI 9: GIAO TIẾP AN TOÀN TRÊN INTERNET</h2>
+            <span>Quy tắc ứng xử văn minh và 3 nguyên tắc phòng chống lừa đảo mạng</span>
           </div>
         </div>
-
-        <div class="theory-block">
-          <div class="diagram-card">
-            <div class="diagram-title">☀️ SƠ ĐỒ CHUYỂN HÓA NĂNG LƯỢNG TRONG SINH GIỚI (HÌNH 1.1 SGK)</div>
-            <div class="step-chain">
-              <div class="step-box">
-                <div class="step-num">1</div>
-                <div class="step-content">
-                  <strong>Năng lượng ánh sáng (Quang năng mặt trời)</strong>
-                  <br>⬇️ <em>Giai đoạn tổng hợp (Quang hợp ở thực vật/sinh vật quang dưỡng)</em>
-                  <br>Biến đổi quang năng thành <strong>Năng lượng hoá học tích luỹ trong các chất hữu cơ</strong>.
-                </div>
-                <div class="step-heat">Tỏa nhiệt (Nhiệt năng) 🔥</div>
-              </div>
-
-              <div class="step-box">
-                <div class="step-num">2</div>
-                <div class="step-content">
-                  <strong>Năng lượng hoá học trong chất hữu cơ</strong>
-                  <br>⬇️ <em>Giai đoạn phân giải (Hô hấp tế bào)</em>
-                  <br>Phân giải chất hữu cơ giải phóng năng lượng để biến đổi thành <strong>Năng lượng tích luỹ trong ATP</strong>.
-                </div>
-                <div class="step-heat">Tỏa nhiệt (Nhiệt năng) 🔥</div>
-              </div>
-
-              <div class="step-box">
-                <div class="step-num">3</div>
-                <div class="step-content">
-                  <strong>Năng lượng tích luỹ trong ATP</strong>
-                  <br>⬇️ <em>Giai đoạn huy động năng lượng</em>
-                  <br>Thủy phân ATP giải phóng năng lượng cung cấp trực tiếp cho <strong>Các hoạt động sống</strong> (tổng hợp chất, co cơ, dẫn truyền xung thần kinh, vận chuyển chủ động...).
-                </div>
-                <div class="step-heat">Tỏa nhiệt (Nhiệt năng) 🔥</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="info-box">
-            <strong>📌 Kết luận then chốt:</strong> Trong suốt ba giai đoạn, ở mỗi bước chuyển đổi năng lượng đều có một phần năng lượng bị hao phí dưới dạng <strong>nhiệt năng</strong> phát tán ra môi trường. ATP đóng vai trò là <em>"đồng tiền năng lượng"</em> của tế bào.
-          </div>
-        </div>
-      </section>
-
-      <!-- CÂU 3 -->
-      <section class="lesson-section" id="t-c3">
-        <div class="lesson-section-header">
-          <div class="lesson-icon">🌱</div>
-          <div class="lesson-title-text">
-            <h2>CÂU 3: KHÁI NIỆM TỰ DƯỠNG VÀ DỊ DƯỠNG</h2>
-            <span>Phương thức dinh dưỡng và vai trò của sinh vật tự dưỡng trong sinh giới</span>
-          </div>
-        </div>
-
-        <div class="theory-block">
-          <div class="dual-box-grid">
-            <div class="dual-box">
-              <div class="dual-box-header" style="color: #34d399;">
-                <span>🌿 1. SINH VẬT TỰ DƯỠNG</span>
-              </div>
-              <p>Là sinh vật có khả năng tự tổng hợp chất hữu cơ từ các chất vô cơ đơn giản.</p>
-              <ul>
-                <li><strong>Quang tự dưỡng:</strong> Sử dụng chất vô cơ, nước, CO₂ và nguồn năng lượng <strong>ánh sáng</strong> để tổng hợp chất hữu cơ.
-                  <br>• <em>Đại diện:</em> Thực vật, tảo, vi khuẩn lam.
-                </li>
-                <li><strong>Hoá tự dưỡng:</strong> Sử dụng nguồn carbon chủ yếu là CO₂, nguồn năng lượng từ quá trình <strong>oxi hoá các chất vô cơ</strong> (NH₃, H₂S, Fe²⁺...) để tổng hợp chất hữu cơ.
-                  <br>• <em>Đại diện:</em> Một số vi khuẩn (vi khuẩn nitrat hóa, vi khuẩn oxi hóa lưu huỳnh, vi khuẩn sắt).
-                </li>
-              </ul>
-            </div>
-
-            <div class="dual-box">
-              <div class="dual-box-header" style="color: #38bdf8;">
-                <span>🦁 2. SINH VẬT DỊ DƯỠNG</span>
-              </div>
-              <p>Là sinh vật không có khả năng tự tổng hợp chất hữu cơ từ chất vô cơ, phải lấy chất hữu cơ trực tiếp từ sinh vật tự dưỡng hoặc từ động vật khác để sinh trưởng và phát triển.</p>
-              <ul>
-                <li><strong>Đại diện:</strong> Động vật (sư tử, cáo, mèo, người...), nấm, và phần lớn các loài vi khuẩn.</li>
-                <li><strong>Cơ chế:</strong> Phân giải thức ăn hữu cơ lấy từ môi trường thành các chất dinh dưỡng đơn giản để tế bào hấp thụ và sử dụng.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="note-box">
-            <strong>🌟 VAI TRÒ CỦA SINH VẬT TỰ DƯỠNG TRONG SINH GIỚI:</strong>
-            <br>1. <strong>Cung cấp O₂:</strong> Đảm bảo dưỡng khí cho hoạt động hô hấp của hầu hết các sinh vật trên Trái Đất.
-            <br>2. <strong>Cung cấp thức ăn, nơi ở và sinh sản:</strong> Là sinh vật sản xuất sơ cấp mở đầu cho chuỗi và lưới thức ăn, tạo sinh cảnh cho động vật.
-            <br>3. <strong>Điều hoà khí hậu:</strong> Hấp thụ CO₂ làm giảm hiệu ứng nhà kính, thoát hơi nước tạo độ ẩm và hạ nhiệt độ môi trường, duy trì sự cân bằng sinh quyển.
-          </div>
-        </div>
-      </section>
-
-      <!-- CÂU 4 -->
-      <section class="lesson-section" id="t-c4">
-        <div class="lesson-section-header">
-          <div class="lesson-icon">💧</div>
-          <div class="lesson-title-text">
-            <h2>CÂU 4: VAI TRÒ CỦA NƯỚC ĐỐI VỚI THỰC VẬT</h2>
-            <span>Chủ đề 2: Trao đổi nước và khoáng ở thực vật</span>
-          </div>
-        </div>
-
         <div class="theory-block">
           <ul>
-            <li><strong>1. Là thành phần chính cấu tạo tế bào:</strong> Nước chiếm 70% – 90% khối lượng sinh khối tươi của cây, duy trì độ trương của tế bào, giữ cho cây có hình dạng nhất định.</li>
-            <li><strong>2. Là dung môi hoà tan các chất:</strong> Nước hòa tan muối khoáng và các hợp chất hữu cơ, là phương tiện vận chuyển các chất trong dòng mạch gỗ và mạch rây từ rễ lên lá và ngược lại.</li>
-            <li><strong>3. Là nguyên liệu và môi trường cho các phản ứng sinh hoá:</strong> Nước là nguyên liệu trực tiếp của quá trình quang hợp (quang phân li nước cung cấp e⁻, H⁺ để tạo NADPH và giải phóng O₂); tham gia các phản ứng thủy phân trong tế bào.</li>
-            <li><strong>4. Điều hoà nhiệt độ của cơ thể thực vật:</strong> Nước có nhiệt dung cao; quá trình thoát hơi nước qua khí khổng ở lá giúp giải tỏa nhiệt lượng, bảo vệ lá khỏi bị đốt cháy dưới ánh nắng mặt trời gay gắt.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- CÂU 5 -->
-      <section class="lesson-section" id="t-c5">
-        <div class="lesson-section-header">
-          <div class="lesson-icon">🌾</div>
-          <div class="lesson-title-text">
-            <h2>CÂU 5: CƠ CHẾ HẤP THỤ NƯỚC VÀ KHOÁNG Ở TẾ BÀO LÔNG HÚT CỦA RỄ</h2>
-            <span>Hấp thụ nước theo cơ chế thẩm thấu; hấp thụ khoáng theo cơ chế thụ động và chủ động</span>
-          </div>
-        </div>
-
-        <div class="theory-block">
-          <div class="dual-box-grid">
-            <div class="dual-box">
-              <div class="dual-box-header" style="color: #38bdf8;">
-                <span>💧 CƠ CHẾ HẤP THỤ NƯỚC</span>
-              </div>
-              <p>Nước được hấp thụ vào rễ theo <strong>cơ chế thẩm thấu (thụ động)</strong>:</p>
-              <ul>
-                <li>Nước di chuyển từ môi trường đất (nơi có <em>thế nước cao, nồng độ chất tan thấp - môi trường nhược trương</em>) vào tế bào lông hút của rễ (nơi có <em>thế nước thấp, nồng độ chất tan cao - môi trường ưu trương</em>).</li>
-                <li><strong>Nguyên nhân dịch bào rễ luôn ưu trương:</strong> Do rễ tích cực tích lũy các ion khoáng và do quá trình thoát hơi nước ở lá liên tục hút nước kéo lên.</li>
-              </ul>
-            </div>
-
-            <div class="dual-box">
-              <div class="dual-box-header" style="color: #fbbf24;">
-                <span>🧪 CƠ CHẾ HẤP THỤ KHOÁNG (2 CƠ CHẾ)</span>
-              </div>
-              <ul>
-                <li><strong>1. Cơ chế thụ động (Khuếch tán):</strong>
-                  <br>• Các ion khoáng hòa tan trong đất khuếch tán từ nơi có nồng độ khoáng cao (trong đất) vào nơi có nồng độ khoáng thấp (trong rễ) xuôi theo gradient nồng độ.
-                  <br>• Không tiêu tốn năng lượng ATP.
-                </li>
-                <li><strong>2. Cơ chế chủ động:</strong>
-                  <br>• Phần lớn các ion khoáng mà cây cần được vận chuyển vào rễ <strong>ngược chiều gradient nồng độ</strong> (từ đất nơi nồng độ thấp vào rễ nơi nồng độ cao).
-                  <br>• Cần có các chất mang (protein màng) chuyên biệt và <strong>tiêu tốn năng lượng sinh học (ATP)</strong> do hô hấp rễ cung cấp.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CÂU 6 -->
-      <section class="lesson-section" id="t-c6">
-        <div class="lesson-section-header">
-          <div class="lesson-icon">🪵</div>
-          <div class="lesson-title-text">
-            <h2>CÂU 6: SO SÁNH HAI DÒNG VẬN CHUYỂN TRONG CÂY (DÒNG MẠCH GỖ & MẠCH RÂY)</h2>
-            <span>Phân biệt chiều di chuyển, cấu tạo tế bào, thành phần dịch và động lực vận chuyển</span>
-          </div>
-        </div>
-
-        <div class="theory-block">
-          <div class="table-responsive">
-            <table class="custom-table">
-              <thead>
-                <tr>
-                  <th style="width: 20%;">Tiêu chí so sánh</th>
-                  <th style="width: 40%; color: #38bdf8;">Dòng mạch gỗ (Dòng đi lên - Xylem)</th>
-                  <th style="width: 40%; color: #34d399;">Dòng mạch rây (Dòng đi xuống/chuyển vị - Phloem)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Chiều vận chuyển</strong></td>
-                  <td>Vận chuyển <strong>từ rễ lên lá</strong> và các cơ quan phía trên; các lỗ bên có thể vận chuyển theo chiều ngang.</td>
-                  <td>Vận chuyển <strong>từ lá xuống rễ</strong> hoặc ngược lại tùy thuộc vào vị trí của cơ quan nguồn so với cơ quan đích (có thể chuyển nước sang mạch gỗ).</td>
-                </tr>
-                <tr>
-                  <td><strong>Cấu tạo tế bào</strong></td>
-                  <td>Gồm <strong>quản bào</strong> và <strong>mạch ống</strong>.
-                    <br>• Là các <strong>tế bào chết</strong>, thành hóa gỗ (lignin) dày, không còn màng và bào quan.</td>
-                  <td>Gồm <strong>tế bào ống rây</strong> và <strong>tế bào kèm</strong>.
-                    <br>• Là các <strong>tế bào sống</strong> (ống rây mất nhân, tế bào kèm giàu ti thể hỗ trợ).</td>
-                </tr>
-                <tr>
-                  <td><strong>Thành phần dịch dẫn</strong></td>
-                  <td>Chủ yếu là <strong>nước, chất khoáng hoà tan</strong> và một số chất hữu cơ tổng hợp từ rễ (như amino acid, amide, hormone...).</td>
-                  <td>Chủ yếu là <strong>đường sucrose</strong> (chiếm 95%), các amino acid, hormone thực vật, một số ion khoáng (như K⁺)...</td>
-                </tr>
-                <tr>
-                  <td><strong>Động lực vận chuyển</strong></td>
-                  <td>Kết hợp bởi <strong>3 lực</strong>:
-                    <br>1️⃣ Lực đẩy của áp suất rễ (gây hiện tượng ứ giọt, rỉ nhựa).
-                    <br>2️⃣ Lực liên kết giữa các phân tử nước với nhau và lực bám vào thành mạch gỗ.
-                    <br>3️⃣ <strong>Lực kéo do thoát hơi nước ở lá</strong> (đóng vai trò chủ yếu / quan trọng nhất).</td>
-                  <td>Do sự <strong>chênh lệch áp suất thẩm thấu</strong> giữa <strong>cơ quan nguồn</strong> (nơi tổng hợp đường có nồng độ chất tan cao) và <strong>cơ quan đích</strong> (nơi dự trữ/sử dụng có nồng độ thấp).</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- CÂU 7 -->
-      <section class="lesson-section" id="t-c7">
-        <div class="lesson-section-header">
-          <div class="lesson-icon">🌞</div>
-          <div class="lesson-title-text">
-            <h2>CÂU 7: QUANG HỢP VÀ HÔ HẤP Ở THỰC VẬT</h2>
-            <span>Bao gồm chu trình Calvin, bảng phân biệt C3-C4-CAM, các yếu tố ảnh hưởng và con đường hô hấp</span>
-          </div>
-        </div>
-
-        <div class="theory-block">
-          <h3>I. QUANG HỢP Ở THỰC VẬT</h3>
-          <ul>
-            <li><strong>1. Khái niệm:</strong> Quang hợp là quá trình thực vật tổng hợp carbohydrate và giải phóng O₂ từ các chất vô cơ đơn giản (CO₂, H₂O) dưới tác dụng của năng lượng ánh sáng và sự tham gia của hệ sắc tố quang hợp (chủ yếu là diệp lục).</li>
-            <li><strong>2. Phương trình tổng quát:</strong>
-              <br><span class="formula-badge">6CO₂ + 12H₂O ──(Ánh sáng / Diệp lục)──► C₆H₁₂O₆ + 6O₂ + 6H₂O</span>
-              <br><em>(Hoặc dạng viết gọn: 6CO₂ + 6H₂O ──► C₆H₁₂O₆ + 6O₂)</em>
+            <li><strong>3 nguyên tắc vàng phòng tránh lừa đảo trên không gian số:</strong>
+              <br>1️⃣ <strong>Hãy chậm lại:</strong> Bình tĩnh suy xét trước khi hành động để tránh cảm giác bị kẻ lừa đảo thúc ép, thao túng tâm lý.
+              <br>2️⃣ <strong>Kiểm tra ngay:</strong> Xác minh lại thông tin qua các kênh chính thống độc lập (gọi điện thoại trực tiếp, gặp mặt).
+              <br>3️⃣ <strong>Dừng lại, không gửi:</strong> Tuyệt đối không chuyển tiền, không gửi mã OTP, không gửi thông tin tài khoản ngân hàng khi chưa rõ nguồn gốc.
             </li>
-            <li><strong>3. Vai trò của quang hợp:</strong>
-              <br>• Tạo ra chất hữu cơ cung cấp thức ăn cho cây và toàn bộ sinh vật dị dưỡng trên Trái Đất.
-              <br>• Cung cấp nguyên liệu cho các ngành công nghiệp, dược liệu và xây dựng.
-              <br>• Tích lũy nguồn năng lượng khổng lồ duy trì hoạt động sống của sinh giới.
-              <br>• Cung cấp khí O₂ và hấp thụ CO₂, giúp điều hòa khí hậu toàn cầu.
-            </li>
+            <li><strong>4 quy tắc ứng xử trên mạng xã hội:</strong> Tôn trọng, Trách nhiệm, An toàn, Lành mạnh.</li>
+            <li><strong>Bảo vệ dữ liệu cá nhân:</strong> Sử dụng mật khẩu mạnh, thay đổi định kỳ, cài phần mềm diệt virus chính hãng, tôn trọng bản quyền sở hữu trí tuệ.</li>
           </ul>
-
-          <h4>Chu trình Calvin (Chu trình C₃) - Hình 4.3 SGK:</h4>
-          <p>Xảy ra ở <strong>stroma (chất nền lục lạp)</strong> của tất cả các nhóm thực vật, gồm 3 giai đoạn chính:</p>
-          <ul>
-            <li><strong>Giai đoạn 1: Cố định CO₂:</strong> Phân tử CO₂ kết hợp với chất nhận <strong>RuBP</strong> (Ribulose-1,5-bisphosphate, hợp chất 5C) nhờ enzyme Rubisco, tạo thành hợp chất 6C không bền, ngay lập tức bị bẻ đôi thành 2 phân tử <strong>3-PGA</strong> (3-phosphoglyceric acid, hợp chất 3C).</li>
-            <li><strong>Giai đoạn 2: Giai đoạn khử:</strong> Phân tử 3-PGA được khử thành <strong>G3P</strong> (Glyceraldehyde-3-phosphate) với sự tham gia của năng lượng <strong>ATP</strong> và lực khử <strong>NADPH</strong> từ pha sáng.</li>
-            <li><strong>Giai đoạn 3: Tái sinh chất nhận RuBP:</strong> Phần lớn G3P qua hàng loạt phản ứng biến đổi tái tạo lại RuBP (tiêu tốn ATP). Một phần G3P tách ra khỏi chu trình để tổng hợp nên <strong>Glucose</strong> và các hợp chất hữu cơ khác.</li>
-          </ul>
-
-          <h4>Bảng Phân Biệt Quang Hợp Ở Các Nhóm Thực Vật C3, C4, CAM:</h4>
-          <div class="table-responsive">
-            <table class="custom-table">
-              <thead>
-                <tr>
-                  <th>Tiêu chí so sánh</th>
-                  <th>Thực vật C3</th>
-                  <th>Thực vật C4</th>
-                  <th>Thực vật CAM</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Chất nhận CO₂ đầu tiên</strong></td>
-                  <td><strong>RuBP</strong> (5C)</td>
-                  <td><strong>PEP</strong> (3C)</td>
-                  <td><strong>PEP</strong> (3C)</td>
-                </tr>
-                <tr>
-                  <td><strong>Sản phẩm cố định CO₂ đầu tiên</strong></td>
-                  <td><strong>PGA</strong> (3C)</td>
-                  <td><strong>OAA</strong> (4C) (Oxaloacetic acid)</td>
-                  <td><strong>OAA</strong> (4C) (Oxaloacetic acid)</td>
-                </tr>
-                <tr>
-                  <td><strong>Không gian thực hiện</strong></td>
-                  <td>Lục lạp tế bào mô giậu</td>
-                  <td>Lục lạp tế bào mô giậu (cố định CO₂) và tế bào bao bó mạch (chu trình Calvin)</td>
-                  <td>Lục lạp tế bào mô giậu</td>
-                </tr>
-                <tr>
-                  <td><strong>Chu trình quang hợp</strong></td>
-                  <td>Chỉ có Chu trình Calvin (C₃)</td>
-                  <td>Chu trình C₄ và chu trình Calvin (C₃)</td>
-                  <td>Chu trình C₄ và chu trình Calvin (C₃)</td>
-                </tr>
-                <tr>
-                  <td><strong>Thời gian thực hiện</strong></td>
-                  <td>Ban ngày</td>
-                  <td>Ban ngày (cả 2 chu trình đều diễn ra ban ngày)</td>
-                  <td>• Cố định CO₂: <strong>Ban đêm</strong> (khí khổng mở)
-                    <br>• Tái cố định (Calvin): <strong>Ban ngày</strong> (khí khổng đóng)</td>
-                </tr>
-                <tr>
-                  <td><strong>Năng suất sinh học</strong></td>
-                  <td>Trung bình</td>
-                  <td><strong>Cao</strong> (gấp đôi C₃, không có hô hấp sáng)</td>
-                  <td>Thấp (thích nghi điều kiện khô hạn)</td>
-                </tr>
-                <tr>
-                  <td><strong>Nhóm thực vật đặc trưng</strong></td>
-                  <td>Sống ở vùng ôn đới, cận nhiệt (lúa, khoai, sắn, đậu, cam, bưởi...)</td>
-                  <td>Sống ở vùng nhiệt đới nóng ẩm kéo dài (ngô, mía, cỏ lồng vực, kê, rau dền...)</td>
-                  <td>Sống ở vùng khô hạn kéo dài, sa mạc (dứa, xương rồng, thanh long, cây mọng nước...)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h4>Mối Quan Hệ Giữa Nồng Độ CO₂ Và Cường Độ Quang Hợp (Hình 4.8 SGK):</h4>
-          <ul>
-            <li><strong>Điểm bù CO₂ (Điểm A):</strong> Nồng độ CO₂ mà tại đó cường độ quang hợp cân bằng với cường độ hô hấp (V(quang hợp) = V(hô hấp)).</li>
-            <li><strong>Điểm bão hoà CO₂ (Điểm B):</strong> Nồng độ CO₂ mà tại đó cường độ quang hợp đạt cực đại. Vượt quá nồng độ bão hòa, nếu tiếp tục tăng nồng độ CO₂ thì cường độ quang hợp cũng không tăng thêm mà thậm chí có thể bị ức chế do ngộ độc khí.</li>
-          </ul>
-
-          <h4>Mối Quan Hệ Giữa Phân Bón Và Năng Suất Cây Trồng (Hình 2.13 SGK):</h4>
-          <ul>
-            <li><strong>Lượng thiếu:</strong> Cây thiếu dinh dưỡng khoáng, sinh trưởng còi cọc, năng suất cây trồng thấp.</li>
-            <li><strong>Lượng tối ưu:</strong> Cung cấp vừa đủ các nguyên tố khoáng thiết yếu, cây sinh trưởng phát triển khỏe mạnh nhất, đạt <strong>năng suất tối ưu (cực đại)</strong>.</li>
-            <li><strong>Lượng dư thừa:</strong> Gây lãng phí kinh tế, gây ô nhiễm nguồn đất và nguồn nước xung quanh.</li>
-            <li><strong>Lượng cao quá mức:</strong> Làm tăng nồng độ chất tan trong dung dịch đất khiến rễ cây không hút được nước (mất nước), gây độc cho cây và làm cây chết cháy.</li>
-          </ul>
-        </div>
-
-        <div class="theory-block" style="border-top: 1px dashed var(--border); padding-top: 24px;">
-          <h3>II. HÔ HẤP Ở THỰC VẬT</h3>
-          <ul>
-            <li><strong>1. Khái niệm:</strong> Hô hấp ở thực vật là quá trình phân giải các hợp chất hữu cơ phức tạp (phổ biến nhất là Glucose/Carbohydrate) thành các chất đơn giản (CO₂, H₂O), đồng thời giải phóng năng lượng dưới dạng <strong>ATP</strong> và <strong>nhiệt năng</strong>.</li>
-            <li><strong>2. Phương trình tổng quát của hô hấp hiếu khí (xảy ra ở ti thể):</strong>
-              <br><span class="formula-badge">C₆H₁₂O₆ + 6O₂ ──► 6CO₂ + 6H₂O + Năng lượng (~30 - 32 ATP + Nhiệt)</span>
-            </li>
-          </ul>
-
-          <div class="diagram-card">
-            <div class="diagram-title">🫁 SƠ ĐỒ CÁC CON ĐƯỜNG HÔ HẤP Ở THỰC VẬT</div>
-            <p style="font-size: 0.92rem; margin-bottom: 12px;">Từ 1 phân tử Glucose ban đầu đi vào giai đoạn <strong>Đường phân</strong> tại tế bào chất ➔ tạo <strong>2 Pyruvate + 2 ATP + 2 NADH</strong>:</p>
-            
-            <div class="dual-box-grid">
-              <div class="dual-box">
-                <div class="dual-box-header" style="color: #fb7185;">
-                  <span>🚫 Khi KHÔNG CÓ O₂ (Hô hấp kị khí / Lên men)</span>
-                </div>
-                <ul>
-                  <li><strong>Nơi diễn ra:</strong> Tế bào chất.</li>
-                  <li><strong>Diễn biến:</strong> Pyruvate lên men tạo ra <strong>Ethanol (rượu)</strong> hoặc <strong>Lactate (axit lactic)</strong>.</li>
-                  <li><strong>Hiệu quả năng lượng:</strong> <strong>Không tạo thêm phân tử ATP nào</strong> ngoài 2 ATP từ đường phân. Rất lãng phí năng lượng nhưng giúp tái sinh NAD⁺ duy trì đường phân.</li>
-                </ul>
-              </div>
-
-              <div class="dual-box">
-                <div class="dual-box-header" style="color: #34d399;">
-                  <span>🌬️ Khi CÓ ĐỦ O₂ (Hô hấp hiếu khí)</span>
-                </div>
-                <ul>
-                  <li><strong>Nơi diễn ra:</strong> Bào quan <strong>Ti thể</strong>.</li>
-                  <li><strong>Gồm 3 bước liên tiếp:</strong>
-                    <br>1. <em>Oxi hoá Pyruvate</em> thành 2 Acetyl-CoA (tạo 2 CO₂ + 2 NADH).
-                    <br>2. <em>Chu trình Krebs</em> (trong chất nền ti thể): tạo 4 CO₂ + 2 ATP + 6 NADH + 2 FADH₂.
-                    <br>3. <em>Chuỗi truyền electron hô hấp</em> (tại màng trong ti thể): Nhận electron từ NADH và FADH₂, truyền đến chất nhận cuối cùng là O₂ để tạo H₂O và tổng hợp <strong>26 - 28 ATP</strong>.
-                  </li>
-                  <li><strong>Tổng năng lượng:</strong> Tạo ra khoảng <strong>30 - 32 ATP</strong> cho mỗi phân tử Glucose.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
     </div>
 
 
-    <!-- ================= VIEW 3: FLASHCARDS LẬT THẺ ================= -->
+    <!-- ================= VIEW 4: FLASHCARDS LẬT THẺ ================= -->
     <div id="flashcardView" class="view-page">
-      <div class="hero-banner" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%);">
-        <h1>⚡ Thẻ Ghi Nhớ Phản Xạ Nhanh Sinh Học 11</h1>
-        <p>Bấm vào thẻ để lật xem đáp án chốt! Ôn nhanh chỉ 5–10 phút trước giờ kiểm tra để khắc sâu các khái niệm then chốt trong đề cương.</p>
+      <div class="hero-banner" style="background: linear-gradient(135deg, #0d9488 0%, #06b6d4 50%, #3b82f6 100%);">
+        <h1>⚡ Thẻ Ghi Nhớ Phản Xạ Nhanh Tin Học 11</h1>
+        <p>Bấm vào thẻ để lật xem đáp án chốt! Ôn nhanh chỉ 3–5 phút để ghi nhớ chính xác các mốc năm, thuật ngữ và định nghĩa trong đề cương.</p>
       </div>
 
       <div class="flashcard-controls">
         <div style="font-weight: 700; color: var(--text-muted);">
-          Thẻ số: <span id="fcCurrentIndex" style="color: var(--primary); font-size: 1.2rem;">1</span> / <span id="fcTotalCount">25</span>
+          Thẻ số: <span id="fcCurrentIndex" style="color: var(--primary); font-size: 1.2rem;">1</span> / <span id="fcTotalCount">21</span>
         </div>
-        <div style="display: flex; gap: 8px;">
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
           <button class="lesson-btn active" onclick="filterFlashcards('all', this)">Tất cả</button>
-          <button class="lesson-btn" onclick="filterFlashcards(1, this)">Chủ đề 1</button>
-          <button class="lesson-btn" onclick="filterFlashcards(2, this)">Chủ đề 2</button>
-          <button class="lesson-btn" onclick="filterFlashcards(3, this)">Chủ đề 3</button>
-          <button class="lesson-btn" onclick="filterFlashcards(4, this)">Chủ đề 4</button>
+          <button class="lesson-btn" onclick="filterFlashcards(1, this)">Bài 1</button>
+          <button class="lesson-btn" onclick="filterFlashcards(3, this)">Bài 3</button>
+          <button class="lesson-btn" onclick="filterFlashcards(4, this)">Bài 4</button>
+          <button class="lesson-btn" onclick="filterFlashcards(5, this)">Bài 5</button>
+          <button class="lesson-btn" onclick="filterFlashcards(6, this)">Bài 6</button>
+          <button class="lesson-btn" onclick="filterFlashcards(9, this)">Bài 9</button>
         </div>
       </div>
 
       <div class="card-scene">
         <div class="flashcard" id="flashcardElement" onclick="flipFlashcard()">
           <div class="card-face front">
-            <div class="card-category" id="fcCategory">Chủ đề 1: TĐC & Năng Lượng</div>
+            <div class="card-category" id="fcCategory">Bài 1: Hệ Điều Hành</div>
             <div class="card-prompt" id="fcPrompt">Câu hỏi ở đây...</div>
-            <div class="card-hint">💡 Nhấn vào thẻ để lật xem đáp án chuẩn SGK</div>
+            <div class="card-hint">💡 Nhấn vào thẻ để lật xem đáp án</div>
           </div>
           <div class="card-face back">
             <div class="card-category" style="color: #67e8f9;">Đáp Án Chốt</div>
@@ -1283,342 +971,1050 @@
       </div>
     </div>
 
-
-    <!-- ================= VIEW 4: SƠ ĐỒ & CHU TRÌNH ================= -->
-    <div id="diagramView" class="view-page">
-      <div class="hero-banner" style="background: linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #115e59 100%);">
-        <h1>🧬 Trực Quan Hóa Sơ Đồ & Chu Trình Sinh Học</h1>
-        <p>Hệ thống đồ thị, con đường hô hấp, chu trình cố định carbon và phân loại thực vật theo phương thức sinh học.</p>
-      </div>
-
-      <div class="lesson-section">
-        <div class="diagram-title">📊 1. MỐI QUAN HỆ GIỮA PHÂN BÓN VÀ NĂNG SUẤT CÂY TRỒNG (HÌNH 2.13 SGK)</div>
-        <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 14px;">Đường cong biểu diễn năng suất cây trồng theo liều lượng phân bón:</p>
-        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid var(--border); text-align: center;">
-          <div style="display: flex; justify-content: space-around; align-items: flex-end; height: 180px; padding: 0 20px; border-bottom: 2px solid var(--text-muted); position: relative;">
-            <div style="flex: 1; text-align: center;">
-              <div style="height: 60px; background: #38bdf8; border-radius: 6px 6px 0 0; margin: 0 auto; width: 60%;"></div>
-              <p style="font-size: 0.8rem; margin-top: 8px; font-weight: bold; color: #38bdf8;">Liều lượng thiếu</p>
-              <span style="font-size: 0.72rem; color: var(--text-muted);">Cây còi cọc, năng suất thấp</span>
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <div style="height: 140px; background: #22c55e; border-radius: 6px 6px 0 0; margin: 0 auto; width: 70%;"></div>
-              <p style="font-size: 0.8rem; margin-top: 8px; font-weight: bold; color: #22c55e;">Liều lượng tối ưu</p>
-              <span style="font-size: 0.72rem; color: var(--text-muted);">Năng suất cao nhất, hiệu quả</span>
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <div style="height: 120px; background: #f59e0b; border-radius: 6px 6px 0 0; margin: 0 auto; width: 60%;"></div>
-              <p style="font-size: 0.8rem; margin-top: 8px; font-weight: bold; color: #f59e0b;">Lượng dư thừa</p>
-              <span style="font-size: 0.72rem; color: var(--text-muted);">Gây lãng phí & ô nhiễm</span>
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <div style="height: 40px; background: #f43f5e; border-radius: 6px 6px 0 0; margin: 0 auto; width: 50%;"></div>
-              <p style="font-size: 0.8rem; margin-top: 8px; font-weight: bold; color: #f43f5e;">Lượng quá mức</p>
-              <span style="font-size: 0.72rem; color: var(--text-muted);">Gây độc, cháy rễ, cây chết</span>
-            </div>
-          </div>
-          <div style="text-align: right; font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">Trục hoành: Liều lượng phân bón ➔</div>
-        </div>
-      </div>
-
-      <div class="lesson-section">
-        <div class="diagram-title">🔄 2. CHU TRÌNH CALVIN (CHU TRÌNH C3) - HÌNH 4.3 SGK</div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 14px;">
-          <div style="background: rgba(16, 185, 129, 0.12); padding: 18px; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.3);">
-            <h4 style="color: #34d399; margin-bottom: 8px;">Giai đoạn 1: Cố định CO₂</h4>
-            <p style="font-size: 0.9rem; line-height: 1.6;">
-              <strong>RuBP (5C) + CO₂</strong> ──(Rubisco)──► <strong>2 phân tử 3-PGA (3C)</strong>.
-              <br>• RuBP là chất nhận CO₂ đầu tiên.
-              <br>• 3-PGA là sản phẩm cố định đầu tiên.
-            </p>
-          </div>
-
-          <div style="background: rgba(56, 189, 248, 0.12); padding: 18px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3);">
-            <h4 style="color: #38bdf8; margin-bottom: 8px;">Giai đoạn 2: Khử</h4>
-            <p style="font-size: 0.9rem; line-height: 1.6;">
-              <strong>3-PGA + ATP + NADPH</strong> ──► <strong>G3P (3C)</strong>.
-              <br>• Tiêu tốn ATP và lực khử NADPH tạo ra từ pha sáng.
-              <br>• 1 phân tử G3P tách ra để tạo <strong>Glucose</strong>.
-            </p>
-          </div>
-
-          <div style="background: rgba(245, 158, 11, 0.12); padding: 18px; border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.3);">
-            <h4 style="color: #fbbf24; margin-bottom: 8px;">Giai đoạn 3: Tái sinh RuBP</h4>
-            <p style="font-size: 0.9rem; line-height: 1.6;">
-              <strong>5 phân tử G3P + ATP</strong> ──► <strong>3 phân tử RuBP (5C)</strong>.
-              <br>• Tái tạo lại chất nhận CO₂ ban đầu để chu trình tiếp tục quay vòng liên tục.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lesson-section">
-        <div class="diagram-title">🌱 3. TÓM TẮT ĐẶC TRƯNG SO SÁNH C3 - C4 - CAM</div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 14px;">
-          <div class="dual-box">
-            <h4 style="color: #38bdf8; margin-bottom: 6px;">🌿 Thực vật C3</h4>
-            <p style="font-size: 0.88rem; line-height: 1.6;">
-              • Chất nhận: <strong>RuBP (5C)</strong>.
-              <br>• Sản phẩm đầu: <strong>PGA (3C)</strong>.
-              <br>• Không gian: Chỉ ở tế bào mô giậu.
-              <br>• Thời gian: Ban ngày.
-              <br>• Đại diện: Lúa, khoai, sắn, đậu...
-            </p>
-          </div>
-
-          <div class="dual-box">
-            <h4 style="color: #22c55e; margin-bottom: 6px;">🌽 Thực vật C4</h4>
-            <p style="font-size: 0.88rem; line-height: 1.6;">
-              • Chất nhận: <strong>PEP (3C)</strong>.
-              <br>• Sản phẩm đầu: <strong>OAA (4C)</strong>.
-              <br>• Không gian: <strong>2 loại tế bào</strong> (mô giậu & bao bó mạch).
-              <br>• Thời gian: Cả 2 pha đều ban ngày.
-              <br>• Năng suất cao nhất. Đại diện: Ngô, mía...
-            </p>
-          </div>
-
-          <div class="dual-box">
-            <h4 style="color: #f59e0b; margin-bottom: 6px;">🌵 Thực vật CAM</h4>
-            <p style="font-size: 0.88rem; line-height: 1.6;">
-              • Chất nhận: <strong>PEP (3C)</strong>.
-              <br>• Sản phẩm đầu: <strong>OAA (4C)</strong>.
-              <br>• Không gian: Chỉ ở tế bào mô giậu.
-              <br>• Thời gian: Cố định CO₂ <strong>ban đêm</strong>, Calvin <strong>ban ngày</strong>.
-              <br>• Đại diện: Xương rồng, dứa, thanh long...
-            </p>
-          </div>
-        </div>
-      </div>
-    </div> <!-- ĐÓNG DIAGRAM VIEW -->
-
-
-    <!-- ================= VIEW 5: VẬN DỤNG TỰ LUẬN SIÊU NGẮN (CHUẨN BAREM THI) ================= -->
-    <div id="essayView" class="view-page">
-      <div class="hero-banner" style="background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);">
-        <h1>✍️ 4 Câu Tự Luận Vận Dụng Thực Tế (Bản Siêu Ngắn)</h1>
-        <p>Tóm tắt ngắn gọn nhất theo đúng <strong>barem chấm thi</strong> của giáo viên. Đọc 3 phút là thuộc, vào phòng thi cứ viết y hệt các gạch đầu dòng này là lấy trọn điểm tối đa!</p>
-      </div>
-
-      <!-- CÂU 1 -->
-      <section class="lesson-section">
-        <div class="lesson-section-header">
-          <div class="lesson-icon" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; font-size: 1.6rem;">🌾</div>
-          <div class="lesson-title-text">
-            <h2>CÂU 1: Vì sao phải phơi khô hạt, bảo quản lạnh hoặc giảm O₂ để bảo quản nông sản?</h2>
-            <span>Chủ đề: Ứng dụng của Hô hấp trong thực tiễn bảo quản lương thực, thực phẩm</span>
-          </div>
-        </div>
-
-        <div class="theory-block">
-          <div style="background: rgba(245, 158, 11, 0.12); border-left: 5px solid #f59e0b; padding: 18px 22px; border-radius: 10px; margin-bottom: 16px;">
-            <h3 style="color: #fbbf24; font-size: 1.15rem; margin-bottom: 10px; border: none; padding: 0;">🎯 Ý TRẢ LỜI ĐỂ VIẾT VÀO BÀI THI:</h3>
-            <ul style="padding-left: 20px; line-height: 1.9; font-size: 0.98rem;">
-              <li><strong>Mục đích chung:</strong> Cần <strong>giảm cường độ hô hấp xuống mức tối thiểu</strong> để:
-                <br>+ Không bị hao hụt chất hữu cơ (hạt không bị gầy/teo).
-                <br>+ Không tỏa nhiệt và ẩm làm đống nông sản bị mốc, thối hỏng.
-                <br>+ Ngăn hạt nảy mầm sớm.
-              </li>
-              <li><strong>1. Phơi khô / sấy khô hạt:</strong> Làm <strong>giảm hàm lượng nước</strong> ➔ enzyme hô hấp ngừng hoạt động ➔ đưa hạt vào <strong>trạng thái ngủ nghỉ</strong>, giữ được nhiều năm.</li>
-              <li><strong>2. Bảo quản lạnh (rau, củ, quả):</strong> <strong>Nhiệt độ thấp</strong> làm ức chế các enzyme hô hấp, làm chậm quá trình chín và hỏng.</li>
-              <li><strong>3. Giảm O₂ / Tăng CO₂ (Hút chân không):</strong> Thiếu O₂ làm <strong>ngừng hô hấp hiếu khí</strong>; nồng độ CO₂ cao gây <strong>ức chế ngược</strong> quá trình hô hấp.</li>
-            </ul>
-          </div>
-
-          <div style="background: rgba(16, 185, 129, 0.1); border: 1px dashed var(--primary); padding: 12px 16px; border-radius: 8px; font-size: 0.92rem;">
-            💡 <strong>Mẹo nhớ siêu nhanh:</strong> Cứ nhớ <strong>"Hô hấp làm hao đường + tỏa nhiệt + mốc"</strong> ➔ Muốn để lâu thì phải <strong>"Giảm nước (phơi) + Giảm nhiệt (lạnh) + Giảm O₂ (hút chân không)"</strong>!
-          </div>
-        </div>
-      </section>
-
-      <!-- CÂU 2 -->
-      <section class="lesson-section">
-        <div class="lesson-section-header">
-          <div class="lesson-icon" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; font-size: 1.6rem;">🍃</div>
-          <div class="lesson-title-text">
-            <h2>CÂU 2: Thí nghiệm ngậm giấy CoCl₂ trên 2 mặt lá: Vì sao mặt dưới đổi màu hồng nhanh hơn mặt trên?</h2>
-            <span>Chủ đề: Thoát hơi nước qua khí khổng ở lá cây</span>
-          </div>
-        </div>
-
-        <div class="theory-block">
-          <div style="background: rgba(56, 189, 248, 0.12); border-left: 5px solid #38bdf8; padding: 18px 22px; border-radius: 10px; margin-bottom: 16px;">
-            <h3 style="color: #38bdf8; font-size: 1.15rem; margin-bottom: 10px; border: none; padding: 0;">🎯 Ý TRẢ LỜI ĐỂ VIẾT VÀO BÀI THI:</h3>
-            <ul style="padding-left: 20px; line-height: 1.9; font-size: 0.98rem;">
-              <li><strong>Hiện tượng:</strong> Giấy tẩm CoCl₂ (khi khô màu xanh) khi dán vào lá sẽ chuyển sang <strong>màu hồng</strong> do gặp hơi nước. Miếng giấy ở <strong>mặt dưới đổi màu nhanh và đậm hơn</strong> mặt trên.</li>
-              <li><strong>Giải thích nguyên nhân:</strong>
-                <br>+ Ở đa số lá cây, <strong>khí khổng tập trung chủ yếu ở mặt dưới</strong> của lá (mặt trên có ít hoặc không có).
-                <br>+ Hơi nước thoát ra <strong>chủ yếu qua khí khổng</strong>.
-                <br>+ Vì mặt dưới có nhiều khí khổng hơn ➔ <strong>tốc độ thoát hơi nước ở mặt dưới mạnh hơn rất nhiều</strong> so với mặt trên ➔ làm giấy CoCl₂ đổi màu nhanh hơn.
-              </li>
-            </ul>
-          </div>
-
-          <div style="background: rgba(16, 185, 129, 0.1); border: 1px dashed var(--primary); padding: 12px 16px; border-radius: 8px; font-size: 0.92rem;">
-            💡 <strong>Mẹo nhớ siêu nhanh:</strong> <strong>"Khí khổng ở dưới nhiều hơn ở trên"</strong> ➔ Mặt dưới thoát nước nhiều hơn ➔ Đổi màu hồng nhanh hơn!
-          </div>
-        </div>
-      </section>
-
-      <!-- CÂU 3 -->
-      <section class="lesson-section">
-        <div class="lesson-section-header">
-          <div class="lesson-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e; font-size: 1.6rem;">🌱</div>
-          <div class="lesson-title-text">
-            <h2>CÂU 3: Vì sao không nên trồng cây với mật độ quá dày (trồng quá sát nhau)?</h2>
-            <span>Chủ đề: Ảnh hưởng của mật độ đến quang hợp và dinh dưỡng khoáng</span>
-          </div>
-        </div>
-
-        <div class="theory-block">
-          <div style="background: rgba(34, 197, 94, 0.12); border-left: 5px solid #22c55e; padding: 18px 22px; border-radius: 10px; margin-bottom: 16px;">
-            <h3 style="color: #22c55e; font-size: 1.15rem; margin-bottom: 10px; border: none; padding: 0;">🎯 Ý TRẢ LỜI ĐỂ VIẾT VÀO BÀI THI:</h3>
-            <p style="margin-bottom: 8px; font-weight: 600;">Nếu trồng cây quá dày sẽ gây ra 3 hậu quả nghiêm trọng:</p>
-            <ul style="padding-left: 20px; line-height: 1.9; font-size: 0.98rem;">
-              <li><strong>1. Tranh nhau chất khoáng và nước (Dưới đất):</strong> Hệ rễ đan xen chật chội, cạnh tranh chất dinh dưỡng khiến <strong>cây nào cũng bị còi cọc</strong>.</li>
-              <li><strong>2. Tranh nhau ánh sáng (Trên mặt đất):</strong> Tán lá che khuất nhau ➔ các lá tầng dưới bị thiếu sáng ➔ quang hợp kém mà vẫn tốn năng lượng hô hấp ➔ <strong>lá vàng úa và rụng</strong> (hiện tượng <em>tỉa cành tự nhiên</em>), làm giảm diện tích quang hợp.</li>
-              <li><strong>3. Dễ phát sinh dịch bệnh:</strong> Vườn rậm rạp, ẩm ướt, thiếu gió ➔ <strong>nấm mốc và sâu bệnh lây lan rất nhanh</strong> từ cây này sang cây khác.</li>
-              <li><strong>➔ Kết luận vận dụng:</strong> Cần trồng cây với <strong>mật độ và khoảng cách hợp lý</strong> để cây đón đủ ánh sáng và đạt năng suất cao nhất.</li>
-            </ul>
-          </div>
-
-          <div style="background: rgba(16, 185, 129, 0.1); border: 1px dashed var(--primary); padding: 12px 16px; border-radius: 8px; font-size: 0.92rem;">
-            💡 <strong>Mẹo nhớ siêu nhanh:</strong> Trồng dày ➔ <strong>"Dưới đất tranh khoáng + Trên ngọn che nắng + Vườn ẩm dễ sâu bệnh"</strong>!
-          </div>
-        </div>
-      </section>
-
-      <!-- CÂU 4 -->
-      <section class="lesson-section">
-        <div class="lesson-section-header">
-          <div class="lesson-icon" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; font-size: 1.6rem;">🪴</div>
-          <div class="lesson-title-text">
-            <h2>CÂU 4: Vì sao cần làm đất tơi xốp và vì sao cây bị ngập úng lâu ngày lại bị héo, chết?</h2>
-            <span>Chủ đề: Vai trò của O₂ đối với hô hấp rễ và hấp thụ nước, khoáng</span>
-          </div>
-        </div>
-
-        <div class="theory-block">
-          <div style="background: rgba(168, 85, 247, 0.12); border-left: 5px solid #a855f7; padding: 18px 22px; border-radius: 10px; margin-bottom: 16px;">
-            <h3 style="color: #c084fc; font-size: 1.15rem; margin-bottom: 10px; border: none; padding: 0;">🎯 Ý TRẢ LỜI ĐỂ VIẾT VÀO BÀI THI:</h3>
-            <ul style="padding-left: 20px; line-height: 1.9; font-size: 0.98rem;">
-              <li><strong>1. Vì sao cần cày xới làm đất tơi xốp, thoáng khí?</strong>
-                <br>+ Cung cấp dồi dào <strong>khí O₂</strong> trong đất ➔ giúp tế bào rễ <strong>hô hấp hiếu khí mạnh</strong>, tạo ra nhiều phân tử <strong>ATP</strong>.
-                <br>+ Năng lượng ATP giúp rễ <strong>chủ động hấp thụ nước và các ion khoáng</strong>, kích thích lông hút phát triển mạnh ➔ cây xanh tốt, năng suất cao.
-              </li>
-              <li><strong>2. Vì sao cây bị ngập úng lâu ngày lại bị héo và chết?</strong>
-                <br>+ Khi đất ngập úng, nước chiếm hết khe hở đất làm <strong>thiếu hụt O₂</strong> ➔ rễ phải chuyển sang <strong>hô hấp kị khí (lên men)</strong>.
-                <br>+ Quá trình lên men <strong>tạo rất ít ATP</strong> (không đủ năng lượng để hút khoáng) và sinh ra các <strong>chất độc hại (rượu ethanol, axit lactic)</strong> ➔ làm <strong>đầu rễ bị ngộ độc, lông hút bị chết và thối rữa</strong>.
-                <br>+ Rễ mất lông hút nên <strong>không hút được nước</strong>, trong khi lá vẫn liên tục thoát hơi nước ➔ cây bị mất cân bằng nước, <strong>héo rũ và chết dần</strong>.
-              </li>
-            </ul>
-          </div>
-
-          <div style="background: rgba(16, 185, 129, 0.1); border: 1px dashed var(--primary); padding: 12px 16px; border-radius: 8px; font-size: 0.92rem;">
-            💡 <strong>Mẹo nhớ siêu nhanh để viết bài thi:</strong>
-            <br>• <strong>Đất tơi xốp:</strong> Nhiều O₂ ➔ Hô hấp hiếu khí ➔ Nhiều ATP ➔ Rễ hút khỏe khoáng & nước.
-            <br>• <strong>Ngập úng:</strong> Thiếu O₂ ➔ Lên men sinh chất độc ➔ Thối lông hút ➔ Không hút được nước ➔ Héo chết!
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </div> <!-- ĐÓNG CONTAINER -->
-
+  </div>
 
   <script>
-    // NGÂN HÀNG CÂU HỎI TRẮC NGHIỆM SINH HỌC 11 CHUẨN ĐỀ CƯƠNG
+    // DỮ LIỆU ĐẦY ĐỦ 73 CÂU TRẮC NGHIỆM, 8 CÂU ĐÚNG SAI FILE 5, VÀ FLASHCARDS
     const originalQuestionBank = [
-      // Chủ đề 1: Khái quát TĐC & NL (Câu 1, 2, 3)
-      { id: 1, lesson: 1, question: "Dấu hiệu nào sau đây KHÔNG PHẢI là dấu hiệu đặc trưng của quá trình trao đổi chất và chuyển hóa năng lượng ở sinh vật?", options: ["Tiếp nhận các chất từ môi trường và vận chuyển các chất.", "Biến đổi các chất và chuyển hoá năng lượng ở tế bào.", "Thải các chất cặn bã, độc hại vào môi trường.", "Đột biến gen làm thay đổi kiểu hình của cơ thể."], correct: 3, explain: "Bốn dấu hiệu đặc trưng của TĐC và chuyển hoá năng lượng gồm: (1) Tiếp nhận và vận chuyển các chất; (2) Biến đổi các chất và chuyển hoá năng lượng; (3) Thải các chất vào môi trường; (4) Điều hoà." },
-      { id: 2, lesson: 1, question: "Đồng hóa trong tế bào là quá trình", options: ["phân giải chất hữu cơ và giải phóng năng lượng.", "tổng hợp các chất hữu cơ và tích luỹ năng lượng.", "phân giải ATP để cung cấp cho hoạt động co cơ.", "thải chất cặn bã qua màng sinh chất ra môi trường."], correct: 1, explain: "Đồng hoá là quá trình tổng hợp chất hữu cơ phức tạp từ chất đơn giản và tích lũy năng lượng vào các liên kết hóa học." },
-      { id: 3, lesson: 1, question: "Dị hóa trong tế bào có vai trò gì sau đây?", options: ["Tổng hợp chất hữu cơ đặc trưng cho tế bào.", "Tích lũy năng lượng mặt trời vào liên kết hóa học.", "Phân giải các chất hữu cơ phức tạp và giải phóng năng lượng.", "Ngăn cản sự đào thải các chất ra môi trường."], correct: 2, explain: "Dị hoá là quá trình phân giải chất hữu cơ, giải phóng năng lượng (nhiệt và ATP) cung cấp cho các hoạt động sống." },
-      { id: 4, lesson: 1, question: "Theo sơ đồ chuyển hoá năng lượng trong sinh giới (Hình 1.1 SGK), ba giai đoạn chuyển hoá năng lượng diễn ra theo trình tự nào?", options: ["Giai đoạn phân giải ➔ Giai đoạn tổng hợp ➔ Giai đoạn huy động năng lượng.", "Giai đoạn tổng hợp ➔ Giai đoạn phân giải ➔ Giai đoạn huy động năng lượng.", "Giai đoạn huy động năng lượng ➔ Giai đoạn phân giải ➔ Giai đoạn tổng hợp.", "Giai đoạn tổng hợp ➔ Giai đoạn huy động năng lượng ➔ Giai đoạn phân giải."], correct: 1, explain: "Trình tự ba giai đoạn chuyển hóa năng lượng trong sinh giới: Giai đoạn tổng hợp ➔ Giai đoạn phân giải ➔ Giai đoạn huy động năng lượng." },
-      { id: 5, lesson: 1, question: "Trong giai đoạn tổng hợp của chuyển hóa năng lượng, năng lượng ánh sáng mặt trời được chuyển hóa thành dạng năng lượng nào?", options: ["Nhiệt năng tích luỹ trong tế bào chất.", "Điện năng chạy dọc theo sợi trục nơron.", "Năng lượng hoá học tích luỹ trong các chất hữu cơ.", "Động năng phục vụ cho sự chuyển động của bào quan."], correct: 2, explain: "Ở giai đoạn tổng hợp (quang hợp), năng lượng ánh sáng được chuyển hóa thành năng lượng hóa học tích lũy trong các hợp chất hữu cơ." },
-      { id: 6, lesson: 1, question: "Giai đoạn phân giải trong chuyển hoá năng lượng sinh giới biến đổi năng lượng hoá học trong chất hữu cơ thành", options: ["năng lượng tích luỹ trong phân tử ATP (và nhiệt).", "năng lượng ánh sáng phát quang sinh học.", "quang năng tích lũy trong chất nền lục lạp.", "thế năng hấp dẫn của tế bào."], correct: 0, explain: "Giai đoạn phân giải (hô hấp) phân giải các chất hữu cơ giải phóng năng lượng tích lũy vào phân tử ATP và tỏa một phần nhiệt." },
-      { id: 7, lesson: 1, question: "Trong các giai đoạn chuyển hoá năng lượng trong sinh giới, ở mỗi giai đoạn đều có hiện tượng gì sau đây?", options: ["Toàn bộ năng lượng được bảo tồn 100% không hao phí.", "Một phần năng lượng bị phân tán dưới dạng nhiệt.", "Phải có sự tham gia trực tiếp của ánh sáng mặt trời.", "Đều xảy ra trong chất nền của lục lạp."], correct: 1, explain: "Theo nguyên lý nhiệt động lực học, ở mỗi bước chuyển đổi năng lượng trong sinh giới đều có một phần năng lượng bị hao phí dưới dạng nhiệt tỏa ra môi trường." },
-      { id: 8, lesson: 1, question: "Sinh vật quang tự dưỡng sử dụng nguồn năng lượng và nguồn carbon nào để tổng hợp chất hữu cơ?", options: ["Năng lượng từ chất hữu cơ và nguồn carbon từ Glucose.", "Năng lượng từ phản ứng oxi hóa khử và carbon từ chất hữu cơ.", "Năng lượng ánh sáng và nguồn carbon từ CO₂.", "Năng lượng hóa học từ ATP và carbon từ protein."], correct: 2, explain: "Sinh vật quang tự dưỡng sử dụng năng lượng ánh sáng mặt trời, nước và nguồn carbon là CO2 vô cơ để tổng hợp chất hữu cơ." },
-      { id: 9, lesson: 1, question: "Nhóm sinh vật nào sau đây thuộc nhóm sinh vật quang tự dưỡng?", options: ["Thực vật, tảo và vi khuẩn lam.", "Nấm men, vi khuẩn E. coli và giun đất.", "Sư tử, hổ, báo và chim bồ câu.", "Vi khuẩn nitrat hóa và vi khuẩn oxi hóa lưu huỳnh."], correct: 0, explain: "Thực vật, tảo lục và vi khuẩn lam có chứa sắc tố quang hợp, có khả năng quang tự dưỡng." },
-      { id: 10, lesson: 1, question: "Sinh vật hoá tự dưỡng sử dụng nguồn năng lượng chủ yếu từ đâu để tổng hợp chất hữu cơ?", options: ["Năng lượng từ ánh sáng mặt trời.", "Năng lượng sinh ra từ quá trình oxi hoá các chất vô cơ.", "Năng lượng từ việc phân giải xác động vật chết.", "Nhiệt năng từ môi trường nước nóng sa mạc."], correct: 1, explain: "Sinh vật hóa tự dưỡng sử dụng nguồn năng lượng giải phóng từ các phản ứng oxi hóa các hợp chất vô cơ (như NH3, H2S, Fe2+...) và nguồn carbon CO2." },
-      { id: 11, lesson: 1, question: "Sinh vật dị dưỡng là nhóm sinh vật", options: ["tự tổng hợp chất hữu cơ từ CO₂ và nước nhờ ánh sáng.", "tự tổng hợp chất hữu cơ nhờ năng lượng oxi hoá chất vô cơ.", "lấy chất hữu cơ trực tiếp từ sinh vật tự dưỡng hoặc từ động vật khác.", "không cần năng lượng ATP để duy trì sự sống."], correct: 2, explain: "Sinh vật dị dưỡng không thể tự tổng hợp chất hữu cơ từ chất vô cơ, mà phải lấy chất hữu cơ có sẵn từ sinh vật tự dưỡng hoặc động vật khác." },
-      { id: 12, lesson: 1, question: "Nhóm sinh vật nào sau đây đều thuộc nhóm sinh vật dị dưỡng?", options: ["Cây lúa, cây ngô, vi khuẩn lam.", "Sư tử, mèo, nấm rơm, con người.", "Tảo xoắn, cây xương rồng, vi khuẩn sắt.", "Vi khuẩn nitrat hóa, cây dứa, hoa sen."], correct: 1, explain: "Động vật (sư tử, mèo, người...) và nấm (nấm rơm) đều là sinh vật dị dưỡng." },
-      { id: 13, lesson: 1, question: "Nội dung nào sau đây KHÔNG PHẢI là vai trò của sinh vật tự dưỡng trong sinh giới?", options: ["Cung cấp O₂ cho hoạt động hô hấp của hầu hết sinh vật.", "Cung cấp nguồn thức ăn, nơi ở và nơi sinh sản cho động vật.", "Điều hoà khí hậu, tạo nhiệt độ và độ ẩm thuận lợi cho sự sống.", "Phân giải hoàn toàn xác chết thành khoáng vô cơ cho đất."], correct: 3, explain: "Phân giải xác hữu cơ thành chất vô cơ là vai trò chủ yếu của sinh vật phân giải (nấm hoại sinh, vi khuẩn hoại sinh). Vai trò tự dưỡng: cung cấp O2, thức ăn/nơi ở, điều hòa khí hậu." },
-      { id: 14, lesson: 1, question: "Năng lượng tích lũy trong ATP được tế bào huy động sử dụng trực tiếp cho hoạt động nào sau đây?", options: ["Tổng hợp các chất, vận chuyển chủ động, co cơ, dẫn truyền xung thần kinh.", "Tạo ra ánh sáng mặt trời cung cấp cho pha sáng quang hợp.", "Làm giảm nồng độ O₂ trong khí quyển Trái Đất.", "Hòa tan các kim loại nặng trong đất."], correct: 0, explain: "ATP cung cấp năng lượng cho mọi hoạt động sống: tổng hợp hóa sinh, vận chuyển tích cực qua màng, co cơ, sinh công cơ học và dẫn truyền xung điện thần kinh." },
-
-      // Chủ đề 2: Nước & Khoáng (Câu 4, 5, 6)
-      { id: 15, lesson: 2, question: "Vai trò nào sau đây của nước giúp thực vật không bị hun nóng và cháy lá dưới bức xạ mặt trời gay gắt?", options: ["Là thành phần cấu tạo nên tế bào thực vật.", "Là dung môi hòa tan các muối khoáng.", "Điều hòa nhiệt độ cơ thể nhờ quá trình thoát hơi nước.", "Là môi trường xảy ra các phản ứng sinh hóa."], correct: 2, explain: "Nước có nhiệt dung cao, quá trình thoát hơi nước qua khí khổng giúp hạ nhiệt độ bề mặt lá, điều hòa nhiệt độ cơ thể thực vật." },
-      { id: 16, lesson: 2, question: "Nước được hấp thụ từ đất vào tế bào lông hút của rễ theo cơ chế nào sau đây?", options: ["Cơ chế thẩm thấu (thụ động) từ nơi thế nước cao sang nơi thế nước thấp.", "Cơ chế vận chuyển chủ động tiêu tốn nhiều phân tử ATP.", "Cơ chế ẩm bào và thực bào qua màng sinh chất.", "Khuếch tán qua kênh bơm proton ngược chiều gradient nồng độ."], correct: 0, explain: "Nước luôn được hấp thụ thụ động theo cơ chế thẩm thấu từ dung dịch đất (nhược trương, thế nước cao) vào tế bào lông hút (ưu trương, thế nước thấp)." },
-      { id: 17, lesson: 2, question: "Dịch tế bào lông hút của rễ cây luôn có nồng độ chất tan cao hơn dịch đất (ưu trương) là nhờ nguyên nhân nào sau đây?", options: ["Quá trình thoát hơi nước ở lá liên tục hút nước lên và rễ tích cực tích lũy chất khoáng.", "Rễ cây chỉ hấp thụ nước mà không bao giờ hấp thụ chất khoáng.", "Tế bào lông hút không bào không chứa nước.", "Đất luôn có nồng độ chất tan cao hơn trong tế bào rễ."], correct: 0, explain: "Dịch tế bào rễ ưu trương do: (1) Rễ tích cực hút và giữ các ion khoáng; (2) Thoát hơi nước ở lá liên tục kéo nước lên làm giảm lượng nước tương đối ở rễ." },
-      { id: 18, lesson: 2, question: "Chất khoáng được hấp thụ vào tế bào lông hút của rễ theo hai cơ chế nào?", options: ["Cơ chế trực tiếp và cơ chế gián tiếp.", "Cơ chế thụ động và cơ chế chủ động.", "Cơ chế thẩm thấu và cơ chế thẩm tích.", "Cơ chế nội thực bào và ngoại xuất bào."], correct: 1, explain: "Khoáng được hấp thụ theo 2 cơ chế: Cơ chế thụ động (xuôi chiều gradient nồng độ) và Cơ chế chủ động (ngược chiều gradient nồng độ, cần ATP và protein mang)." },
-      { id: 19, lesson: 2, question: "Điểm khác biệt cơ bản của cơ chế hấp thụ khoáng chủ động so với thụ động ở rễ cây là gì?", options: ["Chất khoáng đi từ nơi có nồng độ cao vào nơi có nồng độ thấp.", "Vận chuyển ngược gradient nồng độ và tiêu tốn năng lượng ATP.", "Không cần sự tham gia của các chất mang trên màng sinh chất.", "Chỉ diễn ra vào ban đêm khi khí khổng đóng hoàn toàn."], correct: 1, explain: "Hấp thụ khoáng chủ động diễn ra ngược chiều gradient nồng độ (từ đất nồng độ thấp vào rễ nồng độ cao), cần chất mang và tiêu tốn ATP." },
-      { id: 20, lesson: 2, question: "Tế bào cấu tạo nên mạch gỗ (xylem) của thực vật gồm những loại tế bào nào?", options: ["Tế bào ống rây và tế bào kèm.", "Quản bào và mạch ống.", "Tế bào mô giậu và tế bào xốp.", "Tế bào biểu bì và tế bào khí khổng."], correct: 1, explain: "Mạch gỗ gồm 2 loại tế bào chết là quản bào và mạch ống đã hóa gỗ (lignin)." },
-      { id: 21, lesson: 2, question: "Đặc điểm cấu tạo quan trọng của các tế bào mạch gỗ giúp chúng chịu được áp lực nước lớn là gì?", options: ["Là các tế bào sống có màng sinh chất dày và đàn hồi.", "Là các tế bào chết, thành tế bào được hóa gỗ (lignin) dày và bền chắc.", "Chứa nhiều ti thể để sản xuất năng lượng bơm nước.", "Các vách ngăn ngang hoàn toàn nguyên vẹn không có lỗ thủng."], correct: 1, explain: "Tế bào mạch gỗ là tế bào chết, không có chất nguyên sinh, thành tế bào được hóa gỗ (lignin) dày giúp dẫn nước và chịu áp lực dòng nước đi lên." },
-      { id: 22, lesson: 2, question: "Thành phần chủ yếu trong dịch mạch gỗ gồm những chất nào?", options: ["Đường sucrose chiếm 95% và các hormone thực vật.", "Chủ yếu là nước, ion khoáng hòa tan và một số chất hữu cơ tổng hợp từ rễ.", "Nước cất tinh khiết hoàn toàn không có ion khoáng.", "Chất béo và tinh bột dự trữ."], correct: 1, explain: "Dịch mạch gỗ chứa chủ yếu là nước, các ion khoáng hòa tan và một số hợp chất hữu cơ được tổng hợp ở rễ (amino acid, amide...)." },
-      { id: 23, lesson: 2, question: "Động lực nào sau đây đóng vai trò là động lực chính (chủ yếu nhất) của dòng mạch gỗ?", options: ["Lực đẩy của áp suất rễ.", "Lực liên kết giữa các phân tử nước với nhau.", "Lực kéo do quá trình thoát hơi nước ở lá.", "Lực bám giữa phân tử nước với thành mạch gỗ."], correct: 2, explain: "Lực kéo do thoát hơi nước ở lá là động lực đầu trên mạnh nhất, quyết định sự vận chuyển liên tục của cột nước từ rễ lên tận đỉnh ngọn cây cao hàng chục mét." },
-      { id: 24, lesson: 2, question: "Hiện tượng rỉ nhựa và ứ giọt ở các cây bụi nhỏ vào buổi sáng sớm là bằng chứng chứng minh sự tồn tại của", options: ["lực kéo do thoát hơi nước ở lá.", "lực đẩy của áp suất rễ.", "lực liên kết giữa các phân tử nước.", "quá trình quang phân li nước."], correct: 1, explain: "Hiện tượng ứ giọt và rỉ nhựa do áp suất rễ (lực đẩy đầu dưới) đẩy nước và dịch khoáng lên khi độ ẩm không khí bão hòa thoát hơi nước ngừng lại." },
-      { id: 25, lesson: 2, question: "Tế bào cấu tạo nên dòng mạch rây (phloem) gồm có", options: ["quản bào và mạch ống.", "tế bào ống rây và tế bào kèm.", "tế bào biểu bì và lông hút.", "tế bào mô dày và sợi gỗ."], correct: 1, explain: "Mạch rây gồm các tế bào sống: tế bào ống rây (mất nhân khi trưởng thành) và tế bào kèm (giàu ti thể cung cấp năng lượng)." },
-      { id: 26, lesson: 2, question: "Thành phần chiếm tỷ lệ cao nhất trong dịch mạch rây là hợp chất nào?", options: ["Đường glucose.", "Đường sucrose.", "Ion canxi (Ca²⁺).", "Tinh bột dự trữ."], correct: 1, explain: "Đường sucrose là thành phần chủ yếu nhất của dịch mạch rây (chiếm tới 90 - 95% chất khô trong dịch)." },
-      { id: 27, lesson: 2, question: "Chiều vận chuyển của các chất trong dòng mạch rây diễn ra như thế nào?", options: ["Luôn luôn chỉ đi theo một chiều duy nhất từ rễ lên lá cây.", "Từ cơ quan nguồn (nơi tổng hợp) đến cơ quan đích (nơi dự trữ hoặc sử dụng).", "Chỉ đi ngang từ vỏ cây vào lõi gỗ trung tâm.", "Chỉ đi từ hoa sang quả chín."], correct: 1, explain: "Dòng mạch rây vận chuyển chất hữu cơ từ cơ quan nguồn (như lá quang hợp) đến cơ quan chứa/đích (rễ, củ, quả, chồi non...) theo cả hai chiều lên hoặc xuống." },
-      { id: 28, lesson: 2, question: "Động lực vận chuyển các chất trong dòng mạch rây là gì?", options: ["Lực kéo do thoát hơi nước ở lá.", "Chênh lệch áp suất thẩm thấu giữa cơ quan nguồn và cơ quan đích.", "Lực liên kết giữa các phân tử nước.", "Áp suất trương nước của tế bào lông hút."], correct: 1, explain: "Dòng mạch rây di chuyển do chênh lệch áp suất thẩm thấu: Cơ quan nguồn có nồng độ đường cao (áp suất thẩm thấu cao) đẩy dịch dồn về cơ quan đích có nồng độ thấp." },
-
-      // Chủ đề 3: Quang hợp & C3/C4/CAM (Câu 7 - Phần I)
-      { id: 29, lesson: 3, question: "Phương trình tổng quát chuẩn của quá trình quang hợp ở thực vật là", options: ["6CO₂ + 12H₂O ──(Ánh sáng / Diệp lục)──► C₆H₁₂O₆ + 6O₂ + 6H₂O", "C₆H₁₂O₆ + 6O₂ ──► 6CO₂ + 6H₂O + ATP", "6CO₂ + 6O₂ ──(Ánh sáng)──► C₆H₁₂O₆ + 6H₂O", "C₆H₁₂O₆ ──► 2 C₂H₅OH + 2 CO₂ + 2 ATP"], correct: 0, explain: "Phương trình tổng quát: 6CO2 + 12H2O ──(Ánh sáng / Diệp lục)──► C6H12O6 + 6O2 + 6H2O." },
-      { id: 30, lesson: 3, question: "Bào quan thực hiện chức năng quang hợp ở tế bào thực vật là", options: ["ti thể.", "lục lạp.", "bộ máy Golgi.", "lưới nội chất trơn."], correct: 1, explain: "Lục lạp chứa hệ sắc tố quang hợp và các enzyme cần thiết là bào quan thực hiện quá trình quang hợp." },
-      { id: 31, lesson: 3, question: "Chu trình Calvin (chu trình C₃) xảy ra ở vị trí nào trong lục lạp?", options: ["Màng thylakoid.", "Chất nền (stroma) của lục lạp.", "Khoang giữa hai lớp màng lục lạp.", "Bên trong xoang thylakoid."], correct: 1, explain: "Pha sáng diễn ra trên màng thylakoid; pha tối (chu trình Calvin) diễn ra tại chất nền (stroma) của lục lạp." },
-      { id: 32, lesson: 3, question: "Chất nhận CO₂ đầu tiên trong chu trình Calvin ở thực vật C₃ là", options: ["PEP (Phosphoenolpyruvate).", "RuBP (Ribulose-1,5-bisphosphate).", "OAA (Oxaloacetic acid).", "G3P (Glyceraldehyde-3-phosphate)."], correct: 1, explain: "Chất nhận CO2 đầu tiên ở thực vật C3 là RuBP (hợp chất 5 carbon)." },
-      { id: 33, lesson: 3, question: "Sản phẩm cố định CO₂ đầu tiên được tạo ra trong chu trình Calvin ở thực vật C₃ là", options: ["OAA (4C).", "3-PGA (3C).", "Glucose (6C).", "PEP (3C)."], correct: 1, explain: "RuBP (5C) kết hợp với CO2 tạo hợp chất 6C không bền, lập tức phân giải thành 2 phân tử 3-PGA (Phosphoglyceric acid, 3 carbon)." },
-      { id: 34, lesson: 3, question: "Trong chu trình Calvin, giai đoạn khử chuyển hóa 3-PGA thành G3P cần cung cấp sản phẩm nào từ pha sáng?", options: ["Khí O₂ và ion H⁺.", "Năng lượng ATP và lực khử NADPH.", "Enzyme Rubisco và nước.", "Đường sucrose và lipid."], correct: 1, explain: "Giai đoạn khử 3-PGA thành G3P sử dụng ATP (cung cấp năng lượng) và NADPH (cung cấp điện tử/lực khử) sinh ra từ pha sáng." },
-      { id: 35, lesson: 3, question: "Chất nhận CO₂ đầu tiên và sản phẩm cố định CO₂ đầu tiên ở thực vật C₄ lần lượt là", options: ["RuBP và PGA.", "PEP và OAA.", "OAA và PEP.", "PEP và RuBP."], correct: 1, explain: "Ở thực vật C4 (và CAM), chất nhận CO2 đầu tiên là PEP (3C) và sản phẩm cố định CO2 đầu tiên là OAA (4C - Oxaloacetic acid)." },
-      { id: 36, lesson: 3, question: "Quá trình quang hợp ở thực vật C₄ diễn ra ở hai loại tế bào nào sau đây?", options: ["Tế bào biểu bì và tế bào lông hút.", "Tế bào mô giậu và tế bào bao bó mạch.", "Tế bào khí khổng và tế bào mạch gỗ.", "Tế bào mô xốp và tế bào biểu bì dưới."], correct: 1, explain: "Thực vật C4 có cấu trúc giải phẫu Kranz đặc biệt, quang hợp diễn ra ở 2 loại tế bào: tế bào mô giậu (cố định CO2 thành OAA/Malate) và tế bào bao bó mạch (chu trình Calvin)." },
-      { id: 37, lesson: 3, question: "Điểm khác biệt độc đáo nhất về thời gian cố định CO₂ của thực vật CAM so với C₃ và C₄ là gì?", options: ["Cố định CO₂ vào ban ngày khi ánh sáng mạnh nhất.", "Cố định CO₂ vào ban đêm khi khí khổng mở.", "Cố định CO₂ vào buổi trưa khi khí khổng đóng.", "Hoàn toàn không cần cố định CO₂."], correct: 1, explain: "Thực vật CAM sống ở sa mạc khô hạn, ban ngày đóng khí khổng để chống mất nước; ban đêm mở khí khổng để lấy CO2 cố định vào ban đêm." },
-      { id: 38, lesson: 3, question: "Nhóm thực vật nào sau đây gồm toàn các loài thực vật C₄?", options: ["Lúa nước, đậu tương, khoai lang, cam.", "Ngô, mía, kê, cỏ lồng vực.", "Xương rồng, dứa, thanh long, cây mọng nước.", "Tảo lục, rêu, thông, dương xỉ."], correct: 1, explain: "Ngô, mía, cỏ lồng vực, cỏ gấu, kê... là các thực vật C4 nhiệt đới điển hình." },
-      { id: 39, lesson: 3, question: "Nhóm thực vật nào sau đây thuộc nhóm thực vật CAM thích nghi với môi trường khô hạn?", options: ["Ngô, mía, rau dền.", "Lúa mì, đậu Hà Lan, khoai tây.", "Dứa, xương rồng, thanh long, thuốc bỏng.", "Rau muống, bèo tây, hoa sen."], correct: 2, explain: "Dứa, xương rồng, thanh long, cây lá bỏng, phong lan mọng nước thuộc nhóm thực vật CAM thích nghi khô hạn." },
-      { id: 40, lesson: 3, question: "So sánh về năng suất sinh học giữa 3 nhóm thực vật C₃, C₄, CAM:", options: ["Thực vật C₃ có năng suất cao nhất.", "Thực vật C₄ có năng suất cao nhất (gấp đôi C₃), CAM thấp nhất.", "Thực vật CAM có năng suất cao nhất.", "Cả 3 nhóm đều có năng suất sinh học ngang bằng nhau."], correct: 1, explain: "Thực vật C4 không có hô hấp sáng, tận dụng CO2 tối đa nên có năng suất sinh học cao nhất; C3 trung bình; CAM có năng suất thấp nhất." },
-      { id: 41, lesson: 3, question: "Điểm bù CO₂ là gì?", options: ["Nồng độ CO₂ mà tại đó cường độ quang hợp đạt cực đại.", "Nồng độ CO₂ mà tại đó cường độ quang hợp cân bằng với cường độ hô hấp.", "Nồng độ CO₂ tối thiểu làm cây ngừng hô hấp hoàn toàn.", "Nồng độ CO₂ làm cây bị nhiễm độc khí chết."], correct: 1, explain: "Điểm bù CO2 là nồng độ CO2 mà tại đó tốc độ quang hợp bằng tốc độ hô hấp (lượng CO2 hấp thụ bằng lượng CO2 thải ra)." },
-      { id: 42, lesson: 3, question: "Khi nồng độ CO₂ vượt quá điểm bão hoà CO₂, nếu tiếp tục tăng nồng độ CO₂ thì cường độ quang hợp sẽ", options: ["tiếp tục tăng lên vô hạn.", "không tăng thêm hoặc thậm chí giảm do bị ức chế/ngộ độc.", "giảm ngay về mức bằng 0.", "làm cho cây chuyển sang hô hấp kị khí."], correct: 1, explain: "Tại điểm bão hòa, quang hợp đạt cực đại. Nếu tiếp tục tăng nồng độ CO2 vượt quá ngưỡng bão hòa thì cường độ quang hợp không tăng nữa, nếu quá cao sẽ gây ngộ độc làm giảm quang hợp." },
-      { id: 43, lesson: 3, question: "Dựa vào đồ thị mối quan hệ giữa phân bón và năng suất cây trồng (Hình 2.13 SGK), bón phân với liều lượng quá mức sẽ dẫn đến hậu quả gì?", options: ["Cây đạt năng suất cao kỷ lục.", "Làm nồng độ dịch đất ưu trương, rễ không hút được nước, cây ngộ độc và chết.", "Giúp cây tăng khả năng chống chịu sâu bệnh gấp đôi.", "Làm tăng quá trình thoát hơi nước không giới hạn."], correct: 1, explain: "Bón phân quá mức làm tăng áp suất thẩm thấu dịch đất cao hơn rễ, nước bị hút ngược từ rễ ra đất khiến cây bị héo, cháy lá, nhiễm độc khoáng và chết." },
-
-      // Chủ đề 4: Hô hấp ở thực vật (Câu 7 - Phần II)
-      { id: 44, lesson: 4, question: "Bào quan thực hiện chức năng chính của hô hấp hiếu khí ở thực vật là", options: ["lục lạp.", "ti thể.", "ribosome.", "lysosome."], correct: 1, explain: "Ti thể được mệnh danh là 'nhà máy năng lượng' của tế bào, là nơi diễn ra chu trình Krebs và chuỗi truyền electron trong hô hấp hiếu khí." },
-      { id: 45, lesson: 4, question: "Phương trình tổng quát của quá trình hô hấp hiếu khí ở thực vật là", options: ["C₆H₁₂O₆ + 6O₂ ──► 6CO₂ + 6H₂O + Năng lượng (ATP + Nhiệt)", "6CO₂ + 12H₂O ──► C₆H₁₂O₆ + 6O₂ + 6H₂O", "C₆H₁₂O₆ ──► 2 C₂H₅OH + 2 CO₂", "C₆H₁₂O₆ ──► 2 Axit Lactic + ATP"], correct: 0, explain: "Hô hấp hiếu khí phân giải hoàn toàn Glucose thành CO2, H2O và giải phóng năng lượng (~30 - 32 ATP + nhiệt)." },
-      { id: 46, lesson: 4, question: "Giai đoạn đường phân trong hô hấp tế bào diễn ra tại vị trí nào?", options: ["Chất nền của ti thể.", "Màng trong ti thể.", "Tế bào chất (bào tương).", "Chất nền của lục lạp."], correct: 2, explain: "Đường phân diễn ra tại tế bào chất (bào tương), không đòi hỏi sự có mặt của O2." },
-      { id: 47, lesson: 4, question: "Kết quả của giai đoạn đường phân từ 1 phân tử Glucose tạo ra sản phẩm nào sau đây?", options: ["2 phân tử Pyruvate, 2 ATP và 2 NADH.", "6 phân tử CO₂, 6 H₂O và 32 ATP.", "2 phân tử Rượu ethanol và 2 CO₂.", "1 phân tử Acetyl-CoA và 4 ATP."], correct: 0, explain: "Đường phân phân giải 1 Glucose (6C) thành 2 phân tử Pyruvate (3C), sinh ra 2 phân tử ATP và 2 phân tử NADH." },
-      { id: 48, lesson: 4, question: "Khi rễ cây bị ngập úng lâu ngày trong đất thiếu O₂, tế bào rễ sẽ thực hiện con đường hô hấp nào?", options: ["Hô hấp hiếu khí hoàn toàn trong ti thể.", "Hô hấp kị khí (lên men) tạo ethanol hoặc lactate.", "Quang hợp thải khí O₂ bổ sung cho rễ.", "Ngừng hoàn toàn mọi phản ứng hóa sinh."], correct: 1, explain: "Đất ngập úng thiếu O2 buộc rễ cây chuyển sang hô hấp kị khí (lên men). Quá trình này tích tụ chất độc ethanol/axit lactic làm thối rễ, lông hút chết khiến cây bị héo." },
-      { id: 49, lesson: 4, question: "Chu trình Krebs trong hô hấp hiếu khí diễn ra tại vị trí nào của ti thể?", options: ["Màng ngoài ti thể.", "Màng trong ti thể.", "Chất nền (matrix) của ti thể.", "Xoang giữa hai lớp màng ti thể."], correct: 2, explain: "Chu trình Krebs diễn ra trong chất nền (matrix) của ti thể." },
-      { id: 50, lesson: 4, question: "Giai đoạn nào trong hô hấp hiếu khí giải phóng nhiều phân tử ATP nhất?", options: ["Giai đoạn đường phân.", "Giai đoạn oxi hoá Pyruvate thành Acetyl-CoA.", "Chu trình Krebs.", "Chuỗi truyền electron hô hấp ở màng trong ti thể."], correct: 3, explain: "Chuỗi truyền electron hô hấp tại màng trong ti thể tổng hợp khoảng 26 - 28 ATP nhờ dòng proton quay phức hệ ATP synthase." },
-      { id: 51, lesson: 4, question: "Hiệu quả năng lượng của con đường lên men (hô hấp kị khí) so với hô hấp hiếu khí như thế nào?", options: ["Lên men tạo ra nhiều ATP hơn gấp 10 lần.", "Lên men chỉ tạo được 2 ATP từ đường phân (rất thấp so với 30-32 ATP của hiếu khí).", "Lên men tạo ra 38 ATP.", "Hiệu quả năng lượng của 2 con đường là ngang nhau."], correct: 1, explain: "Lên men chỉ thu được 2 ATP sinh ra từ đường phân, chất hữu cơ chưa được phân giải hoàn toàn nên hiệu quả năng lượng rất thấp." },
-      { id: 52, lesson: 4, question: "Khí oxy (O₂) tham gia trực tiếp vào giai đoạn nào của quá trình hô hấp hiếu khí?", options: ["Giai đoạn đường phân ở tế bào chất.", "Chất nhận electron cuối cùng trong chuỗi truyền electron ở màng trong ti thể.", "Cố định trong chu trình Krebs.", "Biến đổi Glucose thành G3P."], correct: 1, explain: "Khí O2 đóng vai trò là chất nhận electron và H+ cuối cùng của chuỗi truyền electron ở màng trong ti thể, tạo thành phân tử nước (H2O)." },
-      { id: 53, lesson: 4, question: "Mối quan hệ giữa quang hợp và hô hấp ở thực vật là mối quan hệ", options: ["đối lập và loại trừ lẫn nhau hoàn toàn.", "hai quá trình gắn bó mật thiết, sản phẩm của quang hợp là nguyên liệu của hô hấp và ngược lại.", "hô hấp chỉ diễn ra khi quang hợp đã ngừng hẳn.", "không có liên quan gì về mặt vật chất và năng lượng."], correct: 1, explain: "Quang hợp tạo chất hữu cơ (C6H12O6) và O2 là nguyên liệu cho hô hấp; ngược lại hô hấp phân giải tạo CO2, H2O và năng lượng ATP cho các hoạt động sống." },
-      { id: 54, lesson: 4, question: "Tại sao khi bảo quản nông sản (hạt giống, củ, quả), người ta thường tìm cách ức chế hoặc hạ thấp cường độ hô hấp?", options: ["Vì hô hấp tiêu hao chất hữu cơ dự trữ, tỏa nhiệt làm tăng ẩm mốc gây hư hỏng nông sản.", "Vì hô hấp tạo ra quá nhiều đường làm ngọt nông sản quá mức.", "Vì hô hấp hút hết nước làm hạt giống không bao giờ nảy mầm được.", "Vì hô hấp biến hạt thành cây con ngay trong bao bì."], correct: 0, explain: "Hô hấp phân giải chất hữu cơ làm giảm khối lượng và chất lượng nông sản, tỏa nhiệt và ẩm kích thích vi sinh vật gây hại phát triển, do đó cần làm giảm hô hấp khi bảo quản." }
-    ];
-
-    // FLASHCARDS DATA
-    const flashcardsData = [
-      { lesson: 1, prompt: "Kể tên 4 dấu hiệu đặc trưng của trao đổi chất và chuyển hóa năng lượng?", answer: "1. Tiếp nhận và vận chuyển các chất.<br>2. Biến đổi các chất & chuyển hoá năng lượng.<br>3. Thải các chất vào môi trường.<br>4. Điều hoà." },
-      { lesson: 1, prompt: "Đồng hoá khác Dị hoá ở điểm cốt lõi nào?", answer: "• <strong>Đồng hoá:</strong> Tổng hợp chất hữu cơ, <em>tích luỹ năng lượng</em>.<br>• <strong>Dị hoá:</strong> Phân giải chất hữu cơ, <em>giải phóng năng lượng</em> (ATP & nhiệt)." },
-      { lesson: 1, prompt: "Kể tên 3 giai đoạn chuyển hóa năng lượng trong sinh giới theo sơ đồ Hình 1.1 SGK?", answer: "1. Giai đoạn tổng hợp (Quang năng ➔ Hoá năng trong chất hữu cơ).<br>2. Giai đoạn phân giải (Hoá năng ➔ ATP).<br>3. Giai đoạn huy động năng lượng (ATP ➔ Các hoạt động sống)." },
-      { lesson: 1, prompt: "Phân biệt sinh vật Quang tự dưỡng và Hoá tự dưỡng?", answer: "• <strong>Quang tự dưỡng:</strong> Năng lượng từ <em>ánh sáng</em> (thực vật, tảo, vi khuẩn lam).<br>• <strong>Hoá tự dưỡng:</strong> Năng lượng từ <em>oxi hoá chất vô cơ</em> (vi khuẩn nitrat hoá, vi khuẩn lưu huỳnh)." },
-      { lesson: 1, prompt: "Nêu 3 vai trò quan trọng nhất của sinh vật tự dưỡng trong sinh giới?", answer: "1. Cung cấp O₂ cho sinh giới hô hấp.<br>2. Cung cấp thức ăn, nơi ở, nơi sinh sản cho động vật.<br>3. Điều hoà khí hậu, cân bằng sinh thái." },
-      { lesson: 2, prompt: "Nêu 4 vai trò của nước đối với cơ thể thực vật?", answer: "1. Thành phần chính cấu tạo tế bào.<br>2. Dung môi hoà tan và vận chuyển các chất.<br>3. Nguyên liệu và môi trường phản ứng sinh hoá.<br>4. Điều hoà nhiệt độ nhờ thoát hơi nước." },
-      { lesson: 2, prompt: "Nước được hấp thụ từ đất vào tế bào lông hút của rễ theo cơ chế nào?", answer: "Theo cơ chế <strong>thẩm thấu (thụ động)</strong> từ nơi thế nước cao (đất nhược trương) vào nơi thế nước thấp (rễ ưu trương)." },
-      { lesson: 2, prompt: "Hấp thụ khoáng ở rễ theo cơ chế chủ động có đặc điểm gì?", answer: "Vận chuyển <strong>ngược chiều gradient nồng độ</strong> (từ nồng độ thấp vào cao), cần <strong>chất mang</strong> và <strong>tiêu tốn ATP</strong>." },
-      { lesson: 2, prompt: "Tế bào cấu tạo nên dòng mạch gỗ gồm những tế bào nào? Sống hay chết?", answer: "Gồm <strong>quản bào</strong> và <strong>mạch ống</strong>. Đây là các <strong>tế bào chết</strong>, thành hóa gỗ dày bền chắc." },
-      { lesson: 2, prompt: "Kể tên 3 động lực của dòng mạch gỗ? Động lực nào đóng vai trò chủ yếu?", answer: "1. Áp suất rễ (lực đẩy).<br>2. Lực liên kết giữa các phân tử nước & bám thành mạch.<br>3. <strong>Lực kéo do thoát hơi nước ở lá</strong> (chủ yếu nhất)." },
-      { lesson: 2, prompt: "Tế bào cấu tạo nên dòng mạch rây gồm những tế bào nào? Sống hay chết?", answer: "Gồm <strong>tế bào ống rây</strong> và <strong>tế bào kèm</strong>. Đây là các <strong>tế bào sống</strong>." },
-      { lesson: 2, prompt: "Thành phần chủ yếu nhất trong dịch mạch rây là gì?", answer: "Chủ yếu là <strong>đường sucrose</strong> (chiếm 90 - 95% chất khô), cùng amino acid, hormone thực vật." },
-      { lesson: 3, prompt: "Viết phương trình tổng quát của quang hợp ở thực vật?", answer: "<strong>6CO₂ + 12H₂O ──(Ánh sáng / Diệp lục)──► C₆H₁₂O₆ + 6O₂ + 6H₂O</strong>" },
-      { lesson: 3, prompt: "Chất nhận CO₂ đầu tiên và sản phẩm cố định đầu tiên ở thực vật C₃?", answer: "• Chất nhận CO₂ đầu tiên: <strong>RuBP (5C)</strong>.<br>• Sản phẩm cố định đầu tiên: <strong>3-PGA (3C)</strong>." },
-      { lesson: 3, prompt: "Chất nhận CO₂ đầu tiên và sản phẩm cố định đầu tiên ở thực vật C₄ và CAM?", answer: "• Chất nhận CO₂ đầu tiên: <strong>PEP (3C)</strong>.<br>• Sản phẩm cố định đầu tiên: <strong>OAA (4C)</strong> (Oxaloacetic acid)." },
-      { lesson: 3, prompt: "Quang hợp ở thực vật C₄ diễn ra ở 2 loại tế bào nào?", answer: "Tế bào <strong>mô giậu</strong> (cố định CO₂ thành axit 4C) và tế bào <strong>bao bó mạch</strong> (chu trình Calvin tổng hợp đường)." },
-      { lesson: 3, prompt: "Thực vật CAM cố định CO₂ vào thời gian nào trong ngày? Vì sao?", answer: "Vào <strong>ban đêm</strong>. Vì ban ngày nắng nóng phải đóng khí khổng chống mất nước, ban đêm mát mẻ mở khí khổng để hấp thụ CO₂." },
-      { lesson: 3, prompt: "Kể tên các đại diện điển hình của thực vật C₃, C₄ và CAM?", answer: "• <strong>C₃:</strong> Lúa, khoai, sắn, đậu, cam...<br>• <strong>C₄:</strong> Ngô, mía, cỏ lồng vực, kê...<br>• <strong>CAM:</strong> Xương rồng, dứa, thanh long..." },
-      { lesson: 3, prompt: "Khái niệm Điểm bù CO₂ và Điểm bão hoà CO₂?", answer: "• <strong>Điểm bù CO₂:</strong> Cường độ quang hợp = cường độ hô hấp.<br>• <strong>Điểm bão hoà CO₂:</strong> Cường độ quang hợp đạt cực đại." },
-      { lesson: 3, prompt: "Hậu quả khi bón phân cho cây trồng với liều lượng quá mức?", answer: "Dung dịch đất ưu trương, rễ không hút được nước gây cháy lá, nhiễm độc khoáng và làm cây chết héo." },
-      { lesson: 4, prompt: "Bào quan thực hiện chức năng chính của hô hấp hiếu khí là gì?", answer: "Bào quan <strong>Ti thể</strong> (diễn ra chu trình Krebs và chuỗi truyền electron hô hấp)." },
-      { lesson: 4, prompt: "Giai đoạn đường phân diễn ra ở đâu? Từ 1 Glucose tạo ra sản phẩm gì?", answer: "Tại <strong>tế bào chất</strong>. Tạo ra <strong>2 Pyruvate (3C) + 2 ATP + 2 NADH</strong>." },
-      { lesson: 4, prompt: "Khi rễ cây bị ngập úng thiếu O₂, cây chuyển sang con đường nào? Hậu quả?", answer: "Chuyển sang <strong>lên men (kị khí)</strong> tạo ethanol/axit lactic gây thối rễ, chết lông hút và làm cây héo rũ." },
-      { lesson: 4, prompt: "Giai đoạn nào của hô hấp hiếu khí tạo ra nhiều ATP nhất?", answer: "<strong>Chuỗi truyền electron hô hấp</strong> ở màng trong ti thể (tạo khoảng 26 - 28 ATP)." },
-      { lesson: 4, prompt: "Tổng số phân tử ATP tạo ra từ 1 phân tử Glucose qua hô hấp hiếu khí là bao nhiêu?", answer: "Khoảng <strong>30 đến 32 ATP</strong> (trong khi lên men kị khí chỉ thu được 2 ATP)." }
-    ];
+      {
+            "id": 1,
+            "lesson": 1,
+            "level": "Nhận biết",
+            "question": "Hệ điều hành là nơi?",
+            "options": [
+                  "Phần cứng khai thác hiệu quả của phần mềm.",
+                  "Phần mềm ứng dụng khai thác hiệu quả phần cứng.",
+                  "Giúp con người liên lạc với nhau.",
+                  "Các ứng dụng được sử dụng như một công cụ chèn."
+            ],
+            "correct": 1,
+            "explain": "Hệ điều hành là phần mềm hệ thống giữ vai trò môi trường trung gian, giúp phần mềm ứng dụng khai thác hiệu quả tài nguyên phần cứng của máy tính."
+      },
+      {
+            "id": 2,
+            "lesson": 1,
+            "level": "Nhận biết",
+            "question": "Cơ chế 'plug & play' giúp hệ điều hành?",
+            "options": [
+                  "Nhận biết thiết bị ngoại vi và hỗ trợ cài đặt các chương trình điều khiển một cách tự động.",
+                  "Nhận biết thiết bị nội hàm và hỗ trợ cài đặt các chương trình điều khiển một cách tự động.",
+                  "Xóa bỏ thiết bị ngoại vi và hỗ trợ cài đặt các chương trình điều khiển một cách tự động.",
+                  "Bắt buộc người dùng phải tự viết mã lệnh cài đặt thiết bị ngoại vi."
+            ],
+            "correct": 0,
+            "explain": "Cơ chế 'Plug and Play' (Cắm và chạy) giúp hệ điều hành tự động nhận biết thiết bị ngoại vi và tự động nạp/cài đặt trình điều khiển (Driver) tương ứng."
+      },
+      {
+            "id": 3,
+            "lesson": 1,
+            "level": "Nhận biết",
+            "question": "Phần cứng là?",
+            "options": [
+                  "Thiết bị xử lý thông tin.",
+                  "Thiết bị download phần mềm.",
+                  "Thiết bị đổi tên phần mềm.",
+                  "Thiết bị bán dẫn đơn thuần không có chức năng."
+            ],
+            "correct": 0,
+            "explain": "Phần cứng (Hardware) bao gồm các thiết bị vật lý tham gia vào quá trình tiếp nhận, lưu trữ và xử lý thông tin của máy tính."
+      },
+      {
+            "id": 4,
+            "lesson": 1,
+            "level": "Nhận biết",
+            "question": "Tiêu chí quan trọng nhất đối với máy tính cá nhân dành cho người dùng phổ thông là?",
+            "options": [
+                  "Đắt đỏ và khó tiếp cận.",
+                  "Chỉ xử lý được một phần của vấn đề.",
+                  "Phức tạp hóa vấn đề.",
+                  "Thân thiện và dễ sử dụng."
+            ],
+            "correct": 3,
+            "explain": "Đối với người dùng phổ thông, giao diện trực quan, thân thiện và dễ sử dụng là tiêu chí hàng đầu quyết định sự thành công của máy tính cá nhân."
+      },
+      {
+            "id": 5,
+            "lesson": 1,
+            "level": "Nhận biết",
+            "question": "Hai hệ điều hành phổ biến cho thiết bị di động hiện nay là?",
+            "options": [
+                  "MAC và JAVA.",
+                  "iOS và Android.",
+                  "CONTROL và BETA.",
+                  "Android và QC."
+            ],
+            "correct": 1,
+            "explain": "Android (Google) và iOS (Apple) là hai hệ điều hành thống trị trên hầu hết các điện thoại thông minh và máy tính bảng hiện nay."
+      },
+      {
+            "id": 6,
+            "lesson": 1,
+            "level": "Nhận biết",
+            "question": "Windows 7 ra đời vào năm nào?",
+            "options": [
+                  "2010",
+                  "2009",
+                  "2007",
+                  "2012"
+            ],
+            "correct": 1,
+            "explain": "Hệ điều hành Windows 7 được tập đoàn Microsoft chính thức phát hành vào tháng 10 năm 2009."
+      },
+      {
+            "id": 7,
+            "lesson": 1,
+            "level": "Nhận biết",
+            "question": "Windows phiên bản 1 (Windows 1.0) được phát hành vào năm nào?",
+            "options": [
+                  "1985",
+                  "2000",
+                  "1990",
+                  "1979"
+            ],
+            "correct": 0,
+            "explain": "Phiên bản Windows đầu tiên (Windows 1.0) được phát hành vào ngày 20/11/1985, đánh dấu bước đầu giao diện đồ họa người dùng của Microsoft."
+      },
+      {
+            "id": 8,
+            "lesson": 1,
+            "level": "Nhận biết",
+            "question": "Hệ điều hành LINUX được phát triển từ những năm nào?",
+            "options": [
+                  "1977",
+                  "1969",
+                  "1989",
+                  "2009"
+            ],
+            "correct": 1,
+            "explain": "Hệ điều hành Linux kế thừa tư tưởng và kiến trúc của hệ điều hành UNIX (ra đời năm 1969 tại Bell Labs). Linus Torvalds sau đó phát triển nhân Linux vào đầu thập niên 1990."
+      },
+      {
+            "id": 9,
+            "lesson": 1,
+            "level": "Nhận biết",
+            "question": "Chuột máy tính là?",
+            "options": [
+                  "Phương tiện chỉ định điểm làm việc trên màn hình.",
+                  "Phương tiện đa nhiệm, có thể làm một nhiệm vụ.",
+                  "Một hình thức xử lý thông tin của phần mềm.",
+                  "Tất cả đều sai."
+            ],
+            "correct": 0,
+            "explain": "Chuột là thiết bị ngoại vi dùng để định vị con trỏ và chỉ định điểm thao tác, làm việc trên màn hình giao diện đồ họa."
+      },
+      {
+            "id": 10,
+            "lesson": 1,
+            "level": "Nhận biết",
+            "question": "Chức năng của hệ điều hành bao gồm những nội dung nào?",
+            "options": [
+                  "Quản lý thiết bị, lưu trữ dữ liệu.",
+                  "Cung cấp môi trường giao tiếp, tiện ích, giúp nâng cao hiệu quả sử dụng máy tính.",
+                  "Tổ chức thực hiện chương trình.",
+                  "Tất cả đều đúng."
+            ],
+            "correct": 3,
+            "explain": "Cả 3 chức năng trên đều là các chức năng nền tảng cơ bản của mọi hệ điều hành hiện đại."
+      },
+      {
+            "id": 11,
+            "lesson": 1,
+            "level": "Vận dụng",
+            "question": "Đây là hệ điều hành phổ biến nhất với những người thiết kế đồ họa và những người làm việc trong lĩnh vực thông tin đại chúng?",
+            "options": [
+                  "UNIX",
+                  "Windows Vista",
+                  "Linux",
+                  "Mac OS"
+            ],
+            "correct": 3,
+            "explain": "Mac OS của Apple được tối ưu hóa xuất sắc về màu sắc, đồ họa, âm thanh và xử lý video, là lựa chọn số 1 của giới thiết kế sáng tạo và truyền thông."
+      },
+      {
+            "id": 12,
+            "lesson": 1,
+            "level": "Vận dụng",
+            "question": "Mỗi lần hệ thống máy tính khởi động, hệ điều hành nạp những phần nào vào bộ nhớ trong (RAM)?",
+            "options": [
+                  "Các chương trình quản lý thiết bị.",
+                  "Các bản cập nhật trình điều khiển.",
+                  "Các trình điều khiển thiết bị cốt lõi.",
+                  "Các bản cập nhật Windows."
+            ],
+            "correct": 2,
+            "explain": "Khi khởi động, phần nhân (kernel) và các trình điều khiển thiết bị (driver) cốt lõi sẽ được nạp ngay vào RAM để hệ điều hành nhận diện và điều khiển phần cứng."
+      },
+      {
+            "id": 13,
+            "lesson": 3,
+            "level": "Nhận biết",
+            "question": "Loại phần mềm theo chuyển giao sử dụng gồm có các loại nào?",
+            "options": [
+                  "Phần mềm thương mại, phần mềm tự do, phần mềm nguồn đóng.",
+                  "Phần mềm thương mại, phần mềm tự do, phần mềm nguồn mở.",
+                  "Phần mềm thương mại, phần mềm tự do.",
+                  "Tất cả đều đúng."
+            ],
+            "correct": 1,
+            "explain": "Theo hình thức chuyển giao quyền sử dụng, phần mềm gồm 3 nhóm chính: Phần mềm thương mại, phần mềm tự do và phần mềm nguồn mở."
+      },
+      {
+            "id": 14,
+            "lesson": 3,
+            "level": "Nhận biết",
+            "question": "Phần mềm thương mại là loại phần mềm như thế nào?",
+            "options": [
+                  "Phần mềm miễn phí hoàn toàn.",
+                  "Phần mềm cung cấp toàn bộ chức năng của máy tính.",
+                  "Là phần mềm thống trị.",
+                  "Phần mềm sản xuất ra để bán."
+            ],
+            "correct": 3,
+            "explain": "Phần mềm thương mại (Commercial software) là phần mềm được các doanh nghiệp đầu tư phát triển và sản xuất ra nhằm mục đích kinh doanh bán lấy lợi nhuận."
+      },
+      {
+            "id": 15,
+            "lesson": 3,
+            "level": "Nhận biết",
+            "question": "Phần mềm nguồn mở là gì?",
+            "options": [
+                  "Phần mềm cung cấp cả mã nguồn để người dùng có thể tự sửa đổi, cải tiến, phát triển.",
+                  "Là một phần mềm không được cung cấp mã nguồn mà người sử dụng theo 1 chiều của nhà sản xuất.",
+                  "Phần mềm bán lẻ nhất thế giới.",
+                  "Phần mềm có thể mở tất cả chương trình trên MacOS."
+            ],
+            "correct": 0,
+            "explain": "Đặc trưng cốt lõi của phần mềm nguồn mở (Open Source Software) là người dùng được tiếp cận mã nguồn công khai để tự do nghiên cứu, chỉnh sửa và đóng góp."
+      },
+      {
+            "id": 16,
+            "lesson": 3,
+            "level": "Nhận biết",
+            "question": "Giấy phép bản quyền nguồn mở nào sau đây được áp dụng rộng rãi nhất trên thế giới?",
+            "options": [
+                  "GLU GPL",
+                  "GNU GPN",
+                  "GLU GPN",
+                  "GNU GPL"
+            ],
+            "correct": 3,
+            "explain": "GNU GPL (General Public License) là giấy phép mã nguồn mở phổ biến và có tầm ảnh hưởng lớn nhất trong cộng đồng phần mềm tự do nguồn mở."
+      },
+      {
+            "id": 17,
+            "lesson": 3,
+            "level": "Nhận biết",
+            "question": "Điều nào sau đây là một hạn chế tiềm ẩn khi sử dụng phần mềm miễn phí?",
+            "options": [
+                  "Phần mềm miễn phí sẽ chỉ chạy được trong 30 ngày.",
+                  "Phần mềm miễn phí thì thường có nhiều khiếm khuyết.",
+                  "Phần mềm miễn phí không tương thích với Windows 7.",
+                  "Thường có hỗ trợ rất hạn chế cho phần mềm miễn phí."
+            ],
+            "correct": 3,
+            "explain": "Vì miễn phí nên các nhà phát triển thường không có nghĩa vụ hoặc nguồn lực cung cấp dịch vụ hỗ trợ kỹ thuật khách hàng 24/7 như phần mềm thương mại có phí."
+      },
+      {
+            "id": 18,
+            "lesson": 3,
+            "level": "Nhận biết",
+            "question": "Con người, quy trình, phần mềm, phần cứng và dữ liệu là 5 thành phần cốt lõi của một?",
+            "options": [
+                  "Hệ thống phần mềm.",
+                  "Hệ thống thông tin.",
+                  "Công nghệ thông tin.",
+                  "Quản trị phần mềm."
+            ],
+            "correct": 1,
+            "explain": "Một Hệ thống thông tin (Information System) hoàn chỉnh luôn được cấu thành từ 5 yếu tố: Con người, Quy trình, Phần mềm, Phần cứng và Dữ liệu."
+      },
+      {
+            "id": 19,
+            "lesson": 3,
+            "level": "Nhận biết",
+            "question": "Phần mềm thương mại được chia làm mấy loại chính?",
+            "options": [
+                  "2 loại.",
+                  "3 loại.",
+                  "4 loại.",
+                  "5 loại."
+            ],
+            "correct": 0,
+            "explain": "Phần mềm thương mại gồm 2 loại: Phần mềm đóng gói (bán đại trà cho số đông) và Phần mềm đặt hàng / may đo (viết theo yêu cầu riêng của tổ chức)."
+      },
+      {
+            "id": 20,
+            "lesson": 3,
+            "level": "Nhận biết",
+            "question": "'Là nguồn thu nhập chính của các tổ chức'. Đây là vai trò của loại phần mềm nào?",
+            "options": [
+                  "Phần mềm nguồn mở.",
+                  "Phần mềm thương mại.",
+                  "Phần mềm chạy trên internet.",
+                  "Phần mềm bán lẻ tự do."
+            ],
+            "correct": 1,
+            "explain": "Doanh thu bán bản quyền và giấy phép sử dụng phần mềm thương mại là nguồn thu nhập nuôi sống các công ty phát triển phần mềm."
+      },
+      {
+            "id": 21,
+            "lesson": 3,
+            "level": "Nhận biết",
+            "question": "Phần mềm chạy trên Internet là gì?",
+            "options": [
+                  "Phần mềm chỉ sử dụng cho các doanh nghiệp lớn.",
+                  "Phần mềm cần mua bản quyền đắt tiền để sử dụng.",
+                  "Phần mềm không cần kết nối internet.",
+                  "Phần mềm sử dụng trực tiếp trên internet mà không cần cài đặt vào máy."
+            ],
+            "correct": 3,
+            "explain": "Phần mềm chạy trên Internet (SaaS / Web apps) cho phép người dùng mở trình duyệt web và sử dụng ngay trực tuyến mà không cần cài đặt phần mềm lên ổ cứng."
+      },
+      {
+            "id": 22,
+            "lesson": 3,
+            "level": "Nhận biết",
+            "question": "Loại phần mềm nào làm việc với người dùng cuối, phần mềm ứng dụng và phần cứng để điều khiển phần lớn các chi tiết kỹ thuật?",
+            "options": [
+                  "Phần mềm hệ thống.",
+                  "Phần mềm ứng dụng.",
+                  "Phần mềm giao tiếp.",
+                  "Cả A, B và C đều sai."
+            ],
+            "correct": 0,
+            "explain": "Phần mềm hệ thống (System software - nòng cốt là Hệ điều hành) gánh vác toàn bộ việc quản lý và điều phối các chi tiết kỹ thuật phần cứng bên dưới."
+      },
+      {
+            "id": 23,
+            "lesson": 3,
+            "level": "Thông hiểu",
+            "question": "Chi phí đối với phần mềm nguồn mở thường được tính như thế nào?",
+            "options": [
+                  "Mất phí mua phần mềm và chuyển giao.",
+                  "Chỉ mất phí chuyển giao nếu có (phần mềm miễn phí tiền bản quyền).",
+                  "Chỉ mất phí mua phần mềm.",
+                  "Được hỗ trợ miễn phí 100% dịch vụ kỹ thuật mãi mãi."
+            ],
+            "correct": 1,
+            "explain": "Phần mềm nguồn mở thường miễn phí bản quyền phần mềm, người dùng chỉ phải trả chi phí chuyển giao, cài đặt hoặc đào tạo hỗ trợ nếu thuê dịch vụ ngoài."
+      },
+      {
+            "id": 24,
+            "lesson": 3,
+            "level": "Thông hiểu",
+            "question": "Về tính minh bạch của phần mềm thương mại nguồn đóng:",
+            "options": [
+                  "Có thể nhìn thấy và kiểm soát độ an toàn của mã nguồn.",
+                  "Người dùng không kiểm soát được mã nguồn (nhà sản xuất giữ kín mã nguồn).",
+                  "Bất kỳ ai cũng có thể kiểm soát và biên dịch lại mã nguồn.",
+                  "Tất cả đều sai."
+            ],
+            "correct": 1,
+            "explain": "Phần mềm thương mại nguồn đóng giữ kín mã nguồn độc quyền, người sử dụng chỉ nhận được tệp nhị phân thực thi nên không thể kiểm soát hay sửa mã nguồn bên trong."
+      },
+      {
+            "id": 25,
+            "lesson": 3,
+            "level": "Vận dụng",
+            "question": "Phần mềm nào sau đây là một ví dụ tiêu biểu về phần mềm đặt hàng (may đo)?",
+            "options": [
+                  "Ngôn ngữ lập trình JAVA.",
+                  "Control Panel của Windows.",
+                  "Ứng dụng gọi xe Grab Driver (viết riêng cho tài xế Grab).",
+                  "Trang web Sci-hub."
+            ],
+            "correct": 2,
+            "explain": "Ứng dụng Grab Driver là phần mềm được đặt hàng viết riêng phục vụ cho quy trình nghiệp vụ đón trả khách của công ty Grab."
+      },
+      {
+            "id": 26,
+            "lesson": 3,
+            "level": "Vận dụng",
+            "question": "Ưu điểm lớn nhất của phần mềm nguồn mở là gì?",
+            "options": [
+                  "Người dùng tùy biến thế nào cũng được mà không cần tuân theo giấy phép.",
+                  "Tính linh hoạt cao và có cộng đồng phát triển đông đảo hỗ trợ.",
+                  "Không bao giờ xảy ra lỗi trong quá trình vận hành.",
+                  "Được bảo hành chính hãng trọn đời bởi các tập đoàn lớn."
+            ],
+            "correct": 1,
+            "explain": "Ưu điểm nổi bật của phần mềm nguồn mở là tính linh hoạt cao, người dùng làm chủ công nghệ và có cộng đồng phát triển rộng lớn toàn cầu cùng đóng góp sửa lỗi."
+      },
+      {
+            "id": 27,
+            "lesson": 4,
+            "level": "Nhận biết",
+            "question": "Các thiết bị bên trong thân máy tính (case) gồm những thành phần cơ bản nào?",
+            "options": [
+                  "Bộ xử lý trung tâm (CPU), bộ nhớ trong ROM và RAM.",
+                  "Bộ xử lý trung tâm, bộ nhớ trong ROM và RAM, bộ nhớ ngoài.",
+                  "Bộ xử lý trung tâm, bộ nhớ trong ROM và RAM, bộ xử lý ngoại vi.",
+                  "Tất cả đều đúng."
+            ],
+            "correct": 0,
+            "explain": "Các thiết bị phần cứng cốt lõi bên trong bo mạch chủ gồm có: CPU (bộ xử lý trung tâm) và Bộ nhớ trong (ROM và RAM)."
+      },
+      {
+            "id": 28,
+            "lesson": 4,
+            "level": "Nhận biết",
+            "question": "Bộ xử lý trung tâm (CPU) là?",
+            "options": [
+                  "Thành phần quan trọng nhất của máy tính, đảm nhận việc thực hiện các tín hiệu ra của máy tính.",
+                  "Thành phần kém quan trọng nhất của máy tính, đảm nhận việc thực hiện các chương trình máy tính.",
+                  "Là phần mềm thống trị.",
+                  "Thành phần quan trọng nhất của máy tính, đảm nhận việc thực hiện các chương trình máy tính."
+            ],
+            "correct": 3,
+            "explain": "CPU (Central Processing Unit) được ví như bộ não của máy tính, là thành phần quan trọng nhất chịu trách nhiệm thực thi các lệnh của chương trình."
+      },
+      {
+            "id": 29,
+            "lesson": 4,
+            "level": "Nhận biết",
+            "question": "Bộ xử lý trung tâm (CPU) được cấu tạo từ hai bộ phận chính là?",
+            "options": [
+                  "Bộ số học và logic (ALU) và Bộ điều khiển (CU).",
+                  "Bộ điều khiển và bộ tính toán phân luồng.",
+                  "Bộ điều khiển và bộ xóa bộ nhớ.",
+                  "Bộ thư mục và bộ giải nén."
+            ],
+            "correct": 0,
+            "explain": "Hai khối chức năng chính của CPU là ALU (Arithmetic Logic Unit - bộ số học và logic) và CU (Control Unit - bộ điều khiển)."
+      },
+      {
+            "id": 30,
+            "lesson": 4,
+            "level": "Nhận biết",
+            "question": "Bộ nhớ RAM (Random Access Memory) là gì?",
+            "options": [
+                  "Phần cứng xử lý thông tin và lưu trữ vĩnh viễn.",
+                  "Phần mềm xử lý hình ảnh trên máy tính.",
+                  "Bộ nhớ có thể ghi được, dùng để lưu dữ liệu tạm thời khi chạy các chương trình, và giữ được lâu dài khi tắt máy.",
+                  "Bộ nhớ có thể đọc và ghi, dùng để lưu dữ liệu tạm thời khi chạy các chương trình, nhưng không giữ được dữ liệu khi mất điện (bộ nhớ khả biến)."
+            ],
+            "correct": 3,
+            "explain": "RAM là bộ nhớ truy cập ngẫu nhiên, lưu tạm thời các chương trình đang chạy. Khi tắt máy hoặc mất điện, toàn bộ dữ liệu trong RAM sẽ bị mất."
+      },
+      {
+            "id": 31,
+            "lesson": 4,
+            "level": "Nhận biết",
+            "question": "Bộ nhớ ROM (Read Only Memory) là gì?",
+            "options": [
+                  "Bộ nhớ chỉ có thể đọc, có thể ghi hay xoá tùy ý người dùng.",
+                  "Bộ nhớ chỉ có thể đọc, không thể ghi hay xoá thông thường; dùng để lưu dữ liệu hệ thống cố định và chương trình khởi động máy tính (BIOS/UEFI).",
+                  "Phần để lưu thông tin thừa và rác của hệ điều hành.",
+                  "Phần xử lý thông tin rác và thông tin chưa hoàn chỉnh."
+            ],
+            "correct": 1,
+            "explain": "ROM là bộ nhớ chỉ đọc, không bị mất dữ liệu khi mất điện, chứa các chương trình nạp khởi động máy tính cơ bản (như BIOS)."
+      },
+      {
+            "id": 32,
+            "lesson": 4,
+            "level": "Nhận biết",
+            "question": "Bộ nhớ ngoài của máy tính bao gồm các loại nào sau đây?",
+            "options": [
+                  "Hệ thống phần mềm quản trị tệp.",
+                  "Các loại đĩa từ (HDD), đĩa thể rắn (SSD), hay đĩa quang (CD/DVD), thẻ nhớ, USB.",
+                  "Các thanh công cụ chỉnh sửa phần cứng.",
+                  "Quản trị phần mềm hệ thống."
+            ],
+            "correct": 1,
+            "explain": "Bộ nhớ ngoài bao gồm các thiết bị lưu trữ thứ cấp như ổ đĩa HDD, SSD, USB flash, thẻ nhớ SD, đĩa quang CD/DVD."
+      },
+      {
+            "id": 33,
+            "lesson": 4,
+            "level": "Nhận biết",
+            "question": "Bộ nhớ ngoài được sử dụng để làm gì?",
+            "options": [
+                  "Sử dụng để lưu trữ dữ liệu lâu dài, không cần nguồn điện nuôi, có dung lượng lưu trữ lớn.",
+                  "Sử dụng để lưu trữ dữ liệu ngắn hạn, bắt buộc phải có nguồn điện nuôi liên tục.",
+                  "Chỉ dùng để giải nhiệt cho CPU.",
+                  "Tất cả đều sai."
+            ],
+            "correct": 0,
+            "explain": "Bộ nhớ ngoài có chức năng lưu trữ dữ liệu và phần mềm lâu dài (không mất khi tắt máy) với dung lượng rất lớn (hàng trăm GB đến hàng TB)."
+      },
+      {
+            "id": 34,
+            "lesson": 4,
+            "level": "Nhận biết",
+            "question": "So sánh giữa đĩa từ (HDD) và đĩa thể rắn (SSD):",
+            "options": [
+                  "Đĩa cứng HDD là thiết bị điện cơ nên tốc độ truy cập nhanh hơn nhiều so với đĩa SSD.",
+                  "Đĩa cứng HDD là thiết bị điện cơ nên tốc độ truy cập chậm hơn nhiều so với đĩa SSD, nhưng nhanh hơn nhiều so với đĩa quang.",
+                  "Đĩa SSD và HDD có tốc độ đọc ghi hoàn toàn giống hệt nhau.",
+                  "Đĩa SSD là thiết bị quang học quay bằng mắt laser."
+            ],
+            "correct": 1,
+            "explain": "HDD cấu tạo cơ học (phiến đĩa quay và đầu đọc) nên tốc độ truy xuất chậm hơn nhiều so với chip nhớ bán dẫn của SSD."
+      },
+      {
+            "id": 35,
+            "lesson": 4,
+            "level": "Nhận biết",
+            "question": "Đặc điểm xử lý dữ liệu của CPU máy tính hiện đại là gì?",
+            "options": [
+                  "Thiết bị kém quan trọng bên trong thân máy, xử lý các dữ liệu thập phân.",
+                  "Thiết bị quan trọng nhất bên trong thân máy, xử lý các dữ liệu thập phân.",
+                  "Thiết bị kém quan trọng nhất bên trong thân máy, xử lý các dữ liệu nhị phân.",
+                  "Thiết bị quan trọng nhất bên trong thân máy, xử lý các dữ liệu nhị phân (dãy bit 0 và 1)."
+            ],
+            "correct": 3,
+            "explain": "CPU là thiết bị quan trọng nhất trong thân máy, mọi loại thông tin (văn bản, âm thanh, hình ảnh) đều được mã hóa thành nhị phân (bit 0 và 1) để CPU xử lý."
+      },
+      {
+            "id": 36,
+            "lesson": 4,
+            "level": "Nhận biết",
+            "question": "Các đại lượng logic chỉ nhận một trong hai giá trị 'Đúng' (True) hoặc 'Sai' (False), tương ứng với các giá trị bit nào?",
+            "options": [
+                  "bit 1 (Đúng) và bit 0 (Sai).",
+                  "bit 1 và bit 10.",
+                  "bit 11 và bit 0.",
+                  "Tất cả đều sai."
+            ],
+            "correct": 0,
+            "explain": "Trong đại số Boole và máy tính, giá trị Đúng (True) quy ước là 1, giá trị Sai (False) quy ước là 0."
+      },
+      {
+            "id": 37,
+            "lesson": 4,
+            "level": "Thông hiểu",
+            "question": "Phép toán logic loại trừ XOR cho kết quả bằng 1 khi nào?",
+            "options": [
+                  "Khi các đại lượng đầu vào không có giá trị.",
+                  "Khi hai đại lượng đầu vào có giá trị giống nhau (0 XOR 0 hoặc 1 XOR 1).",
+                  "Khi hai đại lượng đầu vào có giá trị khác nhau (1 XOR 0 hoặc 0 XOR 1).",
+                  "Tất cả đều sai."
+            ],
+            "correct": 2,
+            "explain": "Quy tắc của phép toán logic XOR: Đầu ra bằng 1 khi và chỉ khi 2 giá trị đầu vào khác nhau (0 XOR 1 = 1, 1 XOR 0 = 1; còn 0 XOR 0 = 0, 1 XOR 1 = 0)."
+      },
+      {
+            "id": 38,
+            "lesson": 4,
+            "level": "Thông hiểu",
+            "question": "Các thông số đo hiệu năng cơ bản của bộ nhớ ngoài bao gồm?",
+            "options": [
+                  "Dung lượng lưu trữ (tính bằng GB hay TB) và thời gian truy cập trung bình để đọc/ghi dữ liệu.",
+                  "Chỉ tính bằng số lượng vòng quay RPM của đĩa.",
+                  "Chỉ đo bằng chiều dài và trọng lượng của ổ đĩa.",
+                  "Tất cả đều sai."
+            ],
+            "correct": 0,
+            "explain": "Hiệu năng bộ nhớ ngoài được đánh giá qua: (1) Dung lượng lưu trữ (GB, TB) và (2) Tốc độ/thời gian truy xuất đọc ghi dữ liệu."
+      },
+      {
+            "id": 39,
+            "lesson": 5,
+            "level": "Nhận biết",
+            "question": "Các thiết bị vào - ra trên máy tính thuộc nhóm thiết bị nào?",
+            "options": [
+                  "nhóm thiết bị nội vi đa dạng của máy tính.",
+                  "nhóm thiết bị ngoại vi đa dạng của máy tính.",
+                  "nhóm thiết bị nội, ngoại vi đa dạng của máy tính.",
+                  "nhóm thiết bị nội vi hạn chế của máy tính."
+            ],
+            "correct": 1,
+            "explain": "Thiết bị vào - ra (như bàn phím, chuột, màn hình, máy in) là nhóm các thiết bị ngoại vi được kết nối với thân máy tính."
+      },
+      {
+            "id": 40,
+            "lesson": 5,
+            "level": "Nhận biết",
+            "question": "Nhóm thiết bị nào sau đây chỉ gồm toàn các thiết bị vào (Input devices)?",
+            "options": [
+                  "Màn hình, bàn phím, máy fax.",
+                  "Chuột, màn hình, máy in.",
+                  "Bàn phím, chuột, màn hình.",
+                  "Bàn phím, chuột, camera số, micro."
+            ],
+            "correct": 3,
+            "explain": "Bàn phím, chuột, camera số (webcam), micro đều là các thiết bị có chức năng thu nhận dữ liệu từ bên ngoài đưa vào máy tính (thiết bị vào)."
+      },
+      {
+            "id": 41,
+            "lesson": 5,
+            "level": "Nhận biết",
+            "question": "Thiết bị ra (Output device) chuyển thông tin từ máy tính ra ngoài bao gồm?",
+            "options": [
+                  "Màn hình, máy in, máy chiếu, loa.",
+                  "Màn hình, bàn phím, chuột.",
+                  "Bộ điều khiển và thanh nhớ RAM.",
+                  "Máy in, máy fax, chuột, webcam."
+            ],
+            "correct": 0,
+            "explain": "Màn hình, máy in, máy chiếu và loa là các thiết bị nhận dữ liệu đã xử lý từ máy tính để hiển thị hoặc phát ra cho con người tiếp nhận."
+      },
+      {
+            "id": 42,
+            "lesson": 5,
+            "level": "Nhận biết",
+            "question": "Những thiết bị có khả năng trao đổi thông tin hai chiều với máy tính được coi là?",
+            "options": [
+                  "Thiết bị đa dụng.",
+                  "Thiết bị 1 chiều.",
+                  "Thiết bị lưu truyền.",
+                  "Thiết bị vào - ra (vừa vào vừa ra)."
+            ],
+            "correct": 3,
+            "explain": "Thiết bị vừa nhập vừa xuất dữ liệu (như màn hình cảm ứng, modem mạng, ổ cứng ngoài) được gọi là thiết bị vào - ra."
+      },
+      {
+            "id": 43,
+            "lesson": 5,
+            "level": "Nhận biết",
+            "question": "Thiết bị nhập dữ liệu thông dụng và phổ biến nhất của máy tính là?",
+            "options": [
+                  "Màn hình hiển thị.",
+                  "Bàn phím (Keyboard).",
+                  "Cổng HDMI.",
+                  "Máy quét mã vạch."
+            ],
+            "correct": 1,
+            "explain": "Bàn phím là thiết bị vào cơ bản và thông dụng nhất, dùng để nhập văn bản và các dòng lệnh điều khiển."
+      },
+      {
+            "id": 44,
+            "lesson": 5,
+            "level": "Nhận biết",
+            "question": "Thiết bị vào phổ biến dùng để điều khiển con trỏ chính xác trên màn hình giao diện đồ họa là?",
+            "options": [
+                  "Máy in phun.",
+                  "Chuột máy tính (Mouse).",
+                  "Bàn phím.",
+                  "Nút nguồn Power."
+            ],
+            "correct": 1,
+            "explain": "Chuột máy tính là thiết bị trỏ phổ biến giúp điều khiển tọa độ con trỏ và thao tác trực quan nhanh chóng."
+      },
+      {
+            "id": 45,
+            "lesson": 5,
+            "level": "Nhận biết",
+            "question": "Hai thông số kỹ thuật quan trọng nhất của chuột máy tính là gì?",
+            "options": [
+                  "Phương thức kết nối (có dây/không dây) và độ phân giải quang học (dpi).",
+                  "Độ nhanh và chậm.",
+                  "Độ phân giải và độ trơn của nút bấm.",
+                  "Tốc độ vòng xoay và độ bóng."
+            ],
+            "correct": 0,
+            "explain": "Chuột được đánh giá qua: (1) Phương thức kết nối (USB có dây, Bluetooth/Wireless) và (2) Độ phân giải dpi (dots per inch - độ nhạy/chính xác)."
+      },
+      {
+            "id": 46,
+            "lesson": 5,
+            "level": "Nhận biết",
+            "question": "Thiết bị ra phổ biến và quan trọng nhất của máy tính là?",
+            "options": [
+                  "Máy quang phổ.",
+                  "Màn hình hiển thị (Monitor).",
+                  "Máy in laser.",
+                  "Máy vẽ đồ thị."
+            ],
+            "correct": 1,
+            "explain": "Màn hình là thiết bị ra cơ bản nhất, hiển thị toàn bộ giao diện làm việc và kết quả xử lý của máy tính cho người dùng quan sát."
+      },
+      {
+            "id": 47,
+            "lesson": 5,
+            "level": "Nhận biết",
+            "question": "Các thông số kỹ thuật chung để đánh giá chất lượng của màn hình máy tính bao gồm?",
+            "options": [
+                  "Kích thước màn hình (inch) và độ phân giải (pixels).",
+                  "Khả năng thể hiện màu sắc.",
+                  "Tần số quét (Hz) và thời gian phản hồi (ms).",
+                  "Tất cả A, B, C đều đúng."
+            ],
+            "correct": 3,
+            "explain": "Chất lượng màn hình phụ thuộc vào: kích thước, độ phân giải, dải màu sắc, tần số quét và thời gian đáp ứng của điểm ảnh."
+      },
+      {
+            "id": 48,
+            "lesson": 5,
+            "level": "Nhận biết",
+            "question": "Khi kết nối máy tính với máy chiếu hoặc màn hình tivi hiện đại, người ta thường dùng cổng truyền hình ảnh/âm thanh phổ biến nào?",
+            "options": [
+                  "Cổng HDMI hoặc VGA.",
+                  "Cổng USB type A thuần nguồn.",
+                  "Cổng CD-ROM.",
+                  "Cổng tai nghe 3.5mm."
+            ],
+            "correct": 0,
+            "explain": "Cổng HDMI (High-Definition Multimedia Interface) và VGA là hai cổng kết nối xuất hình ảnh phổ biến nhất với máy chiếu và màn hình ngoài."
+      },
+      {
+            "id": 49,
+            "lesson": 5,
+            "level": "Vận dụng",
+            "question": "Cổng kết nối dẹt, gồm 19 chân vát chéo có khả năng truyền đồng thời cả hình ảnh sắc nét và âm thanh kỹ thuật số là cổng nào?",
+            "options": [
+                  "Cổng HDMI.",
+                  "Cổng RCA (hoa sen).",
+                  "Cổng VGA (15 chân xanh).",
+                  "Cổng USB thông thường."
+            ],
+            "correct": 0,
+            "explain": "Đó chính là cổng HDMI (chuẩn kết nối đa phương tiện độ nét cao truyền cả video và audio trên cùng 1 sợi cáp)."
+      },
+      {
+            "id": 50,
+            "lesson": 5,
+            "level": "Vận dụng",
+            "question": "Đầu cắm cáp mạng LAN tiêu chuẩn gồm 8 chân tiếp xúc bằng đồng để kết nối máy tính vào mạng Internet có tên là gì?",
+            "options": [
+                  "USB type C.",
+                  "Đầu nối RJ-45 (cáp mạng LAN).",
+                  "RCA Audio.",
+                  "HDMI Type A."
+            ],
+            "correct": 1,
+            "explain": "Đầu nối RJ-45 là chuẩn cáp mạng xoắn đôi 8 chân phổ biến nhất dùng để kết nối mạng có dây Ethernet/LAN."
+      },
+      {
+            "id": 51,
+            "lesson": 6,
+            "level": "Nhận biết",
+            "question": "Vì sao ngày nay người dùng nên lưu trữ thông tin, tài liệu trên Internet (đám mây)?",
+            "options": [
+                  "Dung lượng bộ nhớ lớn và linh hoạt mở rộng.",
+                  "Dễ dàng tìm kiếm và truy cập từ mọi thiết bị có kết nối mạng.",
+                  "Tính an toàn, bảo mật cao, tránh rủi ro hỏng hóc phần cứng máy tính cá nhân.",
+                  "Tất cả đều đúng."
+            ],
+            "correct": 3,
+            "explain": "Lưu trữ đám mây giúp giải phóng bộ nhớ máy tính, bảo vệ dữ liệu khi hỏng máy và cho phép làm việc mọi lúc mọi nơi."
+      },
+      {
+            "id": 52,
+            "lesson": 6,
+            "level": "Nhận biết",
+            "question": "Internet giúp người dùng khắc phục giới hạn lưu trữ của thiết bị cá nhân bằng giải pháp nào?",
+            "options": [
+                  "Phân phối bán lẻ bộ nhớ trong tiệm net.",
+                  "Cho người dùng thuê hoặc cấp miễn phí không gian lưu trữ trên các dịch vụ chia sẻ tệp tin trực tuyến.",
+                  "Bắt buộc người dùng mua thêm ổ cứng HDD cồng kềnh.",
+                  "Xóa bớt hệ điều hành của máy tính."
+            ],
+            "correct": 1,
+            "explain": "Các dịch vụ đám mây cấp không gian ổ đĩa trực tuyến (miễn phí hoặc trả phí thuê) giúp người dùng lưu trữ không giới hạn."
+      },
+      {
+            "id": 53,
+            "lesson": 6,
+            "level": "Nhận biết",
+            "question": "Những nhà cung cấp dịch vụ lưu trữ đám mây trực tuyến phổ biến hiện nay gồm có?",
+            "options": [
+                  "Apple iCloud và Dropbox.",
+                  "Google Drive.",
+                  "Microsoft OneDrive.",
+                  "Tất cả các dịch vụ trên đều đúng."
+            ],
+            "correct": 3,
+            "explain": "Google Drive, OneDrive, iCloud và Dropbox là những dịch vụ lưu trữ trực tuyến hàng đầu thế giới."
+      },
+      {
+            "id": 54,
+            "lesson": 6,
+            "level": "Nhận biết",
+            "question": "Người dùng đăng ký sử dụng dịch vụ và được cấp một không gian lưu trữ trực tuyến trên Internet được gọi là?",
+            "options": [
+                  "Ổ đĩa trực tuyến (Cloud Drive).",
+                  "Đĩa online dùng một lần.",
+                  "Nhà lưu trữ dữ liệu.",
+                  "Cầu kết nối tệp tin."
+            ],
+            "correct": 0,
+            "explain": "Ổ đĩa trực tuyến (ổ đĩa đám mây) là không gian lưu trữ dữ liệu riêng tư được cấp cho từng tài khoản người dùng trên Internet."
+      },
+      {
+            "id": 55,
+            "lesson": 6,
+            "level": "Nhận biết",
+            "question": "Thao tác tải tệp lên ổ đĩa trực tuyến (Upload) có ý nghĩa là gì?",
+            "options": [
+                  "Xóa vĩnh viễn các tệp trong máy tính cá nhân.",
+                  "Tải các tệp hoặc thư mục từ máy tính của mình lên ổ đĩa đám mây để lưu trữ, sao lưu và chia sẻ.",
+                  "Mua bán bản quyền thông tin lưu trữ cho người khác.",
+                  "Ẩn các tệp trong máy tính để người khác không nhìn thấy."
+            ],
+            "correct": 1,
+            "explain": "Upload là quá trình sao chép gửi tệp/thư mục từ bộ nhớ máy tính cục bộ lên máy chủ đám mây trực tuyến."
+      },
+      {
+            "id": 56,
+            "lesson": 6,
+            "level": "Nhận biết",
+            "question": "Trên ổ đĩa lưu trữ trực tuyến, người dùng có thể thực hiện những công việc quản lý nào?",
+            "options": [
+                  "Tạo thư mục mới, đổi tên, di chuyển, phân loại tệp và chỉnh sửa trực tiếp tài liệu.",
+                  "Chỉ được phép xem dung lượng đã dùng.",
+                  "Chỉ được xóa tệp, không được tạo thư mục mới.",
+                  "Trao đổi tin nhắn giống như một kênh chat mạng xã hội."
+            ],
+            "correct": 0,
+            "explain": "Ổ đĩa đám mây cung cấp đầy đủ công cụ như một hệ quản lý tệp: tạo thư mục, tải lên/xuống, tìm kiếm và sửa tài liệu trực tuyến."
+      },
+      {
+            "id": 57,
+            "lesson": 6,
+            "level": "Nhận biết",
+            "question": "Ưu điểm nổi bật nhất của việc lưu trữ tài liệu trên ổ đĩa trực tuyến khi làm việc nhóm là gì?",
+            "options": [
+                  "Cho phép chia sẻ dễ dàng các thư mục và tệp tin cho người khác cùng làm việc cộng tác theo thời gian thực.",
+                  "Không cho phép người khác xem tệp tin của mình dưới mọi hình thức.",
+                  "Bắt buộc người nhận phải trả tiền mới tải được tệp.",
+                  "Tất cả đều sai."
+            ],
+            "correct": 0,
+            "explain": "Khả năng chia sẻ tệp và cùng nhau chỉnh sửa văn bản, bảng tính theo thời gian thực là lợi thế vượt trội của lưu trữ đám mây."
+      },
+      {
+            "id": 58,
+            "lesson": 6,
+            "level": "Nhận biết",
+            "question": "Khi chia sẻ một tệp hoặc thư mục trực tuyến, chủ sở hữu có thể phân quyền cho người nhận với 3 chế độ cơ bản nào?",
+            "options": [
+                  "Xem, xóa, khôi phục.",
+                  "Xem (Viewer), Nhận xét (Commenter), Chỉnh sửa (Editor).",
+                  "Xem, mua, bán bản quyền.",
+                  "Xem, đổi tài khoản, chiếm quyền quản trị."
+            ],
+            "correct": 1,
+            "explain": "3 quyền chia sẻ chuẩn mực trên Google Drive/OneDrive là: Người xem (chỉ đọc), Người nhận xét (thêm bình luận), và Người chỉnh sửa (toàn quyền sửa/xóa)."
+      },
+      {
+            "id": 59,
+            "lesson": 6,
+            "level": "Nhận biết",
+            "question": "Trong các chế độ chia sẻ tệp tin trực tuyến, 'Quyền chỉnh sửa' (Editor) là gì?",
+            "options": [
+                  "Là quyền thay đổi tên và mật khẩu đăng nhập tài khoản của chủ sở hữu.",
+                  "Là quyền xóa toàn bộ tài khoản đám mây của người chia sẻ.",
+                  "Là quyền chỉ cho xem tài liệu mà không được gõ phím.",
+                  "Là quyền cao nhất cho phép người được chia sẻ thao tác sửa đổi nội dung, thêm, xóa các tệp và thư mục."
+            ],
+            "correct": 3,
+            "explain": "Quyền chỉnh sửa cho phép người được chia sẻ có toàn quyền thêm nội dung, xóa, sửa tệp như chính chủ sở hữu tài liệu."
+      },
+      {
+            "id": 60,
+            "lesson": 6,
+            "level": "Nhận biết",
+            "question": "Sau khi đã chia sẻ tệp hoặc thư mục, chủ sở hữu có thể thay đổi hoặc hủy bỏ chế độ chia sẻ không?",
+            "options": [
+                  "Có, chủ sở hữu có thể thay đổi quyền hoặc hủy chia sẻ bất cứ lúc nào.",
+                  "Không, một khi đã chia sẻ thì không bao giờ thu hồi lại được quyền truy cập.",
+                  "Chỉ có thể hủy nếu xóa luôn tài khoản lưu trữ.",
+                  "Phải nộp phí phạt mới được hủy chia sẻ."
+            ],
+            "correct": 0,
+            "explain": "Chủ sở hữu tệp luôn nắm quyền kiểm soát cao nhất, có thể đổi quyền từ Chỉnh sửa thành Xem hoặc hủy quyền truy cập của bất kỳ ai bất cứ lúc nào."
+      },
+      {
+            "id": 61,
+            "lesson": 6,
+            "level": "Vận dụng",
+            "question": "Dịch vụ lưu trữ đám mây gắn liền với hệ sinh thái Windows và bộ ứng dụng văn phòng Microsoft Office có tên là gì?",
+            "options": [
+                  "Microsoft OneDrive.",
+                  "Google Drive.",
+                  "Apple iCloud.",
+                  "Mozilla Firefox."
+            ],
+            "correct": 0,
+            "explain": "OneDrive là dịch vụ lưu trữ đám mây chính thức của tập đoàn Microsoft, được tích hợp sâu vào hệ điều hành Windows và Microsoft 365."
+      },
+      {
+            "id": 62,
+            "lesson": 6,
+            "level": "Vận dụng",
+            "question": "Dịch vụ lưu trữ đám mây tích hợp mở rộng dung lượng cho toàn bộ hệ sinh thái của Google (Gmail, Drive, Photos) có tên là?",
+            "options": [
+                  "Google One.",
+                  "Google dox.",
+                  "Google chrome.",
+                  "Google team."
+            ],
+            "correct": 0,
+            "explain": "Google One là gói dịch vụ lưu trữ đám mây trả phí của Google giúp mở rộng dung lượng dùng chung cho Google Drive, Gmail và Google Photos."
+      },
+      {
+            "id": 63,
+            "lesson": 9,
+            "level": "Nhận biết",
+            "question": "Chọn phương án SAI: Khi sử dụng Internet, chúng ta có thể gặp phải những nguy cơ nào?",
+            "options": [
+                  "Bị lôi kéo vào các hoạt động không lành mạnh.",
+                  "Tin tưởng tuyệt đối vào mọi nguồn thông tin trên mạng mà không cần kiểm chứng.",
+                  "Máy tính bị nhiễm virus, phần mềm gián điệp hay mã độc.",
+                  "Bị lừa đảo chiếm đoạt tài sản hoặc lợi dụng thông tin cá nhân."
+            ],
+            "correct": 1,
+            "explain": "Thông tin trên mạng rất đa dạng, có nhiều tin giả, lừa đảo nên KHÔNG ĐƯỢC tin tưởng mọi nguồn thông tin trên mạng mà cần phải kiểm chứng kỹ càng."
+      },
+      {
+            "id": 64,
+            "lesson": 9,
+            "level": "Nhận biết",
+            "question": "Đâu KHÔNG PHẢI là một trong ba quy tắc vàng để sử dụng Internet an toàn?",
+            "options": [
+                  "Hãy chậm lại.",
+                  "Kiểm tra ngay.",
+                  "Dừng lại, không gửi.",
+                  "Mở và xem ngay lập tức các tệp đính kèm lạ."
+            ],
+            "correct": 3,
+            "explain": "Ba quy tắc vàng bảo đảm an toàn trên không gian số là: (1) Hãy chậm lại; (2) Kiểm tra ngay; (3) Dừng lại, không gửi. Tuyệt đối không mở các liên kết/tệp lạ."
+      },
+      {
+            "id": 65,
+            "lesson": 9,
+            "level": "Nhận biết",
+            "question": "Nguyên tắc an toàn thứ nhất 'Hãy chậm lại' có ý nghĩa là gì?",
+            "options": [
+                  "Hãy chậm lại trước khi hành động để tránh cảm giác bị đẩy đến giới hạn của kẻ lừa đảo.",
+                  "Hãy chậm lại sau khi hành động để có cảm giác bị đẩy đến giới hạn của kẻ lừa đảo.",
+                  "Hãy làm từng bước như lời người gửi, chậm dãi và chính xác theo kịch bản của họ.",
+                  "Chậm lại để nghe họ nói gì và ghi nhớ để làm theo không bị sai."
+            ],
+            "correct": 0,
+            "explain": "Kẻ lừa đảo thường tạo tâm lý hoang mang, cấp bách để nạn nhân hành động vội vàng. 'Hãy chậm lại' giúp bình tĩnh suy xét và tránh bẫy tâm lý."
+      },
+      {
+            "id": 66,
+            "lesson": 9,
+            "level": "Nhận biết",
+            "question": "Nguyên tắc an toàn thứ hai 'Kiểm tra ngay!' có nghĩa là gì?",
+            "options": [
+                  "Kiểm tra phần mềm máy tính, điện thoại xem có còn sử dụng được không.",
+                  "Kiểm tra điểm số, họ hàng của người đưa thông tin.",
+                  "Để họ kiểm tra nhân thân, giấy tờ của mình.",
+                  "Kiểm tra thông tin bằng cách tra cứu số điện thoại hoặc địa chỉ để xác minh thông tin trực tiếp với người gửi."
+            ],
+            "correct": 3,
+            "explain": "Kiểm tra ngay là liên hệ độc lập qua kênh chính thống (gọi điện thoại trực tiếp, đến cơ quan xác minh) để kiểm tra tính xác thực của thông tin."
+      },
+      {
+            "id": 67,
+            "lesson": 9,
+            "level": "Nhận biết",
+            "question": "Nguyên tắc an toàn thứ ba 'Dừng lại, không gửi!' có nghĩa là gì?",
+            "options": [
+                  "Đừng gửi thông tin đó cho bất kỳ ai, mà hãy gửi lại một mình để theo dõi.",
+                  "Dừng gửi tiền ngay lập tức nếu cảm thấy có dấu hiệu của lừa đảo và đặt câu hỏi về một yêu cầu thanh toán.",
+                  "Không gửi thông tin cho các cơ quan, các tổ chức có thẩm quyền.",
+                  "Không báo công an khi bị mất tiền."
+            ],
+            "correct": 1,
+            "explain": "Khi có dấu hiệu bất thường, tuyệt đối dừng mọi giao dịch chuyển tiền, không cung cấp mã OTP hay thông tin nhạy cảm cho bất kỳ ai."
+      },
+      {
+            "id": 68,
+            "lesson": 9,
+            "level": "Nhận biết",
+            "question": "Khi sử dụng lại các thông tin, tài liệu tìm thấy trên mạng Internet, em cần đặc biệt lưu ý đến vấn đề gì?",
+            "options": [
+                  "Từ khóa cần tìm kiếm.",
+                  "Vấn đề bản quyền và tôn trọng quyền tác giả.",
+                  "Địa chỉ IP của trang web.",
+                  "Thông tin người lập trình trang web."
+            ],
+            "correct": 1,
+            "explain": "Mọi tác phẩm trên mạng (bài viết, ảnh, video, âm nhạc) đều thuộc quyền sở hữu trí tuệ của tác giả, cần trích dẫn nguồn và tuân thủ bản quyền."
+      },
+      {
+            "id": 69,
+            "lesson": 9,
+            "level": "Nhận biết",
+            "question": "Để bảo vệ dữ liệu trên máy tính cá nhân khi tham gia Internet, em cần làm gì?",
+            "options": [
+                  "Cài đặt và cập nhật thường xuyên phần mềm chống virus (Antivirus).",
+                  "Tải các phần mềm bẻ khóa, không rõ nguồn gốc về máy tính.",
+                  "Cung cấp thông tin tài khoản cá nhân công khai trên mạng xã hội.",
+                  "Tò mò bấm vào các liên kết lạ gửi qua tin nhắn."
+            ],
+            "correct": 0,
+            "explain": "Cài đặt phần mềm diệt virus chính hãng và cập nhật định kỳ giúp bảo vệ máy tính trước các nguy cơ mã độc, phần mềm tống tiền ransomware."
+      },
+      {
+            "id": 70,
+            "lesson": 9,
+            "level": "Nhận biết",
+            "question": "Em nên làm gì đối với các mật khẩu tài khoản mạng của mình?",
+            "options": [
+                  "Cho bạn bè thân thiết biết mật khẩu để khi quên còn hỏi lại.",
+                  "Thay đổi mật khẩu thường xuyên, đặt mật khẩu mạnh và không chia sẻ cho bất kỳ ai.",
+                  "Sử dụng cùng một mật khẩu đơn giản cho tất cả các tài khoản.",
+                  "Đặt mật khẩu theo ngày sinh hoặc số điện thoại cho dễ nhớ."
+            ],
+            "correct": 1,
+            "explain": "Mật khẩu mạnh (kết hợp chữ hoa, chữ thường, số, ký tự đặc biệt), thay đổi định kỳ và giữ bí mật là nguyên tắc bảo vệ tài khoản cơ bản nhất."
+      },
+      {
+            "id": 71,
+            "lesson": 9,
+            "level": "Nhận biết",
+            "question": "Có bao nhiêu quy tắc ứng xử cơ bản trong Bộ quy tắc ứng xử trên mạng xã hội?",
+            "options": [
+                  "1 quy tắc.",
+                  "2 quy tắc.",
+                  "3 quy tắc.",
+                  "4 quy tắc (Tôn trọng, Trách nhiệm, An toàn, Lành mạnh)."
+            ],
+            "correct": 3,
+            "explain": "Bộ Quy tắc ứng xử trên mạng xã hội của Bộ Thông tin & Truyền thông ban hành gồm 4 quy tắc chung: Tôn trọng, Trách nhiệm, An toàn và Lành mạnh."
+      },
+      {
+            "id": 72,
+            "lesson": 9,
+            "level": "Nhận biết",
+            "question": "Nếu không tuân thủ các quy định pháp luật và có hành vi lừa đảo, xúc phạm người khác trên mạng Internet thì có bị xử lý theo pháp luật không?",
+            "options": [
+                  "Chắc chắn có (bị xử phạt hành chính hoặc truy cứu trách nhiệm hình sự theo Luật An ninh mạng).",
+                  "Không, chắc chắn không vì mạng xã hội chỉ là thế giới ảo.",
+                  "Không, vì không có luật pháp nào điều chỉnh hành vi trên Internet.",
+                  "Không, vì cơ quan công an không thể điều tra danh tính trên mạng."
+            ],
+            "correct": 0,
+            "explain": "Mọi hành vi vi phạm pháp luật trên không gian mạng (lừa đảo, vu khống, xúc phạm, phát tán mã độc) đều bị xử lý nghiêm minh theo Luật An ninh mạng."
+      },
+      {
+            "id": 73,
+            "lesson": 9,
+            "level": "Thông hiểu",
+            "question": "Tình huống nào sau đây giúp chúng ta dễ dàng nhận biết nhất là đang có dấu hiệu lừa đảo trên mạng?",
+            "options": [
+                  "Bạn bè nhắn tin hỏi thăm sức khỏe bình thường.",
+                  "Giáo viên gửi thông báo lịch kiểm tra qua nhóm Zalo lớp.",
+                  "Công ty gửi thư mời phỏng vấn xin việc sau khi nộp hồ sơ.",
+                  "Tin nhắn từ tài khoản người quen hoặc số lạ nhờ chuyển tiền gấp, nhờ nạp thẻ cào điện thoại hoặc trúng thưởng lớn."
+            ],
+            "correct": 3,
+            "explain": "Các tin nhắn gấp gáp nhờ chuyển tiền, vay tiền, nạp thẻ điện thoại hoặc thông báo trúng thưởng kèm yêu cầu nộp lệ phí là dấu hiệu lừa đảo phổ biến nhất."
+      },
+      {
+            "id": 74,
+            "lesson": 9,
+            "level": "Thông hiểu",
+            "question": "Quy tắc an toàn và bảo mật thông tin trong môi trường số yêu cầu người dùng phải làm gì?",
+            "options": [
+                  "Tuân thủ các quy định và hướng dẫn về bảo vệ an toàn và bảo mật thông tin cá nhân và tổ chức.",
+                  "Tuân thủ pháp luật, tôn trọng quyền và lợi ích của cơ quan, tòa án.",
+                  "Tuân thủ pháp luật về đất đai và tài chính doanh nghiệp.",
+                  "Sử dụng tính năng bảo mật thư mục trên điện thoại đơn thuần."
+            ],
+            "correct": 0,
+            "explain": "Tuân thủ nghiêm các quy định và hướng dẫn về an toàn, bảo mật thông tin cá nhân là nguyên tắc cốt lõi giúp bảo vệ mình trên không gian số."
+      }
+];
+    const trueFalseQuestions = [{"id": 1, "context": "Câu 1: Lớp An đang bàn bạc về phương án lưu trữ những dữ liệu (ảnh, video kỷ yếu) của lớp trên một tài khoản cá nhân và chia sẻ cho các bạn trong lớp. Có một số bạn có ý kiến như sau:", "items": [{"text": "a) Nên lưu trữ đám mây (Google Drive, OneDrive, Dropbox...) để tiết kiệm chi phí mà vẫn an toàn.", "correct": true, "explain": "Đúng. Lưu trữ đám mây có dung lượng miễn phí khởi đầu, chi phí thấp, tính bảo mật cao và dễ chia sẻ."}, {"text": "b) Không nên lưu trữ đám mây vì như thế nếu lỡ 1 người xóa thì dữ liệu đi là mất hết, không có phương án nào chống người khác xóa dữ liệu này được.", "correct": false, "explain": "Sai. Chủ sở hữu có thể phân quyền ở chế độ 'Chỉ xem' (Viewer), người khác không thể xóa tệp; ngoài ra còn có Thùng rác (Trash) và sao lưu lịch sử phiên bản."}, {"text": "c) Mỗi người nên mua 1 thẻ nhớ hoặc Flash disk để lưu dữ liệu sẽ tiết kiệm chi phí hơn, an toàn hơn.", "correct": false, "explain": "Sai. Mua riêng cho từng người tốn kém chi phí hơn rất nhiều và thiết bị nhớ ngoài rất dễ bị rơi mất, hỏng hóc vật lý."}, {"text": "d) Nên lưu trữ trên một hoặc vài tài khoản Google Drive và chia sẻ quyền cho các bạn trong lớp là phù hợp nhất.", "correct": true, "explain": "Đúng. Đây là phương án kinh tế, an toàn, quản lý tập trung và tiện lợi nhất cho tập thể lớp."}]}, {"id": 2, "context": "Câu 2: Bạn Vy tải và cài đặt phần mềm thiết kế đồ họa Inkscape. Vy sử dụng phần mềm này và tạo ra các bức tranh, logo rất đẹp và đã bán được nhiều tiền từ các bức tranh vẽ đó. Có nhiều bạn cùng muốn được phần mềm Inkscape nên đề nghị Vy bán lại mã nguồn phần mềm này. Vy đã bán cho nhiều bạn mà không thông báo thông tin gì về tác giả và nguồn gốc, thông tin phiên bản của phần mềm.", "items": [{"text": "a) Vy có quyền yêu cầu trả phí cho việc chia sẻ lại mã nguồn nhưng phải thông báo rõ ràng về bản quyền gốc và quyền bảo lưu đối với trách nhiệm.", "correct": true, "explain": "Đúng. Giấy phép nguồn mở (như GPL) cho phép thu phí phân phối/dịch vụ nhưng bắt buộc phải dẫn nguồn tác giả gốc và tuyên bố bản quyền."}, {"text": "b) Vy không được bán các tác phẩm vẽ bằng phần mềm Inkscape vì đó là các sản phẩm tạo bởi phần mềm nguồn mở.", "correct": false, "explain": "Sai. Người dùng hoàn toàn có toàn quyền sở hữu và thương mại hóa các tác phẩm do chính mình sáng tạo bằng phần mềm nguồn mở."}, {"text": "c) Inkscape là một phần mềm nguồn mở.", "correct": true, "explain": "Đúng. Inkscape là phần mềm đồ họa vector nguồn mở miễn phí rất nổi tiếng."}, {"text": "d) Vy bán lại mã nguồn phần mềm Inkscape mà không thông báo thông tin gì về phần mềm này là sai.", "correct": true, "explain": "Đúng. Hành vi xóa bỏ hoặc giấu giếm thông tin tác giả, bản quyền gốc vi phạm nghiêm trọng giấy phép nguồn mở GNU GPL."}]}, {"id": 3, "context": "Câu 3: Hệ điều hành (tiếng Anh: Operating System - viết tắt: OS) là một phần mềm dùng để điều hành, quản lý tất cả thành phần (bao gồm cả phần cứng và phần mềm) của thiết bị điện tử. Có vai trò trung gian trong việc giao tiếp giữa người sử dụng và thiết bị. Ta có hệ điều hành dành cho máy tính và hệ điều hành dành cho thiết bị di động. Dưới đây là nhận định của học sinh về hai hệ điều hành trên:", "items": [{"text": "a) Linux là hệ điều hành dành cho máy tính.", "correct": true, "explain": "Đúng. Linux là hệ điều hành máy tính (PC, máy chủ, máy trạm) rất phổ biến."}, {"text": "b) Windows là hệ điều hành có mã nguồn mở.", "correct": false, "explain": "Sai. Windows là hệ điều hành thương mại mã nguồn đóng độc quyền của Microsoft."}, {"text": "c) Hệ điều hành Android được sử dụng cài đặt cho tất cả các điện thoại ở các hãng có sản xuất điện thoại di động.", "correct": false, "explain": "Sai. Apple sử dụng độc quyền hệ điều hành iOS trên iPhone, không sử dụng Android."}, {"text": "d) Hệ điều hành Windows và hệ điều hành Android đều có chung ưu điểm là đều được cài đặt miễn phí.", "correct": false, "explain": "Sai. Windows là phần mềm thương mại có thu phí bản quyền, không miễn phí."}]}, {"id": 4, "context": "Câu 4: Phần mềm nguồn mở là phần mềm với mã nguồn được công bố và sử dụng một giấy phép nguồn mở. Giấy phép này cho phép bất cứ ai cũng có thể nghiên cứu, thay đổi, cải tiến phần mềm và phân phối phần mềm ở dạng chưa thay đổi hoặc đã thay đổi. Năm 1998 một nhóm người chủ trương phát triển thuật ngữ phần mềm tự do nên được thay thế bằng phần mềm nguồn mở vì thuật ngữ này ít mơ hồ hơn và dễ sử dụng hơn cho giới doanh nghiệp. Dưới đây là nhận định của học sinh về vấn đề trên:", "items": [{"text": "a) Phần mềm mã nguồn mở chỉ chạy trực tuyến trên internet.", "correct": false, "explain": "Sai. Rất nhiều phần mềm nguồn mở cài đặt và chạy trực tiếp ngoại tuyến trên máy tính (như Linux, LibreOffice, GIMP, VLC...)."}, {"text": "b) Phần mềm mã nguồn mở không thay đổi được mã nguồn.", "correct": false, "explain": "Sai. Đặc trưng cốt lõi của phần mềm nguồn mở là cho phép người dùng tự do xem và thay đổi mã nguồn."}, {"text": "c) Chỉ các lập trình viên mới có thể thay đổi mã nguồn.", "correct": false, "explain": "Sai. Bất kỳ người dùng nào có nhu cầu và khả năng đều có quyền tiếp cận và chỉnh sửa mã nguồn theo quy định giấy phép."}, {"text": "d) Người dùng chỉ có thể tải mã nguồn về, không được chỉnh sửa.", "correct": false, "explain": "Sai. Giấy phép nguồn mở đảm bảo quyền tự do chỉnh sửa, cải tiến và tái phân phối."}]}, {"id": 5, "context": "Câu 5: Cho mạch logic với hai chuỗi bit đầu vào A = 1001 và B = 1101. Dưới đây là nhận định của một bạn học sinh về các phép toán logic trên như sau:", "items": [{"text": "a) Phép cộng nhị phân A + B cho kết quả bằng 10110₂.", "correct": true, "explain": "Đúng. 1001₂ (9) + 1101₂ (13) = 22₁₀ = 10110₂."}, {"text": "b) Phép toán đảo NOT(A) cho kết quả là 0011.", "correct": false, "explain": "Sai. Đảo bit của A = 1001 là NOT(1001) = 0110 (đảo 1 thành 0 và 0 thành 1)."}, {"text": "c) Phép toán logic AND của A và B cho kết quả là 1001.", "correct": true, "explain": "Đúng. 1001 AND 1101 = 1001 (từng cặp bit: 1 AND 1 = 1, 0 AND 1 = 0, 0 AND 0 = 0, 1 AND 1 = 1)."}, {"text": "d) Phép toán logic OR của A và B cho kết quả là 1111.", "correct": false, "explain": "Sai. 1001 OR 1101 = 1101 (vì vị trí thứ ba 0 OR 0 = 0, không phải 1)."}]}, {"id": 6, "context": "Câu 6: Ngày nay, laptop hay smartphone là nơi lưu trữ nhiều thông tin của người dùng từ tài liệu công việc, học tập đến liên lạc... Vì thế việc sao lưu (backup) các dữ liệu trong trường hợp khẩn cấp là cực kỳ quan trọng. Một học sinh đã nhận định như sau:", "items": [{"text": "a) Mọi dữ liệu trên máy tính đều phải được sao lưu để tránh mất dữ liệu.", "correct": false, "explain": "Sai. Không cần thiết phải sao lưu các tệp tạm, tệp rác hay các phần mềm có thể dễ dàng tải lại từ Internet."}, {"text": "b) Không phải mọi dữ liệu đều cần sao lưu.", "correct": true, "explain": "Đúng. Việc chọn lọc dữ liệu giúp tiết kiệm dung lượng, thời gian và băng thông sao lưu."}, {"text": "c) Sao lưu chỉ cần thiết cho những dữ liệu quan trọng, khó có thể khôi phục lại.", "correct": true, "explain": "Đúng. Cần ưu tiên tuyệt đối sao lưu các tệp tài liệu học tập, công việc, ảnh kỷ niệm, cơ sở dữ liệu."}, {"text": "d) Sao lưu không cần thiết nếu máy tính đã sử dụng ổ cứng SSD.", "correct": false, "explain": "Sai. Ổ cứng SSD vẫn có thể bị hỏng đột ngột do sốc điện, virus tấn công, hoặc người dùng bị mất/hỏng máy tính."}]}, {"id": 7, "context": "Câu 7: Trình duyệt web là một ứng dụng phần mềm để truy cập thông tin trên World Wide Web. Mỗi trang web, hình ảnh dạng HTML để hiển thị, do vậy một trang web có thể hiển thị khác nhau trên các trình duyệt khác nhau. Các trình duyệt web phổ biến nhất là Chrome, Firefox, Microsoft Edge... Để cài đặt chế độ tự động lưu mật khẩu, một bạn thực hiện vào Cài đặt > Tự động lưu mật khẩu. Sau đây là một vài nhận định của học sinh:", "items": [{"text": "a) Lưu trữ mật khẩu trên trình duyệt là phương pháp bảo mật tốt nhất.", "correct": false, "explain": "Sai. Lưu mật khẩu trên trình duyệt tiện lợi nhưng tiềm ẩn rủi ro khi có người khác dùng chung máy tính hoặc máy bị cài mã độc đánh cắp cookie/password."}, {"text": "b) Cách thực hiện như trên là sai, phải vào Cài đặt ứng dụng > Bộ nhớ mới cài được.", "correct": false, "explain": "Sai. Việc cài đặt tự động điền mật khẩu hoàn toàn được cấu hình trong phần Cài đặt (Settings) của chính trình duyệt web."}, {"text": "c) Windows Explorer là một trình duyệt web rất hay.", "correct": false, "explain": "Sai. Windows Explorer (File Explorer) là trình quản lý tệp tin và thư mục của hệ điều hành Windows, KHÔNG PHẢI là trình duyệt web."}, {"text": "d) Trên trình duyệt luôn có tiện ích mã hóa mật khẩu nên tuyệt đối an toàn 100% trong mọi tình huống.", "correct": false, "explain": "Sai. Không có biện pháp nào an toàn 100%, nếu máy tính bị cài phần mềm gián điệp keylogger thì mật khẩu vẫn có thể bị lộ."}]}, {"id": 8, "context": "Câu 8: Báo Lao Động đưa tin: 'Ngày 6.4, Công an TP. Hà Nội thông tin, mới đây một phụ nữ ở quận Ba Đình đã sập bẫy thủ đoạn tuyển cộng tác viên nghe nhạc để tăng lượt view, lượt like cho ca sĩ và chuyển hơn 400 triệu đồng cho đối tượng lừa đảo...'. Một học sinh đã nêu ra các nhận định sau:", "items": [{"text": "a) Người phụ nữ trên đã vi phạm nguyên tắc nhận biết và phòng tránh lừa đảo trên không gian số.", "correct": true, "explain": "Đúng. Nạn nhân đã nhẹ dạ tin vào lời mời chào 'việc nhẹ lương cao' trên mạng mà không kiểm tra xác minh."}, {"text": "b) Đây là tình huống lừa đảo dưới dạng thông tin tốt.", "correct": false, "explain": "Sai. Đây là thủ đoạn lừa đảo tinh vi đánh vào lòng tham và sự mất cảnh giác bằng bẫy việc làm online có thưởng."}, {"text": "c) Ba nguyên tắc vàng tránh lừa đảo trên không gian số là: Hãy chậm lại, Kiểm tra ngay, Dừng lại không gửi.", "correct": true, "explain": "Đúng. Đây là 3 quy tắc an toàn số được các chuyên gia an ninh mạng và Bộ Công an khuyến cáo."}, {"text": "d) Nguyên tắc thứ nhất về tình huống trên là: Xác minh, kiểm tra thông tin của trang web đăng việc làm tuyển cộng tác viên, không nên chuyển tiền khi chưa biết rõ thông tin.", "correct": true, "explain": "Đúng. Luôn chậm lại để tìm hiểu kỹ và tuyệt đối không chuyển tiền cọc cho bất kỳ công việc tuyển dụng online nào."}]}];
+    const flashcardsData = [{"lesson": 1, "prompt": "Cơ chế 'Plug & Play' (Cắm và chạy) của hệ điều hành có tác dụng gì?", "answer": "Tự động nhận biết thiết bị ngoại vi và tự động nạp/cài đặt chương trình điều khiển (Driver)."}, {"lesson": 1, "prompt": "Hệ điều hành Windows 1.0 đầu tiên ra mắt vào năm nào?", "answer": "Năm 1985 (cụ thể: 20/11/1985 do Microsoft phát hành)."}, {"lesson": 1, "prompt": "Hệ điều hành Windows 7 được chính thức phát hành vào năm nào?", "answer": "Năm 2009 (tháng 10/2009)."}, {"lesson": 1, "prompt": "Hệ điều hành nào phổ biến và tối ưu nhất cho thiết kế đồ họa và truyền thông?", "answer": "Mac OS (của hãng Apple)."}, {"lesson": 1, "prompt": "Hai hệ điều hành thống trị toàn cầu trên thiết bị di động là gì?", "answer": "Android (của Google) và iOS (của Apple)."}, {"lesson": 3, "prompt": "Phần mềm nguồn mở (Open Source Software) là gì?", "answer": "Là phần mềm cung cấp công khai mã nguồn để người dùng tự do xem, sửa đổi, cải tiến và phát triển."}, {"lesson": 3, "prompt": "Giấy phép bản quyền mã nguồn mở phổ biến nhất thế giới là gì?", "answer": "Giấy phép GNU GPL (General Public License)."}, {"lesson": 3, "prompt": "Kể tên 5 thành phần cấu tạo nên một Hệ thống thông tin?", "answer": "1. Con người - 2. Quy trình - 3. Phần mềm - 4. Phần cứng - 5. Dữ liệu."}, {"lesson": 3, "prompt": "Phần mềm chạy trên Internet (SaaS / Web App) có ưu điểm gì nổi bật?", "answer": "Sử dụng trực tiếp trên Internet qua trình duyệt web mà không cần cài đặt vào ổ cứng máy tính."}, {"lesson": 4, "prompt": "Hai bộ phận cấu thành cốt lõi của CPU là gì?", "answer": "ALU (Bộ số học và logic) và CU (Bộ điều khiển)."}, {"lesson": 4, "prompt": "Phân biệt sự khác nhau cơ bản giữa RAM và ROM?", "answer": "• RAM: Bộ nhớ đọc-ghi tạm thời, mất dữ liệu khi tắt máy.<br>• ROM: Bộ nhớ chỉ đọc, không mất dữ liệu khi mất điện (chứa BIOS)."}, {"lesson": 4, "prompt": "Phép toán logic loại trừ XOR cho kết quả bằng 1 khi nào?", "answer": "Khi hai giá trị đầu vào KHÁC NHAU (0 XOR 1 = 1, 1 XOR 0 = 1)."}, {"lesson": 4, "prompt": "So sánh tốc độ giữa ổ đĩa HDD và ổ đĩa SSD?", "answer": "SSD (dùng chip nhớ bán dẫn) có tốc độ truy xuất đọc/ghi nhanh hơn rất nhiều so với HDD (dùng phiến đĩa cơ học)."}, {"lesson": 5, "prompt": "Cổng kết nối nào truyền đồng thời cả hình ảnh sắc nét và âm thanh số?", "answer": "Cổng HDMI (High-Definition Multimedia Interface)."}, {"lesson": 5, "prompt": "Chuẩn đầu cắm cáp mạng LAN 8 chân thông dụng nhất là gì?", "answer": "Đầu nối RJ-45 (chuẩn cáp mạng Ethernet)."}, {"lesson": 5, "prompt": "Hai thông số kỹ thuật quan trọng nhất của chuột máy tính là gì?", "answer": "Phương thức kết nối (có dây / không dây) và Độ phân giải quang học (dpi)."}, {"lesson": 6, "prompt": "Kể tên 3 chế độ phân quyền cơ bản khi chia sẻ tài liệu trực tuyến?", "answer": "1. Xem (Viewer)<br>2. Nhận xét (Commenter)<br>3. Chỉnh sửa (Editor)."}, {"lesson": 6, "prompt": "Quyền chỉnh sửa (Editor) trên tệp đám mây cho phép người nhận làm gì?", "answer": "Cho phép toàn quyền chỉnh sửa nội dung, thêm, xóa các tệp và thư mục được chia sẻ."}, {"lesson": 9, "prompt": "Kể tên 3 nguyên tắc vàng bảo đảm an toàn trên không gian mạng?", "answer": "1. Hãy chậm lại<br>2. Kiểm tra ngay<br>3. Dừng lại, không gửi."}, {"lesson": 9, "prompt": "Bộ quy tắc ứng xử trên mạng xã hội gồm 4 quy tắc cốt lõi nào?", "answer": "Tôn trọng - Trách nhiệm - An toàn - Lành mạnh."}, {"lesson": 9, "prompt": "Dấu hiệu nhận biết điển hình của một cuộc lừa đảo trực tuyến?", "answer": "Tin nhắn lạ hoặc tài khoản người quen mượn tiền gấp, nạp thẻ cào, trúng thưởng lớn yêu cầu nộp lệ phí trước."}];
 
     // THUẬT TOÁN ĐẢO FISHER-YATES
     function shuffleArray(arr) {
@@ -1629,7 +2025,6 @@
       return arr;
     }
 
-    // CHUẨN HOÁ VÀ TỰ ĐỘNG ĐẢO NGẪU NHIÊN CẢ THỨ TỰ CÂU LẪN ĐÁP ÁN A-B-C-D
     function generateShuffledQuestions(sourceList) {
       const cloned = sourceList.map(q => {
         const correctText = q.options[q.correct];
@@ -1655,17 +2050,7 @@
     let isExamMode = false;
     let examTimer = null;
     let timeLeft = 45 * 60;
-
-    function reshuffleAll() {
-      userAnswers = {};
-      const baseList = (currentFilter === 'all') 
-        ? originalQuestionBank 
-        : originalQuestionBank.filter(q => q.lesson === parseInt(currentFilter));
-
-      currentQuestions = generateShuffledQuestions(baseList);
-      renderQuiz();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    let userTfAnswers = {}; // { "qIdx-iIdx": true/false }
 
     function switchView(viewName) {
       document.querySelectorAll('.view-page').forEach(el => el.classList.remove('active'));
@@ -1674,6 +2059,10 @@
       if (viewName === 'quiz') {
         document.getElementById('quizView').classList.add('active');
         document.getElementById('tabBtnQuiz').classList.add('active');
+      } else if (viewName === 'truefalse') {
+        document.getElementById('trueFalseView').classList.add('active');
+        document.getElementById('tabBtnTrueFalse').classList.add('active');
+        renderTrueFalse();
       } else if (viewName === 'theory') {
         document.getElementById('theoryView').classList.add('active');
         document.getElementById('tabBtnTheory').classList.add('active');
@@ -1681,12 +2070,6 @@
         document.getElementById('flashcardView').classList.add('active');
         document.getElementById('tabBtnFlashcard').classList.add('active');
         loadFlashcard();
-      } else if (viewName === 'diagram') {
-        document.getElementById('diagramView').classList.add('active');
-        document.getElementById('tabBtnDiagram').classList.add('active');
-      } else if (viewName === 'essay') {
-        document.getElementById('essayView').classList.add('active');
-        document.getElementById('tabBtnEssay').classList.add('active');
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1706,6 +2089,24 @@
         updateStats();
         return;
       }
+
+      const lessonLabels = {
+        1: 'Bài 1: Hệ điều hành',
+        3: 'Bài 3: PM Nguồn mở',
+        4: 'Bài 4: Bên trong máy tính',
+        5: 'Bài 5: Kết nối thiết bị số',
+        6: 'Bài 6: Lưu trữ đám mây',
+        9: 'Bài 9: An toàn Internet'
+      };
+
+      const badgeClasses = {
+        1: 'badge-b1',
+        3: 'badge-b3',
+        4: 'badge-b4',
+        5: 'badge-b5',
+        6: 'badge-b6',
+        9: 'badge-b9'
+      };
 
       currentQuestions.forEach((q, idx) => {
         const card = document.createElement('div');
@@ -1737,24 +2138,17 @@
           `;
         });
 
-        const topicLabels = {
-          1: "Chủ đề 1: TĐC & Năng lượng",
-          2: "Chủ đề 2: Nước & Khoáng",
-          3: "Chủ đề 3: Quang hợp C3/C4/CAM",
-          4: "Chủ đề 4: Hô hấp tế bào"
-        };
-
         card.innerHTML = `
           <div class="q-meta">
             <div style="display:flex; gap:8px;">
-              <span class="badge-pill badge-t${q.lesson}">${topicLabels[q.lesson]}</span>
+              <span class="badge-pill ${badgeClasses[q.lesson] || 'badge-b1'}">${lessonLabels[q.lesson] || 'Bài ' + q.lesson}</span>
               <span class="badge-pill" style="background:rgba(255,255,255,0.06); color:var(--text-muted);">Câu ${idx + 1}</span>
             </div>
           </div>
-          <div class="q-text">${q.question}</div>
+          <div class="q-text">${q.question} ${getLevelBadge(q.level)}</div>
           <div class="opt-list">${optionsHtml}</div>
           <div class="explain-card ${isAnswered ? 'show' : ''}">
-            <strong>💡 Giải thích chuẩn SGK Sinh 11:</strong> ${q.explain}
+            <strong>💡 Giải thích chuẩn SGK Tin học 11:</strong> ${q.explain}
           </div>
         `;
         container.appendChild(card);
@@ -1795,26 +2189,12 @@
       document.getElementById('bottomScore').textContent = `${correct} / ${total} câu đúng (${accuracy}% chính xác)`;
     }
 
-    function filterQuestions(filter) {
-      if (isExamMode) {
-        if (!confirm('Bạn đang trong chế độ thi thử! Đổi bộ lọc sẽ hủy bài thi hiện tại. Tiếp tục?')) return;
-        exitMockExam();
-      }
-
+    function filterQuestions(filter, btn) {
+      if (isExamMode) return;
       currentFilter = filter;
-      document.getElementById('searchKeyword').value = '';
-      userAnswers = {};
-
-      document.querySelectorAll('.lesson-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
-      });
-
-      const baseList = (filter === 'all') 
-        ? originalQuestionBank 
-        : originalQuestionBank.filter(q => q.lesson === parseInt(filter));
-
-      currentQuestions = generateShuffledQuestions(baseList);
-      renderQuiz();
+      document.querySelectorAll('#quizView .lesson-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      applyAllFilters();
     }
 
     function handleSearch() {
@@ -1834,7 +2214,7 @@
     }
 
     function startMockExam() {
-      if (confirm('Bắt đầu làm ĐỀ THI THỬ 30 CÂU (45 phút)? Đề sẽ tự động chọn ngẫu nhiên và xáo trộn từ ngân hàng Sinh học 11!')) {
+      if (confirm('Bắt đầu làm ĐỀ THI THỬ 30 CÂU (45 phút)? Đề sẽ tự động chọn ngẫu nhiên từ ngân hàng 74 câu!')) {
         isExamMode = true;
         userAnswers = {};
         
@@ -1874,12 +2254,155 @@
     }
 
     function resetQuiz() {
-      if (confirm('Làm lại từ đầu? Trang sẽ tự động xáo trộn lại toàn bộ câu hỏi và vị trí đáp án A-B-C-D!')) {
+      if (confirm('Làm lại từ đầu? Toàn bộ câu hỏi và đáp án sẽ được tự động xáo trộn lại ngẫu nhiên!')) {
         reshuffleAll();
       }
     }
 
-    // FLASHCARD STATE
+    function reshuffleAll() {
+      userAnswers = {};
+      const baseList = (currentFilter === 'all') 
+        ? originalQuestionBank 
+        : originalQuestionBank.filter(q => q.lesson === parseInt(currentFilter));
+
+      currentQuestions = generateShuffledQuestions(baseList);
+      renderQuiz();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ================= XỬ LÝ PHẦN ĐÚNG - SAI (8 CÂU FILE 5) =================
+    let isTfChecked = false;
+
+    function renderTrueFalse() {
+      const container = document.getElementById('tfContainer');
+      container.innerHTML = '';
+
+      trueFalseQuestions.forEach((q, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'tf-card';
+
+        let itemsHtml = '';
+        q.items.forEach((item, iIdx) => {
+          const key = `${qIdx}-${iIdx}`;
+          const currentChoice = userTfAnswers[key];
+
+          let resultBadge = '';
+          const isAnswered = currentChoice !== undefined;
+          if (isAnswered || isTfChecked) {
+            if (currentChoice === item.correct) {
+              resultBadge = '<span class="tf-item-result correct" style="display:inline-block;">✓ Chính xác!</span>';
+            } else if (currentChoice !== undefined) {
+              resultBadge = `<span class="tf-item-result wrong" style="display:inline-block;">✗ Chưa đúng! (Đáp án: <strong>${item.correct ? 'ĐÚNG' : 'SAI'}</strong>)</span>`;
+            } else if (isTfChecked) {
+              resultBadge = `<span class="tf-item-result wrong" style="display:inline-block;">Chưa làm (Đáp án: <strong>${item.correct ? 'ĐÚNG' : 'SAI'}</strong>)</span>`;
+            }
+          }
+
+          itemsHtml += `
+            <div class="tf-statement" id="tf-row-${key}">
+              <div class="tf-text">
+                ${item.text}
+                ${resultBadge}
+              </div>
+              <div class="tf-actions">
+                <button class="btn-tf ${currentChoice === true ? (item.correct === true ? 'selected-correct' : 'selected-wrong') : ''} ${isTfChecked ? 'locked' : ''}" onclick="selectTf(${qIdx}, ${iIdx}, true)">ĐÚNG</button>
+                <button class="btn-tf ${currentChoice === false ? (item.correct === false ? 'selected-correct' : 'selected-wrong') : ''} ${isTfChecked ? 'locked' : ''}" onclick="selectTf(${qIdx}, ${iIdx}, false)">SAI</button>
+              </div>
+            </div>
+            <div id="tf-exp-${key}" class="explain-card ${(currentChoice !== undefined || isTfChecked) ? 'show' : ''}" style="margin-bottom: 12px;">
+              <strong>💡 Giải thích chi tiết:</strong> ${item.explain}
+            </div>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="tf-header-row">
+            <span class="badge-pill badge-b3" style="font-size:0.8rem;">Câu ${qIdx + 1} (Tối đa 1.0 điểm)</span>
+          </div>
+          <div class="tf-context">${q.context}</div>
+          <div>${itemsHtml}</div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function selectTf(qIdx, iIdx, choice) {
+      const key = `${qIdx}-${iIdx}`;
+      userTfAnswers[key] = choice;
+      renderTrueFalse();
+      updateTfStats();
+    }
+
+    function updateTfStats() {
+      let totalItems = 32;
+      let answeredCount = 0;
+      let totalCorrectItems = 0;
+      let totalScore = 0.0;
+      const scoreTier = [0.0, 0.1, 0.25, 0.5, 1.0];
+
+      trueFalseQuestions.forEach((q, qIdx) => {
+        let questionCorrectCount = 0;
+        let questionAnswered = 0;
+        q.items.forEach((item, iIdx) => {
+          const key = `${qIdx}-${iIdx}`;
+          const userChoice = userTfAnswers[key];
+          if (userChoice !== undefined) {
+            questionAnswered++;
+            answeredCount++;
+            if (userChoice === item.correct) {
+              questionCorrectCount++;
+              totalCorrectItems++;
+            }
+          }
+        });
+        totalScore += scoreTier[questionCorrectCount];
+      });
+
+      document.getElementById('tfScoreDisplay').textContent = `${totalScore.toFixed(2)} / 8.0 điểm`;
+      document.getElementById('tfItemsCountDisplay').textContent = `(${totalCorrectItems}/${answeredCount} ý đúng trên ${answeredCount} ý đã làm)`;
+    }
+
+    function checkAllTrueFalse() {
+      isTfChecked = true;
+      let totalItems = 32;
+      let totalCorrectItems = 0;
+      let totalScore = 0.0;
+
+      // Thang điểm Bộ GD&ĐT cho mỗi câu trắc nghiệm Đúng/Sai 4 ý:
+      // 1 ý đúng = 0.1đ | 2 ý đúng = 0.25đ | 3 ý đúng = 0.5đ | 4 ý đúng = 1.0đ
+      const scoreTier = [0.0, 0.1, 0.25, 0.5, 1.0];
+
+      trueFalseQuestions.forEach((q, qIdx) => {
+        let questionCorrectCount = 0;
+        q.items.forEach((item, iIdx) => {
+          const key = `${qIdx}-${iIdx}`;
+          const userChoice = userTfAnswers[key];
+          if (userChoice !== undefined && userChoice === item.correct) {
+            questionCorrectCount++;
+            totalCorrectItems++;
+          }
+        });
+        totalScore += scoreTier[questionCorrectCount];
+      });
+
+      renderTrueFalse();
+
+      document.getElementById('tfScoreDisplay').textContent = `${totalScore.toFixed(2)} / 8.0 điểm`;
+      document.getElementById('tfItemsCountDisplay').textContent = `(${totalCorrectItems}/${totalItems} ý đúng)`;
+      alert(`🎉 KẾT QUẢ ĐÚNG - SAI:\n• Điểm số: ${totalScore.toFixed(2)} / 8.0 điểm theo barem Bộ GD&ĐT!\n• Số ý trả lời chính xác: ${totalCorrectItems} / 32 ý.`);
+    }
+
+    function resetTrueFalse() {
+      if (confirm('Làm lại phần Đúng - Sai từ đầu?')) {
+        userTfAnswers = {};
+        isTfChecked = false;
+        document.getElementById('tfScoreDisplay').textContent = '0.0 / 8.0 điểm';
+        document.getElementById('tfItemsCountDisplay').textContent = '(0/32 ý đúng)';
+        renderTrueFalse();
+      }
+    }
+
+    // FLASHCARDS
     let fcList = [...flashcardsData];
     let fcIdx = 0;
 
@@ -1889,14 +2412,16 @@
       const fcEl = document.getElementById('flashcardElement');
       fcEl.classList.remove('is-flipped');
       
-      const topicLabels = {
-        1: "Chủ đề 1: TĐC & Năng Lượng",
-        2: "Chủ đề 2: Nước & Khoáng Ở Rễ",
-        3: "Chủ đề 3: Quang Hợp (C3/C4/CAM)",
-        4: "Chủ đề 4: Hô Hấp Thực Vật"
+      const lessonLabels = {
+        1: 'Bài 1: Hệ điều hành',
+        3: 'Bài 3: PM Nguồn mở',
+        4: 'Bài 4: Bên trong máy tính',
+        5: 'Bài 5: Kết nối thiết bị số',
+        6: 'Bài 6: Lưu trữ trực tuyến',
+        9: 'Bài 9: An toàn Internet'
       };
 
-      document.getElementById('fcCategory').textContent = topicLabels[card.lesson] || 'Sinh Học 11';
+      document.getElementById('fcCategory').textContent = lessonLabels[card.lesson] || 'Tin Học 11';
       document.getElementById('fcPrompt').textContent = card.prompt;
       document.getElementById('fcAnswer').innerHTML = card.answer;
       document.getElementById('fcCurrentIndex').textContent = fcIdx + 1;
@@ -1925,10 +2450,55 @@
       loadFlashcard();
     }
 
-    // TỰ ĐỘNG ĐẢO NGẪU NHIÊN CẢ CÂU VÀ ĐÁP ÁN KHI VÀO TRANG HOẶC F5
+    // INIT
+    
+    // Level badge helper
+    function getLevelBadge(level) {
+      if (!level) return '';
+      const map = {
+        'Nhận biết': '<span class="badge-level badge-nhan-biet">Nhận biết</span>',
+        'Thông hiểu': '<span class="badge-level badge-thong-hieu">Thông hiểu</span>',
+        'Vận dụng': '<span class="badge-level badge-van-dung">Vận dụng</span>'
+      };
+      return map[level] || '';
+    }
+
+    // Filter by cognitive level
+    let currentLevelFilter = 'all';
+    function filterByLevel(level, btn) {
+      currentLevelFilter = level;
+      document.querySelectorAll('#levelFilterBar .level-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Re-filter with current lesson filter too
+      applyAllFilters();
+    }
+
+    function applyAllFilters() {
+      let filtered = [...originalQuestionBank];
+      
+      // Apply lesson filter
+      if (typeof currentFilter !== 'undefined' && currentFilter !== 'all') {
+        const lessonNum = parseInt(currentFilter);
+        filtered = filtered.filter(q => q.lesson === lessonNum);
+      }
+      
+      // Apply level filter
+      if (currentLevelFilter !== 'all') {
+        filtered = filtered.filter(q => q.level === currentLevelFilter);
+      }
+      
+      currentQuestions = generateShuffledQuestions(filtered);
+      userAnswers = {};
+      isExamMode = false;
+      renderQuiz();
+      updateStats();
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       currentQuestions = generateShuffledQuestions(originalQuestionBank);
       renderQuiz();
+      renderTrueFalse();
       loadFlashcard();
     });
   </script>
